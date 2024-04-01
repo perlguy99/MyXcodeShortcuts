@@ -10,10 +10,13 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    
+    @State private var navigationPath = NavigationPath()
+    
     @Query private var categories: [Category]
 
     var body: some View {
-        NavigationSplitView {
+        NavigationStack(path: $navigationPath) {
             List {
                 ForEach(categories) { category in
                     NavigationLink {
@@ -22,29 +25,47 @@ struct ContentView: View {
                         Text(category.name)
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .onDelete(perform: deleteCategories)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
+                
                 ToolbarItem {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
+                ToolbarItem {
+                    Button(action: deleteAll) {
+                        Label("Delete All", systemImage: "exclamationmark.warninglight.fill")
+                    }
+                }
+
             }
-        } detail: {
-            Text("Select an item")
         }
     }
 
     private func deleteAll() {
-        do {
-            try modelContext.delete(Category.self)
-        } catch {
-            print("Failed to empty the database\n\(error.localizedDescription)")
-        }
+        print("\n------------------------------")
+        print("DELETING ALL DATA")
+        print("------------------------------\n")
+
+        modelContext.container.deleteAllData()
+//        do {
+//            try
+//        }
+        
+//        PreviewHelper().deleteAll()
+        
+//        do {
+//            try modelContext.container.main
+////            try modelContext.d
+//            try modelContext.delete(Category.self)
+//        } catch {
+//            print("Failed to empty the database\n\(error.localizedDescription)")
+//        }
     }
     
     private func addItem() {
@@ -54,11 +75,11 @@ struct ContentView: View {
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteCategories(offsets: IndexSet) {
         withAnimation {
-//            for index in offsets {
-//                modelContext.delete(items[index])
-//            }
+            for index in offsets {
+                modelContext.delete(categories[index])
+            }
         }
     }
 }

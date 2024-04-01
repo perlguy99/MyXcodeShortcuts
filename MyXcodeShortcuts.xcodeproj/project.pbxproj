@@ -19,6 +19,14 @@
 		846371262BBB0355001ED9C3 /* CheckboxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371252BBB0355001ED9C3 /* CheckboxState.swift */; };
 		846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */; };
 		8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */; };
+		8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */; };
+		8463712F2BBB1B63001ED9C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463712E2BBB1B63001ED9C3 /* Extensions.swift */; };
+		846371312BBB1B7D001ED9C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371302BBB1B7D001ED9C3 /* Constants.swift */; };
+		846371332BBB1BB1001ED9C3 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371322BBB1BB1001ED9C3 /* ShortcutView.swift */; };
+		846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371342BBB1BE7001ED9C3 /* Checkbox.swift */; };
+		846371372BBB1C47001ED9C3 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */; };
+		846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371382BBB3245001ED9C3 /* SettingsView.swift */; };
+		8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +62,14 @@
 		846371252BBB0355001ED9C3 /* CheckboxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxState.swift; sourceTree = "<group>"; };
 		846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButtonStyle.swift; sourceTree = "<group>"; };
 		8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
+		8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		8463712E2BBB1B63001ED9C3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		846371302BBB1B7D001ED9C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		846371322BBB1BB1001ED9C3 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
+		846371342BBB1BE7001ED9C3 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		846371382BBB3245001ED9C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */,
+				8463713A2BBB38F3001ED9C3 /* AltAppStorage */,
 				8463711E2BBB0281001ED9C3 /* Views */,
 				8463711F2BBB028F001ED9C3 /* Models */,
 				846371292BBB04CB001ED9C3 /* Styles */,
@@ -144,6 +161,11 @@
 			isa = PBXGroup;
 			children = (
 				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
+				8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */,
+				8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */,
+				846371382BBB3245001ED9C3 /* SettingsView.swift */,
+				846371322BBB1BB1001ED9C3 /* ShortcutView.swift */,
+				846371342BBB1BE7001ED9C3 /* Checkbox.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +176,7 @@
 				846371212BBB02FA001ED9C3 /* Category.swift */,
 				846371232BBB0315001ED9C3 /* Shortcut.swift */,
 				846371252BBB0355001ED9C3 /* CheckboxState.swift */,
+				846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */,
+				8463712E2BBB1B63001ED9C3 /* Extensions.swift */,
+				846371302BBB1B7D001ED9C3 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -172,6 +197,13 @@
 				846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		8463713A2BBB38F3001ED9C3 /* AltAppStorage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AltAppStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,11 +337,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */,
+				8463712F2BBB1B63001ED9C3 /* Extensions.swift in Sources */,
 				846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */,
 				846371262BBB0355001ED9C3 /* CheckboxState.swift in Sources */,
 				846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */,
+				846371312BBB1B7D001ED9C3 /* Constants.swift in Sources */,
 				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
+				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
+				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
+				846371372BBB1C47001ED9C3 /* SettingsViewModel.swift in Sources */,
+				846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */,
+				8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */,
+				846371332BBB1BB1001ED9C3 /* ShortcutView.swift in Sources */,
 				8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

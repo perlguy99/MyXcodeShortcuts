@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */; };
 		846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F42BBAF8C0001ED9C3 /* ContentView.swift */; };
-		846370F72BBAF8C0001ED9C3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F62BBAF8C0001ED9C3 /* Item.swift */; };
 		846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370F82BBAF8C2001ED9C3 /* Assets.xcassets */; };
 		846370FC2BBAF8C2001ED9C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370FB2BBAF8C2001ED9C3 /* Preview Assets.xcassets */; };
 		846371062BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371052BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift */; };
 		846371102BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463710F2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift */; };
 		846371122BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */; };
+		846371222BBB02FA001ED9C3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371212BBB02FA001ED9C3 /* Category.swift */; };
+		846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371232BBB0315001ED9C3 /* Shortcut.swift */; };
+		846371262BBB0355001ED9C3 /* CheckboxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371252BBB0355001ED9C3 /* CheckboxState.swift */; };
+		846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */; };
+		8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,6 @@
 		846370EF2BBAF8C0001ED9C3 /* MyXcodeShortcuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyXcodeShortcuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsApp.swift; sourceTree = "<group>"; };
 		846370F42BBAF8C0001ED9C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		846370F62BBAF8C0001ED9C3 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		846370F82BBAF8C2001ED9C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846370FB2BBAF8C2001ED9C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		846371012BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyXcodeShortcutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +49,11 @@
 		8463710B2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyXcodeShortcutsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463710F2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsUITests.swift; sourceTree = "<group>"; };
 		846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		846371212BBB02FA001ED9C3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		846371232BBB0315001ED9C3 /* Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcut.swift; sourceTree = "<group>"; };
+		846371252BBB0355001ED9C3 /* CheckboxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxState.swift; sourceTree = "<group>"; };
+		846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButtonStyle.swift; sourceTree = "<group>"; };
+		8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */,
-				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
-				846370F62BBAF8C0001ED9C3 /* Item.swift */,
+				8463711E2BBB0281001ED9C3 /* Views */,
+				8463711F2BBB028F001ED9C3 /* Models */,
+				846371292BBB04CB001ED9C3 /* Styles */,
+				846371202BBB0297001ED9C3 /* Helpers */,
 				846370F82BBAF8C2001ED9C3 /* Assets.xcassets */,
 				846370FA2BBAF8C2001ED9C3 /* Preview Content */,
 			);
@@ -128,6 +138,40 @@
 				846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */,
 			);
 			path = MyXcodeShortcutsUITests;
+			sourceTree = "<group>";
+		};
+		8463711E2BBB0281001ED9C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8463711F2BBB028F001ED9C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				846371212BBB02FA001ED9C3 /* Category.swift */,
+				846371232BBB0315001ED9C3 /* Shortcut.swift */,
+				846371252BBB0355001ED9C3 /* CheckboxState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		846371202BBB0297001ED9C3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		846371292BBB04CB001ED9C3 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +305,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */,
-				846370F72BBAF8C0001ED9C3 /* Item.swift in Sources */,
+				846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */,
+				846371262BBB0355001ED9C3 /* CheckboxState.swift in Sources */,
 				846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */,
+				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
+				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
+				8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

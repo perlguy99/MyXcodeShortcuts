@@ -11,11 +11,8 @@ import SwiftData
 @main
 struct MyXcodeShortcutsApp: App {
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Category.self,
-            Shortcut.self
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let schema = Schema([Category.self])
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])

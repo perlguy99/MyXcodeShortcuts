@@ -10,6 +10,7 @@ import SwiftData
 
 @Model
 final class Category: Codable {
+    
     enum CodingKeys: CodingKey {
         case name, shortcuts
     }

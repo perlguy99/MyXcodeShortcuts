@@ -13,6 +13,9 @@ struct CategoryListView: View {
     
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
     
+    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
+    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
+
     var body: some View {
         
         List {
@@ -23,6 +26,29 @@ struct CategoryListView: View {
         }
         
         
+    }
+    
+    init(searchString: String = "", sortOrder: [SortDescriptor<Category>] = [], showHidden: Bool? = nil, showSymbols: Bool? = nil) {
+        if let showHidden = showHidden {
+            self.showHidden = showHidden
+        }
+        
+        if let showSymbols = showSymbols {
+            self.showSymbols = showSymbols
+        }
+        
+        _categories = Query(filter: #Predicate {
+            if searchString.isEmpty {
+                return true
+            } else {
+                return (
+                    $0.name.localizedStandardContains(searchString) ||
+                    $0.shortcuts.contains {
+                        $0.details.localizedStandardContains(searchString)
+                    }
+                )
+            }
+        }, sort: [SortDescriptor(\Category.name, comparator: .localized)])
     }
     
     private func deleteCategories(offsets: IndexSet) {

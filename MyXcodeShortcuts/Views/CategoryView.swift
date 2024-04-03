@@ -17,7 +17,7 @@ struct CategoryView: View {
     
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
-            ForEach(category.shortcuts.filter { showHidden || $0.buttonState != .hidden }) { shortcut in
+            ForEach(category.shortcuts?.filter { showHidden || $0.buttonState != .hidden } ?? []) { shortcut in
                 ShortcutView(shortcut: shortcut, showSymbols: showSymbols)
             }
         }
@@ -32,7 +32,6 @@ struct CategoryView: View {
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     
     let previewHelper = PreviewHelper()
-    //        previewHelper.loadSeedData()
     
     return Group {
         CategoryView(category: previewHelper.previewCategory, showHidden: true)

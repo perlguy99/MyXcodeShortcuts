@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+@MainActor
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
@@ -29,29 +30,23 @@ struct ContentView: View {
                 }
             
                 .toolbar {
-//                    getSortOrderToolbarItem()
+                    getSortOrderToolbarItem()
                     getAddItemToolbarItem()
                     getFilterToolbarItem()
                     getSettingsToolbarItem()
-//                    getEditButtonToolbarItem()
+                    getEditButtonToolbarItem()
                     getDeleteAllToolbarItem()
                     getLoadSeedDataToolbarItem()
                 }
                 .searchable(text: $searchText)
         }
-        
-    }
-    
-    private func loadSeedData() {
-        print("Load Seed Data")
     }
     
     private func deleteAll() {
-        print("\n------------------------------")
-        print("DELETING ALL DATA")
-        print("------------------------------\n")
-
-        modelContext.container.deleteAllData()
+        print("private func deleteAll()")
+        for category in categories {
+            modelContext.container.mainContext.delete(category)
+        }
     }
     
     private func addItem() {
@@ -70,11 +65,13 @@ struct ContentView: View {
     }
 }
 
+// MARK: - Toobar Items
 extension ContentView {
-    
     private func getLoadSeedDataToolbarItem() -> some ToolbarContent {
-        ToolbarItem {
-            Button(action: loadSeedData) {
+        let seedData = SeedData(modelContext: modelContext)
+        
+        return ToolbarItem {
+            Button(action: seedData.loadSeedData) {
                 Label("Load Seed Data", systemImage: "command")
             }
         }
@@ -113,7 +110,6 @@ extension ContentView {
             .foregroundStyle(self.showHidden ? .blue : .red)
         }
     }
-
     
     private func getSettingsToolbarItem() -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
@@ -140,9 +136,10 @@ extension ContentView {
     }
 }
 
-
 #Preview {
+    @Environment(\.modelContext) var modelContext
     let previewHelper = PreviewHelper()
+    previewHelper.loadSampleData()
     
     return ContentView()
         .modelContainer(previewHelper.container)

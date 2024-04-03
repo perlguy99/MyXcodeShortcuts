@@ -29,6 +29,8 @@
 		8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */; };
 		846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */; };
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
+		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
+		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortcutView.swift; sourceTree = "<group>"; };
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
+		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 				846371232BBB0315001ED9C3 /* Shortcut.swift */,
 				846371252BBB0355001ED9C3 /* CheckboxState.swift */,
 				846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */,
+				84D51D392BBDD0F600E6169B /* Categories.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				8463712E2BBB1B63001ED9C3 /* Extensions.swift */,
 				846371302BBB1B7D001ED9C3 /* Constants.swift */,
 				84D51D372BBDCDB500E6169B /* SeedData.json */,
+				84D51D3B2BBDF0DB00E6169B /* SeedData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -347,9 +353,11 @@
 				8463712F2BBB1B63001ED9C3 /* Extensions.swift in Sources */,
 				846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */,
 				846371262BBB0355001ED9C3 /* CheckboxState.swift in Sources */,
+				84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */,
 				846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */,
 				846371312BBB1B7D001ED9C3 /* Constants.swift in Sources */,
 				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
+				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,

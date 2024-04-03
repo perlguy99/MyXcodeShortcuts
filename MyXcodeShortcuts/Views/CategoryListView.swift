@@ -37,18 +37,19 @@ struct CategoryListView: View {
             self.showSymbols = showSymbols
         }
         
-        _categories = Query(filter: #Predicate {
-            if searchString.isEmpty {
-                return true
-            } else {
-                return (
-                    $0.name.localizedStandardContains(searchString) ||
-                    $0.shortcuts.contains {
-                        $0.details.localizedStandardContains(searchString)
-                    }
-                )
-            }
-        }, sort: [SortDescriptor(\Category.name, comparator: .localized)])
+//        _categories = Query(filter: #Predicate {
+//            if searchString.isEmpty {
+//                return true
+//            } else {
+//                return (
+//                    $0.name.localizedStandardContains(searchString) ||
+//                    $0.shortcuts.contains {
+//                        $0.details.localizedStandardContains(searchString)
+//                    }
+////                    ?? false
+//                )
+//            }
+//        }, sort: [SortDescriptor(\Category.name, comparator: .localized)])
     }
     
     private func deleteCategories(offsets: IndexSet) {

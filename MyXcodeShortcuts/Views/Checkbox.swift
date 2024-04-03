@@ -36,7 +36,7 @@ struct Checkbox: View {
 }
 
 struct Checkbox_Previews: PreviewProvider {
-    let previewHelper = PreviewHelper()
+//    let previewHelper = PreviewHelper()
     
         static var previews: some View {
             OtherView()

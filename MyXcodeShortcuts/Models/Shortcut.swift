@@ -9,14 +9,14 @@ import Foundation
 import SwiftData
 
 @Model
-final class Shortcut: Codable {
+class Shortcut: Codable {
     enum CodingKeys: CodingKey {
         case keyCombo, details, buttonState, category
     }
     
     var keyCombo: String = ""
     var details: String = ""
-    var category: Category?
+    weak var category: Category?
     var buttonState: CheckboxState
     
     init(keyCombo: String, details: String, buttonState: CheckboxState = CheckboxState.none, category: Category? = nil) {
@@ -45,5 +45,38 @@ final class Shortcut: Codable {
         try container.encode(keyCombo, forKey: .keyCombo)
         try container.encode(details, forKey: .details)
         try container.encode(buttonState, forKey: .buttonState)
+    }
+}
+
+
+class ShortcutX: Codable {
+    enum CodingKeys: CodingKey {
+        case keyCombo, details
+    }
+    
+    var keyCombo: String = ""
+    var details: String = ""
+    weak var category: CategoryX?
+    
+    init(keyCombo: String, details: String, category: CategoryX? = nil) {
+        self.keyCombo = keyCombo
+        self.details = details
+        
+        if let category = category {
+            self.category = category
+        }
+    }
+    
+    // Conform to Codable
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        keyCombo = try values.decodeIfPresent(String.self, forKey: .keyCombo) ?? ""
+        details = try values.decodeIfPresent(String.self, forKey: .details) ?? ""
+    }
+    
+    // Conform to Codable
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(keyCombo, forKey: .keyCombo)
     }
 }

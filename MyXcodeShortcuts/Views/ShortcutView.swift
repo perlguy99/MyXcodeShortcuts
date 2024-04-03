@@ -45,6 +45,8 @@ struct ShortcutView: View {
 //#Preview("SizeThat FitsLayout", traits: .sizeThatFitsLayout) {
 #Preview {
     let previewHelper = PreviewHelper()
+   
+//    previewHelper.loadSeedData(filename: "SeedData")
     
     return Group {
         ShortcutView(shortcut: previewHelper.previewNone, showSymbols: true )

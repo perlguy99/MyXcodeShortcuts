@@ -77,7 +77,9 @@ struct SettingsView: View {
 
 
 #Preview {
-    SettingsView()
+//    let previewHelper = PreviewHelper()
+
+    return SettingsView()
 }
 
 

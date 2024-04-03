@@ -71,6 +71,9 @@ struct EditShortcutView: View {
 }
 
 #Preview {
+    @Environment(\.modelContext) var modelContext
+    let previewHelper = PreviewHelper()
+
     do {
         var previewHelper = try PreviewHelper()
 //        previewHelper.loadSeedData()

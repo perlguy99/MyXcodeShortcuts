@@ -46,8 +46,6 @@ struct ShortcutView: View {
 #Preview {
     let previewHelper = PreviewHelper()
    
-//    previewHelper.loadSeedData(filename: "SeedData")
-    
     return Group {
         ShortcutView(shortcut: previewHelper.previewNone, showSymbols: true )
         ShortcutView(shortcut: previewHelper.previewFavorite, showSymbols: false)

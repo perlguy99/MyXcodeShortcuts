@@ -48,9 +48,16 @@ struct MyXcodeShortcutsApp: App {
 //        }
 //    }()
 
+    func checkSeed() {
+        let seed = SeedData(modelContext: sharedModelContainer.mainContext)
+        seed.loadSeedData()
+    }
+    
     var body: some Scene {
+        let _ = checkSeed()
+        
         WindowGroup {
-            ContentView()
+            return ContentView()
         }
         .modelContainer(sharedModelContainer)
     }

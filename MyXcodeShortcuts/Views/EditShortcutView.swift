@@ -71,17 +71,8 @@ struct EditShortcutView: View {
 }
 
 #Preview {
-    @Environment(\.modelContext) var modelContext
     let previewHelper = PreviewHelper()
-
-    do {
-        var previewHelper = try PreviewHelper()
-//        previewHelper.loadSeedData()
-        
-        return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
+    
+    return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
         .modelContainer(previewHelper.container)
-    } catch {
-        return Text("Failed to create preview: \(error.localizedDescription)")
-    }
-
 }

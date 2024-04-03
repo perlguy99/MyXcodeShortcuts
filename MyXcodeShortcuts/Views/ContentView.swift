@@ -35,8 +35,8 @@ struct ContentView: View {
                     getFilterToolbarItem()
                     getSettingsToolbarItem()
                     getEditButtonToolbarItem()
-                    getDeleteAllToolbarItem()
-                    getLoadSeedDataToolbarItem()
+//                    getDeleteAllToolbarItem()
+//                    getLoadSeedDataToolbarItem()
                 }
                 .searchable(text: $searchText)
         }
@@ -101,13 +101,13 @@ extension ContentView {
         ToolbarItem {
             Button {
                 withAnimation {
-                    self.showHidden.toggle()
+                    showHidden.toggle()
                 }
             } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
             }
             .font(.title2)
-            .foregroundStyle(self.showHidden ? .blue : .red)
+            .foregroundStyle(showHidden ? .blue : .red)
         }
     }
     

@@ -36,12 +36,10 @@ struct Checkbox: View {
 }
 
 struct Checkbox_Previews: PreviewProvider {
-//    let previewHelper = PreviewHelper()
+    static var previews: some View {
+        OtherView()
+    }
     
-        static var previews: some View {
-            OtherView()
-        }
-
     private struct OtherView: View {
         @State var favorite: CheckboxState = .favorite
         @State var hidden: CheckboxState = .hidden
@@ -56,8 +54,3 @@ struct Checkbox_Previews: PreviewProvider {
         }
     }
 }
-
-
-//#Preview {
-//    Checkbox()
-//}

@@ -12,7 +12,14 @@ import SwiftData
 struct MyXcodeShortcutsApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Category.self])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        
+        #if targetEnvironment(simulator)
+        let isStoredInMemoryOnly = true
+        #else
+        let isStoredInMemoryOnly = false
+        #endif
+        
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: isStoredInMemoryOnly)
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])

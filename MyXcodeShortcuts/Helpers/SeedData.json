@@ -1,0 +1,291 @@
+{
+    "categories":
+    [
+        {
+            "name": "Xcode Menu",
+            "shortcuts": [
+                {
+                    "keyCombo": "Cmd ,",
+                    "details": "Preferences",
+                },
+                {
+                    "keyCombo": "Cmd H",
+                    "details": "Hide Xcode",
+                },
+                {
+                    "keyCombo": "Opt Cmd H",
+                    "details": "Hide Others",
+                },
+                {
+                    "keyCombo": "Cmd Q",
+                    "details": "Quit Xcode",
+                }
+            ]
+        },
+        {
+            "name": "File Menu",
+            "shortcuts": [
+                {
+                    "keyCombo": "Cmd T",
+                    "details": "New Tab",
+                },
+                {
+                    "keyCombo": "Cmd O",
+                    "details": "Open File",
+                },
+                {
+                    "keyCombo": "Shift Cmd O",
+                    "details": "Open Quickly",
+                },
+                {
+                    "keyCombo": "Cmd S",
+                    "details": "Save File",
+                }
+            ]
+        },
+        {
+            "name": "Custom Category",
+            "shortcuts": [
+                {
+                    "keyCombo": "Cmd return",
+                    "details": "Show Standard Editor",
+                },
+                {
+                    "keyCombo": "Opt Cmd return",
+                    "details": "Show Assistant Editor",
+                },
+                {
+                    "keyCombo": "Shift Cmd Y",
+                    "details": "Show / Hide Debug Area",
+                },
+                {
+                    "keyCombo": "Ctrl Cmd F",
+                    "details": "Enter / Exit Full Screen",
+                },
+                {
+                    "keyCombo": "Cmd H",
+                    "details": "Hide Xcode",
+                }
+            ]
+        },
+        
+        {
+            "name": "Viewing",
+            "shortcuts": [{
+                "keyCombo": "Cmd return",
+                "details": "Show Standard Editor",
+            },
+                {
+                    "keyCombo": "Opt Cmd return",
+                    "details": "Show Assistant Editor",
+                },
+                {
+                    "keyCombo": "Shift Cmd Y",
+                    "details": "Show / Hide Debug Area",
+                },
+                {
+                    "keyCombo": "Ctrl Cmd F",
+                    "details": "Enter / Exit Full Screen",
+                },
+                {
+                    "keyCombo": "Cmd H",
+                    "details": "Hide Xcode",
+                }
+            ]
+        },
+        {
+            "name": "Navigators",
+            "shortcuts": [{
+                "keyCombo": "Ctrl 1",
+                "details": "Show Related Items",
+            },
+                {
+                    "keyCombo": "Ctrl 6",
+                    "details": "Show Document Items",
+                },
+                {
+                    "keyCombo": "Cmd 0",
+                    "details": "Show/Hide Navigators",
+                },
+                {
+                    "keyCombo": "Cmd 1",
+                    "details": "Show Project Navigator",
+                },
+                {
+                    "keyCombo": "Cmd 4",
+                    "details": "Show Find Navigator",
+                },
+                {
+                    "keyCombo": "Cmd 8",
+                    "details": "Show Breakpoint Navigator",
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd 2",
+                    "details": "Show Code Snippets",
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd 4",
+                    "details": "Show Media Library",
+                }
+            ]
+        },
+        {
+            "name": "Utilities",
+            "shortcuts": [{
+                "keyCombo": "Opt Cmd 1",
+                "details": "Show Attributes Inspector",
+            },
+                {
+                    "keyCombo": "Opt Cmd 0",
+                    "details": "Show / Hide Utilities",
+                }
+            ]
+        },
+        {
+            "name": "Search",
+            "shortcuts": [
+                {
+                    "keyCombo": "Shift Cmd F",
+                    "details": "Find in Project",
+                },
+                {
+                    "keyCombo": "Cmd E",
+                    "details": "Use Selection for Find",
+                },
+                {
+                    "keyCombo": "Cmd F",
+                    "details": "Find in File",
+                },
+                {
+                    "keyCombo": "Cmd G",
+                    "details": "Find Next",
+                },
+            ]
+        },
+        {
+            "name": "Product Menu",
+            "shortcuts": [{
+                "keyCombo": "Cmd R",
+                "details": "Run Application",
+            },
+                {
+                    "keyCombo": "Cmd B",
+                    "details": "Build Application",
+                },
+                {
+                    "keyCombo": "Shift Cmd K",
+                    "details": "Clean Build",
+                },
+                {
+                    "keyCombo": "Cmd .",
+                    "details": "Stop",
+                }
+            ]
+        },
+        {
+            "name": "Navigation",
+            "shortcuts": [{
+                "keyCombo": "Shift Cmd J",
+                "details": "Reveal in Project Navigator",
+            },
+                {
+                    "keyCombo": "Cmd J",
+                    "details": "Move focus to editor",
+                },
+                {
+                    "keyCombo": "Ctrl Cmd ⬅︎",
+                    "details": "Go Back (File)",
+                },
+                {
+                    "keyCombo": "Ctrl Cmd J",
+                    "details": "Jump to Definition",
+                }
+            ]
+        },
+        {
+            "name": "Editor Menu",
+            "shortcuts": [{
+                "keyCombo": "Ctrl Cmd E",
+                "details": "Edit all in Scope",
+            },
+                {
+                    "keyCombo": "Shift Cmd A",
+                    "details": "Show Actions Menu (Refactor)",
+                },
+                {
+                    "keyCombo": "Ctrl I",
+                    "details": "Reindent Selection",
+                },
+                {
+                    "keyCombo": "Cmd ]",
+                    "details": "Indent Right",
+                },
+                {
+                    "keyCombo": "Opt Cmd /",
+                    "details": "Method documentation",
+                },
+                {
+                    "keyCombo": "Cmd /",
+                    "details": "Toggle Comments",
+                },
+                {
+                    "keyCombo": "Cmd +/-",
+                    "details": "Increase / Decrease Font Size",
+                },
+                {
+                    "keyCombo": "Ctrl Cmd 0",
+                    "details": "Reset zoom",
+                }
+            ]
+        },
+        {
+            "name": "Debug Menu",
+            "shortcuts": [{
+                "keyCombo": "Ctrl Cmd Y",
+                "details": "Debug Stop / Continue",
+            },
+                {
+                    "keyCombo": "Cmd \\\\",
+                    "details": "Add / delete breakpoint",
+                },
+                {
+                    "keyCombo": "F6",
+                    "details": "Step Over",
+                },
+                {
+                    "keyCombo": "F7",
+                    "details": "Step Into",
+                },
+                {
+                    "keyCombo": "F8",
+                    "details": "Step Out",
+                }
+            ]
+        },
+        {
+            "name": "Simulator",
+            "shortcuts": [{
+                "keyCombo": "Cmd S",
+                "details": "New Screen Shot",
+            },
+                {
+                    "keyCombo": "Shift Cmd H",
+                    "details": "Home",
+                },
+                {
+                    "keyCombo": "Cmd ⬅︎",
+                    "details": "Rotate Left",
+                },
+                {
+                    "keyCombo": "Ctrl Cmd Z",
+                    "details": "Shake",
+                },
+                {
+                    "keyCombo": "Cmd K",
+                    "details": "Toggle Keyboard",
+                }
+            ]
+        }
+    ]
+}
+

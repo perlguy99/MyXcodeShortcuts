@@ -15,34 +15,30 @@ struct PreviewHelper {
     var previewShortcut: Shortcut
     var previewShortcutWithCategory: Shortcut
     var previewShortcutWithCategoryHidden: Shortcut
-
+    
     var previewNone: Shortcut
     var previewFavorite: Shortcut
     var previewHidden: Shortcut
-
+    
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Category.self,
-            Shortcut.self
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+        let schema = Schema([Category.self])
+        
+#if targetEnvironment(simulator)
+        let isStoredInMemoryOnly = true
+#else
+        let isStoredInMemoryOnly = false
+#endif
+        
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: isStoredInMemoryOnly)
+        
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-
+    
     init() {
-//        let schema = Schema([
-//            Category.self,
-//            Shortcut.self
-//        ])
-//        
-//        let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
-        
-//        container = try ModelContainer(for: Category.self, configurations: config)
         container = sharedModelContainer
         
         previewCategory = Category(name: "Preview Menu Category B")
@@ -56,7 +52,7 @@ struct PreviewHelper {
         previewNone = Shortcut(keyCombo: "Cmd opt N", details: "Status None", buttonState: .none, category: previewCategory)
         previewFavorite = Shortcut(keyCombo: "opt shift H", details: "Status Favorite", buttonState: .favorite, category: previewCategory)
         previewHidden = Shortcut(keyCombo: "Cmd ctrl opt shift W", details: "Status Hidden", buttonState: .hidden, category: previewCategory)
-
+        
         previewCategory.shortcuts.append(previewShortcutWithCategory)
         previewCategory.shortcuts.append(previewShortcutWithCategoryHidden)
         previewCategory.shortcuts.append(previewShortcut)
@@ -65,7 +61,7 @@ struct PreviewHelper {
         previewCategory.shortcuts.append(previewFavorite)
         previewCategory.shortcuts.append(previewHidden)
     }
-
+    
     func deleteAll() {
         print("\n------------------------------")
         print("DELETING ALL DATA")
@@ -78,5 +74,11 @@ struct PreviewHelper {
             print("Failed to empty the database\n\(error.localizedDescription)")
         }
     }
-
+    
+    
+    func loadSeedData() {
+        
+    }
+    
+    
 }

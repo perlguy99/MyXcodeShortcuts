@@ -36,3 +36,7 @@ final class Category: Codable {
         try container.encode(shortcuts, forKey: .shortcuts)
     }
 }
+
+struct MenuShortcuts: Codable {
+    let categories: [Category]
+}

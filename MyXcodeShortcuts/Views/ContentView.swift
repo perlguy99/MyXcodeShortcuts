@@ -12,6 +12,8 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
+    @EnvironmentObject var checkboxState: SharedCheckboxState
+    
     @State private var searchText = ""
     @State private var navigationPath = NavigationPath()
     @State private var sortOrder = [SortDescriptor(\Category.name)]
@@ -23,22 +25,27 @@ struct ContentView: View {
     // TODO: - figure out toolbar item order if needed
     var body: some View {
         NavigationStack(path: $navigationPath) {
-            CategoryListView(searchString: searchText, sortOrder: sortOrder)
-                .navigationTitle("My Xcode Shortcuts")
-                .navigationDestination(for: Shortcut.self) { shortcut in
-                    EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
-                }
-            
-                .toolbar {
-                    getSortOrderToolbarItem()
-                    getAddItemToolbarItem()
-                    getFilterToolbarItem()
-                    getSettingsToolbarItem()
-                    getEditButtonToolbarItem()
-//                    getDeleteAllToolbarItem()
-//                    getLoadSeedDataToolbarItem()
-                }
-                .searchable(text: $searchText)
+            VStack {
+                Text("\(checkboxState.state)")
+                
+                CategoryListView(searchString: searchText, sortOrder: sortOrder)
+                    .navigationTitle("My Xcode Shortcuts")
+                    .navigationDestination(for: Shortcut.self) { shortcut in
+                        EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+//                            .environmentObject(checkboxState)
+                    }
+                
+                    .toolbar {
+                        getSortOrderToolbarItem()
+                        getAddItemToolbarItem()
+                        getFilterToolbarItem()
+                        getSettingsToolbarItem()
+                        getEditButtonToolbarItem()
+                        //                    getDeleteAllToolbarItem()
+                        //                    getLoadSeedDataToolbarItem()
+                    }
+                    .searchable(text: $searchText)
+            }
         }
     }
     
@@ -101,13 +108,28 @@ extension ContentView {
         ToolbarItem {
             Button {
                 withAnimation {
-                    showHidden.toggle()
+                    checkboxState.toggleState()
+//                    showHidden.toggle()
+//                    checkboxState.state = .favorite
                 }
             } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
             }
             .font(.title2)
-            .foregroundStyle(showHidden ? .blue : .red)
+//            .foregroundStyle(showHidden ? .blue : .red)
+//            .foregroundColor(checkboxState.colorForState())
+            .foregroundColor(colorForState(checkboxState.state))
+        }
+    }
+    
+    private func colorForState(_ state: CheckboxState) -> Color {
+        switch state {
+        case .none:
+            return .blue
+        case .hidden:
+            return .red
+        case .favorite:
+            return .yellow
         }
     }
     
@@ -138,11 +160,17 @@ extension ContentView {
 
 #Preview {
     @Environment(\.modelContext) var modelContext
+//    @EnvironmentObject var checkboxState: SharedCheckboxState
+    
+//    @StateObject var checkboxState = SharedCheckboxState()
+    
     let previewHelper = PreviewHelper()
     previewHelper.loadSampleData()
     
     return ContentView()
         .modelContainer(previewHelper.container)
+        .environmentObject(SharedCheckboxState())
+    
 }
 
 

@@ -11,7 +11,7 @@ import SwiftData
 @MainActor
 struct PreviewHelper {
     let container: ModelContainer
-    var previewCategory: Category = Category(name: "Preview Menu Category B")
+    var previewCategory: Category = Category(name: "Preview Menu Category")
     var previewShortcut: Shortcut = Shortcut(keyCombo: "Cmd Opt %", details: "Preview Details 1B", buttonState: .none)
     var previewShortcutWithCategory: Shortcut = Shortcut(keyCombo: "Cmd Ctrl opt F", details: "Preview Details X F", buttonState: .none)
     var previewShortcutWithCategoryHidden: Shortcut = Shortcut(keyCombo: "Ctrl opt H", details: "Hide something", buttonState: .hidden)

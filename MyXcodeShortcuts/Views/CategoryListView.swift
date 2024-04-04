@@ -10,6 +10,7 @@ import SwiftData
 
 struct CategoryListView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var checkboxState: SharedCheckboxState
     
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
     
@@ -60,6 +61,7 @@ struct CategoryListView: View {
     
     return Group {
         CategoryListView()
+            .environmentObject(SharedCheckboxState())
     }
     .modelContainer(previewHelper.container)
 }
@@ -75,6 +77,7 @@ struct CategoryListView: View {
     
     return Group {
         CategoryListView()
+            .environmentObject(SharedCheckboxState())
     }
     .modelContainer(previewHelper.container)
 }

@@ -80,6 +80,7 @@ struct SettingsView: View {
 //    let previewHelper = PreviewHelper()
 
     return SettingsView()
+        .environmentObject(SharedCheckboxState())
 }
 
 

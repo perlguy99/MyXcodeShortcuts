@@ -29,6 +29,14 @@ class Shortcut: Codable {
         }
     }
     
+    func isFavorite() -> Bool {
+        return buttonState == .favorite
+    }
+    
+    func isHidden() -> Bool {
+        return buttonState == .hidden
+    }
+    
     // Conform to Codable
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -46,6 +54,33 @@ class Shortcut: Codable {
         try container.encode(details, forKey: .details)
         try container.encode(buttonState, forKey: .buttonState)
     }
+    
+//    var filteredShortcuts: [Shortcut] = {
+//        
+//    }()
+    
+//    let filteredCount = startingShortcuts.filter { shortcut in
+//        print("Filtering on: \(filterOn)")
+//        print("Current state: \(shortcut.buttonState)")
+//        
+//        if filterOn == .none {
+//            return true
+//        }
+//        
+//        if filterOn == .favorite {
+//            if shortcut.buttonState == .favorite {
+//                return true
+//            }
+//        }
+//        
+//        if filterOn == .hidden {
+//            if shortcut.buttonState == .hidden {
+//                return true
+//            }
+//        }
+//            
+//        return false
+//    }
 }
 
 

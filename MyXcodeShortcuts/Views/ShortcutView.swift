@@ -53,4 +53,5 @@ struct ShortcutView: View {
         
     }
     .modelContainer(previewHelper.container)
+    .environmentObject(SharedCheckboxState())
 }

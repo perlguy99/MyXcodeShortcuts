@@ -11,6 +11,8 @@ import SwiftData
 @main
 @MainActor
 struct MyXcodeShortcutsApp: App {
+    @StateObject var checkboxState = SharedCheckboxState()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Category.self, Shortcut.self])
         
@@ -54,11 +56,13 @@ struct MyXcodeShortcutsApp: App {
     }
     
     var body: some Scene {
+        // Load our seed data if there is none
         let _ = checkSeed()
         
         WindowGroup {
             return ContentView()
         }
         .modelContainer(sharedModelContainer)
+        .environmentObject(checkboxState)
     }
 }

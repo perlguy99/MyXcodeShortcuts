@@ -39,6 +39,39 @@ class Category: Codable {
     }
 }
 
+extension Category {
+    
+    func filteredShortcuts(filterValue: CheckboxState) -> [Shortcut]? {
+        print("Filtering on: \(filterValue)")
+        
+        let filtered = shortcuts?.filter({ shortcut in
+            print("Current state: \(shortcut.buttonState)")
+            
+            if filterValue == .none {
+                return true
+            }
+            
+            if filterValue == .favorite {
+                if shortcut.buttonState == .favorite {
+                    return true
+                }
+            }
+            
+            if filterValue == .hidden {
+                if shortcut.buttonState != .hidden {
+                    return true
+                }
+            }
+            
+            return false
+        })
+        
+        return filtered
+    }
+    
+}
+
+
 struct MenuShortcuts: Codable {
     let categories: [Category]
 }

@@ -9,6 +9,11 @@ import XCTest
 @testable import MyXcodeShortcuts
 
 final class MyXcodeShortcutsTests: XCTestCase {
+    let expectedStartingCount = 6
+    
+    let expectedFilterCountNone = 6
+    let expectedFilterCountHidden = 4
+    let expectedFilterCountFavorite = 1
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,19 +23,27 @@ final class MyXcodeShortcutsTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    @MainActor
+    func testFilterShortcuts() throws {
+        let previewHelper = PreviewHelper()
+        previewHelper.loadSampleData()
+        
+        var filterOn: CheckboxState = .none
+        let testSharedCheckboxState: CheckboxState = .none
+        
+        let startingCategory = previewHelper.previewCategory
+        
+        let startingCount = previewHelper.previewCategory.shortcuts!.count
+        XCTAssertEqual(startingCount, expectedStartingCount)
+        
+        let filteredNone = startingCategory.filteredShortcuts(filterValue: .none)
+        let filteredHidden = startingCategory.filteredShortcuts(filterValue: .hidden)
+        let filteredFavorite = startingCategory.filteredShortcuts(filterValue: .favorite)
+        
+        XCTAssertEqual(filteredNone?.count, expectedFilterCountNone)
+        XCTAssertEqual(filteredHidden?.count, expectedFilterCountHidden)
+        XCTAssertEqual(filteredFavorite?.count, expectedFilterCountFavorite)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }

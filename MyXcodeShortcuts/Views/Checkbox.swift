@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Checkbox: View {
+    @EnvironmentObject var checkboxState: SharedCheckboxState
     @Binding var state: CheckboxState
     
     var body: some View {
@@ -36,6 +37,8 @@ struct Checkbox: View {
 }
 
 struct Checkbox_Previews: PreviewProvider {
+    @EnvironmentObject var checkboxState: SharedCheckboxState
+    
     static var previews: some View {
         OtherView()
     }
@@ -51,6 +54,7 @@ struct Checkbox_Previews: PreviewProvider {
                 Checkbox(state: $favorite)
                 Checkbox(state: $hidden)
             }
+            .environmentObject(SharedCheckboxState())
         }
     }
 }

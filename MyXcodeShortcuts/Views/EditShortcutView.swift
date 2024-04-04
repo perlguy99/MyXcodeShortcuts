@@ -75,4 +75,5 @@ struct EditShortcutView: View {
     
     return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
         .modelContainer(previewHelper.container)
+        .environmentObject(SharedCheckboxState())
 }

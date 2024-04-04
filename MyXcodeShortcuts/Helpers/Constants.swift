@@ -12,11 +12,13 @@ enum Constants {
     static let defaultSeparator = " "
     static let defaultShowSymbols = true
     static let defaultShowHidden = true
+    static let defaultShowOnlyFavorites = false
     
     enum Keys: String {
         case pdfTitle
         case customSeparator
         case showHidden
         case showSymbols
+        case showOnlyFavorites
     }
 }

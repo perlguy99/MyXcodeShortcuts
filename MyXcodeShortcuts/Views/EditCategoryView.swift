@@ -10,14 +10,16 @@ import SwiftData
 
 struct EditCategoryView: View {
     @Environment(\.modelContext) var modelContext
+
+    @Binding var navigationPath: NavigationPath
     
-    @Bindable var categories: Category
+    @Bindable var category: Category
     
     var body: some View {
         
             Form {
                 Section("Category Name") {
-                    TextField("Category Name", text: $categories.name)
+                    TextField("Category Name", text: $category.name)
                         .padding(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
@@ -36,8 +38,11 @@ struct EditCategoryView: View {
         
         let menuSection = Category(name: "")
         
-        return EditCategoryView(categories: menuSection)
+        return EditCategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
             .modelContainer(previewHelper.container)
+        
+//        return EditCategoryView(categories: menuSection)
+//            .modelContainer(previewHelper.container)
     } catch {
         return Text("Failed to create preview: \(error.localizedDescription)")
     }

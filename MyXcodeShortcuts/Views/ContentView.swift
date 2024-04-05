@@ -28,7 +28,10 @@ struct ContentView: View {
                 .navigationDestination(for: Shortcut.self) { shortcut in
                     EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
                 }
-            
+                .navigationDestination(for: Category.self) { category in
+                    EditCategoryView(navigationPath: $navigationPath, category: category)
+                }
+
                 .toolbar {
                     sortOrderToolbarItem()
                     addItemToolbarItem()

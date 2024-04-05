@@ -28,6 +28,7 @@ struct CategoryListView: View {
         
     }
     
+    // TODO: Not using searchString 
     init(searchString: String = "", sortOrder: [SortDescriptor<Category>] = [], showHidden: Bool? = nil, showSymbols: Bool? = nil) {
         if let showHidden = showHidden {
             self.showHidden = showHidden

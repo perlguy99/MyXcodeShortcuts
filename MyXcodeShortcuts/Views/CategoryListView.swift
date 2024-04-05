@@ -50,35 +50,35 @@ struct CategoryListView: View {
     }
 }
 
-#Preview {
-    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
-    
-    let previewHelper = PreviewHelper()
-    previewHelper.loadSampleData()
-    
-    showHidden = true
-    
-    return Group {
-        CategoryListView()
-            .environmentObject(SharedCheckboxState())
-    }
-    .modelContainer(previewHelper.container)
-}
-
-#Preview {
-    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
-    
-    let previewHelper = PreviewHelper()
-    previewHelper.loadSampleData()
-    
-    showHidden = false
-    
-    return Group {
-        CategoryListView()
-            .environmentObject(SharedCheckboxState())
-    }
-    .modelContainer(previewHelper.container)
-}
-
+//#Preview {
+//    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
+//    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
+//    
+//    let previewHelper = PreviewHelper()
+//    previewHelper.loadSampleData()
+//    
+//    showHidden = true
+//    
+//    return Group {
+//        CategoryListView()
+//            .environmentObject(SharedCheckboxState())
+//    }
+//    .modelContainer(previewHelper.container)
+//}
+//
+//#Preview {
+//    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
+//    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
+//    
+//    let previewHelper = PreviewHelper()
+//    previewHelper.loadSampleData()
+//    
+//    showHidden = false
+//    
+//    return Group {
+//        CategoryListView()
+//            .environmentObject(SharedCheckboxState())
+//    }
+//    .modelContainer(previewHelper.container)
+//}
+//

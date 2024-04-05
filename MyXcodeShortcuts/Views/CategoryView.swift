@@ -12,16 +12,16 @@ struct CategoryView: View {
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var checkboxState: SharedCheckboxState
     
-    var category: Category
-    let viewModel: ViewModel
-    
-//    var checkboxState: SharedCheckboxState = SharedCheckboxState()
+    let category: Category
     
     init(category: Category) {
         self.category = category
-        self.viewModel = CategoryView.ViewModel(category: category)
-
-        checkboxState.state = .favorite
+        
+        print("\n------------------------------")
+        print("EO State: \(checkboxState)")
+        print("------------------------------\n")
+//        self.viewModel = CategoryView.ViewModel(category: category)
+//        checkboxState.state = .favorite
         
     }
     
@@ -31,9 +31,9 @@ struct CategoryView: View {
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
             
-            ForEach(category.filteredShortcuts(filterValue: checkboxState.state) ?? []) { shortcut in
-                ShortcutView(shortcut: shortcut, showSymbols: showSymbols)
-            }
+//            ForEach(category.filteredShortcuts(filterValue: checkboxState.state) ?? []) { shortcut in
+//                ShortcutView(shortcut: shortcut, showSymbols: showSymbols)
+//            }
             
             ForEach(category.shortcuts?.filter { showHidden || $0.buttonState != .hidden } ?? []) { shortcut in
                 ShortcutView(shortcut: shortcut, showSymbols: showSymbols)
@@ -45,33 +45,42 @@ struct CategoryView: View {
     }
 }
 
-extension CategoryView {
-    class ViewModel {
-        var category: Category
-        
-        init(category: Category) {
-            self.category = category
-        }
-    }
-}
-
 #Preview {
     @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     
-//    @EnvironmentObject var checkboxState: SharedCheckboxState
-    
     let previewHelper = PreviewHelper()
     previewHelper.loadSampleData()
     
-    return Group {
-        CategoryView(category: previewHelper.previewCategory)
-            .modelContainer(previewHelper.container)
-//            .environmentObject(SharedCheckboxState())
-        Spacer()
-        CategoryView(category: previewHelper.previewCategory)
-            .modelContainer(previewHelper.container)
-//            .environmentObject(SharedCheckboxState())
-    }
-    .environmentObject(SharedCheckboxState())
+    let checkboxState = SharedCheckboxState.mockState
+    
+    return CategoryView(category: previewHelper.previewCategory)
+        .modelContainer(previewHelper.container)
+        .environmentObject(checkboxState)
 }
+
+
+//#Preview {
+//    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
+//    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
+//    
+//    @EnvironmentObject var checkboxState: SharedCheckboxState
+//    
+//    let previewHelper = PreviewHelper()
+//    previewHelper.loadSampleData()
+//    
+//    return CategoryView(category: previewHelper.previewCategory)
+//        .environmentObject(checkboxState)
+//        .modelContainer(previewHelper.container)
+//    
+////    return Group {
+////        CategoryView(category: previewHelper.previewCategory)
+////            .modelContainer(previewHelper.container)
+//////            .environmentObject(SharedCheckboxState())
+////        Spacer()
+////        CategoryView(category: previewHelper.previewCategory)
+////            .modelContainer(previewHelper.container)
+//////            .environmentObject(SharedCheckboxState())
+////    }
+////    .environmentObject(checkboxState)
+//}

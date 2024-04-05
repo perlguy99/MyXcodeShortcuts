@@ -20,6 +20,7 @@ struct PreviewHelper {
     var previewFavorite = Shortcut(keyCombo: "opt shift H", details: "Status Favorite", buttonState: .favorite)
     var previewHidden = Shortcut(keyCombo: "Cmd ctrl opt shift W", details: "Status Hidden", buttonState: .hidden)
 
+    var sharedCheckboxState: SharedCheckboxState = SharedCheckboxState()
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Category.self, Shortcut.self])

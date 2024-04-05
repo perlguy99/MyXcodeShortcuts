@@ -158,19 +158,19 @@ extension ContentView {
     }
 }
 
-#Preview {
-    @Environment(\.modelContext) var modelContext
-//    @EnvironmentObject var checkboxState: SharedCheckboxState
-    
-//    @StateObject var checkboxState = SharedCheckboxState()
-    
-    let previewHelper = PreviewHelper()
-    previewHelper.loadSampleData()
-    
-    return ContentView()
-        .modelContainer(previewHelper.container)
-        .environmentObject(SharedCheckboxState())
-    
-}
-
-
+//#Preview {
+//    @Environment(\.modelContext) var modelContext
+////    @EnvironmentObject var checkboxState: SharedCheckboxState
+//    
+////    @StateObject var checkboxState = SharedCheckboxState()
+//    
+//    let previewHelper = PreviewHelper()
+//    previewHelper.loadSampleData()
+//    
+//    return ContentView()
+//        .modelContainer(previewHelper.container)
+//        .environmentObject(SharedCheckboxState())
+//    
+//}
+//
+//

@@ -31,6 +31,8 @@ final class MyXcodeShortcutsTests: XCTestCase {
         var filterOn: CheckboxState = .none
         let testSharedCheckboxState: CheckboxState = .none
         
+//        let bar = Sh
+        
         let startingCategory = previewHelper.previewCategory
         
         let startingCount = previewHelper.previewCategory.shortcuts!.count

@@ -17,7 +17,6 @@ class Category: Codable {
     
     var name: String = ""
     @Relationship(deleteRule: .cascade, inverse: \Shortcut.category) var shortcuts: [Shortcut]? = [Shortcut]()
-//    var shortcuts: [Shortcut]? = [Shortcut]()
     
     init(name: String) {
         self.name = name
@@ -40,24 +39,29 @@ class Category: Codable {
 }
 
 extension Category {
+    static let mock: Category = .init(name: "Mock Category")
+}
+
+extension Category {
     
-    func filteredShortcuts(filterValue: CheckboxState) -> [Shortcut]? {
-        print("Filtering on: \(filterValue)")
+//    func filteredShortcuts(filterValue: CheckboxState = .none) -> [Shortcut]? {
+    func filteredShortcuts(filterValue: SharedCheckboxState) -> [Shortcut]? {
+        print("Filtering on: \(filterValue.state)")
         
         let filtered = shortcuts?.filter({ shortcut in
             print("Current state: \(shortcut.buttonState)")
             
-            if filterValue == .none {
+            if filterValue.state == .none {
                 return true
             }
             
-            if filterValue == .favorite {
+            if filterValue.state == .favorite {
                 if shortcut.buttonState == .favorite {
                     return true
                 }
             }
             
-            if filterValue == .hidden {
+            if filterValue.state == .hidden {
                 if shortcut.buttonState != .hidden {
                     return true
                 }

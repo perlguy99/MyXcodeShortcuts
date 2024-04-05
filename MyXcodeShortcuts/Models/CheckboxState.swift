@@ -28,3 +28,11 @@ class SharedCheckboxState: ObservableObject {
         }
     }
 }
+
+extension SharedCheckboxState {
+    static var mockState: SharedCheckboxState = .init()
+}
+
+//extension Category {
+//    static let mock: Category = .init(name: "Mock Category")
+//}

@@ -28,6 +28,7 @@
 		846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371382BBB3245001ED9C3 /* SettingsView.swift */; };
 		8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */; };
 		846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */; };
+		847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E30F72BC0419200762FDF /* EditCategoryView.swift */; };
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
@@ -75,6 +76,7 @@
 		846371382BBB3245001ED9C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortcutView.swift; sourceTree = "<group>"; };
+		847E30F72BC0419200762FDF /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
 		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
 				8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */,
+				847E30F72BC0419200762FDF /* EditCategoryView.swift */,
 				8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */,
 				8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */,
 				846371382BBB3245001ED9C3 /* SettingsView.swift */,
@@ -360,6 +363,7 @@
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
+				847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */,
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
 				846371372BBB1C47001ED9C3 /* SettingsViewModel.swift in Sources */,
 				846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */,

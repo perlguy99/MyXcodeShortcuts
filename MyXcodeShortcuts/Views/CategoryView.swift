@@ -32,6 +32,7 @@ struct CategoryView: View {
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     
     let previewHelper = PreviewHelper()
+    previewHelper.loadSampleData()
     
     return Group {
         CategoryView(category: previewHelper.previewCategory, showHidden: true)

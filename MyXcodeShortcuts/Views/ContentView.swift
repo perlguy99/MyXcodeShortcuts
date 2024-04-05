@@ -30,12 +30,12 @@ struct ContentView: View {
                 }
             
                 .toolbar {
-                    getSortOrderToolbarItem()
-                    getAddItemToolbarItem()
-                    getFilterToolbarItem()
-                    getSettingsToolbarItem()
-                    getEditButtonToolbarItem()
-//                    getDeleteAllToolbarItem()
+                    sortOrderToolbarItem()
+                    addItemToolbarItem()
+                    filterToolbarItem()
+                    settingsToolbarItem()
+                    editButtonToolbarItem()
+//                    deleteAllToolbarItem()
 //                    getLoadSeedDataToolbarItem()
                 }
                 .searchable(text: $searchText)
@@ -51,8 +51,9 @@ struct ContentView: View {
     
     private func addItem() {
         withAnimation {
-//            let newItem = Item(timestamp: Date())
-//            modelContext.insert(newItem)
+            let newShortcut = Shortcut(keyCombo: "", details: "")
+            modelContext.insert(newShortcut)
+            navigationPath.append(newShortcut)
         }
     }
 
@@ -67,7 +68,7 @@ struct ContentView: View {
 
 // MARK: - Toobar Items
 extension ContentView {
-    private func getLoadSeedDataToolbarItem() -> some ToolbarContent {
+    private func loadSeedDataToolbarItem() -> some ToolbarContent {
         let seedData = SeedData(modelContext: modelContext)
         
         return ToolbarItem {
@@ -77,13 +78,13 @@ extension ContentView {
         }
     }
 
-    private func getEditButtonToolbarItem() -> some ToolbarContent {
+    private func editButtonToolbarItem() -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             EditButton()
         }
     }
 
-    private func getSortOrderToolbarItem() -> some ToolbarContent {
+    private func sortOrderToolbarItem() -> some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Menu("Sort", systemImage: "arrow.up.arrow.down") {
                 Picker("Sort", selection: $sortOrder) {
@@ -97,7 +98,7 @@ extension ContentView {
         }
     }
     
-    private func getFilterToolbarItem() -> some ToolbarContent {
+    private func filterToolbarItem() -> some ToolbarContent {
         ToolbarItem {
             Button {
                 withAnimation {
@@ -111,7 +112,7 @@ extension ContentView {
         }
     }
     
-    private func getSettingsToolbarItem() -> some ToolbarContent {
+    private func settingsToolbarItem() -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             NavigationLink(destination: SettingsView()) {
                 Image(systemName: "gear")
@@ -119,7 +120,7 @@ extension ContentView {
         }
     }
     
-    private func getDeleteAllToolbarItem() -> some ToolbarContent {
+    private func deleteAllToolbarItem() -> some ToolbarContent {
         ToolbarItem {
             Button(action: deleteAll) {
                 Label("Delete All", systemImage: "exclamationmark.warninglight.fill")
@@ -127,7 +128,7 @@ extension ContentView {
         }
     }
 
-    private func getAddItemToolbarItem() -> some ToolbarContent {
+    private func addItemToolbarItem() -> some ToolbarContent {
         ToolbarItem {
             Button(action: addItem) {
                 Label("Add Item", systemImage: "plus")

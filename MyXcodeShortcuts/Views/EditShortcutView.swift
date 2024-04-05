@@ -11,7 +11,7 @@ import SwiftData
 struct EditShortcutView: View {
     @Environment(\.modelContext) var modelContext
 
-    @Query var menuSections: [Category]
+    @Query var categories: [Category]
 
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
@@ -34,6 +34,7 @@ struct EditShortcutView: View {
                         .focused($isInputActive)
                     
                     TextField("Details", text: $shortcut.details)
+                        .textFieldStyle(.roundedBorder)
                 } header: {
                     Text("Keyboard Shortcut")
                 } footer: {
@@ -45,10 +46,10 @@ struct EditShortcutView: View {
                         Text("Unknown")
                             .tag(Optional<Category>.none)
                         
-                        if menuSections.isEmpty == false {
+                        if categories.isEmpty == false {
                             Divider()
                             
-                            ForEach(menuSections) { section in
+                            ForEach(categories) { section in
                                 Text(section.name)
                                     .tag(Optional(section))
                             }

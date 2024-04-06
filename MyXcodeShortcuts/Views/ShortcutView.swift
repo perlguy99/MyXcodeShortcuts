@@ -10,6 +10,7 @@ import SwiftData
 
 struct ShortcutView: View {
     @Environment(\.modelContext) var modelContext
+    @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
 
     @AppStorage(Constants.Keys.customSeparator.rawValue) var customSeparator = Constants.defaultSeparator
@@ -19,27 +20,41 @@ struct ShortcutView: View {
         
         let keyCombo = showSymbols ? shortcut.keyCombo.replacingKeywordsWithSymbols(separator: customSeparator) : shortcut.keyCombo.replacingKeywordsWithFullWords(separator: customSeparator)
         
-        HStack {
-            Spacer()
-            VStack {
-                Text(shortcut.details)
-                    .fontWeight(.light)
-                    .foregroundStyle(Color(.black))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+        VStack {
+            HStack {
+                Spacer()
+                VStack {
+                    Text(shortcut.details)
+                        .fontWeight(.light)
+                        .foregroundStyle(Color(.black))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(keyCombo)
+                        .bold()
+                        .foregroundStyle(Color(.black))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
                 
-                Text(keyCombo)
-                    .bold()
-                    .foregroundStyle(Color(.black))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                Spacer()
+                
+                Checkbox(state: $shortcut.buttonState)
+                
+                Spacer()
             }
-            
-            Spacer()
-            
-            Checkbox(state: $shortcut.buttonState)
-            
-            Spacer()
         }
+        .contentShape(Rectangle())
+        .onLongPressGesture(perform: handleLongPress)
     }
+    
+    func handleLongPress() {
+        print("\n------------------------------")
+        print("Long Press Detected")
+        print("------------------------------\n")
+        
+        print("handleLongPress()")
+        navigationPath.append(shortcut)
+    }
+    
 }
 
 //#Preview("SizeThat FitsLayout", traits: .sizeThatFitsLayout) {
@@ -47,9 +62,9 @@ struct ShortcutView: View {
     let previewHelper = PreviewHelper()
    
     return Group {
-        ShortcutView(shortcut: previewHelper.previewNone, showSymbols: true )
-        ShortcutView(shortcut: previewHelper.previewFavorite, showSymbols: false)
-        ShortcutView(shortcut: previewHelper.previewHidden, showSymbols: true)
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone, showSymbols: true)
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite, showSymbols: false)
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden, showSymbols: true)
         
     }
     .modelContainer(previewHelper.container)

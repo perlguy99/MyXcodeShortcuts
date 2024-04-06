@@ -10,10 +10,10 @@ import SwiftData
 
 struct EditShortcutView: View {
     @Environment(\.modelContext) var modelContext
+    @Binding var navigationPath: NavigationPath
 
     @Query var categories: [Category]
-
-    @Binding var navigationPath: NavigationPath
+    
     @Bindable var shortcut: Shortcut
     
     @State private var sectionName: String = ""
@@ -73,7 +73,7 @@ struct EditShortcutView: View {
 
 #Preview {
     let previewHelper = PreviewHelper()
-    
+//    EditShortcutView(navigationPath: <#T##Binding<NavigationPath>#>, shortcut: <#T##Shortcut#>)
     return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
         .modelContainer(previewHelper.container)
 }

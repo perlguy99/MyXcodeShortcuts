@@ -10,34 +10,29 @@ import SwiftData
 
 struct CategoryListView: View {
     @Environment(\.modelContext) private var modelContext
+    @Binding var navigationPath: NavigationPath
     
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
     
-    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
 
     var body: some View {
         
         List {
             ForEach(categories) { category in
-                CategoryView(category: category)
+                CategoryView(navigationPath: $navigationPath, category: category)
             }
             .onDelete(perform: deleteCategories)
         }
-        
-        
     }
     
     // TODO: Not using searchString 
-    init(searchString: String = "", sortOrder: [SortDescriptor<Category>] = [], showHidden: Bool? = nil, showSymbols: Bool? = nil) {
-        if let showHidden = showHidden {
-            self.showHidden = showHidden
-        }
-        
+    init(navigationPath: Binding<NavigationPath>, searchString: String = "", sortOrder: [SortDescriptor<Category>] = [], showSymbols: Bool? = nil) {
         if let showSymbols = showSymbols {
             self.showSymbols = showSymbols
         }
         
+        _navigationPath = navigationPath
         _categories = Query(sort: sortOrder)
     }
     
@@ -51,32 +46,13 @@ struct CategoryListView: View {
 }
 
 #Preview {
-    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     
     let previewHelper = PreviewHelper()
     previewHelper.loadSampleData()
     
-    showHidden = true
-    
     return Group {
-        CategoryListView()
+        CategoryListView(navigationPath: .constant(NavigationPath()))
     }
     .modelContainer(previewHelper.container)
 }
-
-#Preview {
-    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
-    
-    let previewHelper = PreviewHelper()
-    previewHelper.loadSampleData()
-    
-    showHidden = false
-    
-    return Group {
-        CategoryListView()
-    }
-    .modelContainer(previewHelper.container)
-}
-

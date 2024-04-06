@@ -10,8 +10,7 @@ import SwiftData
 
 struct EditCategoryView: View {
     @Environment(\.modelContext) var modelContext
-
-    @Binding var navigationPath: NavigationPath
+//    @Binding var navigationPath: NavigationPath
     
     @Bindable var category: Category
     
@@ -38,7 +37,7 @@ struct EditCategoryView: View {
         
         let menuSection = Category(name: "")
         
-        return EditCategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
+        return EditCategoryView(category: previewHelper.previewCategory)
             .modelContainer(previewHelper.container)
         
 //        return EditCategoryView(categories: menuSection)

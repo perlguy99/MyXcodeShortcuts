@@ -10,6 +10,7 @@ import SwiftData
 
 struct CategoryView: View {
     @Environment(\.modelContext) var modelContext
+    @Binding var navigationPath: NavigationPath
     
     var category: Category
     @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
@@ -18,7 +19,7 @@ struct CategoryView: View {
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
             ForEach(category.shortcuts?.filter { showHidden || $0.buttonState != .hidden } ?? []) { shortcut in
-                ShortcutView(shortcut: shortcut, showSymbols: showSymbols)
+                ShortcutView(navigationPath: $navigationPath, shortcut: shortcut, showSymbols: showSymbols)
             }
         }
         .foregroundColor(.red)
@@ -35,10 +36,16 @@ struct CategoryView: View {
     previewHelper.loadSampleData()
     
     return Group {
-        CategoryView(category: previewHelper.previewCategory, showHidden: true)
-            .modelContainer(previewHelper.container)
+//        CategoryView(navigationPath: <#T##Binding<NavigationPath>#>, category: <#T##Category#>, showHidden: <#T##Bool#>, showSymbols: <#T##Bool#>)
+        
+
+        CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
+        
+//        CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
+//            .modelContainer(previewHelper.container)
+        
         Spacer()
-        CategoryView(category: previewHelper.previewCategory, showHidden: false, showSymbols: false)
-            .modelContainer(previewHelper.container)
+//        CategoryView(category: previewHelper.previewCategory, showHidden: false, showSymbols: false)
+//            .modelContainer(previewHelper.container)
     }
 }

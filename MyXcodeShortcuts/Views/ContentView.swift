@@ -12,8 +12,9 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
-    @State private var searchText = ""
     @State private var navigationPath = NavigationPath()
+
+    @State private var searchText = ""
     @State private var sortOrder = [SortDescriptor(\Category.name)]
     
     @Query private var categories: [Category]
@@ -23,13 +24,13 @@ struct ContentView: View {
     // TODO: - figure out toolbar item order if needed
     var body: some View {
         NavigationStack(path: $navigationPath) {
-            CategoryListView(searchString: searchText, sortOrder: sortOrder)
+            CategoryListView(navigationPath: $navigationPath, searchString: searchText, sortOrder: sortOrder)
                 .navigationTitle("My Xcode Shortcuts")
                 .navigationDestination(for: Shortcut.self) { shortcut in
                     EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
                 }
                 .navigationDestination(for: Category.self) { category in
-                    EditCategoryView(navigationPath: $navigationPath, category: category)
+                    EditCategoryView(category: category)
                 }
 
                 .toolbar {

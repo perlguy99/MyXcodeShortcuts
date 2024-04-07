@@ -8,6 +8,16 @@
 import SwiftUI
 import SwiftData
 
+//@AppStorage(Constants.Keys.pdfTitle.stringValue) var pdfTitle = Constants.defaultTitle
+//@AppStorage(Constants.Keys.customSeparator.rawValue) var customSeparator = Constants.defaultSeparator
+//@AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
+//@AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
+
+// TODO: Get AppStorage used consistently
+// TODO: Clean up navigation as best as it can be
+// TODO: Tests?
+
+
 @main
 @MainActor
 struct MyXcodeShortcutsApp: App {

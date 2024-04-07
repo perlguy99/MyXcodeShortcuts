@@ -13,10 +13,12 @@ enum Constants {
     static let defaultShowSymbols = true
     static let defaultShowHidden = true
     
-    enum Keys: String {
+    enum Keys: String, StringRepresentable {
         case pdfTitle
         case customSeparator
         case showHidden
         case showSymbols
     }
 }
+
+

@@ -43,6 +43,7 @@ struct ShortcutView: View {
             }
         }
         .contentShape(Rectangle())
+        .onTapGesture(perform: {})  // Needed or .onLongPressGesture blocks scrolling. :^/
         .onLongPressGesture(perform: handleLongPress)
     }
     

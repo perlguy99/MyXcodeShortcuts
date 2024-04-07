@@ -22,7 +22,6 @@ struct CategoryListView: View {
             ForEach(categories) { category in
                 CategoryView(navigationPath: $navigationPath, category: category)
             }
-            .onDelete(perform: deleteCategories)
         }
     }
     
@@ -34,14 +33,6 @@ struct CategoryListView: View {
         
         _navigationPath = navigationPath
         _categories = Query(sort: sortOrder)
-    }
-    
-    private func deleteCategories(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(categories[index])
-            }
-        }
     }
 }
 

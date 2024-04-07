@@ -10,7 +10,6 @@ import SwiftData
 
 struct EditCategoryView: View {
     @Environment(\.modelContext) var modelContext
-//    @Binding var navigationPath: NavigationPath
     
     @Bindable var category: Category
     
@@ -26,25 +25,15 @@ struct EditCategoryView: View {
                         )
                 }
             }
-            .navigationTitle("Edit Category Name")
+            .navigationTitle("Edit Category")
             .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    do {
-        let previewHelper = try PreviewHelper()
-        
-        let menuSection = Category(name: "")
-        
-        return EditCategoryView(category: previewHelper.previewCategory)
-            .modelContainer(previewHelper.container)
-        
-//        return EditCategoryView(categories: menuSection)
-//            .modelContainer(previewHelper.container)
-    } catch {
-        return Text("Failed to create preview: \(error.localizedDescription)")
-    }
-
+    let previewHelper = PreviewHelper()
+    
+    return EditCategoryView(category: previewHelper.previewCategory)
+        .modelContainer(previewHelper.container)
 }
 

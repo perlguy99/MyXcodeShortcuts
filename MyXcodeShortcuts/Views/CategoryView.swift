@@ -21,10 +21,20 @@ struct CategoryView: View {
             ForEach(category.shortcuts?.filter { showHidden || $0.buttonState != .hidden } ?? []) { shortcut in
                 ShortcutView(navigationPath: $navigationPath, shortcut: shortcut, showSymbols: showSymbols)
             }
+            .onDelete(perform: deleteShortcuts)
         }
         .foregroundColor(.red)
         .font(.headline)
         .bold()
+    }
+    
+    private func deleteShortcuts(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                guard let shortcuts = category.shortcuts else { return }
+                modelContext.delete(shortcuts[index])
+            }
+        }
     }
 }
 
@@ -36,14 +46,7 @@ struct CategoryView: View {
     previewHelper.loadSampleData()
     
     return Group {
-//        CategoryView(navigationPath: <#T##Binding<NavigationPath>#>, category: <#T##Category#>, showHidden: <#T##Bool#>, showSymbols: <#T##Bool#>)
-        
-
         CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
-        
-//        CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
-//            .modelContainer(previewHelper.container)
-        
         Spacer()
 //        CategoryView(category: previewHelper.previewCategory, showHidden: false, showSymbols: false)
 //            .modelContainer(previewHelper.container)

@@ -48,11 +48,6 @@ struct ShortcutView: View {
     }
     
     func handleLongPress() {
-        print("\n------------------------------")
-        print("Long Press Detected")
-        print("------------------------------\n")
-        
-        print("handleLongPress()")
         navigationPath.append(shortcut)
     }
     

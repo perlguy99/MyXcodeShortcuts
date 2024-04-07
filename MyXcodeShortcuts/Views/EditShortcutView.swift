@@ -16,8 +16,8 @@ struct EditShortcutView: View {
     
     @Bindable var shortcut: Shortcut
     
-    @State private var sectionName: String = ""
-    @State private var selectedOption = "other"
+//    @State private var category: String = ""
+//    @State private var selectedOption = "other"
     
     @FocusState var isInputActive: Bool
     
@@ -42,7 +42,7 @@ struct EditShortcutView: View {
                 }
                 
                 Section("Menu Location") {
-                    Picker("Menu Section", selection: $shortcut.category) {
+                    Picker("Menu Category", selection: $shortcut.category) {
                         Text("Unknown")
                             .tag(Optional<Category>.none)
                         
@@ -56,24 +56,24 @@ struct EditShortcutView: View {
                         }
                     }
                     
-                    Button("Add New Section", action: addSection)
+                    Button("Add New Category", action: addCategory)
                 }
             }
         }
         
     }
     
-    func addSection() {
-        let menuSection = Category(name: "")
-        modelContext.insert(menuSection)
-        navigationPath.append(menuSection)
-        print("Add Section")
+    func addCategory() {
+        let category = Category(name: "")
+        modelContext.insert(category)
+        navigationPath.append(category)
+        print("Add Category")
     }
 }
 
 #Preview {
     let previewHelper = PreviewHelper()
-//    EditShortcutView(navigationPath: <#T##Binding<NavigationPath>#>, shortcut: <#T##Shortcut#>)
+
     return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
         .modelContainer(previewHelper.container)
 }

@@ -17,7 +17,7 @@ class SeedData {
     }
     
     @MainActor
-    func loadSeedData() {
+    func loadSeedData(skipDataCheck: Bool = false) {
         guard let path = Bundle.main.path(forResource: "SeedData", ofType: "json") else {
             print("Error! - Failed to locate SeedData.json in bundle.")
             return
@@ -26,11 +26,13 @@ class SeedData {
         let fetchDescriptor = FetchDescriptor<Category>()
         
         do {
-            let dataCheck = try modelContext.fetch(fetchDescriptor)
-            
-            // if not empty, we don't want to load the data again
-            if dataCheck.isNotEmpty {
-                return
+            if skipDataCheck == false {
+                let dataCheck = try modelContext.fetch(fetchDescriptor)
+                
+                // if not empty, we don't want to load the data again
+                if dataCheck.isNotEmpty {
+                    return
+                }
             }
             
             let url = URL(fileURLWithPath: path)
@@ -50,7 +52,7 @@ class SeedData {
                         shortcut.category = category
                         
                         let currentShortcut = Shortcut(keyCombo: shortcut.keyCombo, details: shortcut.details, buttonState: .none, category: currentCategory)
-                        currentCategory.shortcuts?.append(currentShortcut)
+                        currentCategory.shortcuts.append(currentShortcut)
                     }
                 }
                 

@@ -18,7 +18,7 @@ struct CategoryView: View {
     
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
-            ForEach(category.shortcuts?.filter { showHidden || $0.buttonState != .hidden } ?? []) { shortcut in
+            ForEach(category.shortcuts.filter { showHidden || $0.buttonState != .hidden }) { shortcut in
                 ShortcutView(navigationPath: $navigationPath, shortcut: shortcut, showSymbols: showSymbols)
             }
             .onDelete(perform: deleteShortcuts)
@@ -31,8 +31,7 @@ struct CategoryView: View {
     private func deleteShortcuts(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                guard let shortcuts = category.shortcuts else { return }
-                modelContext.delete(shortcuts[index])
+                modelContext.delete(category.shortcuts[index])
             }
         }
     }

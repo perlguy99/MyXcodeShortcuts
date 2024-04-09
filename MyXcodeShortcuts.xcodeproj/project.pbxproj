@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF05F2BC5D936006F5366 /* PDFGenerator.swift */; };
 		846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */; };
 		846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F42BBAF8C0001ED9C3 /* ContentView.swift */; };
 		846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370F82BBAF8C2001ED9C3 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840AF05F2BC5D936006F5366 /* PDFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		846370EF2BBAF8C0001ED9C3 /* MyXcodeShortcuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyXcodeShortcuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsApp.swift; sourceTree = "<group>"; };
 		846370F42BBAF8C0001ED9C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		846371202BBB0297001ED9C3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				840AF05F2BC5D936006F5366 /* PDFGenerator.swift */,
 				8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */,
 				8463712E2BBB1B63001ED9C3 /* Extensions.swift */,
 				84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */,
@@ -369,6 +372,7 @@
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
+				840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */,
 				847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */,
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
 				846371372BBB1C47001ED9C3 /* SettingsViewModel.swift in Sources */,

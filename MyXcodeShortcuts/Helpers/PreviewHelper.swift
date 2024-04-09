@@ -43,18 +43,23 @@ struct PreviewHelper {
         container = sharedModelContainer
     }
     
+    func loadSeedData(skipDataCheck: Bool = false) {
+        let seed = SeedData(modelContext: container.mainContext)
+        seed.loadSeedData(skipDataCheck: skipDataCheck)
+    }
+    
     func loadSampleData() {
         
         // Insert the first category
         container.mainContext.insert(previewCategory)
         
-        previewCategory.shortcuts?.append(previewShortcutWithCategory)
-        previewCategory.shortcuts?.append(previewShortcutWithCategoryHidden)
-        previewCategory.shortcuts?.append(previewShortcut)
+        previewCategory.shortcuts.append(previewShortcutWithCategory)
+        previewCategory.shortcuts.append(previewShortcutWithCategoryHidden)
+        previewCategory.shortcuts.append(previewShortcut)
         
-        previewCategory.shortcuts?.append(previewNone)
-        previewCategory.shortcuts?.append(previewFavorite)
-        previewCategory.shortcuts?.append(previewHidden)
+        previewCategory.shortcuts.append(previewNone)
+        previewCategory.shortcuts.append(previewFavorite)
+        previewCategory.shortcuts.append(previewHidden)
     }
     
 }

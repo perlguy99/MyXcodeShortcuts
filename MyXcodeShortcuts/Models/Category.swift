@@ -16,7 +16,7 @@ class Category: Codable {
     }
     
     var name: String = ""
-    @Relationship(deleteRule: .cascade, inverse: \Shortcut.category) var shortcuts: [Shortcut]? = [Shortcut]()
+    @Relationship(deleteRule: .cascade, inverse: \Shortcut.category) var shortcuts: [Shortcut] = [Shortcut]()
 //    var shortcuts: [Shortcut]? = [Shortcut]()
     
     init(name: String) {

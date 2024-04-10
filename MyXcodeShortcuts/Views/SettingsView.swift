@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
     @Environment(\.modelContext) var modelContext
+    
+    @Query private var categories: [Category]
     
     @AppStorage(Constants.Keys.pdfTitle.rawValue) private var pdfTitle = Constants.defaultTitle
     @AppStorage(Constants.Keys.customSeparator.rawValue) private var customSeparator = Constants.defaultSeparator
@@ -63,6 +66,24 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                
+                Section(header: Text("Preview/Print PDF Cheatsheet")) {
+                    let creator = PDFGenerator(categories: categories)
+                    let renderedPDF = creator.renderDocument()
+                    
+                    if let renderedPDF = renderedPDF {
+                        if let pdfData = renderedPDF.dataRepresentation() {
+                            NavigationLink(destination: PDFPreviewView(data: pdfData)) {
+                                HStack {
+                                    Image(systemName: "square.and.arrow.up")
+                                    Text("Preview/Print PDF Cheatsheet")
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+
 
                 if showingValidationError {
                     Section {

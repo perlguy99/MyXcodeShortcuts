@@ -14,8 +14,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
     @State private var navigationPath = NavigationPath()
-
-    @State private var searchText = ""
+    
     @State private var sortOrder = [SortDescriptor(\Category.name)]
     
     @Query private var categories: [Category]
@@ -26,40 +25,22 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $navigationPath) {
             
-            
-            
-            VStack {
-                let creator = PDFGenerator(categories: categories)
-                let renderedPDF = creator.renderDocument()
-
-                if let renderedPDF = renderedPDF {
-                    if let pdfData = renderedPDF.dataRepresentation() {
-                        NavigationLink(destination: PDFPreviewView(data: pdfData)) {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-                    }
+            CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
+                .navigationTitle("My Xcode Shortcuts")
+                .navigationDestination(for: Shortcut.self) { shortcut in
+                    EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
                 }
-                
-                CategoryListView(navigationPath: $navigationPath, searchString: searchText, sortOrder: sortOrder)
-                    .navigationTitle("My Xcode Shortcuts")
-                    .navigationDestination(for: Shortcut.self) { shortcut in
-                        EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
-                    }
-                    .navigationDestination(for: Category.self) { category in
-                        EditCategoryView(category: category)
-                    }
-
-                    .toolbar {
-                        sortOrderToolbarItem()
-                        addItemToolbarItem()
-                        filterToolbarItem()
-                        settingsToolbarItem()
-                        editButtonToolbarItem()
-    //                    deleteAllToolbarItem()
-    //                    loadSeedDataToolbarItem()
-                    }
-                .searchable(text: $searchText)
-            }
+                .navigationDestination(for: Category.self) { category in
+                    EditCategoryView(category: category)
+                }
+            
+                .toolbar {
+                    sortOrderToolbarItem()
+                    addItemToolbarItem()
+                    filterToolbarItem()
+                    settingsToolbarItem()
+//                    deleteAllToolbarItem()
+                }
         }
     }
     
@@ -78,7 +59,7 @@ struct ContentView: View {
             navigationPath.append(newShortcut)
         }
     }
-
+    
     private func deleteCategories(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
@@ -91,23 +72,12 @@ struct ContentView: View {
 // MARK: - Toobar Items
 extension ContentView {
     
-    // TODO: Delete me
-    private func loadSeedDataToolbarItem() -> some ToolbarContent {
-        let seedData = SeedData(modelContext: modelContext)
-        
-        return ToolbarItem {
-            Button(action: seedData.loadSeedData) {
-                Label("Load Seed Data", systemImage: "command")
-            }
-        }
-    }
-
-    private func editButtonToolbarItem() -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            EditButton()
-        }
-    }
-
+//    private func editButtonToolbarItem() -> some ToolbarContent {
+//        ToolbarItem(placement: .navigationBarTrailing) {
+//            EditButton()
+//        }
+//    }
+    
     private func sortOrderToolbarItem() -> some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Menu("Sort", systemImage: "arrow.up.arrow.down") {
@@ -123,7 +93,7 @@ extension ContentView {
     }
     
     private func filterToolbarItem() -> some ToolbarContent {
-        ToolbarItem {
+        ToolbarItem(placement: .topBarLeading) {
             Button {
                 withAnimation {
                     showHidden.toggle()
@@ -137,7 +107,7 @@ extension ContentView {
     }
     
     private func settingsToolbarItem() -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .topBarTrailing) {
             NavigationLink(destination: SettingsView()) {
                 Image(systemName: "gear")
             }
@@ -152,9 +122,9 @@ extension ContentView {
             }
         }
     }
-
+    
     private func addItemToolbarItem() -> some ToolbarContent {
-        ToolbarItem {
+        ToolbarItem(placement: .topBarTrailing) {
             Button(action: addItem) {
                 Label("Add Item", systemImage: "plus")
             }

@@ -25,8 +25,7 @@ struct CategoryListView: View {
         }
     }
     
-    // TODO: Not using searchString 
-    init(navigationPath: Binding<NavigationPath>, searchString: String = "", sortOrder: [SortDescriptor<Category>] = [], showSymbols: Bool? = nil) {
+    init(navigationPath: Binding<NavigationPath>, sortOrder: [SortDescriptor<Category>] = [], showSymbols: Bool? = nil) {
         if let showSymbols = showSymbols {
             self.showSymbols = showSymbols
         }

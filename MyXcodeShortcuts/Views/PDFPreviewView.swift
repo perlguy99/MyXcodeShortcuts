@@ -17,7 +17,8 @@ struct PDFPreviewView: View {
         VStack {
             Text("PDF Preview")
                 .font(.largeTitle)
-            Spacer()
+                .padding()
+        
             
             Button(action: {
                 printPDFDirectly(pdfData: data)
@@ -27,10 +28,12 @@ struct PDFPreviewView: View {
                     Image(systemName: "printer")
                 }
             })
-            
-            Spacer()
+            .padding()
+
             PDFViewUI(data: data)
+            Spacer()
         }
+        .background(Color.red)
     }
     
     func printPDFDirectly(pdfData: Data) {

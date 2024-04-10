@@ -37,11 +37,9 @@ struct EditShortcutView: View {
                         .textFieldStyle(.roundedBorder)
                 } header: {
                     Text("Keyboard Shortcut")
-                } footer: {
-                    Text("Hides shortcut from printing")
-                }
+                } 
                 
-                Section("Menu Location") {
+                Section("Category") {
                     Picker("Menu Category", selection: $shortcut.category) {
                         Text("Unknown")
                             .tag(Optional<Category>.none)

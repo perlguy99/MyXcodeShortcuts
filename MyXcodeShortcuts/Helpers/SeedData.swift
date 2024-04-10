@@ -52,7 +52,7 @@ class SeedData {
                     for shortcut in shortcuts {
                         shortcut.category = category
                         
-                        let currentShortcut = Shortcut(keyCombo: shortcut.keyCombo, details: shortcut.details, buttonState: .none, category: currentCategory)
+                        let currentShortcut = Shortcut(keyCombo: shortcut.keyCombo, details: shortcut.details, status: .none, category: currentCategory)
                         currentCategory.shortcuts.append(currentShortcut)
                     }
                 }

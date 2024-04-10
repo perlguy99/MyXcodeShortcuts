@@ -18,7 +18,7 @@
 		846371122BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */; };
 		846371222BBB02FA001ED9C3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371212BBB02FA001ED9C3 /* Category.swift */; };
 		846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371232BBB0315001ED9C3 /* Shortcut.swift */; };
-		846371262BBB0355001ED9C3 /* CheckboxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371252BBB0355001ED9C3 /* CheckboxState.swift */; };
+		846371262BBB0355001ED9C3 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371252BBB0355001ED9C3 /* Status.swift */; };
 		846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */; };
 		8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */; };
 		8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */; };
@@ -71,7 +71,7 @@
 		846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		846371212BBB02FA001ED9C3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		846371232BBB0315001ED9C3 /* Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcut.swift; sourceTree = "<group>"; };
-		846371252BBB0355001ED9C3 /* CheckboxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxState.swift; sourceTree = "<group>"; };
+		846371252BBB0355001ED9C3 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButtonStyle.swift; sourceTree = "<group>"; };
 		8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHelper.swift; sourceTree = "<group>"; };
 		8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 			children = (
 				846371212BBB02FA001ED9C3 /* Category.swift */,
 				846371232BBB0315001ED9C3 /* Shortcut.swift */,
-				846371252BBB0355001ED9C3 /* CheckboxState.swift */,
+				846371252BBB0355001ED9C3 /* Status.swift */,
 				846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */,
 				84D51D392BBDD0F600E6169B /* Categories.swift */,
 			);
@@ -370,7 +370,7 @@
 				846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */,
 				8463712F2BBB1B63001ED9C3 /* Extensions.swift in Sources */,
 				846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */,
-				846371262BBB0355001ED9C3 /* CheckboxState.swift in Sources */,
+				846371262BBB0355001ED9C3 /* Status.swift in Sources */,
 				84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */,
 				846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */,
 				840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */,

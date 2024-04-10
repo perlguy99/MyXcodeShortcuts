@@ -13,7 +13,7 @@ import SwiftData
 
 final class PDFGeneratorTests: XCTestCase {
     @AppStorage(Constants.Keys.pdfTitle.stringValue) var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.customSeparator.rawValue) var customSeparator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.separator.rawValue) var customSeparator = Constants.defaultSeparator
 
     override func setUp() {
         super.setUp()

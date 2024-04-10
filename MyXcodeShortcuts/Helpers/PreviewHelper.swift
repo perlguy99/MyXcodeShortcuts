@@ -12,13 +12,13 @@ import SwiftData
 struct PreviewHelper {
     let container: ModelContainer
     var previewCategory: Category = Category(name: "Preview Menu Category B")
-    var previewShortcut: Shortcut = Shortcut(keyCombo: "Cmd Opt %", details: "Preview Details 1B", buttonState: .none)
-    var previewShortcutWithCategory: Shortcut = Shortcut(keyCombo: "Cmd Ctrl opt F", details: "Preview Details X F", buttonState: .none)
-    var previewShortcutWithCategoryHidden: Shortcut = Shortcut(keyCombo: "Ctrl opt H", details: "Hide something", buttonState: .hidden)
+    var previewShortcut: Shortcut = Shortcut(keyCombo: "Cmd Opt %", details: "Preview Details 1B", status: .none)
+    var previewShortcutWithCategory: Shortcut = Shortcut(keyCombo: "Cmd Ctrl opt F", details: "Preview Details X F", status: .none)
+    var previewShortcutWithCategoryHidden: Shortcut = Shortcut(keyCombo: "Ctrl opt H", details: "Hide something", status: .hidden)
 
-    var previewNone = Shortcut(keyCombo: "Cmd opt N", details: "Status None", buttonState: .none)
-    var previewFavorite = Shortcut(keyCombo: "opt shift H", details: "Status Favorite", buttonState: .favorite)
-    var previewHidden = Shortcut(keyCombo: "Cmd ctrl opt shift W", details: "Status Hidden", buttonState: .hidden)
+    var previewNone = Shortcut(keyCombo: "Cmd opt N", details: "Status None", status: .none)
+    var previewFavorite = Shortcut(keyCombo: "opt shift H", details: "Status Favorite", status: .favorite)
+    var previewHidden = Shortcut(keyCombo: "Cmd ctrl opt shift W", details: "Status Hidden", status: .hidden)
 
     
     var sharedModelContainer: ModelContainer = {

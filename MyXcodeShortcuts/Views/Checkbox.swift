@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Checkbox: View {
-    @Binding var state: CheckboxState
+    @Binding var state: Status
     
     var body: some View {
         return Button(action: buttonTap) {
@@ -26,11 +26,11 @@ struct Checkbox: View {
         
     func buttonTap() {
         if state.rawValue == 0 {
-            state = CheckboxState(rawValue: 1)!
+            state = Status(rawValue: 1)!
         } else if state.rawValue == 1 {
-            state = CheckboxState(rawValue: 2)!
+            state = Status(rawValue: 2)!
         } else if state.rawValue == 2 {
-            state = CheckboxState(rawValue: 0)!
+            state = Status(rawValue: 0)!
         }
     }
 }
@@ -41,9 +41,9 @@ struct Checkbox_Previews: PreviewProvider {
     }
     
     private struct OtherView: View {
-        @State var favorite: CheckboxState = .favorite
-        @State var hidden: CheckboxState = .hidden
-        @State var none: CheckboxState = .none
+        @State var favorite: Status = .favorite
+        @State var hidden: Status = .hidden
+        @State var none: Status = .none
         
         var body: some View {
             VStack {

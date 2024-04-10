@@ -13,8 +13,9 @@ struct ShortcutView: View {
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
 
-    @AppStorage(Constants.Keys.customSeparator.rawValue) var customSeparator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.separator.rawValue) var customSeparator = Constants.defaultSeparator
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols = Constants.defaultShowSymbols
+    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden = Constants.defaultShowHidden
     
     var body: some View {
         
@@ -37,7 +38,7 @@ struct ShortcutView: View {
                 
                 Spacer()
                 
-                Checkbox(state: $shortcut.buttonState)
+                Checkbox(state: $shortcut.status)
                 
                 Spacer()
             }

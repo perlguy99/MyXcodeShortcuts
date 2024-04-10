@@ -18,7 +18,7 @@ struct CategoryView: View {
     
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
-            ForEach(category.shortcuts.filter { showHidden || $0.buttonState != .hidden }) { shortcut in
+            ForEach(category.shortcuts.filter { showHidden || $0.status != .hidden }) { shortcut in
                 ShortcutView(navigationPath: $navigationPath, shortcut: shortcut, showSymbols: showSymbols)
             }
             .onDelete(perform: deleteShortcuts)

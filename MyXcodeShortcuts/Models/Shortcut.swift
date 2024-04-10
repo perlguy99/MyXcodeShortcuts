@@ -11,18 +11,18 @@ import SwiftData
 @Model
 class Shortcut: Codable {
     enum CodingKeys: CodingKey {
-        case keyCombo, details, buttonState, category
+        case keyCombo, details, status, category
     }
     
     var keyCombo: String = ""
     var details: String = ""
     weak var category: Category?
-    var buttonState: CheckboxState
+    var status: Status
     
-    init(keyCombo: String, details: String, buttonState: CheckboxState = CheckboxState.none, category: Category? = nil) {
+    init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {
         self.keyCombo = keyCombo
         self.details = details
-        self.buttonState = buttonState
+        self.status = status
         
         if let category = category {
             self.category = category
@@ -35,7 +35,7 @@ class Shortcut: Codable {
         
         keyCombo = try values.decodeIfPresent(String.self, forKey: .keyCombo) ?? ""
         details = try values.decodeIfPresent(String.self, forKey: .details) ?? ""
-        buttonState = try values.decodeIfPresent(CheckboxState.self, forKey: .buttonState) ?? .none
+        status = try values.decodeIfPresent(Status.self, forKey: .status) ?? .none
         category = try values.decodeIfPresent(Category.self, forKey: .category)
     }
     
@@ -44,7 +44,7 @@ class Shortcut: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(keyCombo, forKey: .keyCombo)
         try container.encode(details, forKey: .details)
-        try container.encode(buttonState, forKey: .buttonState)
+        try container.encode(status, forKey: .status)
     }
 }
 

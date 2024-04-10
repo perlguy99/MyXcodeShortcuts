@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RoundedRectButtonStyle: ButtonStyle {
-    var checkboxState: CheckboxState = .none
+    var checkboxState: Status = .none
     
     func makeBody(configuration: Configuration) -> some View {
             configuration.label

@@ -14,7 +14,7 @@ struct SettingsView: View {
     @Query private var categories: [Category]
     
     @AppStorage(Constants.Keys.pdfTitle.rawValue) private var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.customSeparator.rawValue) private var customSeparator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.separator.rawValue) private var separator = Constants.defaultSeparator
     
     @State private var showingValidationError = false
     
@@ -52,14 +52,14 @@ struct SettingsView: View {
                     
                     HStack {
                         Spacer()
-                        Text( example.replacingKeywordsWithSymbols(separator: customSeparator))
+                        Text( example.replacingKeywordsWithSymbols(separator: separator))
                             .transition(.opacity)
-                            .animation(.default, value: customSeparator)
+                            .animation(.default, value: separator)
                             .font(.largeTitle)
                         Spacer()
                     }
                     
-                    Picker("Custom Separator", selection: $customSeparator) {
+                    Picker("Custom Separator", selection: $separator) {
                         ForEach(Separator.allCases, id: \.self) { option in
                             Text("\(option.description)").tag(option.rawValue)
                         }

@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 //@AppStorage(Constants.Keys.pdfTitle.stringValue) var pdfTitle = Constants.defaultTitle
-//@AppStorage(Constants.Keys.customSeparator.rawValue) var customSeparator = Constants.defaultSeparator
+//@AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
 //@AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
 //@AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
 
@@ -48,7 +48,7 @@ struct MyXcodeShortcutsApp: App {
 //            var tempCat = Category(name: "tempCat_XYZ")
 //            container.mainContext.insert(tempCat)
 //            
-//            var tempShort = Shortcut(keyCombo: "CMD X", details: "tempShort", buttonState: .none, category: tempCat)
+//            var tempShort = Shortcut(keyCombo: "CMD X", details: "tempShort", status: .none, category: tempCat)
 ////            tempCat.shortcuts?.append(tempShort)
 //            
 //            return container

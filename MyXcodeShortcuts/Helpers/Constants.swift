@@ -15,7 +15,7 @@ enum Constants {
     
     enum Keys: String, StringRepresentable {
         case pdfTitle
-        case customSeparator
+        case separator
         case showHidden
         case showSymbols
     }

@@ -33,7 +33,7 @@ class PDFGenerator {
     var pdfDocument: PDFDocument = PDFDocument()
     
     @AppStorage(Constants.Keys.pdfTitle.rawValue) var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.customSeparator.rawValue) var customSeparator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.separator.rawValue) var customSeparator = Constants.defaultSeparator
     
     init(categories: [Category]) {
         self.categories = categories

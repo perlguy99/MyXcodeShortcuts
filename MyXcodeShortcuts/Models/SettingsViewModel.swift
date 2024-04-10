@@ -15,7 +15,7 @@
 //        }
 //    }
 //    
-//    @Published var customSeparator: String = Constants.defaultSeparator {
+//    @Published var separator: String = Constants.defaultSeparator {
 //        didSet {
 //            saveSettings()
 //        }
@@ -27,7 +27,7 @@
 //
 //    private func saveSettings() {
 //        UserDefaults.standard.set(pdfTitle, forKey: Constants.Keys.pdfTitle.rawValue)
-//        UserDefaults.standard.set(customSeparator, forKey: Constants.Keys.customSeparatorKey.rawValue)
+//        UserDefaults.standard.set(separator, forKey: Constants.Keys.customSeparatorKey.rawValue)
 //    }
 //
 //    func loadSettings() {

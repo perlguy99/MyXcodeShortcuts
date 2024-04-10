@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import SwiftData
+import PDFKit
 
 extension String {
     var shortcutKeyComboString: String {
@@ -112,5 +113,22 @@ extension String {
         
         // Join the segments back into a single string
         return replacedSegments.joined(separator: separator)
+    }
+}
+
+extension UIPrintFormatter {
+    convenience init?(pdfData: Data) {
+        guard let pdfDocument = PDFDocument(data: pdfData) else { return nil }
+        
+        self.init()
+        self.perPageContentInsets = .zero   // Adjust if I find that I need margins
+        self.startPage = 0
+        self.maximumContentHeight = pdfDocument.page(at: 0)?.bounds(for: .mediaBox).height ?? 792 // Standard US Letter height in points
+        self.maximumContentWidth = pdfDocument.page(at: 0)?.bounds(for: .mediaBox).width ?? 612 // Standard US Letter height in points
+        
+        print("\n------------------------------")
+        print(self.maximumContentHeight)
+        print(self.maximumContentWidth)
+        print("------------------------------\n")
     }
 }

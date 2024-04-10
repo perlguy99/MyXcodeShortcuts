@@ -45,7 +45,7 @@ struct PreviewHelper {
     
     func loadSeedData(skipDataCheck: Bool = false) {
         let seed = SeedData(modelContext: container.mainContext)
-        seed.loadSeedData(skipDataCheck: skipDataCheck)
+        seed.loadSeedData()
     }
     
     func loadSampleData() {

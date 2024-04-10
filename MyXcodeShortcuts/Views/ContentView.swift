@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import PDFKit
 
 @MainActor
 struct ContentView: View {
@@ -24,28 +25,45 @@ struct ContentView: View {
     // TODO: - figure out toolbar item order if needed
     var body: some View {
         NavigationStack(path: $navigationPath) {
-            CategoryListView(navigationPath: $navigationPath, searchString: searchText, sortOrder: sortOrder)
-                .navigationTitle("My Xcode Shortcuts")
-                .navigationDestination(for: Shortcut.self) { shortcut in
-                    EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
-                }
-                .navigationDestination(for: Category.self) { category in
-                    EditCategoryView(category: category)
-                }
+            
+            
+            
+            VStack {
+                let creator = PDFGenerator(categories: categories)
+                let renderedPDF = creator.renderDocument()
 
-                .toolbar {
-                    sortOrderToolbarItem()
-                    addItemToolbarItem()
-                    filterToolbarItem()
-                    settingsToolbarItem()
-                    editButtonToolbarItem()
-//                    deleteAllToolbarItem()
-//                    getLoadSeedDataToolbarItem()
+                if let renderedPDF = renderedPDF {
+                    if let pdfData = renderedPDF.dataRepresentation() {
+                        NavigationLink(destination: PDFPreviewView(data: pdfData)) {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                    }
                 }
+                
+                CategoryListView(navigationPath: $navigationPath, searchString: searchText, sortOrder: sortOrder)
+                    .navigationTitle("My Xcode Shortcuts")
+                    .navigationDestination(for: Shortcut.self) { shortcut in
+                        EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+                    }
+                    .navigationDestination(for: Category.self) { category in
+                        EditCategoryView(category: category)
+                    }
+
+                    .toolbar {
+                        sortOrderToolbarItem()
+                        addItemToolbarItem()
+                        filterToolbarItem()
+                        settingsToolbarItem()
+                        editButtonToolbarItem()
+    //                    deleteAllToolbarItem()
+    //                    loadSeedDataToolbarItem()
+                    }
                 .searchable(text: $searchText)
+            }
         }
     }
     
+    // TODO: Delete me
     private func deleteAll() {
         print("private func deleteAll()")
         for category in categories {
@@ -72,6 +90,8 @@ struct ContentView: View {
 
 // MARK: - Toobar Items
 extension ContentView {
+    
+    // TODO: Delete me
     private func loadSeedDataToolbarItem() -> some ToolbarContent {
         let seedData = SeedData(modelContext: modelContext)
         
@@ -124,6 +144,7 @@ extension ContentView {
         }
     }
     
+    // TODO: Delete me
     private func deleteAllToolbarItem() -> some ToolbarContent {
         ToolbarItem {
             Button(action: deleteAll) {

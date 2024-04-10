@@ -31,13 +31,12 @@ class PDFGenerator {
     }
     
     var pdfDocument: PDFDocument = PDFDocument()
-    var documentTitle: String
-    var separator: String
     
-    init(categories: [Category], documentTitle: String = Constants.defaultTitle, separator: String = Constants.defaultSeparator) {
+    @AppStorage(Constants.Keys.pdfTitle.rawValue) var pdfTitle = Constants.defaultTitle
+    @AppStorage(Constants.Keys.customSeparator.rawValue) var customSeparator = Constants.defaultSeparator
+    
+    init(categories: [Category]) {
         self.categories = categories
-        self.documentTitle = documentTitle
-        self.separator = separator
     }
     
     func renderDocument() -> PDFDocument? {
@@ -94,7 +93,7 @@ class PDFGenerator {
             total += sectionLineHeight
             
             for shortcut in shortcuts {
-                let keyCombo = shortcut.keyCombo.replacingKeywordsWithSymbols(separator: separator)
+                let keyCombo = shortcut.keyCombo.replacingKeywordsWithSymbols(separator: customSeparator)
                 
                 if total < height {
                     keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
@@ -133,7 +132,7 @@ class PDFGenerator {
         let rect = CGRect(x: 10, y: 10, width: 70, height: 70)
         logo.draw(in: rect)
         
-        let text = documentTitle
+        let text = pdfTitle
         let attributes: [NSAttributedString.Key : NSObject]
         if firstPage {
             attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20),

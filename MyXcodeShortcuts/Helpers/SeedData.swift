@@ -11,13 +11,14 @@ import SwiftData
 class SeedData {
     var modelContext: ModelContext
     var seedData: [Category] = [Category]()
+    var skipDataCheck: Bool = false
     
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
     }
     
     @MainActor
-    func loadSeedData(skipDataCheck: Bool = false) {
+    func loadSeedData() {
         guard let path = Bundle.main.path(forResource: "SeedData", ofType: "json") else {
             print("Error! - Failed to locate SeedData.json in bundle.")
             return

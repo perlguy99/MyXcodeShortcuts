@@ -7,6 +7,7 @@
 
 import XCTest
 import SwiftUI
+import SwiftData
 
 @testable import MyXcodeShortcuts
 
@@ -49,15 +50,27 @@ final class PDFGeneratorTests: XCTestCase {
     
     @MainActor
     func testRenderDocument() throws {
-        let testDefaultSeparator = "="
-        let testDefaultTitle = "Default PDF Title XYZ"
+        let sharedModelContainer: ModelContainer = {
+            let schema = Schema([Category.self, Shortcut.self])
+            
+            let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+
+            do {
+                return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            } catch {
+                fatalError("Could not create ModelContainer: \(error)")
+            }
+        }()
         
-        var previewHelper = PreviewHelper()
+        let previewHelper = PreviewHelper()
         previewHelper.loadSeedData(skipDataCheck: true)
         
         // TODO: Need to get the seed data back out of the database!
+        let seed = SeedData(modelContext: sharedModelContainer.mainContext)
+        seed.skipDataCheck = true
+        seed.loadSeedData()
         
-        let creator = PDFGenerator(categories: [previewHelper.previewCategory])
+        let creator = PDFGenerator(categories: seed.seedData)
         let renderedDocument = creator.renderDocument()
         
         XCTAssertNotNil(renderedDocument)

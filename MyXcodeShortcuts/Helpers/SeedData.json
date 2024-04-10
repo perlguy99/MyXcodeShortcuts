@@ -245,7 +245,7 @@
                 "details": "Debug Stop / Continue",
             },
                 {
-                    "keyCombo": "Cmd \\\\",
+                    "keyCombo": "Cmd \\",
                     "details": "Add / delete breakpoint",
                 },
                 {

@@ -33,7 +33,7 @@ class PDFGenerator {
     var pdfDocument: PDFDocument = PDFDocument()
     
     @AppStorage(Constants.Keys.pdfTitle.rawValue) var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.separator.rawValue) var customSeparator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
     
     init(categories: [Category]) {
         self.categories = categories
@@ -93,7 +93,7 @@ class PDFGenerator {
             total += sectionLineHeight
             
             for shortcut in shortcuts {
-                let keyCombo = shortcut.keyCombo.replacingKeywordsWithSymbols(separator: customSeparator)
+                let keyCombo = shortcut.keyCombo.replacingKeywordsWithSymbols(separator: separator)
                 
                 if total < height {
                     keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)

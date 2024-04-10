@@ -26,11 +26,11 @@ struct Checkbox: View {
         
     func buttonTap() {
         if state.rawValue == 0 {
-            state = Status(rawValue: 1)!
+            state = Status(rawValue: 1)
         } else if state.rawValue == 1 {
-            state = Status(rawValue: 2)!
+            state = Status(rawValue: 2)
         } else if state.rawValue == 2 {
-            state = Status(rawValue: 0)!
+            state = Status(rawValue: 0)
         }
     }
 }

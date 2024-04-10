@@ -39,25 +39,8 @@ struct MyXcodeShortcutsApp: App {
         }
     }()
     
-    // TODO: Remove
-//    var sharedModelContainer2: ModelContainer = {
-//        do {
-//            let schema = Schema([Category.self, Shortcut.self])
-//            let container = try ModelContainer(for: schema)
-//            
-//            var tempCat = Category(name: "tempCat_XYZ")
-//            container.mainContext.insert(tempCat)
-//            
-//            var tempShort = Shortcut(keyCombo: "CMD X", details: "tempShort", status: .none, category: tempCat)
-////            tempCat.shortcuts?.append(tempShort)
-//            
-//            return container
-//            
-//        } catch {
-//            fatalError("Could not create ModelContainer: \(error)")
-//        }
-//    }()
-
+    @StateObject private var statusManager = StatusManager()
+    
     func checkSeed() {
         let seed = SeedData(modelContext: sharedModelContainer.mainContext)
         seed.loadSeedData()
@@ -68,6 +51,7 @@ struct MyXcodeShortcutsApp: App {
         
         WindowGroup {
             return ContentView()
+                .environmentObject(statusManager)
         }
         .modelContainer(sharedModelContainer)
     }

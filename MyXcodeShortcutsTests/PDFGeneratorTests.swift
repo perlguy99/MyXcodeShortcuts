@@ -13,39 +13,39 @@ import SwiftData
 
 final class PDFGeneratorTests: XCTestCase {
     @AppStorage(Constants.Keys.pdfTitle.stringValue) var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.separator.rawValue) var customSeparator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
 
     override func setUp() {
         super.setUp()
         
         pdfTitle = Constants.defaultTitle
-        customSeparator = Constants.defaultSeparator
+        separator = Constants.defaultSeparator
     }
     
     override func tearDown() {
         super.tearDown()
         
         pdfTitle = Constants.defaultTitle
-        customSeparator = Constants.defaultSeparator
+        separator = Constants.defaultSeparator
     }
     
     func testDefaultTitleWhenNoTitleSet() throws {
         XCTAssertEqual(pdfTitle, Constants.defaultTitle, "\n\nExpected: \(Constants.defaultTitle)\nBut got: \(pdfTitle)\n\n")
-        XCTAssertEqual(customSeparator, Constants.defaultSeparator, "\n\nExpected: \(Constants.defaultSeparator)\nBut got: \(customSeparator)\n\n")
+        XCTAssertEqual(separator, Constants.defaultSeparator, "\n\nExpected: \(Constants.defaultSeparator)\nBut got: \(separator)\n\n")
     }
     
     func testProperTitleWhenTitleSet() throws {
         let otherTitle = "OtHeR TiTlE"
         let otherSeparator = ""
         pdfTitle = otherTitle
-        customSeparator = otherSeparator
+        separator = otherSeparator
         
         XCTAssertEqual(pdfTitle, otherTitle, "\n\nExpected: \(otherTitle)\nBut got: \(pdfTitle)\n\n")
-        XCTAssertEqual(customSeparator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(customSeparator)\n\n")
+        XCTAssertEqual(separator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(separator)\n\n")
         
         // Double-check
         XCTAssertEqual(pdfTitle, otherTitle, "\n\nExpected: \(otherTitle)\nBut got: \(pdfTitle)\n\n")
-        XCTAssertEqual(customSeparator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(customSeparator)\n\n")
+        XCTAssertEqual(separator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(separator)\n\n")
     }
     
     @MainActor

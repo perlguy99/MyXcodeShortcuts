@@ -13,13 +13,13 @@ struct ShortcutView: View {
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
 
-    @AppStorage(Constants.Keys.separator.rawValue) var customSeparator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols = Constants.defaultShowSymbols
     @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden = Constants.defaultShowHidden
     
     var body: some View {
         
-        let keyCombo = showSymbols ? shortcut.keyCombo.replacingKeywordsWithSymbols(separator: customSeparator) : shortcut.keyCombo.replacingKeywordsWithFullWords(separator: customSeparator)
+        let keyCombo = showSymbols ? shortcut.keyCombo.replacingKeywordsWithSymbols(separator: separator) : shortcut.keyCombo.replacingKeywordsWithFullWords(separator: separator)
         
         VStack {
             HStack {

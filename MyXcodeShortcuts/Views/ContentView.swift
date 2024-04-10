@@ -12,14 +12,13 @@ import PDFKit
 @MainActor
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var statusManager: StatusManager
     
     @State private var navigationPath = NavigationPath()
     
     @State private var sortOrder = [SortDescriptor(\Category.name)]
     
     @Query private var categories: [Category]
-    
-    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
     
     // TODO: - figure out toolbar item order if needed
     var body: some View {
@@ -92,17 +91,17 @@ extension ContentView {
         }
     }
     
-    private func filterToolbarItem() -> some ToolbarContent {
+    func filterToolbarItem() -> some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Button {
                 withAnimation {
-                    showHidden.toggle()
+                    statusManager.status.toggle()
                 }
             } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
             }
             .font(.title2)
-            .foregroundStyle(showHidden ? .blue : .red)
+            .foregroundStyle(statusManager.status.color)
         }
     }
     

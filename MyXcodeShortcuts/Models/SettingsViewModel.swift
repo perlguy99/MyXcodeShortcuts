@@ -27,17 +27,17 @@
 //
 //    private func saveSettings() {
 //        UserDefaults.standard.set(pdfTitle, forKey: Constants.Keys.pdfTitle.rawValue)
-//        UserDefaults.standard.set(separator, forKey: Constants.Keys.customSeparatorKey.rawValue)
+//        UserDefaults.standard.set(separator, forKey: Constants.Keys.separatorKey.rawValue)
 //    }
 //
 //    func loadSettings() {
 //        pdfTitle = UserDefaults.standard.string(forKey: Constants.Keys.pdfTitle.rawValue) ?? Constants.defaultTitle
-//        customSeparator = UserDefaults.standard.string(forKey: Constants.Keys.customSeparatorKey.rawValue) ?? Constants.defaultSeparator
+//        separator = UserDefaults.standard.string(forKey: Constants.Keys.separatorKey.rawValue) ?? Constants.defaultSeparator
 //    }
 //    
 //    func clearSettings() {
 //        UserDefaults.standard.removeObject(forKey: Constants.Keys.pdfTitle.rawValue)
-//        UserDefaults.standard.removeObject(forKey: Constants.Keys.customSeparatorKey.rawValue)
+//        UserDefaults.standard.removeObject(forKey: Constants.Keys.separatorKey.rawValue)
 //    }
 //}
 //

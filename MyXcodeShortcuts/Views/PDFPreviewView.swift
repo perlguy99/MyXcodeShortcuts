@@ -18,7 +18,6 @@ struct PDFPreviewView: View {
             Text("PDF Preview")
                 .font(.largeTitle)
                 .padding()
-        
             
             Button(action: {
                 printPDFDirectly(pdfData: data)

@@ -125,10 +125,5 @@ extension UIPrintFormatter {
         self.startPage = 0
         self.maximumContentHeight = pdfDocument.page(at: 0)?.bounds(for: .mediaBox).height ?? 792 // Standard US Letter height in points
         self.maximumContentWidth = pdfDocument.page(at: 0)?.bounds(for: .mediaBox).width ?? 612 // Standard US Letter height in points
-        
-        print("\n------------------------------")
-        print(self.maximumContentHeight)
-        print(self.maximumContentWidth)
-        print("------------------------------\n")
     }
 }

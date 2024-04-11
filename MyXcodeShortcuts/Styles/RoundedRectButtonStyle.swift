@@ -46,7 +46,6 @@ struct RoundedRectButtonStyle: ButtonStyle {
     }
     
     func getBackgroundColor() -> Color {
-        
         switch checkboxState {
         case .none:
             return .noneBackground
@@ -56,6 +55,4 @@ struct RoundedRectButtonStyle: ButtonStyle {
             return .hiddenBackground
         }
     }
-    
 }
-

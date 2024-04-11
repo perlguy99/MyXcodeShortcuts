@@ -54,7 +54,6 @@ struct ShortcutView: View {
     
 }
 
-//#Preview("SizeThat FitsLayout", traits: .sizeThatFitsLayout) {
 #Preview {
     let previewHelper = PreviewHelper()
    

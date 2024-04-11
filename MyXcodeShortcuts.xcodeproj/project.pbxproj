@@ -26,7 +26,6 @@
 		846371312BBB1B7D001ED9C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371302BBB1B7D001ED9C3 /* Constants.swift */; };
 		846371332BBB1BB1001ED9C3 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371322BBB1BB1001ED9C3 /* ShortcutView.swift */; };
 		846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371342BBB1BE7001ED9C3 /* Checkbox.swift */; };
-		846371372BBB1C47001ED9C3 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */; };
 		846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371382BBB3245001ED9C3 /* SettingsView.swift */; };
 		8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */; };
 		846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */; };
@@ -37,7 +36,6 @@
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
-		84FFAC042BC887ED00CBC569 /* KeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAC032BC887EC00CBC569 /* KeyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +78,6 @@
 		846371302BBB1B7D001ED9C3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		846371322BBB1BB1001ED9C3 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
 		846371342BBB1BE7001ED9C3 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
-		846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		846371382BBB3245001ED9C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortcutView.swift; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
 		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
-		84FFAC032BC887EC00CBC569 /* KeyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +188,6 @@
 				846371382BBB3245001ED9C3 /* SettingsView.swift */,
 				846371322BBB1BB1001ED9C3 /* ShortcutView.swift */,
 				846371342BBB1BE7001ED9C3 /* Checkbox.swift */,
-				84FFAC032BC887EC00CBC569 /* KeyData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,7 +199,6 @@
 				846371232BBB0315001ED9C3 /* Shortcut.swift */,
 				846371252BBB0355001ED9C3 /* Status.swift */,
 				847B929F2BC82185001EFFC9 /* StatusManager.swift */,
-				846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */,
 				84D51D392BBDD0F600E6169B /* Categories.swift */,
 			);
 			path = Models;
@@ -385,13 +379,11 @@
 				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
-				84FFAC042BC887ED00CBC569 /* KeyData.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
 				840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */,
 				847B92A02BC82185001EFFC9 /* StatusManager.swift in Sources */,
 				847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */,
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
-				846371372BBB1C47001ED9C3 /* SettingsViewModel.swift in Sources */,
 				846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */,
 				8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */,
 				84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */,

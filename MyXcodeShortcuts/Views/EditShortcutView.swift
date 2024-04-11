@@ -16,7 +16,7 @@ struct EditShortcutView: View {
     
     @Bindable var shortcut: Shortcut
     
-    @FocusState var isInputActive: Bool
+    @FocusState var isKeyComboFieldActive: Bool
     
     var body: some View {
         
@@ -26,49 +26,12 @@ struct EditShortcutView: View {
                 Section {
                     TextField("Key Combination", text: $shortcut.keyCombo)
                         .textFieldStyle(.roundedBorder)
-                        .focused($isInputActive)
-                    
+                        .focused($isKeyComboFieldActive)
                         .toolbar {
-                            ToolbarItemGroup(placement: .keyboard) {
-                                HStack {
-                                    Spacer()
-                                    Button(Constants.cmdSymbol) {
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.cmdString
-                                        print("\(Constants.cmdString) appended")
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    Button(Constants.ctrlSymbol) {
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.ctrlString
-                                        print("\(Constants.ctrlString) appended")
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    Button(Constants.optSymbol) {
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.optString
-                                        print("\(Constants.optString) appended")
-                                    }
-                                    
-                                    Spacer()
-                                    
-                                    Button(Constants.shiftSymbol) {
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.shiftString
-                                        print("\(Constants.shiftString) appended")
-                                    }
-
-                                    Spacer()
-                                    
-                                    Button(Constants.returnSymbol) {
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.returnString
-                                        print("\(Constants.returnString) appended")
-                                    }
-                                    
-                                    Spacer()
-
+                            if isKeyComboFieldActive {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    keyboardToolbar
                                 }
-                                .font(.system(size: 24))
                             }
                         }
                     
@@ -101,6 +64,7 @@ struct EditShortcutView: View {
 
     private var keyboardToolbar: some View {
         HStack {
+            Spacer()
             ForEach(KeyData.all, id: \.self) { key in
                 Button(action: {
                     appendKeyCombo(key: key.name)

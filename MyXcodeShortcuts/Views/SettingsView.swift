@@ -15,6 +15,7 @@ struct SettingsView: View {
     
     @AppStorage(Constants.Keys.pdfTitle.rawValue) private var pdfTitle = Constants.defaultTitle
     @AppStorage(Constants.Keys.separator.rawValue) private var separator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.showSymbols.rawValue) private var showSymbols = Constants.defaultShowSymbols
     
     @State private var showingValidationError = false
     
@@ -39,7 +40,7 @@ struct SettingsView: View {
         }
     }
 
-    var example = "CMD CTRL OPT X"
+    var example = "CMD CTRL OPT SHIFT RETURN X"
     
     var body: some View {
         NavigationView {
@@ -48,11 +49,21 @@ struct SettingsView: View {
                     TextField("PDF Title", text: $pdfTitle)
                 }
 
+                Section(header: Text("Show Symbols")) {
+                    Toggle(isOn: $showSymbols, label: {
+                        Text("Show Symbols")
+                    })
+                }
+
                 Section(header: Text("Custom Key Separator")) {
                     
                     HStack {
                         Spacer()
-                        Text( example.replacingKeywordsWithSymbols(separator: separator))
+                        
+                        let keyCombo = showSymbols ? example.replacingKeywordsWithSymbols(separator: separator) :
+                        example.replacingKeywordsWithFullWords(separator: separator)
+                        
+                        Text(keyCombo)
                             .transition(.opacity)
                             .animation(.default, value: separator)
                             .font(.largeTitle)

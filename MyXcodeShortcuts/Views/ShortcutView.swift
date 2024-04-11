@@ -19,7 +19,7 @@ struct ShortcutView: View {
     
     var body: some View {
         
-        let keyCombo = showSymbols ? shortcut.keyCombo.replacingKeywordsWithSymbols(separator: separator) : shortcut.keyCombo.replacingKeywordsWithFullWords(separator: separator)
+        let keyCombo = showSymbols ? shortcut.keyCombo.replacingKeywordsWithSymbols(separator: separator) : shortcut.keyCombo.replacingKeywordsWithFullWords(separator: separator).lowercased()
         
         VStack {
             HStack {

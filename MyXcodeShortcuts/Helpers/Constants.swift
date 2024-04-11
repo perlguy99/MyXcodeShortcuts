@@ -14,6 +14,12 @@ enum Constants {
     static let defaultShowHidden = true
     static let defaultStatusInt = 0
     
+    static let cmdSymbol = "\u{2318}"
+    static let ctrlSymbol = "\u{2303}"
+    static let shiftSymbol = "\u{21E7}"
+    static let optSymbol = "\u{2325}"
+    static let returnSymbol = "\u{23CE}"
+    
     enum Keys: String, StringRepresentable {
         case pdfTitle
         case separator

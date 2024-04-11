@@ -20,7 +20,7 @@ class Shortcut: Codable {
     var status: Status = Status.none
     
     init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {
-        self.keyCombo = keyCombo
+        self.keyCombo = keyCombo.localizedLowercase
         self.details = details
         self.status = status
         

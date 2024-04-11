@@ -64,11 +64,11 @@ extension String {
     func replacingKeywordsWithSymbols(separator: String = "*") -> String {
         // Define the mappings from keywords to Unicode symbols
         let substitutions: [String: String] = [
-            "cmd": "\u{2318}", // Command Key Symbol
-            "ctrl": "\u{2303}", // Control Key Symbol
-            "shift": "\u{21E7}", // Shift Key Symbol
-            "opt": "\u{2325}", // Option (Alt) Key Symbol
-            "return": "\u{23CE}", // Shift Key Symbol
+            "cmd": Constants.cmdSymbol, // Command Key Symbol
+            "ctrl": Constants.ctrlSymbol, // Control Key Symbol
+            "shift": Constants.shiftSymbol, // Shift Key Symbol
+            "opt": Constants.optSymbol, // Option (Alt) Key Symbol
+            "return": Constants.returnSymbol, // Shift Key Symbol
         ]
         
         // Split the string into segments based on spaces

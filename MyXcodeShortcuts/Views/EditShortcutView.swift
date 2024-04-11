@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import KeyboardKit
 
 struct EditShortcutView: View {
     @Environment(\.modelContext) var modelContext
@@ -32,10 +33,59 @@ struct EditShortcutView: View {
                     
                         .toolbar {
                             ToolbarItemGroup(placement: .keyboard) {
-                                Spacer()
-                                
-                                Button("Cmd") {
-                                    print("CMD")
+                                HStack {
+                                    Spacer()
+                                    Button(Constants.cmdSymbol) {
+                                        // append to $shortcut.keyCombo here
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "cmd"
+                                        
+                                        print("cmd appended")
+                                    }
+                                    .font(.system(size: 24))
+                                    .accessibilityHint("Command Key")
+                                    
+                                    Spacer()
+                                    
+                                    Button(Constants.ctrlSymbol) {
+                                        // append to $shortcut.keyCombo here
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "ctrl"
+                                        
+                                        print("ctrl appended")
+                                    }
+                                    .font(.system(size: 24))
+                                    
+                                    Spacer()
+                                    
+                                    Button(Constants.optSymbol) {
+                                        // append to $shortcut.keyCombo here
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "opt"
+                                        
+                                        print("opt appended")
+                                    }
+                                    .font(.system(size: 24))
+                                    
+                                    Spacer()
+                                    
+                                    Button(Constants.shiftSymbol) {
+                                        // append to $shortcut.keyCombo here
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "shift"
+                                        
+                                        print("shift appended")
+                                    }
+                                    .font(.system(size: 24))
+
+                                    Spacer()
+                                    
+                                    Button(Constants.returnSymbol) {
+                                        // append to $shortcut.keyCombo here
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "return"
+                                        
+                                        print("return appended")
+                                    }
+                                    .font(.system(size: 24))
+                                    
+                                    Spacer()
+
                                 }
                             }
                         }

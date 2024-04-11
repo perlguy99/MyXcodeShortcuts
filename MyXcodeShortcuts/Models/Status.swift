@@ -57,7 +57,18 @@ enum Status: Int, Codable {
             return "hidden"
         }
     }
-    
+
+    var headingValue: String {
+        switch self {
+        case .none:
+            return "Showing All Shortcuts"
+        case .favorite:
+            return "Showing Favorites Only"
+        case .hidden:
+            return "Hidden Excluded"
+        }
+    }
+
     // Convert to Int
     var intValue: Int {
         return self.rawValue

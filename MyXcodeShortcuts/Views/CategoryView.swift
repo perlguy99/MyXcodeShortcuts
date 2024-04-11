@@ -10,17 +10,17 @@ import SwiftData
 
 struct CategoryView: View {
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
     
     @Binding var navigationPath: NavigationPath
     
     var category: Category
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
+    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
     
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
             ForEach(category.shortcuts.filter { shortcut in
-                switch statusManager.status {
+                switch Status(rawValue: statusInt) {
                 case .none:
                     return true
                 case .favorite:
@@ -50,14 +50,11 @@ struct CategoryView: View {
 #Preview {
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     
-    var statusManager = StatusManager()
-    
     let previewHelper = PreviewHelper()
     previewHelper.loadSampleData()
     
     return Group {
         CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
-            .environmentObject(statusManager)
         
 //        Spacer()
 //        CategoryView(category: previewHelper.previewCategory, showSymbols: false)

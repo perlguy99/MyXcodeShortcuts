@@ -39,8 +39,6 @@ struct MyXcodeShortcutsApp: App {
         }
     }()
     
-    @StateObject private var statusManager = StatusManager()
-    
     func checkSeed() {
         let seed = SeedData(modelContext: sharedModelContainer.mainContext)
         seed.loadSeedData()
@@ -52,7 +50,6 @@ struct MyXcodeShortcutsApp: App {
         WindowGroup {
             return ContentView()
         }
-        .environmentObject(statusManager)
         .modelContainer(sharedModelContainer)
     }
 }

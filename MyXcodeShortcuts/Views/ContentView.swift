@@ -13,33 +13,41 @@ import PDFKit
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
-    @EnvironmentObject var statusManager: StatusManager
-    
     @State private var navigationPath = NavigationPath()
     @State private var sortOrder = [SortDescriptor(\Category.name)]
     
+    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
+    
     @Query private var categories: [Category]
+    
+    @State var currentStatus: Status = Status(rawValue: 0)
     
     // TODO: - figure out toolbar item order if needed
     var body: some View {
         NavigationStack(path: $navigationPath) {
             
-            CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
-                .navigationTitle("My Xcode Shortcuts")
-                .navigationDestination(for: Shortcut.self) { shortcut in
-                    EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+            VStack {
+                Text(currentStatus.headingValue)
+                    .font(.caption)
+                
+                CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
+                    .navigationTitle("My Xcode Shortcuts")
+                    .navigationDestination(for: Shortcut.self) { shortcut in
+                        EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+                    }
+                    .navigationDestination(for: Category.self) { category in
+                        EditCategoryView(category: category)
+                    }
+                
+                    .toolbar {
+                        sortOrderToolbarItem()
+                        addItemToolbarItem()
+                        filterToolbarItem()
+                        settingsToolbarItem()
+    //                    deleteAllToolbarItem()
                 }
-                .navigationDestination(for: Category.self) { category in
-                    EditCategoryView(category: category)
-                }
+            }
             
-                .toolbar {
-                    sortOrderToolbarItem()
-                    addItemToolbarItem()
-                    filterToolbarItem()
-                    settingsToolbarItem()
-//                    deleteAllToolbarItem()
-                }
         }
     }
     
@@ -71,12 +79,6 @@ struct ContentView: View {
 // MARK: - Toobar Items
 extension ContentView {
     
-//    private func editButtonToolbarItem() -> some ToolbarContent {
-//        ToolbarItem(placement: .navigationBarTrailing) {
-//            EditButton()
-//        }
-//    }
-    
     private func sortOrderToolbarItem() -> some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Menu("Sort", systemImage: "arrow.up.arrow.down") {
@@ -95,13 +97,15 @@ extension ContentView {
         ToolbarItem(placement: .topBarLeading) {
             Button {
                 withAnimation {
-                    statusManager.status.toggle()
+                    currentStatus = Status(rawValue: statusInt)
+                    currentStatus.toggle()
+                    statusInt = currentStatus.rawValue
                 }
             } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
             }
             .font(.title2)
-            .foregroundStyle(statusManager.status.color)
+            .foregroundStyle(currentStatus.color)
         }
     }
     

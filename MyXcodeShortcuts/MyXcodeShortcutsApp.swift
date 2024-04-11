@@ -51,8 +51,8 @@ struct MyXcodeShortcutsApp: App {
         
         WindowGroup {
             return ContentView()
-                .environmentObject(statusManager)
         }
+        .environmentObject(statusManager)
         .modelContainer(sharedModelContainer)
     }
 }

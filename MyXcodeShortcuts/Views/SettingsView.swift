@@ -98,9 +98,11 @@ struct SettingsView: View {
 
 
 #Preview {
+    let statusManager = StatusManager()
 //    let previewHelper = PreviewHelper()
 
     return SettingsView()
+            .environmentObject(statusManager)
 }
 
 

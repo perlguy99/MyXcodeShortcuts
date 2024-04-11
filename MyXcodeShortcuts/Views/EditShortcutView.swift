@@ -16,9 +16,6 @@ struct EditShortcutView: View {
     
     @Bindable var shortcut: Shortcut
     
-//    @State private var category: String = ""
-//    @State private var selectedOption = "other"
-    
     @FocusState var isInputActive: Bool
     
     let options = ["printed", "hidden", "other"]

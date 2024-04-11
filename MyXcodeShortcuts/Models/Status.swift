@@ -64,11 +64,3 @@ enum Status: Int, Codable {
     }
 }
 
-class StatusManager: ObservableObject {
-    @Published var status: Status = .none
-    
-    init(initialStatus: Status = .none) {
-        let storedStatusInt = UserDefaults.standard.integer(forKey: Constants.Keys.statusInt.rawValue)
-        self.status = Status(rawValue: storedStatusInt)
-    }
-}

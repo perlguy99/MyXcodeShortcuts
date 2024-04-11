@@ -12,10 +12,10 @@ import PDFKit
 @MainActor
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    
     @EnvironmentObject var statusManager: StatusManager
     
     @State private var navigationPath = NavigationPath()
-    
     @State private var sortOrder = [SortDescriptor(\Category.name)]
     
     @Query private var categories: [Category]
@@ -132,12 +132,14 @@ extension ContentView {
 }
 
 #Preview {
-    @Environment(\.modelContext) var modelContext
+    let statusManager = StatusManager()
+    
     let previewHelper = PreviewHelper()
     previewHelper.loadSampleData()
     
     return ContentView()
         .modelContainer(previewHelper.container)
+        .environmentObject(statusManager)
 }
 
 

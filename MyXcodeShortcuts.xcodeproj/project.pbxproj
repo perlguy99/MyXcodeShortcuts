@@ -30,9 +30,9 @@
 		846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371382BBB3245001ED9C3 /* SettingsView.swift */; };
 		8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */; };
 		846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */; };
-		84760D962BC70A84005072B1 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84760D952BC70A84005072B1 /* ShareSheet.swift */; };
 		84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */; };
 		84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */; };
+		847B92A02BC82185001EFFC9 /* StatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B929F2BC82185001EFFC9 /* StatusManager.swift */; };
 		847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E30F72BC0419200762FDF /* EditCategoryView.swift */; };
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
@@ -83,9 +83,9 @@
 		846371382BBB3245001ED9C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortcutView.swift; sourceTree = "<group>"; };
-		84760D952BC70A84005072B1 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGeneratorTests.swift; sourceTree = "<group>"; };
 		84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+StringRepresentable.swift"; sourceTree = "<group>"; };
+		847B929F2BC82185001EFFC9 /* StatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManager.swift; sourceTree = "<group>"; };
 		847E30F72BC0419200762FDF /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
 		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -182,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
-				84760D952BC70A84005072B1 /* ShareSheet.swift */,
 				840AF0612BC704F2006F5366 /* PDFPreviewView.swift */,
 				8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */,
 				847E30F72BC0419200762FDF /* EditCategoryView.swift */,
@@ -201,6 +200,7 @@
 				846371212BBB02FA001ED9C3 /* Category.swift */,
 				846371232BBB0315001ED9C3 /* Shortcut.swift */,
 				846371252BBB0355001ED9C3 /* Status.swift */,
+				847B929F2BC82185001EFFC9 /* StatusManager.swift */,
 				846371362BBB1C47001ED9C3 /* SettingsViewModel.swift */,
 				84D51D392BBDD0F600E6169B /* Categories.swift */,
 			);
@@ -380,6 +380,7 @@
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
 				840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */,
+				847B92A02BC82185001EFFC9 /* StatusManager.swift in Sources */,
 				847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */,
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
 				846371372BBB1C47001ED9C3 /* SettingsViewModel.swift in Sources */,
@@ -387,7 +388,6 @@
 				8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */,
 				84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */,
 				846371332BBB1BB1001ED9C3 /* ShortcutView.swift in Sources */,
-				84760D962BC70A84005072B1 /* ShareSheet.swift in Sources */,
 				846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */,
 				8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */,
 			);

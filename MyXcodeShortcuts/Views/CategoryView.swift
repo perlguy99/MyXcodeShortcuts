@@ -50,13 +50,16 @@ struct CategoryView: View {
 #Preview {
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     
+    var statusManager = StatusManager()
+    
     let previewHelper = PreviewHelper()
     previewHelper.loadSampleData()
     
     return Group {
         CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
-            .environmentObject(StatusManager())
-        Spacer()
+            .environmentObject(statusManager)
+        
+//        Spacer()
 //        CategoryView(category: previewHelper.previewCategory, showSymbols: false)
 //            .modelContainer(previewHelper.container)
     }

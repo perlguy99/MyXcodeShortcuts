@@ -44,18 +44,9 @@ struct ContentView: View {
                         addItemToolbarItem()
                         filterToolbarItem()
                         settingsToolbarItem()
-    //                    deleteAllToolbarItem()
                 }
             }
             
-        }
-    }
-    
-    // TODO: Delete me
-    private func deleteAll() {
-        print("private func deleteAll()")
-        for category in categories {
-            modelContext.container.mainContext.delete(category)
         }
     }
     
@@ -113,15 +104,6 @@ extension ContentView {
         ToolbarItem(placement: .topBarTrailing) {
             NavigationLink(destination: SettingsView()) {
                 Image(systemName: "gear")
-            }
-        }
-    }
-    
-    // TODO: Delete me
-    private func deleteAllToolbarItem() -> some ToolbarContent {
-        ToolbarItem {
-            Button(action: deleteAll) {
-                Label("Delete All", systemImage: "exclamationmark.warninglight.fill")
             }
         }
     }

@@ -20,6 +20,12 @@ enum Constants {
     static let optSymbol = "\u{2325}"
     static let returnSymbol = "\u{23CE}"
     
+    static let cmdString = "cmd"
+    static let ctrlString = "ctrl"
+    static let shiftString = "shift"
+    static let optString = "opt"
+    static let returnString = "return"
+    
     enum Keys: String, StringRepresentable {
         case pdfTitle
         case separator

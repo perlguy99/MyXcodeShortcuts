@@ -34,10 +34,10 @@
 		84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */; };
 		847B92A02BC82185001EFFC9 /* StatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B929F2BC82185001EFFC9 /* StatusManager.swift */; };
 		847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E30F72BC0419200762FDF /* EditCategoryView.swift */; };
-		84A26DF32BC853B500B6052B /* KeyboardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84A26DF22BC853B500B6052B /* KeyboardKit */; };
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
+		84FFAC042BC887ED00CBC569 /* KeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAC032BC887EC00CBC569 /* KeyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +91,7 @@
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
 		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		84FFAC032BC887EC00CBC569 /* KeyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A26DF32BC853B500B6052B /* KeyboardKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +192,7 @@
 				846371382BBB3245001ED9C3 /* SettingsView.swift */,
 				846371322BBB1BB1001ED9C3 /* ShortcutView.swift */,
 				846371342BBB1BE7001ED9C3 /* Checkbox.swift */,
+				84FFAC032BC887EC00CBC569 /* KeyData.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,7 +256,6 @@
 			);
 			name = MyXcodeShortcuts;
 			packageProductDependencies = (
-				84A26DF22BC853B500B6052B /* KeyboardKit */,
 			);
 			productName = MyXcodeShortcuts;
 			productReference = 846370EF2BBAF8C0001ED9C3 /* MyXcodeShortcuts.app */;
@@ -330,7 +330,6 @@
 			);
 			mainGroup = 846370E62BBAF8C0001ED9C3;
 			packageReferences = (
-				84A26DF12BC853B500B6052B /* XCRemoteSwiftPackageReference "KeyboardKit" */,
 			);
 			productRefGroup = 846370F02BBAF8C0001ED9C3 /* Products */;
 			projectDirPath = "";
@@ -386,6 +385,7 @@
 				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
+				84FFAC042BC887ED00CBC569 /* KeyData.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
 				840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */,
 				847B92A02BC82185001EFFC9 /* StatusManager.swift in Sources */,
@@ -569,8 +569,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,8 +599,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -730,25 +730,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		84A26DF12BC853B500B6052B /* XCRemoteSwiftPackageReference "KeyboardKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/KeyboardKit/KeyboardKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.4.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		84A26DF22BC853B500B6052B /* KeyboardKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84A26DF12BC853B500B6052B /* XCRemoteSwiftPackageReference "KeyboardKit" */;
-			productName = KeyboardKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 846370E72BBAF8C0001ED9C3 /* Project object */;
 }

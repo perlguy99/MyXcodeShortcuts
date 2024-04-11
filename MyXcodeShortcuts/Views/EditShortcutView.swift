@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import KeyboardKit
 
 struct EditShortcutView: View {
     @Environment(\.modelContext) var modelContext
@@ -18,8 +17,6 @@ struct EditShortcutView: View {
     @Bindable var shortcut: Shortcut
     
     @FocusState var isInputActive: Bool
-    
-    let options = ["printed", "hidden", "other"]
     
     var body: some View {
         
@@ -36,57 +33,42 @@ struct EditShortcutView: View {
                                 HStack {
                                     Spacer()
                                     Button(Constants.cmdSymbol) {
-                                        // append to $shortcut.keyCombo here
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "cmd"
-                                        
-                                        print("cmd appended")
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.cmdString
+                                        print("\(Constants.cmdString) appended")
                                     }
-                                    .font(.system(size: 24))
-                                    .accessibilityHint("Command Key")
                                     
                                     Spacer()
                                     
                                     Button(Constants.ctrlSymbol) {
-                                        // append to $shortcut.keyCombo here
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "ctrl"
-                                        
-                                        print("ctrl appended")
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.ctrlString
+                                        print("\(Constants.ctrlString) appended")
                                     }
-                                    .font(.system(size: 24))
                                     
                                     Spacer()
                                     
                                     Button(Constants.optSymbol) {
-                                        // append to $shortcut.keyCombo here
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "opt"
-                                        
-                                        print("opt appended")
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.optString
+                                        print("\(Constants.optString) appended")
                                     }
-                                    .font(.system(size: 24))
                                     
                                     Spacer()
                                     
                                     Button(Constants.shiftSymbol) {
-                                        // append to $shortcut.keyCombo here
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "shift"
-                                        
-                                        print("shift appended")
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.shiftString
+                                        print("\(Constants.shiftString) appended")
                                     }
-                                    .font(.system(size: 24))
 
                                     Spacer()
                                     
                                     Button(Constants.returnSymbol) {
-                                        // append to $shortcut.keyCombo here
-                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + "return"
-                                        
-                                        print("return appended")
+                                        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + Constants.returnString
+                                        print("\(Constants.returnString) appended")
                                     }
-                                    .font(.system(size: 24))
                                     
                                     Spacer()
 
                                 }
+                                .font(.system(size: 24))
                             }
                         }
                     
@@ -115,9 +97,30 @@ struct EditShortcutView: View {
                 }
             }
         }
-        
+    }
+
+    private var keyboardToolbar: some View {
+        HStack {
+            ForEach(KeyData.all, id: \.self) { key in
+                Button(action: {
+                    appendKeyCombo(key: key.name)
+                }) {
+                    Text(key.symbol)
+                }
+                .buttonStyle(.plain)
+                Spacer()
+            }
+        }
+        .font(.system(size: 24))
     }
     
+    private func appendKeyCombo(key: String) {
+        shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + key
+        print("\(key) appended")
+    }
+    
+    
+
     func addCategory() {
         let category = Category(name: "")
         modelContext.insert(category)
@@ -131,4 +134,17 @@ struct EditShortcutView: View {
 
     return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
         .modelContainer(previewHelper.container)
+}
+
+struct KeyData: Hashable {
+    let symbol: String
+    let name: String
+    
+    static let all = [
+        KeyData(symbol: Constants.cmdSymbol, name: Constants.cmdString),
+        KeyData(symbol: Constants.ctrlSymbol, name: Constants.ctrlString),
+        KeyData(symbol: Constants.optSymbol, name: Constants.optString),
+        KeyData(symbol: Constants.shiftSymbol, name: Constants.shiftString),
+        KeyData(symbol: Constants.returnSymbol, name: Constants.returnString)
+    ]
 }

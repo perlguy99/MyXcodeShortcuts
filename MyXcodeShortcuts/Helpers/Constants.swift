@@ -11,7 +11,6 @@ enum Constants {
     static let defaultTitle = "My Xcode Faves"
     static let defaultSeparator = " "
     static let defaultShowSymbols = true
-    static let defaultShowHidden = true
     static let defaultStatusInt = 0
     
     static let cmdSymbol = "\u{2318}"
@@ -29,7 +28,6 @@ enum Constants {
     enum Keys: String, StringRepresentable {
         case pdfTitle
         case separator
-        case showHidden
         case showSymbols
         case statusInt
     }

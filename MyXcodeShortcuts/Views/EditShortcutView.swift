@@ -82,8 +82,6 @@ struct EditShortcutView: View {
         shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + key
         print("\(key) appended")
     }
-    
-    
 
     func addCategory() {
         let category = Category(name: "")

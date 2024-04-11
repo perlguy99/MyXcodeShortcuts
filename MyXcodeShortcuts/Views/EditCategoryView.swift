@@ -14,19 +14,18 @@ struct EditCategoryView: View {
     @Bindable var category: Category
     
     var body: some View {
-        
-            Form {
-                Section("Category Name") {
-                    TextField("Category Name", text: $category.name)
-                        .padding(5)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.gray.opacity(0.2), lineWidth: 2)
-                        )
-                }
+        Form {
+            Section("Category Name") {
+                TextField("Category Name", text: $category.name)
+                    .padding(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 2)
+                    )
             }
-            .navigationTitle("Edit Category")
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationTitle("Edit Category")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

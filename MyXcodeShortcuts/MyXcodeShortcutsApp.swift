@@ -10,7 +10,6 @@ import SwiftData
 
 //@AppStorage(Constants.Keys.pdfTitle.stringValue) var pdfTitle = Constants.defaultTitle
 //@AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
-//@AppStorage(Constants.Keys.showHidden.rawValue) var showHidden: Bool = true
 //@AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
 
 // TODO: Get AppStorage used consistently

@@ -22,7 +22,6 @@ struct ContentView: View {
     
     @State var currentStatus: Status = Status(rawValue: 0)
     
-    // TODO: - figure out toolbar item order if needed
     var body: some View {
         NavigationStack(path: $navigationPath) {
             
@@ -46,7 +45,6 @@ struct ContentView: View {
                         settingsToolbarItem()
                 }
             }
-            
         }
     }
     

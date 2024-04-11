@@ -15,7 +15,6 @@ struct ShortcutView: View {
 
     @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols = Constants.defaultShowSymbols
-    @AppStorage(Constants.Keys.showHidden.rawValue) var showHidden = Constants.defaultShowHidden
     
     var body: some View {
         

@@ -17,7 +17,7 @@ class Shortcut: Codable {
     var keyCombo: String = ""
     var details: String = ""
     weak var category: Category?
-    var status: Status
+    var status: Status = Status.none
     
     init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {
         self.keyCombo = keyCombo
@@ -35,7 +35,7 @@ class Shortcut: Codable {
         
         keyCombo = try values.decodeIfPresent(String.self, forKey: .keyCombo) ?? ""
         details = try values.decodeIfPresent(String.self, forKey: .details) ?? ""
-        status = try values.decodeIfPresent(Status.self, forKey: .status) ?? .none
+        status = try values.decodeIfPresent(Status.self, forKey: .status) ?? Status.none
         category = try values.decodeIfPresent(Category.self, forKey: .category)
     }
     

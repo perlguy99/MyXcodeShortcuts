@@ -30,6 +30,16 @@ struct EditShortcutView: View {
                         .textFieldStyle(.roundedBorder)
                         .focused($isInputActive)
                     
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                
+                                Button("Cmd") {
+                                    print("CMD")
+                                }
+                            }
+                        }
+                    
                     TextField("Details", text: $shortcut.details)
                         .textFieldStyle(.roundedBorder)
                 } header: {

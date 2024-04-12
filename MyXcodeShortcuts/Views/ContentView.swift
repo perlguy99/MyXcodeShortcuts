@@ -116,14 +116,11 @@ extension ContentView {
 }
 
 #Preview {
-    let statusManager = StatusManager()
-    
     let previewHelper = PreviewHelper()
     previewHelper.loadSampleData()
     
     return ContentView()
         .modelContainer(previewHelper.container)
-        .environmentObject(statusManager)
 }
 
 

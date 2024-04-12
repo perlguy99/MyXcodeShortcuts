@@ -109,10 +109,7 @@ struct SettingsView: View {
 
 
 #Preview {
-    let statusManager = StatusManager()
-
     return SettingsView()
-            .environmentObject(statusManager)
 }
 
 

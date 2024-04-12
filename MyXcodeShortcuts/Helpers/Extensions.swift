@@ -60,6 +60,12 @@ extension Array {
     }
 }
 
+// TODO: Add Arrow Symbols
+// TODO: Add Fn "Function" Symbol
+// TODO: Add a Tab symbol
+
+// TODO: Add Short descriptions?
+
 extension String {
     func replacingKeywordsWithSymbols(separator: String = "*") -> String {
         // Define the mappings from keywords to Unicode symbols

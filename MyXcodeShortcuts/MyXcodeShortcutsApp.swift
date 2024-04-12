@@ -12,10 +12,10 @@ import SwiftData
 //@AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
 //@AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
 
-// TODO: Get AppStorage used consistently
-// TODO: Clean up navigation as best as it can be
 // TODO: Tests?
-
+// TODO: Automatically keeping the order of keys in shortcuts consistent
+// TODO: Sorting on shortcuts
+// TODO: I've got all of the Xcode shortcuts from the Apple Documentation, but there are more to be added.
 
 @main
 @MainActor

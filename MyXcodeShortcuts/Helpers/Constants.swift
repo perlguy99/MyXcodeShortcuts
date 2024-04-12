@@ -7,6 +7,10 @@
 
 import Foundation
 
+// TODO: Add Arrow Symbols
+// TODO: Add Fn "Function" Symbol
+// TODO: Add a Tab symbol
+
 enum Constants {
     static let defaultTitle = "My Xcode Faves"
     static let defaultSeparator = " "

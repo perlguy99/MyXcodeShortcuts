@@ -36,6 +36,7 @@
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
+		84ED14E82BC9E7DA00375EED /* SeedData_Release_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */; };
 		84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
 		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_Release_1.json; sourceTree = "<group>"; };
 		84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +218,7 @@
 				84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */,
 				846371302BBB1B7D001ED9C3 /* Constants.swift */,
 				84D51D372BBDCDB500E6169B /* SeedData.json */,
+				84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */,
 				84D51D3B2BBDF0DB00E6169B /* SeedData.swift */,
 			);
 			path = Helpers;
@@ -346,6 +349,7 @@
 			files = (
 				846370FC2BBAF8C2001ED9C3 /* Preview Assets.xcassets in Resources */,
 				846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */,
+				84ED14E82BC9E7DA00375EED /* SeedData_Release_1.json in Resources */,
 				84D51D382BBDCDB500E6169B /* SeedData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

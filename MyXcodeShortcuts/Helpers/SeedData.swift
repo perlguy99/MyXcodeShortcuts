@@ -19,7 +19,7 @@ class SeedData {
     
     @MainActor
     func loadSeedData() {
-        guard let path = Bundle.main.path(forResource: "SeedData", ofType: "json") else {
+        guard let path = Bundle.main.path(forResource: "SeedData_Release_1", ofType: "json") else {
             print("Error! - Failed to locate SeedData.json in bundle.")
             return
         }

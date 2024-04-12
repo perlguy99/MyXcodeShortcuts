@@ -1,0 +1,922 @@
+{
+    "categories":
+    [
+        {
+            "name": "Xcode Menu",
+            "shortcuts": [
+                {
+                    "keyCombo": "Cmd ,",
+                    "details": "Settings..."
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd E",
+                    "details": "Behaviors: Edit Code"
+                },
+                {
+                    "keyCombo": "Cmd H",
+                    "details": "Hide Xcode"
+                },
+                {
+                    "keyCombo": "Opt Cmd H",
+                    "details": "Hide Others"
+                },
+                {
+                    "keyCombo": "Cmd Q",
+                    "details": "Quit Xcode"
+                }
+            ]
+        },
+        {
+            "name": "File Menu: New",
+            "shortcuts": [
+                {
+                    "keyCombo": "Ctrl Cmd T",
+                    "details": "Editor"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd T",
+                    "details": "Editor Below"
+                },
+                {
+                    "keyCombo": "Cmd T",
+                    "details": "Window Tab"
+                },
+                {
+                    "keyCombo": "Shift Cmd T",
+                    "details": "Window"
+                },
+                {
+                    "keyCombo": "Cmd N",
+                    "details": "File..."
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd N",
+                    "details": "Playground..."
+                },
+                {
+                    "keyCombo": "Shift Cmd N",
+                    "details": "Project..."
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd N",
+                    "details": "Package..."
+                },
+                {
+                    "keyCombo": "Ctrl Cmd N",
+                    "details": "Workspace"
+                },
+                {
+                    "keyCombo": "Opt Cmd N",
+                    "details": "Group"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd N",
+                    "details": "Group without Folder"
+                }
+            ]
+        },
+        {
+            "name": "File Menu",
+            "shortcuts": [
+                {
+                    "keyCombo": "Opt Cmd A",
+                    "details": "Add Files to Project..."
+                },
+                {
+                    "keyCombo": "Cmd O",
+                    "details": "Open..."
+                },
+                {
+                    "keyCombo": "Shift Cmd O",
+                    "details": "Open Quickly..."
+                },
+                {
+                    "keyCombo": "Cmd W",
+                    "details": "Close Tab"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd W",
+                    "details": "Close File"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd W",
+                    "details": "Close Editor"
+                },
+                {
+                    "keyCombo": "Shift Cmd W",
+                    "details": "Close Window Tab"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd W",
+                    "details": "Close Project"
+                },
+                {
+                    "keyCombo": "Cmd S",
+                    "details": "Save"
+                },
+                {
+                    "keyCombo": "Shift Cmd S",
+                    "details": "Duplicate..."
+                },
+                {
+                    "keyCombo": "Opt Cmd O",
+                    "details": "Open in Tab"
+                },
+                {
+                    "keyCombo": "Shift Cmd P",
+                    "details": "Page Setup..."
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd P",
+                    "details": "Print..."
+                },
+                {
+                    "keyCombo": "Opt Cmd W",
+                    "details": "Close All Windows"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd W",
+                    "details": "Close Other Tabs"
+                },
+                {
+                    "keyCombo": "Opt Cmd S",
+                    "details": "Save All"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd S",
+                    "details": "Save Multiple..."
+                },
+                {
+                    "keyCombo": "Shift Cmd S",
+                    "details": "Save As..."
+                }
+            ]
+        },
+        {
+            "name": "Edit Menu",
+            "shortcuts": [
+            	{
+                	"keyCombo": "Cmd Z",
+	                "details": "Undo Typing"
+    	        },
+                {
+                    "keyCombo": "Shift Cmd Z",
+                    "details": "Redo"
+                },
+                {
+                    "keyCombo": "Cmd X",
+                    "details": "Cut"
+                },
+                {
+                    "keyCombo": "Cmd C",
+                    "details": "Copy"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd C",
+                    "details": "Copy File and Line"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd C",
+                    "details": "Copy Symbol Name"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Shift Cmd C",
+                    "details": "Copy Qualified Symbol Name"
+                },
+                {
+                    "keyCombo": "Cmd V",
+                    "details": "Paste"
+                },
+                {
+                    "keyCombo": "Opt Cmd V",
+                    "details": "Paste Special"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd V",
+                    "details": "Paste and Match Style"
+                },
+                {
+                    "keyCombo": "Cmd D",
+                    "details": "Duplicate"
+                },
+                {
+                    "keyCombo": "Cmd A",
+                    "details": "Select All"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd '",
+                    "details": "Bookmark Current File Current Line"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd '",
+                    "details": "Bookmark Current File"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd T",
+                    "details": "Format: Show Fonts"
+                },
+                {
+                    "keyCombo": "fn E",
+                    "details": "Emoji & Symbols"
+                }
+            ]
+        },
+        {
+            "name": "View Menu",
+            "shortcuts": [
+            	{
+                	"keyCombo": "Ctrl Shift Cmd Return",
+	                "details": "Editor: Focus"
+    	        },
+                {
+                    "keyCombo": "Ctrl 1",
+                    "details": "Editor: Show Related Items"
+                },
+                {
+                    "keyCombo": "Ctrl 2",
+                    "details": "Editor: Show Previous History"
+                },
+                {
+                    "keyCombo": "Ctrl 3",
+                    "details": "Editor: Show Next History"
+                },
+                {
+                    "keyCombo": "Ctrl 4",
+                    "details": "Editor: Show Top Level Items"
+                },
+                {
+                    "keyCombo": "Ctrl 5",
+                    "details": "Editor: Show Group Files"
+                },
+                {
+                    "keyCombo": "Ctrl 6",
+                    "details": "Editor: Show Document Items"
+                },    	        
+                {
+                    "keyCombo": "Ctrl Cmd 2",
+                    "details": "Editor: Show Previous Files History"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd 3",
+                    "details": "Editor: Show Next Files History"
+                },
+            	{
+                	"keyCombo": "Opt Shift Cmd Return",
+	                "details": "Show Code Review"
+    	        },
+                {
+                    "keyCombo": "Opt Shift Cmd Z",
+                    "details": "Reset Assistant Selection"
+                },
+                {
+                    "keyCombo": "Shift Cmd A",
+                    "details": "Show Quick Actions..."
+                },
+            	{
+                	"keyCombo": "Cmd 1",
+	                "details": "Navigators: Project"
+    	        },
+                {
+                    "keyCombo": "Cmd 2",
+                    "details": "Navigators: Source Control"
+                },
+                {
+                    "keyCombo": "Cmd 3",
+                    "details": "Navigators: Bookmarks"
+                },
+                {
+                    "keyCombo": "Cmd 4",
+                    "details": "Navigators: Find"
+                },
+                {
+                    "keyCombo": "Cmd 5",
+                    "details": "Navigators: Issues"
+                },
+                {
+                    "keyCombo": "Cmd 6",
+                    "details": "Navigators: Tests"
+                },
+                {
+                    "keyCombo": "Cmd 7",
+                    "details": "Navigators: Debug"
+                },
+                {
+                    "keyCombo": "Cmd 8",
+                    "details": "Navigators: Breakpoints"
+                },
+                {
+                    "keyCombo": "Cmd 9",
+                    "details": "Navigators: Reports"
+                },
+                {
+                    "keyCombo": "Cmd 0",
+                    "details": "Navigators: Show/Hide Navigator"
+                },
+                {
+                    "keyCombo": "Opt Cmd J",
+                    "details": "Navigators: Filter in Navigator"
+                },
+                {
+                    "keyCombo": "Shift Cmd C",
+                    "details": "Debug Area: Activate Console"
+                },
+                {
+                    "keyCombo": "Shift Cmd Y",
+                    "details": "Debug Area: Show/Hide Debug Area"
+                },
+                {
+                    "keyCombo": "Opt Cmd 1",
+                    "details": "Inspectors: File"
+                },
+                {
+                    "keyCombo": "Opt Cmd 2",
+                    "details": "Inspectors: History"
+                },
+                {
+                    "keyCombo": "Opt Cmd 3",
+                    "details": "Inspectors: Quick Help"
+                },
+                {
+                    "keyCombo": "Opt Cmd 4",
+                    "details": "Inspectors: Attributes"
+                },
+                {
+                    "keyCombo": "Opt Cmd 5",
+                    "details": "Inspectors: Accessibility"
+                },
+                {
+                    "keyCombo": "Opt Cmd 0",
+                    "details": "Inspectors: Show Inspector"
+                },
+                {
+                    "keyCombo": "Shift Cmd L",
+                    "details": "Show Library"
+                },
+                {
+                    "keyCombo": "Ctrl R",
+                    "details": "Reload Organizer"
+                },
+                {
+                    "keyCombo": "Opt Cmd T",
+                    "details": "Hide Toolbar"
+                },
+                {
+                    "keyCombo": "Shift Cmd \\",
+                    "details": "Show All Window Tabs"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd F",
+                    "details": "Enter Full Screen"
+                }
+            ]
+        },
+        {
+            "name": "Find Menu",
+            "shortcuts": [
+              	{
+                    "keyCombo": "Shift Cmd F",
+                    "details": "Find in Project..."
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd F",
+                    "details": "Find and Replace in Project..."
+                },
+                {
+                    "keyCombo": "Ctrl Cmd G",
+                    "details": "Find Next in Project"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd G",
+                    "details": "Find Previous in Project"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd F",
+                    "details": "Find Selected Symbol in Project"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd H",
+                    "details": "Find Call Hierarchy"
+                },
+                {
+                    "keyCombo": "Cmd F",
+                    "details": "Find..."
+                },
+                {
+                    "keyCombo": "Opt Cmd F",
+                    "details": "Find and Replace..."
+                },
+                {
+                    "keyCombo": "Cmd G",
+                    "details": "Find Next"
+                },
+                {
+                    "keyCombo": "Shift Cmd G",
+                    "details": "Find Previous"
+                },
+                {
+                    "keyCombo": "Opt Cmd G",
+                    "details": "Find and Select Next"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd G",
+                    "details": "Find and Select Previous"
+                },
+                {
+                    "keyCombo": "Cmd E",
+                    "details": "Use Selection for Find"
+                },
+                {
+                    "keyCombo": "Shift Cmd E",
+                    "details": "Use Selection for Replace"
+                },
+                {
+                    "keyCombo": "Opt Cmd E",
+                    "details": "Select Next Occurrence"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd E",
+                    "details": "Select Previous Occurrence"
+                }
+            ]
+        },
+        {
+            "name": "Navigate Menu",
+            "shortcuts": [
+                {
+                    "keyCombo": "Shift Cmd J",
+                    "details": "Reveal in Project Navigator"
+                },
+                {
+                    "keyCombo": "Shift Cmd M",
+                    "details": "Reveal in Changes Navigator"
+                },
+                {
+                    "keyCombo": "Shift Cmd D",
+                    "details": "Reveal in Debug Navigator"
+                },
+            	{
+                	"keyCombo": "Opt Cmd ,",
+	                "details": "Open in Separate Window tab"
+    	        },
+                {
+                    "keyCombo": "Opt Cmd <",
+                    "details": "Open in..."
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd `",
+                    "details": "Move Focus to Previous Area"
+                },
+                {
+                    "keyCombo": "Shift Cmd `",
+                    "details": "Move Focus to Previous Editor"
+                },
+                {
+                    "keyCombo": "Cmd J",
+                    "details": "Move Focus to Editor..."
+                },
+                {
+                    "keyCombo": "Cmd {",
+                    "details": "Show Previous Tab"
+                },
+                {
+                    "keyCombo": "Cmd }",
+                    "details": "Show Next Tab"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd ArrowR",
+                    "details": "Go Forward"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd ArrowL",
+                    "details": "Go Back"
+                },
+                {
+                    "keyCombo": "Opt Cmd L",
+                    "details": "Jump to Selection"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd J",
+                    "details": "Jump to Definition"
+                },
+                {
+                    "keyCombo": "Cmd '",
+                    "details": "Jump to Next Issue"
+                },
+                {
+                    "keyCombo": "Cmd \"",
+                    "details": "Jump to Previous Issue"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd P",
+                    "details": "Jump to Instruction Pointer"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd ArrowU",
+                    "details": "Jump to Next Counterpart"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd ArrowD",
+                    "details": "Jump to Previous Counterpart"
+                },
+                {
+                    "keyCombo": "Cmd L",
+                    "details": "Jump to Line in Current File..."
+                },
+                {
+                    "keyCombo": "Ctrl /",
+                    "details": "Jump to Next Placeholder"
+                },
+                {
+                    "keyCombo": "Ctrl ?",
+                    "details": "Jump to Previous Placeholder"
+                },
+                {
+                    "keyCombo": "Ctrl \\",
+                    "details": "Jump to Next Change"
+                },
+                {
+                    "keyCombo": "Ctrl |",
+                    "details": "Jump to Previous Change"
+                }
+            ]
+        },
+ 		{
+            "name": "Editor Menu",
+            "shortcuts": [
+            	{
+                	"keyCombo": "Cmd Return",
+	                "details": "Show Editor Only"
+    	        },
+            	{
+                	"keyCombo": "Opt Cmd Return",
+	                "details": "Canvas"
+    	        },
+            	{
+                	"keyCombo": "Ctrl Opt Cmd Return",
+	                "details": "Assistant"
+    	        },
+                {
+                    "keyCombo": "Ctrl Space",
+                    "details": "Show Completions"
+                },
+            	{
+                	"keyCombo": "Ctrl Cmd E",
+	                "details": "Edit all in Scope"
+    	        },
+                {
+                    "keyCombo": "Ctrl Opt Cmd F",
+                    "details": "Fix All Issues"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd L",
+                    "details": "Show Issues"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd L",
+                    "details": "Show All Issues"
+                },
+                {
+                    "keyCombo": "Ctrl Shift ArrowU",
+                    "details": "Selection: Select Column Up"
+                },
+                {
+                    "keyCombo": "Ctrl Shift ArrowD",
+                    "details": "Selection: Select Column Down"
+                },
+                {
+                    "keyCombo": "Ctrl |",
+                    "details": "Structure: Re-Indent"
+                },
+                {
+                    "keyCombo": "Ctrl [",
+                    "details": "Structure: Shift Left"
+                },
+                {
+                    "keyCombo": "Ctrl ]",
+                    "details": "Structure: Shift Right"
+                },
+                {
+                    "keyCombo": "Ctrl M",
+                    "details": "Structure: Format to Multiple Lines"
+                },
+                {
+                    "keyCombo": "Opt Cmd [",
+                    "details": "Structure: Move Line Up"
+                },
+                {
+                    "keyCombo": "Opt Cmd  ]",
+                    "details": "Structure: Move Line Down"
+                },
+                {
+                    "keyCombo": "Cmd /",
+                    "details": "Structure: Comment Selection"
+                },
+                {
+                    "keyCombo": "Opt Cmd /",
+                    "details": "Structure: Add Documentation"
+                },
+                {
+                    "keyCombo": "Opt Cmd ArrowL",
+                    "details": "Code Folding: Fold"
+                },
+                {
+                    "keyCombo": "Opt Cmd ArrowR",
+                    "details": "Code Folding: Unfold"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd ArrowL",
+                    "details": "Code Folding: Fold Methods & Functions"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd ArrowR",
+                    "details": "Code Folding: Unfold Methods & Functions"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd ArrowL",
+                    "details": "Code Folding: Fold Comment Blocks"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd ArrowR",
+                    "details": "Code Folding: Unfold Comment Blocks"
+                },
+                {
+                    "keyCombo": "Cmd +",
+                    "details": "Font Size: Increase"
+                },
+                {
+                    "keyCombo": "Cmd -",
+                    "details": "Font Size: Decrease"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd 0",
+                    "details": "Font Size: Reset"
+                }
+            ]
+        },
+        {
+            "name": "Product Menu",
+            "shortcuts": [
+            	{
+                	"keyCombo": "Cmd R",
+	                "details": "Run"
+	            },
+                {
+                    "keyCombo": "Cmd U",
+                    "details": "Test"
+                },
+                {
+                    "keyCombo": "Cmd I",
+                    "details": "Profile"
+                },
+                {
+                    "keyCombo": "Shift Cmd B",
+                    "details": "Analyze"
+                },
+                {
+                    "keyCombo": "Shift Cmd R",
+                    "details": "Build For: Running"
+                },
+                {
+                    "keyCombo": "Shift Cmd U",
+                    "details": "Build For: Testing"
+                },
+                {
+                    "keyCombo": "Shift Cmd I",
+                    "details": "Build For: Profiling"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd R",
+                    "details": "Perform Action: Run Without Building"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd U",
+                    "details": "Perform Action: Test Without Building"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd I",
+                    "details": "Perform Action: Profile Without Building"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd U",
+                    "details": "Perform Action: Test"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd G",
+                    "details": "Perform Action: Test Again"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd B",
+                    "details": "Perform Action: Compile Current Project"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd B",
+                    "details": "Perform Action: Analyze Current Project"
+                },
+                {
+                    "keyCombo": "Cmd B",
+                    "details": "Build"
+                },
+                {
+                    "keyCombo": "Shift Cmd K",
+                    "details": "Clean Build Folder..."
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd K",
+                    "details": "Clean Test Results"
+                },
+                {
+                    "keyCombo": "Cmd .",
+                    "details": "Stop"
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd D",
+                    "details": "Build Documentation"
+                },
+                {
+                    "keyCombo": "Ctrl 0",
+                    "details": "Scheme: Choose Scheme"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd ]",
+                    "details": "Scheme: Select Next Scheme"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd [",
+                    "details": "Scheme: Select Previous Scheme"
+                },
+                {
+                    "keyCombo": "Cmd  <",
+                    "details": "Scheme: Edit Scheme..."
+                },
+                {
+                    "keyCombo": "Ctrl Shift 0",
+                    "details": "Destination: Choose Destination"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd ]",
+                    "details": "Destination: Select Next Destination"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd [",
+                    "details": "Destination: Select Previous Destination"
+                },
+                {
+                    "keyCombo": "Cmd  >",
+                    "details": "Test Plan: Edit Test Plan"
+                }
+            ]
+        },        
+        {
+            "name": "Debug Menu",
+            "shortcuts": [
+                {
+                    "keyCombo": "Ctrl Cmd Y",
+                    "details": "Pause"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd C",
+                    "details": "Continue To Current Line"
+                },
+                {
+                    "keyCombo": "F6",
+                    "details": "Step Over"
+                },
+                {
+                    "keyCombo": "F7",
+                    "details": "Step Into"
+                },
+                {
+                    "keyCombo": "F8",
+                    "details": "Step Out"
+                },
+                {
+                    "keyCombo": "Ctrl F6",
+                    "details": "Step Over Instruction"
+                },
+                {
+                    "keyCombo": "Ctrl Shift F6",
+                    "details": "Step Over Thread"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd F7",
+                    "details": "Step Into Instruction"
+                },
+                {
+                    "keyCombo": "Ctrl Shift F7",
+                    "details": "Step Into Thread"
+                },
+                {
+                    "keyCombo": "Cmd Y",
+                    "details": "Activate/Deactivate Breakpoints"
+                },
+                {
+                    "keyCombo": "Cmd \\",
+                    "details": "Breakpoints: Create Breakpoint at Current Line"
+                },
+                {
+                    "keyCombo": "Opt Cmd \\",
+                    "details": "Breakpoints: Create Symbolic Breakpoint..."
+                },
+                {
+                    "keyCombo": "Ctrl C",
+                    "details": "Console: Copy Row with Visible Metadata"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd J",
+                    "details": "Console: Jump To Source"
+                },
+                {
+                    "keyCombo": "Cmd K",
+                    "details": "Console: Clear Console"
+                },
+                {
+                    "keyCombo": "Opt Cmd K",
+                    "details": "Console: Reload Console"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd A",
+                    "details": "Console: Select Last Output"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Shift Cmd M",
+                    "details": "Debug Workflow: View Memory"
+                }
+            ]
+        },               
+        {
+            "name": "Integrate Menu",
+            "shortcuts": [
+            	{
+                	"keyCombo": "Opt Cmd C",
+	                "details": "Commit..."
+	            },
+                {
+                    "keyCombo": "Opt Cmd X",
+                    "details": "Pull..."
+                }
+            ]
+        },
+        {
+            "name": "Window Menu",
+            "shortcuts": [
+            	{
+                	"keyCombo": "Cmd M",
+	                "details": "Minimize"
+	            },
+                {
+                    "keyCombo": "Opt Shift Cmd T",
+                    "details": "Rename Window Tab..."
+                },
+                {
+                    "keyCombo": "Ctrl Shift Tab",
+                    "details": "Show Previous Window Tab"
+                },
+                {
+                    "keyCombo": "Ctrl Tab",
+                    "details": "Show Next Window Tab"
+                },
+                {
+                    "keyCombo": "Shift Cmd 0",
+                    "details": "Developer Documentation"
+                },
+                {
+                    "keyCombo": "Shift Cmd 1",
+                    "details": "Welcome to Xcode"
+                },
+                {
+                    "keyCombo": "Shift Cmd 2",
+                    "details": "Devices and Simulators"
+                },
+                {
+                    "keyCombo": "Shift Cmd 9",
+                    "details": "Downloads"
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd O",
+                    "details": "Organizer"
+                }
+            ]
+        },        
+        {
+            "name": "Help Menu",
+            "shortcuts": [
+                {
+                    "keyCombo": "Shift Cmd 0",
+                    "details": "Developer Documentation"
+                },
+                {
+                    "keyCombo": "Shift Cmd H",
+                    "details": "Human Interface Guidelines"
+                },
+                {
+                    "keyCombo": "Ctrl Cmd ?",
+                    "details": "Show Quick Help for Selected Item"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd /",
+                    "details": "Search Documentation for Selected Text"
+                }
+            ]
+        }
+    ]
+}

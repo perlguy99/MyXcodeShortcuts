@@ -33,6 +33,7 @@
 		84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */; };
 		847B92A02BC82185001EFFC9 /* StatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847B929F2BC82185001EFFC9 /* StatusManager.swift */; };
 		847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E30F72BC0419200762FDF /* EditCategoryView.swift */; };
+		84CA9AE42BCDBE010027A1FA /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */; };
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
@@ -87,6 +88,7 @@
 		84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+StringRepresentable.swift"; sourceTree = "<group>"; };
 		847B929F2BC82185001EFFC9 /* StatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManager.swift; sourceTree = "<group>"; };
 		847E30F72BC0419200762FDF /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
+		84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
 		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
 				840AF0612BC704F2006F5366 /* PDFPreviewView.swift */,
 				8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */,
+				84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */,
 				847E30F72BC0419200762FDF /* EditCategoryView.swift */,
 				8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */,
 				8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */,
@@ -383,6 +386,7 @@
 				846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */,
 				840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */,
 				846371312BBB1B7D001ED9C3 /* Constants.swift in Sources */,
+				84CA9AE42BCDBE010027A1FA /* CategorySelectionView.swift in Sources */,
 				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,

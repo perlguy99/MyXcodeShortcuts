@@ -20,43 +20,49 @@ struct EditShortcutView: View {
     
     var body: some View {
         
-        VStack {
-            Form {
-                
-                Section {
-                    TextField("Key Combination", text: $shortcut.keyCombo)
-                        .textFieldStyle(.roundedBorder)
-                        .focused($isKeyComboFieldActive)
-                        .toolbar {
-                            if isKeyComboFieldActive {
-                                ToolbarItemGroup(placement: .keyboard) {
-                                    keyboardToolbar
+        NavigationView {
+            VStack {
+                Form {
+                    
+                    Section {
+                        TextField("Key Combination", text: $shortcut.keyCombo)
+                            .textFieldStyle(.roundedBorder)
+                            .focused($isKeyComboFieldActive)
+                            .toolbar {
+                                if isKeyComboFieldActive {
+                                    ToolbarItemGroup(placement: .keyboard) {
+                                        keyboardToolbar
+                                    }
                                 }
                             }
-                        }
-                    
-                    TextField("Details", text: $shortcut.details)
-                        .textFieldStyle(.roundedBorder)
-                } header: {
-                    Text("Keyboard Shortcut")
-                } 
-                
-                Section("Category") {
-                    Picker("Menu Category", selection: $shortcut.category) {
-                        Text("Unknown")
-                            .tag(Optional<Category>.none)
                         
-                        if categories.isEmpty == false {
-                            Divider()
-                            
-                            ForEach(categories) { section in
-                                Text(section.name)
-                                    .tag(Optional(section))
-                            }
-                        }
+                        TextField("Details", text: $shortcut.details)
+                            .textFieldStyle(.roundedBorder)
+                    } header: {
+                        Text("Keyboard Shortcut")
+                    } 
+                    
+                    Section("Category") {
+                        NavigationLink(shortcut.category?.name ?? "", destination: CategorySelectionView(shortcut: shortcut))
                     }
                     
-                    Button("Add New Category", action: addCategory)
+//                    Section("Category2") {
+//                        Picker("Menu Category", selection: $shortcut.category) {
+//                            Text("Unknown")
+//                                .tag(Optional<Category>.none)
+//                            
+//                            if categories.isEmpty == false {
+//                                Divider()
+//                                
+//                                ForEach(categories) { section in
+//                                    Text(section.name)
+//                                        .tag(Optional(section))
+//                                }
+//                            }
+//                        }
+//                        
+//                        Button("Add New Category", action: addCategory)
+//                    }
                 }
             }
         }

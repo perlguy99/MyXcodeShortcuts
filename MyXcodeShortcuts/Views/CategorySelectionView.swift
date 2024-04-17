@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 // TODO: When the view is presented, place a check on the row that is currently selected.
+
 // TODO: There should be a TextField at the top that is blank with a placeholder
+
 // TODO: that says "New Category"
+
+// TODO: Then we should have a LIST of all categories and a COUNT of all shortcuts in that category
+
 // TODO: Upon tapping a row - OR - having text in the TextField and hitting the "back" button
+
 // TODO: the data should get updated in the database.
 
 // TODO: Called by EditShortcutView
@@ -35,9 +42,18 @@ struct CategorySelectionView: View {
 }
 
 
-//#Preview {
-//    let previewHelper = PreviewHelper()
-//
-//    return CategorySelectionView(shortcut: previewHelper.previewShortcut)
-//        .modelContainer(previewHelper.container)
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return CategorySelectionView(shortcut: previewHelper.previewShortcut)
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create a model container")
+    }
+
+}

@@ -38,11 +38,16 @@ struct CategoryListView: View {
 #Preview {
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     
-    let previewHelper = PreviewHelper()
-    previewHelper.loadSampleData()
-    
-    return Group {
-        CategoryListView(navigationPath: .constant(NavigationPath()))
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return CategoryListView(navigationPath: .constant(NavigationPath()))
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create a model container")
     }
-    .modelContainer(previewHelper.container)
 }

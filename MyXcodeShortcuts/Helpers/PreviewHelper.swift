@@ -39,8 +39,17 @@ struct PreviewHelper {
         }
     }()
     
-    init() {
-        container = sharedModelContainer
+    // If a container is passed in, use it. Otherwise, use sharedModelContainer
+    init(container: ModelContainer? = nil) {
+        guard let container = container else {
+            self.container = sharedModelContainer
+            print("\n------------------------------")
+            print("Using sharedModelContainer !!!")
+            print("------------------------------\n")
+            return
+        }
+        
+        self.container = container
     }
     
     func loadSeedData(skipDataCheck: Bool = false) {

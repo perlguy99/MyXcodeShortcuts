@@ -98,21 +98,17 @@ struct EditShortcutView: View {
 }
 
 #Preview {
-    let previewHelper = PreviewHelper()
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create a model container")
+    }
 
-    return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
-        .modelContainer(previewHelper.container)
-}
-
-struct KeyData: Hashable {
-    let symbol: String
-    let name: String
-    
-    static let all = [
-        KeyData(symbol: Constants.cmdSymbol, name: Constants.cmdString),
-        KeyData(symbol: Constants.ctrlSymbol, name: Constants.ctrlString),
-        KeyData(symbol: Constants.optSymbol, name: Constants.optString),
-        KeyData(symbol: Constants.shiftSymbol, name: Constants.shiftString),
-        KeyData(symbol: Constants.returnSymbol, name: Constants.returnString)
-    ]
 }

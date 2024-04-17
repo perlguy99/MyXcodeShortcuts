@@ -54,10 +54,17 @@ struct EditCategoryView: View {
 }
 
 #Preview {
-    let previewHelper = PreviewHelper()
-    previewHelper.loadSampleData()
-    
-    return EditCategoryView(category: previewHelper.previewCategory)
-        .modelContainer(previewHelper.container)
-}
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return EditCategoryView(category: previewHelper.previewCategory)
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create a model container")
+    }
 
+}

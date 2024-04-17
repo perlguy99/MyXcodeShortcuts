@@ -116,11 +116,17 @@ extension ContentView {
 }
 
 #Preview {
-    let previewHelper = PreviewHelper()
-    previewHelper.loadSampleData()
-    
-    return ContentView()
-        .modelContainer(previewHelper.container)
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+
+        return ContentView()
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create a model container")
+    }
+
 }
-
-

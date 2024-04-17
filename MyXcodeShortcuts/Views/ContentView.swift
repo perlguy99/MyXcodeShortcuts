@@ -29,6 +29,14 @@ struct ContentView: View {
                 Text(currentStatus.headingValue)
                     .font(.caption)
                 
+//                List(categories, id: \.self) { category in
+//                    Section(header: Text(category.name)) {
+//                        ForEach(category.shortcuts, id: \.self) { shortcut in
+//                            
+//                        }
+//                    }
+//                }
+                
                 CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
                     .navigationTitle("My Xcode Shortcuts")
                     .navigationDestination(for: Shortcut.self) { shortcut in

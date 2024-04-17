@@ -60,6 +60,12 @@ extension Array {
     }
 }
 
+extension String {
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
+}
+
 // TODO: Add Arrow Symbols
 // TODO: Add Fn "Function" Symbol
 // TODO: Add a Tab symbol

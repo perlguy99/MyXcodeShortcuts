@@ -28,16 +28,90 @@ import SwiftData
 
 struct CategorySelectionView: View {
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
-    @State private var shortcut: Shortcut
+    @State var shortcut: Shortcut
     
+    @Query private var categories: [Category]
+    
+    @State private var tempCategoryName: String = ""
+    
+    private let placeholder1 = "Category Name"
+    private let placeholder2 = "Or, Enter New Category"
     
     var body: some View {
-        Text("Hello, World!")
+        
+        NavigationView {
+            Form {
+                TextField(categories.isEmpty ? placeholder1 : placeholder2, text: $tempCategoryName)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.bottom, 20)
+                
+                if categories.isEmpty {
+                    Text("No categories yet").italic()
+                } else {
+                    listCategories
+                }
+            }
+            .navigationTitle("Categories")
+            .onSubmit {
+                insertNewCategoryAndStoreInShortcut(name: tempCategoryName)
+                tempCategoryName = "" // Reset after addinng
+                dismiss()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add") {
+                        insertNewCategoryAndStoreInShortcut(name: tempCategoryName)
+                        tempCategoryName = "" // Reset after addinng
+                    }
+                }
+            }
+        } // NavigationView
     }
     
-    init(shortcut: Shortcut) {
-        self.shortcut = shortcut
+    var listCategories: some View {
+        
+//        List(categories) { category in
+//            CategoryRow(category: category)
+//                .onTapGesture {
+//                    setCategoryAndDismiss(category: category)
+//                }
+//        }
+        
+        List {
+            ForEach(categories) { category in
+                CategoryRow(category: category)
+                    .onTapGesture {
+                        setCategoryAndDismiss(category: category)
+                    }
+            }
+            .onDelete(perform: deleteCategories)
+        }
+        
+        
+    }
+    
+    func deleteCategories(_ offsets: IndexSet) {
+        for offset in offsets {
+            let category = categories[offset]
+            modelContext.delete(category)
+        }
+    }
+    
+    func insertNewCategoryAndStoreInShortcut(name: String) {
+        guard name.isNotEmpty else { return }
+        
+        let newCategory = Category(name: name)
+        modelContext.insert(newCategory)
+        newCategory.shortcuts.append(shortcut)
+        shortcut.category = newCategory
+        dismiss()
+    }
+    
+    func setCategoryAndDismiss(category: Category) {
+        shortcut.category = category
+        dismiss()
     }
 }
 
@@ -55,5 +129,20 @@ struct CategorySelectionView: View {
     } catch {
         return Text("Failed to create a model container")
     }
+    
+}
 
+
+struct CategoryRow: View {
+    let category: Category
+    
+    var body: some View {
+        HStack {
+            Text(category.name)
+            Spacer()
+            Text("\(category.shortcuts.count)")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
 }

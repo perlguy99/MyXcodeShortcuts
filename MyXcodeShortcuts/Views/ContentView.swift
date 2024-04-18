@@ -15,12 +15,11 @@ struct ContentView: View {
     
     @State private var navigationPath = NavigationPath()
     @State private var sortOrder = [SortDescriptor(\Category.name)]
+    @State var currentStatus: Status = Status(rawValue: 0)
     
     @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
     
     @Query private var categories: [Category]
-    
-    @State var currentStatus: Status = Status(rawValue: 0)
     
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -28,14 +27,6 @@ struct ContentView: View {
             VStack {
                 Text(currentStatus.headingValue)
                     .font(.caption)
-                
-//                List(categories, id: \.self) { category in
-//                    Section(header: Text(category.name)) {
-//                        ForEach(category.shortcuts, id: \.self) { shortcut in
-//                            
-//                        }
-//                    }
-//                }
                 
                 CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
                     .navigationTitle("My Xcode Shortcuts")
@@ -45,12 +36,15 @@ struct ContentView: View {
                     .navigationDestination(for: Category.self) { category in
                         EditCategoryView(category: category)
                     }
-                
                     .toolbar {
-                        sortOrderToolbarItem()
-                        addItemToolbarItem()
-                        filterToolbarItem()
-                        settingsToolbarItem()
+                        ToolbarItemGroup(placement: .topBarLeading) {
+                            sortOrderToolbarItem()
+                            filtertoolbarItem()
+                        }
+                        ToolbarItemGroup(placement: .topBarTrailing) {
+                            addItemToolbarItem()
+                            settingsToolbarItem()
+                        }
                 }
             }
         }
@@ -64,63 +58,41 @@ struct ContentView: View {
         }
     }
     
-    private func deleteCategories(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(categories[index])
+    private func sortOrderToolbarItem() -> some View {
+        Menu("Sort", systemImage: "arrow.up.arrow.down") {
+            Picker("Sort", selection: $sortOrder) {
+                Text("Name (A-Z)").tag([SortDescriptor(\Category.name)])
+                Text("Name (Z-A)").tag([SortDescriptor(\Category.name, order: .reverse)])
             }
         }
     }
-}
+    
+    private func filtertoolbarItem() -> some View {
+        Button {
+            withAnimation {
+                currentStatus = Status(rawValue: statusInt)
+                currentStatus.toggle()
+                statusInt = currentStatus.rawValue
+            }
+        } label: {
+            Image(systemName: "line.3.horizontal.decrease.circle")
+                .font(.title2)
+                .foregroundStyle(currentStatus.color)
+        }
+    }
+    
+    private func settingsToolbarItem() -> some View {
+        NavigationLink(destination: SettingsView()) {
+            Image(systemName: "gear")
+        }
+    }
 
-// MARK: - Toobar Items
-extension ContentView {
-    
-    private func sortOrderToolbarItem() -> some ToolbarContent {
-        ToolbarItem(placement: .topBarLeading) {
-            Menu("Sort", systemImage: "arrow.up.arrow.down") {
-                Picker("Sort", selection: $sortOrder) {
-                    Text("Name (A-Z)")
-                        .tag([SortDescriptor(\Category.name)])
-                    
-                    Text("Name (Z-A)")
-                        .tag([SortDescriptor(\Category.name, order: .reverse)])
-                }
-            }
+    private func addItemToolbarItem() -> some View {
+        Button(action: addItem) {
+            Label("Add Item", systemImage: "plus")
         }
     }
     
-    func filterToolbarItem() -> some ToolbarContent {
-        ToolbarItem(placement: .topBarLeading) {
-            Button {
-                withAnimation {
-                    currentStatus = Status(rawValue: statusInt)
-                    currentStatus.toggle()
-                    statusInt = currentStatus.rawValue
-                }
-            } label: {
-                Image(systemName: "line.3.horizontal.decrease.circle")
-            }
-            .font(.title2)
-            .foregroundStyle(currentStatus.color)
-        }
-    }
-    
-    private func settingsToolbarItem() -> some ToolbarContent {
-        ToolbarItem(placement: .topBarTrailing) {
-            NavigationLink(destination: SettingsView()) {
-                Image(systemName: "gear")
-            }
-        }
-    }
-    
-    private func addItemToolbarItem() -> some ToolbarContent {
-        ToolbarItem(placement: .topBarTrailing) {
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
-        }
-    }
 }
 
 #Preview {

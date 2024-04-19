@@ -5,7 +5,7 @@
 //  Created by Brent Michalski on 3/13/24.
 //
 
-import Foundation
+import SwiftUI
 import SwiftData
 
 @Model
@@ -46,6 +46,23 @@ class Shortcut: Codable {
         try container.encode(details, forKey: .details)
         try container.encode(status, forKey: .status)
     }
+    
+    func matchesStatus(_ currentStatusInt: Int) -> Bool {
+        let currentStatus = Status(rawValue: currentStatusInt)
+        
+        switch currentStatus {
+            case .none:
+                // If the filter is set to .none, all shortcuts should be shown.
+                return true
+            case .favorite:
+                // If the filter is set to .favorite, only show favorites.
+                return self.status == .favorite
+            case .hidden:
+                // If the filter is set to .hidden, exclude hidden shortcuts.
+                return self.status != .hidden
+        }
+    }
+
 }
 
 

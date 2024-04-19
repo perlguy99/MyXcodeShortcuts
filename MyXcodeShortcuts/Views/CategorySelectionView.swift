@@ -101,18 +101,3 @@ struct CategorySelectionView: View {
     }
     
 }
-
-
-struct CategoryRow: View {
-    let category: Category
-    
-    var body: some View {
-        HStack {
-            Text(category.name)
-            Spacer()
-            Text("\(category.shortcuts.count)")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-    }
-}

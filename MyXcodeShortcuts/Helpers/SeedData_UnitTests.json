@@ -1,0 +1,54 @@
+{
+    "categories":
+    [
+        {
+            "name": "File Menu: New",
+            "shortcuts": [
+                {
+                    "keyCombo": "Ctrl Cmd T",
+                    "details": "Editor"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd T",
+                    "details": "Editor Below"
+                },
+                {
+                    "keyCombo": "Cmd T",
+                    "details": "Window Tab"
+                },
+                {
+                    "keyCombo": "Shift Cmd T",
+                    "details": "Window"
+                },
+                {
+                    "keyCombo": "Cmd N",
+                    "details": "File..."
+                },
+                {
+                    "keyCombo": "Opt Shift Cmd N",
+                    "details": "Playground..."
+                },
+                {
+                    "keyCombo": "Shift Cmd N",
+                    "details": "Project..."
+                },
+                {
+                    "keyCombo": "Ctrl Shift Cmd N",
+                    "details": "Package..."
+                },
+                {
+                    "keyCombo": "Ctrl Cmd N",
+                    "details": "Workspace"
+                },
+                {
+                    "keyCombo": "Opt Cmd N",
+                    "details": "Group"
+                },
+                {
+                    "keyCombo": "Ctrl Opt Cmd N",
+                    "details": "Group without Folder"
+                }
+            ]
+        }
+    ]
+}

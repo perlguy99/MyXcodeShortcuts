@@ -16,8 +16,8 @@ struct CategoryView: View {
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
     @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
     
-    private var filteredShortcuts: [Shortcut] {
-        category.shortcuts.sorted { $0.details < $1.details }.filter { matchesStatus($0) }
+    var filteredShortcuts: [Shortcut] {
+        category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusInt) }
     }
     
     var body: some View {
@@ -31,17 +31,6 @@ struct CategoryView: View {
         .foregroundColor(.red)
         .font(.headline)
         .bold()
-    }
-    
-    private func matchesStatus(_ shortcut: Shortcut) -> Bool {
-        switch shortcut.status {
-        case .none:
-            return true
-        case .favorite:
-            return shortcut.status == .favorite
-        case .hidden:
-            return shortcut.status != .hidden
-        }
     }
     
     private func deleteShortcuts(offsets: IndexSet) {

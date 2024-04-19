@@ -29,7 +29,7 @@ struct MyXcodeShortcutsApp: App {
         let isStoredInMemoryOnly = false
         #endif
         
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: isStoredInMemoryOnly)
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])

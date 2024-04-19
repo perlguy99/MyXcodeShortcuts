@@ -12,7 +12,7 @@ struct ShortcutView: View {
     @Environment(\.modelContext) var modelContext
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
-
+    
     @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
     @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols = Constants.defaultShowSymbols
     
@@ -50,20 +50,7 @@ struct ShortcutView: View {
     func handleLongPress() {
         navigationPath.append(shortcut)
     }
-    
 }
-
-//#Preview {
-//    let previewHelper = PreviewHelper()
-//   
-//    return Group {
-//        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone, showSymbols: true)
-//        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite, showSymbols: false)
-//        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden, showSymbols: true)
-//        
-//    }
-//    .modelContainer(previewHelper.container)
-//}
 
 #Preview {
     do {
@@ -82,5 +69,4 @@ struct ShortcutView: View {
     } catch {
         return Text("Failed to create a model container")
     }
-
 }

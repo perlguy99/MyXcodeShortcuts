@@ -41,6 +41,8 @@
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
 		84ED14E82BC9E7DA00375EED /* SeedData_Release_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */; };
+		84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */; };
+		84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */; };
 		84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		84D51D392BBDD0F600E6169B /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 		84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_Release_1.json; sourceTree = "<group>"; };
+		84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSymbols.swift; sourceTree = "<group>"; };
+		84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbarTests.swift; sourceTree = "<group>"; };
 		84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +181,7 @@
 				84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */,
 				84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */,
 				840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */,
+				84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */,
 			);
 			path = MyXcodeShortcutsTests;
 			sourceTree = "<group>";
@@ -194,8 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
-				8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */,
 				8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */,
+				8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */,
 				840AF0612BC704F2006F5366 /* PDFPreviewView.swift */,
 				8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */,
 				84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */,
@@ -223,11 +228,12 @@
 		846371202BBB0297001ED9C3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				846371302BBB1B7D001ED9C3 /* Constants.swift */,
+				84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */,
 				840AF05F2BC5D936006F5366 /* PDFGenerator.swift */,
 				8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */,
 				8463712E2BBB1B63001ED9C3 /* Extensions.swift */,
 				84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */,
-				846371302BBB1B7D001ED9C3 /* Constants.swift */,
 				84D51D3B2BBDF0DB00E6169B /* SeedData.swift */,
 				84D51D372BBDCDB500E6169B /* SeedData.json */,
 				84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */,
@@ -409,6 +415,7 @@
 				846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */,
 				8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */,
 				84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */,
+				84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */,
 				846371332BBB1BB1001ED9C3 /* ShortcutView.swift in Sources */,
 				846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */,
 				8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */,
@@ -420,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */,
+				84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */,
 				846371062BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift in Sources */,
 				840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */,
 				84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */,

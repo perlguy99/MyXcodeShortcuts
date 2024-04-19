@@ -65,7 +65,6 @@ final class PDFGeneratorTests: XCTestCase {
         let previewHelper = PreviewHelper()
         previewHelper.loadSeedData(skipDataCheck: true)
         
-        // TODO: Need to get the seed data back out of the database!
         let seed = SeedData(modelContext: sharedModelContainer.mainContext)
         seed.skipDataCheck = true
         seed.loadSeedData()

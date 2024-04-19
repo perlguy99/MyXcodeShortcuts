@@ -74,58 +74,81 @@ extension String {
 
 extension String {
     func replacingKeywordsWithSymbols(separator: String = "*") -> String {
-        // Define the mappings from keywords to Unicode symbols
-        let substitutions: [String: String] = [
-            "cmd": Constants.cmdSymbol, // Command Key Symbol
-            "ctrl": Constants.ctrlSymbol, // Control Key Symbol
-            "shift": Constants.shiftSymbol, // Shift Key Symbol
-            "opt": Constants.optSymbol, // Option (Alt) Key Symbol
-            "return": Constants.returnSymbol, // Shift Key Symbol
-        ]
-        
-        // Split the string into segments based on spaces
+        return replaceKeywords(using: separator) { symbol, _ in symbol }
+    }
+    
+    func replacingKeywordsWithFullWords(separator: String = "∞") -> String {
+        return replaceKeywords(using: separator) { _, fullWord in fullWord }
+    }
+    
+    private func replaceKeywords(using separator: String, replacementSelector: (String, String) -> String) -> String {
         let segments = self.split(separator: " ")
         
-        // Replace each segment if it matches a keyword, ignoring case
         let replacedSegments = segments.map { segment -> String in
             let lowercasedSegment = segment.lowercased()
-            if let replacement = substitutions[lowercasedSegment] {
-                return replacement
+
+            if let symbolDetails = KeyboardSymbols.symbols[lowercasedSegment] {
+                return replacementSelector(symbolDetails.0, symbolDetails.1)
             } else {
                 return String(segment)
             }
         }
-        
-        // Join the segments back into a single string
         return replacedSegments.joined(separator: separator)
     }
     
-    func replacingKeywordsWithFullWords(separator: String = "¶") -> String {
-        // Define the mappings from keywords to Unicode symbols
-        let substitutions: [String: String] = [
-            "cmd": "Command", // Command Key Symbol
-            "ctrl": "Control", // Control Key Symbol
-            "shift": "Shift", // Shift Key Symbol
-            "opt": "Option", // Option (Alt) Key Symbol
-            "return": "Return", // Shift Key Symbol
-        ]
-        
-        // Split the string into segments based on spaces
-        let segments = self.split(separator: " ")
-        
-        // Replace each segment if it matches a keyword, ignoring case
-        let replacedSegments = segments.map { segment -> String in
-            let lowercasedSegment = segment.lowercased()
-            if let replacement = substitutions[lowercasedSegment] {
-                return replacement
-            } else {
-                return String(segment)
-            }
-        }
-        
-        // Join the segments back into a single string
-        return replacedSegments.joined(separator: separator)
-    }
+//    func replacingKeywordsWithSymbolsX(separator: String = "*") -> String {
+//        // Define the mappings from keywords to Unicode symbols
+//        let substitutions: [String: String] = [
+//            "cmd": Constants.cmdSymbol, // Command Key Symbol
+//            "ctrl": Constants.ctrlSymbol, // Control Key Symbol
+//            "shift": Constants.shiftSymbol, // Shift Key Symbol
+//            "opt": Constants.optSymbol, // Option (Alt) Key Symbol
+//            "return": Constants.returnSymbol, // Shift Key Symbol
+//        ]
+//        
+//        // Split the string into segments based on spaces
+//        let segments = self.split(separator: " ")
+//        
+//        // Replace each segment if it matches a keyword, ignoring case
+//        let replacedSegments = segments.map { segment -> String in
+//            let lowercasedSegment = segment.lowercased()
+//            if let replacement = substitutions[lowercasedSegment] {
+//                return replacement
+//            } else {
+//                return String(segment)
+//            }
+//        }
+//        
+//        // Join the segments back into a single string
+//        return replacedSegments.joined(separator: separator)
+//    }
+    
+//    func replacingKeywordsWithFullWordsX(separator: String = "¶") -> String {
+//        // Define the mappings from keywords to Unicode symbols
+//        let substitutions: [String: String] = [
+//            "cmd": "Command", // Command Key Symbol
+//            "ctrl": "Control", // Control Key Symbol
+//            "shift": "Shift", // Shift Key Symbol
+//            "opt": "Option", // Option (Alt) Key Symbol
+//            "return": "Return", // Shift Key Symbol
+//        ]
+//        
+//        // Split the string into segments based on spaces
+//        let segments = self.split(separator: " ")
+//        
+//        // Replace each segment if it matches a keyword, ignoring case
+//        let replacedSegments = segments.map { segment -> String in
+//            let lowercasedSegment = segment.lowercased()
+//            if let replacement = substitutions[lowercasedSegment] {
+//                return replacement
+//            } else {
+//                return String(segment)
+//            }
+//        }
+//        
+//        // Join the segments back into a single string
+//        return replacedSegments.joined(separator: separator)
+//    }
 }
 
 extension UIPrintFormatter {

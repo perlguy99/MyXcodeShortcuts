@@ -34,6 +34,8 @@ struct EditShortcutView: View {
                                 }
                             }
                         
+                        Text(shortcut.convertedKeyCombo)
+                        
                         TextField("Details", text: $shortcut.details)
                             .textFieldStyle(.roundedBorder)
                     } header: {
@@ -73,18 +75,18 @@ struct EditShortcutView: View {
     }
 }
 
-//#Preview {
-//    do {
-//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//        let container = try ModelContainer(for: Category.self, configurations: config)
-//        
-//        let previewHelper = PreviewHelper(container: container)
-//        previewHelper.loadSampleData()
-//        
-//        return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
-//            .modelContainer(container)
-//    } catch {
-//        return Text("Failed to create a model container")
-//    }
-//
-//}
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create a model container")
+    }
+
+}

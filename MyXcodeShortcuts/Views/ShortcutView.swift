@@ -18,8 +18,6 @@ struct ShortcutView: View {
     
     var body: some View {
         
-        let keyCombo = showSymbols ? shortcut.keyCombo.replacingKeywordsWithSymbols(separator: separator) : shortcut.keyCombo.replacingKeywordsWithFullWords(separator: separator).lowercased()
-        
         VStack {
             HStack {
                 Spacer()
@@ -29,7 +27,7 @@ struct ShortcutView: View {
                         .foregroundStyle(Color(.black))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text(keyCombo)
+                    Text(shortcut.convertedKeyCombo)
                         .bold()
                         .foregroundStyle(Color(.black))
                         .frame(maxWidth: .infinity, alignment: .leading)

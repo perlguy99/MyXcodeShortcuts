@@ -93,7 +93,7 @@ class PDFGenerator {
             total += sectionLineHeight
             
             for shortcut in shortcuts {
-                let keyCombo = shortcut.keyCombo.replacingKeywordsWithSymbols(separator: separator)
+                let keyCombo = shortcut.convertedKeyCombo
                 
                 if total < height {
                     keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)

@@ -66,11 +66,7 @@ extension String {
     }
 }
 
-// TODO: Add Arrow Symbols
 // TODO: Add Fn "Function" Symbol
-// TODO: Add a Tab symbol
-
-// TODO: Add Short descriptions?
 
 extension String {
     func replacingKeywordsWithSymbols(separator: String = "*") -> String {
@@ -95,60 +91,6 @@ extension String {
         }
         return replacedSegments.joined(separator: separator)
     }
-    
-//    func replacingKeywordsWithSymbolsX(separator: String = "*") -> String {
-//        // Define the mappings from keywords to Unicode symbols
-//        let substitutions: [String: String] = [
-//            "cmd": Constants.cmdSymbol, // Command Key Symbol
-//            "ctrl": Constants.ctrlSymbol, // Control Key Symbol
-//            "shift": Constants.shiftSymbol, // Shift Key Symbol
-//            "opt": Constants.optSymbol, // Option (Alt) Key Symbol
-//            "return": Constants.returnSymbol, // Shift Key Symbol
-//        ]
-//        
-//        // Split the string into segments based on spaces
-//        let segments = self.split(separator: " ")
-//        
-//        // Replace each segment if it matches a keyword, ignoring case
-//        let replacedSegments = segments.map { segment -> String in
-//            let lowercasedSegment = segment.lowercased()
-//            if let replacement = substitutions[lowercasedSegment] {
-//                return replacement
-//            } else {
-//                return String(segment)
-//            }
-//        }
-//        
-//        // Join the segments back into a single string
-//        return replacedSegments.joined(separator: separator)
-//    }
-    
-//    func replacingKeywordsWithFullWordsX(separator: String = "¶") -> String {
-//        // Define the mappings from keywords to Unicode symbols
-//        let substitutions: [String: String] = [
-//            "cmd": "Command", // Command Key Symbol
-//            "ctrl": "Control", // Control Key Symbol
-//            "shift": "Shift", // Shift Key Symbol
-//            "opt": "Option", // Option (Alt) Key Symbol
-//            "return": "Return", // Shift Key Symbol
-//        ]
-//        
-//        // Split the string into segments based on spaces
-//        let segments = self.split(separator: " ")
-//        
-//        // Replace each segment if it matches a keyword, ignoring case
-//        let replacedSegments = segments.map { segment -> String in
-//            let lowercasedSegment = segment.lowercased()
-//            if let replacement = substitutions[lowercasedSegment] {
-//                return replacement
-//            } else {
-//                return String(segment)
-//            }
-//        }
-//        
-//        // Join the segments back into a single string
-//        return replacedSegments.joined(separator: separator)
-//    }
 }
 
 extension UIPrintFormatter {

@@ -10,11 +10,10 @@ import SwiftData
 
 struct ShortcutView: View {
     @Environment(\.modelContext) var modelContext
+//    @EnvironmentObject var statusManager: StatusManager
+    
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
-    
-    @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols = Constants.defaultShowSymbols
     
     var body: some View {
         
@@ -59,9 +58,9 @@ struct ShortcutView: View {
         previewHelper.loadSampleData()
         
         return Group {
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone, showSymbols: true)
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite, showSymbols: false)
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden, showSymbols: true)
+            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone)
+            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
+            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
         }
         .modelContainer(previewHelper.container)
     } catch {

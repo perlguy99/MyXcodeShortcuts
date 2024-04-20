@@ -12,6 +12,8 @@
 		840103F02BD2BB0200B467D1 /* SeedData_UnitTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */; };
 		840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF05F2BC5D936006F5366 /* PDFGenerator.swift */; };
 		840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF0612BC704F2006F5366 /* PDFPreviewView.swift */; };
+		844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447531F2BD45B150073D85A /* MockUserDefaults.swift */; };
+		844753222BD45B3F0073D85A /* StatusManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753212BD45B3F0073D85A /* StatusManagerTests.swift */; };
 		846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */; };
 		846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F42BBAF8C0001ED9C3 /* ContentView.swift */; };
 		846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370F82BBAF8C2001ED9C3 /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_UnitTests.json; sourceTree = "<group>"; };
 		840AF05F2BC5D936006F5366 /* PDFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		840AF0612BC704F2006F5366 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
+		8447531F2BD45B150073D85A /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		844753212BD45B3F0073D85A /* StatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManagerTests.swift; sourceTree = "<group>"; };
 		846370EF2BBAF8C0001ED9C3 /* MyXcodeShortcuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyXcodeShortcuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsApp.swift; sourceTree = "<group>"; };
 		846370F42BBAF8C0001ED9C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */,
 				840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */,
 				84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */,
+				8447531F2BD45B150073D85A /* MockUserDefaults.swift */,
+				844753212BD45B3F0073D85A /* StatusManagerTests.swift */,
 			);
 			path = MyXcodeShortcutsTests;
 			sourceTree = "<group>";
@@ -231,10 +237,10 @@
 		846371202BBB0297001ED9C3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */,
 				846371302BBB1B7D001ED9C3 /* Constants.swift */,
 				84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */,
 				840AF05F2BC5D936006F5366 /* PDFGenerator.swift */,
-				8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */,
 				8463712E2BBB1B63001ED9C3 /* Extensions.swift */,
 				84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */,
 				84D51D3B2BBDF0DB00E6169B /* SeedData.swift */,
@@ -430,8 +436,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844753222BD45B3F0073D85A /* StatusManagerTests.swift in Sources */,
 				84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */,
 				84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */,
+				844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */,
 				846371062BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift in Sources */,
 				840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */,
 				84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */,

@@ -9,21 +9,50 @@ import SwiftUI
 import Combine
 
 class StatusManager: ObservableObject {
+    // May be injected for testing and previews
+    private var userDefaults: UserDefaults
+    
     @Published var currentStatus: Status {
         didSet {
             // Directly write to UserDefaults to avoid recursion and ensure synchronization
-            UserDefaults.standard.set(currentStatus.rawValue, forKey: Constants.Keys.statusInt.rawValue)
+            userDefaults.set(currentStatus.rawValue, forKey: Constants.Keys.statusInt)
+        }
+    }
+
+    @Published var pdfTitle: String {
+        didSet {
+            userDefaults.set(pdfTitle, forKey: Constants.Keys.pdfTitle)
         }
     }
     
-    // Initialize directly without relying on AppStorage wrapping
-    init() {
-        let statusValue = UserDefaults.standard.integer(forKey: Constants.Keys.statusInt.rawValue)
-        
-        let status = Status(rawValue: statusValue)
-            _currentStatus = Published(initialValue: status)
+    @Published var separator: String {
+        didSet {
+            userDefaults.set(separator, forKey: Constants.Keys.separator)
+        }
     }
     
+    @Published var showSymbols: Bool {
+        didSet {
+            userDefaults.set(showSymbols, forKey: Constants.Keys.showSymbols)
+        }
+    }
+    
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+        
+        _currentStatus = Published(initialValue: Status(rawValue: userDefaults.integer(forKey: Constants.Keys.statusInt)))
+        _pdfTitle = Published(initialValue: userDefaults.string(forKey: Constants.Keys.pdfTitle) ?? Constants.defaultTitle)
+        _separator = Published(initialValue: userDefaults.string(forKey: Constants.Keys.separator) ?? Constants.defaultSeparator)
+        _showSymbols = Published(initialValue: userDefaults.bool(forKey: Constants.Keys.showSymbols))
+        
+        print("\n------------------------------")
+        print(_currentStatus)
+        print(_pdfTitle)
+        print(_separator)
+        print(_showSymbols)
+        print("------------------------------\n")
+    }
+
     func toggleStatus() {
         currentStatus.toggle()
     }

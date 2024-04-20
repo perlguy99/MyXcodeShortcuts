@@ -23,7 +23,6 @@ struct ContentView: View {
         NavigationStack(path: $navigationPath) {
             
             VStack {
-//                Text(currentStatus.headingValue)
                 Text(statusManager.currentStatus.headingValue)
                     .font(.caption)
                 

@@ -14,11 +14,6 @@ struct SettingsView: View {
     
     @Query private var categories: [Category]
     
-    @AppStorage(Constants.Keys.pdfTitle.rawValue) private var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.separator.rawValue) private var separator = Constants.defaultSeparator
-    @AppStorage(Constants.Keys.showSymbols.rawValue) private var showSymbols = Constants.defaultShowSymbols
-//    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
-    
     @State private var showingValidationError = false
     
     let separatorOptions = [" ", "-", ".", "~", "+"]
@@ -44,33 +39,15 @@ struct SettingsView: View {
 
     var example = "CMD CTRL OPT SHIFT RETURN X"
     
-//    var currentStatus: Status
-//    
-//    init(
-//        pdfTitle: String = Constants.defaultTitle,
-//        separator: String = Constants.defaultSeparator,
-//        showSymbols: Bool = Constants.defaultShowSymbols,
-//        showingValidationError: Bool = false,
-//        example: String = "CMD CTRL OPT SHIFT RETURN X"
-//    ) {
-//        self.pdfTitle = pdfTitle
-//        self.separator = separator
-//        self.showSymbols = showSymbols
-//        self.showingValidationError = showingValidationError
-//        self.example = example
-//        
-////        self.currentStatus = Status(rawValue: statusInt)
-//    }
-    
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Custom PDF Title")) {
-                    TextField("PDF Title", text: $pdfTitle)
+                    TextField("PDF Title", text: $statusManager.pdfTitle)
                 }
 
                 Section(header: Text("Show Symbols")) {
-                    Toggle(isOn: $showSymbols, label: {
+                    Toggle(isOn: $statusManager.showSymbols, label: {
                         Text("Show Symbols")
                     })
                 }
@@ -80,17 +57,17 @@ struct SettingsView: View {
                     HStack {
                         Spacer()
                         
-                        let keyCombo = showSymbols ? example.replacingKeywordsWithSymbols(separator: separator) :
-                        example.replacingKeywordsWithFullWords(separator: separator)
+                        let keyCombo = statusManager.showSymbols ? example.replacingKeywordsWithSymbols(separator: statusManager.separator) :
+                        example.replacingKeywordsWithFullWords(separator: statusManager.separator)
                         
                         Text(keyCombo)
                             .transition(.opacity)
-                            .animation(.default, value: separator)
+                            .animation(.default, value: statusManager.separator)
                             .font(.largeTitle)
                         Spacer()
                     }
                     
-                    Picker("Custom Separator", selection: $separator) {
+                    Picker("Custom Separator", selection: $statusManager.separator) {
                         ForEach(Separator.allCases, id: \.self) { option in
                             Text("\(option.description)").tag(option.rawValue)
                         }
@@ -99,12 +76,12 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Preview/Print PDF Cheatsheet")) {
-                    let creator = PDFGenerator(categories: categories)
+                    let creator = PDFGenerator(categories: categories, statusManager: statusManager)
                     let renderedPDF = creator.renderDocument()
                     
                     if let renderedPDF = renderedPDF {
                         if let pdfData = renderedPDF.dataRepresentation() {
-                            NavigationLink(destination: PDFPreviewView(data: pdfData)) {
+                            NavigationLink(destination: PDFPreviewView(data: pdfData, statusManager: statusManager)) {
                                 HStack {
                                     Image(systemName: "square.and.arrow.up")
                                     Text("Preview/Print PDF Cheatsheet")
@@ -125,9 +102,33 @@ struct SettingsView: View {
     }
 }
 
-
 #Preview {
-    return SettingsView()
+    do {
+        let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+            return SettingsView()
+                .modelContainer(container)
+                .environmentObject(statusManager)
+    } catch {
+        return Text("Failed to create a model container")
+    }
 }
 
+#Preview {
+    do {
+        let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        statusManager.showSymbols = true
+
+        return SettingsView()
+            .modelContainer(container)
+            .environmentObject(statusManager)
+    } catch {
+        return Text("Failed to create a model container")
+    }
+}
 

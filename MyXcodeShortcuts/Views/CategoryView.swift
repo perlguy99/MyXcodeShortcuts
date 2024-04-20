@@ -10,21 +10,20 @@ import SwiftData
 
 struct CategoryView: View {
     @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var statusManager: StatusManager
     @Binding var navigationPath: NavigationPath
     
     var category: Category
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
-    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
     
     var filteredShortcuts: [Shortcut] {
-        category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusInt) }
+        category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
     }
     
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
             
             ForEach(filteredShortcuts) { shortcut in
-                ShortcutView(navigationPath: $navigationPath, shortcut: shortcut, showSymbols: showSymbols)
+                ShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
             }
             .onDelete(perform: deleteShortcuts)
         }
@@ -43,7 +42,8 @@ struct CategoryView: View {
 }
 
 #Preview {
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
+    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    statusManager.showSymbols = true
     
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
@@ -54,6 +54,28 @@ struct CategoryView: View {
         
         return CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
             .modelContainer(container)
+            .environmentObject(statusManager)
+        
+    } catch {
+        return Text("Failed to create a model container")
+    }
+}
+
+#Preview {
+    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    statusManager.showSymbols = false
+    
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
+            .modelContainer(container)
+            .environmentObject(statusManager)
+        
     } catch {
         return Text("Failed to create a model container")
     }

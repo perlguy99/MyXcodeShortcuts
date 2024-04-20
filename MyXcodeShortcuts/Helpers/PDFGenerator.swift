@@ -16,7 +16,7 @@ class PDFGenerator {
     fileprivate let topMargin: CGFloat = 100
     fileprivate let bottomMargin: CGFloat = 60
     fileprivate let lineHeight: CGFloat = 20
-    fileprivate let sectionLineHeight: CGFloat = 30
+    fileprivate let categoryLineHeight: CGFloat = 30
     fileprivate let headerColor = UIColor(red: 0, green: 118/255, blue: 0, alpha: 1)
     fileprivate let PDFSize = CGSize(width: 612, height: 792)
     
@@ -30,14 +30,13 @@ class PDFGenerator {
         return documentsUrl.appendingPathComponent("MyXcodeFavesShortcuts.pdf")
     }
     
+    let statusManager: StatusManager
+    
     var pdfDocument: PDFDocument = PDFDocument()
     
-    @AppStorage(Constants.Keys.pdfTitle.rawValue) var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
-    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
-    
-    init(categories: [Category]) {
+    init(categories: [Category], statusManager: StatusManager) {
         self.categories = categories
+        self.statusManager = statusManager
     }
     
     func renderDocument() -> PDFDocument? {
@@ -69,19 +68,14 @@ class PDFGenerator {
         let width = PDFSize.width * 0.5
         let height = PDFSize.height - bottomMargin
         
-        // fetched categories... (sections)
         var total: CGFloat = topMargin
         
-        let sectionAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
+        let categoryAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
         let continuedAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: headerColor]
         let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: UIColor.black]
         
-//        var filteredShortcuts: [Shortcut] {
-//            category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusInt) }
-//        }
-        
         for category in categories {
-            let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusInt) }
+            let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
             
             if shortcuts.isEmpty {
                 continue
@@ -90,7 +84,7 @@ class PDFGenerator {
             let name = category.name
             
             // new page if not enough room to print item after section header
-            if height - total < sectionLineHeight {
+            if height - total < categoryLineHeight {
                 column += 1
                 total = topMargin
                 if column > 1 {
@@ -99,8 +93,8 @@ class PDFGenerator {
             }
             
             var xValue = margin + column * width
-            name.draw(at: CGPoint(x: xValue, y: total+5), withAttributes: sectionAttributes)
-            total += sectionLineHeight
+            name.draw(at: CGPoint(x: xValue, y: total+5), withAttributes: categoryAttributes)
+            total += categoryLineHeight
             
             for shortcut in shortcuts {
                 let keyCombo = shortcut.convertedKeyCombo
@@ -119,7 +113,7 @@ class PDFGenerator {
                     xValue = margin + column * width
                     let text = "\(name) (continued)"
                     text.draw(at: CGPoint(x: xValue, y: total+5), withAttributes: continuedAttributes)
-                    total += sectionLineHeight
+                    total += categoryLineHeight
                     keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
                     shortcut.details.draw(at: CGPoint(x: xValue + 100, y: total), withAttributes: bodyAttributes)
                     total += lineHeight
@@ -142,7 +136,7 @@ class PDFGenerator {
         let rect = CGRect(x: 10, y: 10, width: 70, height: 70)
         logo.draw(in: rect)
         
-        let text = pdfTitle
+        let text = statusManager.pdfTitle
         let attributes: [NSAttributedString.Key : NSObject]
         if firstPage {
             attributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20),

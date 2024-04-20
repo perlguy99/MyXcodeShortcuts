@@ -44,7 +44,6 @@ struct EditCategoryView: View {
                         }
                         
                     }
-//                    .on
                 }
             }
         }

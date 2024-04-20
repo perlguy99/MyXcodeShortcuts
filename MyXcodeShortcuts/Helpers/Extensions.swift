@@ -104,3 +104,15 @@ extension UIPrintFormatter {
         self.maximumContentWidth = pdfDocument.page(at: 0)?.bounds(for: .mediaBox).width ?? 612 // Standard US Letter height in points
     }
 }
+
+extension UserDefaults {
+    /// Returns a new instance of UserDefaults that's isolated for previews.
+    static func previewUserDefaults() -> UserDefaults {
+        let suiteName = "net.perlguy.MyXcodeShortcuts.preview"
+        UserDefaults().removePersistentDomain(forName: suiteName)
+        guard let defaults = UserDefaults(suiteName: suiteName) else {
+            fatalError("Could not create preview UserDefaults")
+        }
+        return defaults
+    }
+}

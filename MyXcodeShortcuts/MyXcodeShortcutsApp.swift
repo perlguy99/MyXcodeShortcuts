@@ -8,14 +8,7 @@
 import SwiftUI
 import SwiftData
 
-//@AppStorage(Constants.Keys.pdfTitle.stringValue) var pdfTitle = Constants.defaultTitle
-//@AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
-//@AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
-
-// TODO: Tests?
 // TODO: Automatically keeping the order of keys in shortcuts consistent
-// TODO: Sorting on shortcuts
-// TODO: I've got all of the Xcode shortcuts from the Apple Documentation, but there are more to be added.
 
 @main
 @MainActor

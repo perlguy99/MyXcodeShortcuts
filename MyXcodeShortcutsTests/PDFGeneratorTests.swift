@@ -12,40 +12,45 @@ import SwiftData
 @testable import MyXcodeShortcuts
 
 final class PDFGeneratorTests: XCTestCase {
-    @AppStorage(Constants.Keys.pdfTitle.stringValue) var pdfTitle = Constants.defaultTitle
-    @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
+    var statusManager: StatusManager!
 
     override func setUp() {
         super.setUp()
         
-        pdfTitle = Constants.defaultTitle
-        separator = Constants.defaultSeparator
+        statusManager = StatusManager()
+        
+        // Set to .none to start with
+        statusManager.currentStatus = .none
+        statusManager.pdfTitle = Constants.defaultTitle
+        statusManager.separator = Constants.defaultSeparator
     }
     
     override func tearDown() {
         super.tearDown()
         
-        pdfTitle = Constants.defaultTitle
-        separator = Constants.defaultSeparator
+        statusManager.currentStatus = .none
+        statusManager.pdfTitle = Constants.defaultTitle
+        statusManager.separator = Constants.defaultSeparator
     }
     
     func testDefaultTitleWhenNoTitleSet() throws {
-        XCTAssertEqual(pdfTitle, Constants.defaultTitle, "\n\nExpected: \(Constants.defaultTitle)\nBut got: \(pdfTitle)\n\n")
-        XCTAssertEqual(separator, Constants.defaultSeparator, "\n\nExpected: \(Constants.defaultSeparator)\nBut got: \(separator)\n\n")
+        XCTAssertEqual(statusManager.pdfTitle, Constants.defaultTitle, "\n\nExpected: \(Constants.defaultTitle)\nBut got: \(statusManager.pdfTitle)\n\n")
+        XCTAssertEqual(statusManager.separator, Constants.defaultSeparator, "\n\nExpected: \(Constants.defaultSeparator)\nBut got: \(statusManager.separator)\n\n")
     }
     
     func testProperTitleWhenTitleSet() throws {
         let otherTitle = "OtHeR TiTlE"
         let otherSeparator = ""
-        pdfTitle = otherTitle
-        separator = otherSeparator
         
-        XCTAssertEqual(pdfTitle, otherTitle, "\n\nExpected: \(otherTitle)\nBut got: \(pdfTitle)\n\n")
-        XCTAssertEqual(separator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(separator)\n\n")
+        statusManager.pdfTitle = otherTitle
+        statusManager.separator = otherSeparator
+        
+        XCTAssertEqual(statusManager.pdfTitle, otherTitle, "\n\nExpected: \(otherTitle)\nBut got: \(statusManager.pdfTitle)\n\n")
+        XCTAssertEqual(statusManager.separator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(statusManager.separator)\n\n")
         
         // Double-check
-        XCTAssertEqual(pdfTitle, otherTitle, "\n\nExpected: \(otherTitle)\nBut got: \(pdfTitle)\n\n")
-        XCTAssertEqual(separator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(separator)\n\n")
+        XCTAssertEqual(statusManager.pdfTitle, otherTitle, "\n\nExpected: \(otherTitle)\nBut got: \(statusManager.pdfTitle)\n\n")
+        XCTAssertEqual(statusManager.separator, otherSeparator, "\n\nExpected: \(otherSeparator)\nBut got: \(statusManager.separator)\n\n")
     }
     
     @MainActor
@@ -69,7 +74,7 @@ final class PDFGeneratorTests: XCTestCase {
         seed.skipDataCheck = true
         seed.loadSeedData()
         
-        let creator = PDFGenerator(categories: seed.seedData)
+        let creator = PDFGenerator(categories: seed.seedData, statusManager: statusManager)
         let renderedDocument = creator.renderDocument()
         
         XCTAssertNotNil(renderedDocument)

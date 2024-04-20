@@ -20,11 +20,11 @@ class Shortcut: Codable {
     var status: Status = Status.none
     
     var separator: String {
-        UserDefaults.standard.string(forKey: Constants.Keys.separator.rawValue) ?? Constants.defaultSeparator
+        UserDefaults.standard.string(forKey: Constants.Keys.separator) ?? Constants.defaultSeparator
     }
 
     var showSymbols: Bool {
-        UserDefaults.standard.bool(forKey: Constants.Keys.showSymbols.rawValue)
+        UserDefaults.standard.bool(forKey: Constants.Keys.showSymbols)
     }
 
     var convertedKeyCombo: String {

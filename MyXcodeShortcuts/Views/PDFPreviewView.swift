@@ -9,9 +9,13 @@ import SwiftUI
 import PDFKit
 
 struct PDFPreviewView: View {
+    let statusManager: StatusManager
     let data: Data
 
-    @AppStorage(Constants.Keys.pdfTitle.rawValue) private var pdfTitle = Constants.defaultTitle
+    init(data: Data, statusManager: StatusManager) {
+        self.data = data
+        self.statusManager = statusManager
+    }
     
     var body: some View {
         VStack {
@@ -38,7 +42,7 @@ struct PDFPreviewView: View {
         
         if UIPrintInteractionController.canPrint(pdfData) {
             let printInfo = UIPrintInfo(dictionary: nil)
-            printInfo.jobName = pdfTitle
+            printInfo.jobName = statusManager.pdfTitle
             printInfo.outputType = .general
             
             printController.printInfo = printInfo
@@ -70,7 +74,9 @@ struct PDFViewUI: UIViewRepresentable {
 }
 
 #Preview {
-    PDFPreviewView(data: "PDF Data".data(using: .utf8)!)
+    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    
+    return PDFPreviewView(data: "PDF Data".data(using: .utf8)!, statusManager: statusManager)
 }
 
 

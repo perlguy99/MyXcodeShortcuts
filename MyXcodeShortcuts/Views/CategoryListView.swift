@@ -10,12 +10,12 @@ import SwiftData
 
 struct CategoryListView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var statusManager: StatusManager
+    
     @Binding var navigationPath: NavigationPath
     
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
     
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
-
     var body: some View {
         
         List {
@@ -25,19 +25,16 @@ struct CategoryListView: View {
         }
     }
     
-    init(navigationPath: Binding<NavigationPath>, sortOrder: [SortDescriptor<Category>] = [], showSymbols: Bool? = nil) {
-        if let showSymbols = showSymbols {
-            self.showSymbols = showSymbols
-        }
-        
+    init(navigationPath: Binding<NavigationPath>, sortOrder: [SortDescriptor<Category>] = []) {
         _navigationPath = navigationPath
         _categories = Query(sort: sortOrder)
     }
 }
 
 #Preview {
-    @AppStorage(Constants.Keys.showSymbols.rawValue) var showSymbols: Bool = true
-    
+    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    statusManager.showSymbols = true
+
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
@@ -47,6 +44,7 @@ struct CategoryListView: View {
         
         return CategoryListView(navigationPath: .constant(NavigationPath()))
             .modelContainer(container)
+            .environmentObject(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }

@@ -10,12 +10,14 @@ import SwiftData
 
 struct SettingsView: View {
     @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var statusManager: StatusManager
     
     @Query private var categories: [Category]
     
     @AppStorage(Constants.Keys.pdfTitle.rawValue) private var pdfTitle = Constants.defaultTitle
     @AppStorage(Constants.Keys.separator.rawValue) private var separator = Constants.defaultSeparator
     @AppStorage(Constants.Keys.showSymbols.rawValue) private var showSymbols = Constants.defaultShowSymbols
+//    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
     
     @State private var showingValidationError = false
     
@@ -41,6 +43,24 @@ struct SettingsView: View {
     }
 
     var example = "CMD CTRL OPT SHIFT RETURN X"
+    
+//    var currentStatus: Status
+//    
+//    init(
+//        pdfTitle: String = Constants.defaultTitle,
+//        separator: String = Constants.defaultSeparator,
+//        showSymbols: Bool = Constants.defaultShowSymbols,
+//        showingValidationError: Bool = false,
+//        example: String = "CMD CTRL OPT SHIFT RETURN X"
+//    ) {
+//        self.pdfTitle = pdfTitle
+//        self.separator = separator
+//        self.showSymbols = showSymbols
+//        self.showingValidationError = showingValidationError
+//        self.example = example
+//        
+////        self.currentStatus = Status(rawValue: statusInt)
+//    }
     
     var body: some View {
         NavigationView {
@@ -92,9 +112,7 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    
                 }
-
 
                 if showingValidationError {
                     Section {

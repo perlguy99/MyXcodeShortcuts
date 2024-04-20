@@ -12,12 +12,10 @@ import PDFKit
 @MainActor
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @EnvironmentObject var statusManager: StatusManager
     
     @State private var navigationPath = NavigationPath()
     @State private var sortOrder = [SortDescriptor(\Category.name)]
-    @State var currentStatus: Status = Status(rawValue: 0)
-    
-    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
     
     @Query private var categories: [Category]
     
@@ -25,7 +23,8 @@ struct ContentView: View {
         NavigationStack(path: $navigationPath) {
             
             VStack {
-                Text(currentStatus.headingValue)
+//                Text(currentStatus.headingValue)
+                Text(statusManager.currentStatus.headingValue)
                     .font(.caption)
                 
                 CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
@@ -70,14 +69,12 @@ struct ContentView: View {
     private func filtertoolbarItem() -> some View {
         Button {
             withAnimation {
-                currentStatus = Status(rawValue: statusInt)
-                currentStatus.toggle()
-                statusInt = currentStatus.rawValue
+                statusManager.toggleStatus()
             }
         } label: {
             Image(systemName: "line.3.horizontal.decrease.circle")
                 .font(.title2)
-                .foregroundStyle(currentStatus.color)
+                .foregroundStyle(statusManager.currentStatus.color)
         }
     }
     

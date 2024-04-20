@@ -35,6 +35,7 @@
 		84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */; };
 		84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */; };
 		847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E30F72BC0419200762FDF /* EditCategoryView.swift */; };
+		84A3D1E22BD344ED00FF60BF /* StatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A3D1E12BD344ED00FF60BF /* StatusManager.swift */; };
 		84B30A272BD01F3A0047AB24 /* KeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B30A262BD01F3A0047AB24 /* KeyData.swift */; };
 		84CA9AE42BCDBE010027A1FA /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */; };
 		84D51D382BBDCDB500E6169B /* SeedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D51D372BBDCDB500E6169B /* SeedData.json */; };
@@ -95,6 +96,7 @@
 		84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGeneratorTests.swift; sourceTree = "<group>"; };
 		84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+StringRepresentable.swift"; sourceTree = "<group>"; };
 		847E30F72BC0419200762FDF /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
+		84A3D1E12BD344ED00FF60BF /* StatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManager.swift; sourceTree = "<group>"; };
 		84B30A262BD01F3A0047AB24 /* KeyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyData.swift; sourceTree = "<group>"; };
 		84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 		84D51D372BBDCDB500E6169B /* SeedData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SeedData.json; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				846371212BBB02FA001ED9C3 /* Category.swift */,
 				846371232BBB0315001ED9C3 /* Shortcut.swift */,
 				846371252BBB0355001ED9C3 /* Status.swift */,
+				84A3D1E12BD344ED00FF60BF /* StatusManager.swift */,
 				84D51D392BBDD0F600E6169B /* Categories.swift */,
 				84B30A262BD01F3A0047AB24 /* KeyData.swift */,
 			);
@@ -411,6 +414,7 @@
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
 				840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */,
 				847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */,
+				84A3D1E22BD344ED00FF60BF /* StatusManager.swift in Sources */,
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
 				846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */,
 				8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */,

@@ -34,6 +34,7 @@ class PDFGenerator {
     
     @AppStorage(Constants.Keys.pdfTitle.rawValue) var pdfTitle = Constants.defaultTitle
     @AppStorage(Constants.Keys.separator.rawValue) var separator = Constants.defaultSeparator
+    @AppStorage(Constants.Keys.statusInt.rawValue) var statusInt: Int = 0
     
     init(categories: [Category]) {
         self.categories = categories
@@ -75,9 +76,18 @@ class PDFGenerator {
         let continuedAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: headerColor]
         let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: UIColor.black]
         
-        for section in categories {
-            let shortcuts = section.shortcuts
-            let name = section.name
+//        var filteredShortcuts: [Shortcut] {
+//            category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusInt) }
+//        }
+        
+        for category in categories {
+            let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusInt) }
+            
+            if shortcuts.isEmpty {
+                continue
+            }
+            
+            let name = category.name
             
             // new page if not enough room to print item after section header
             if height - total < sectionLineHeight {

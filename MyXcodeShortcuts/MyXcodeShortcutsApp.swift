@@ -50,5 +50,6 @@ struct MyXcodeShortcutsApp: App {
             return ContentView()
         }
         .modelContainer(sharedModelContainer)
+        .environmentObject(StatusManager())
     }
 }

@@ -45,8 +45,9 @@ struct SettingsView: View {
                 Section(header: Text("Custom PDF Title")) {
                     TextField("PDF Title", text: $statusManager.pdfTitle)
                 }
-
-                Section(header: Text("Show Symbols")) {
+                Section(
+                    header: Text("Show Symbols")
+                ) {
                     Toggle(isOn: $statusManager.showSymbols, label: {
                         Text("Show Symbols")
                     })

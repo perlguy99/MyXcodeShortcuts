@@ -92,6 +92,9 @@ struct ContentView: View {
 }
 
 #Preview {
+    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    statusManager.showSymbols = true
+
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
@@ -101,6 +104,7 @@ struct ContentView: View {
 
         return ContentView()
             .modelContainer(container)
+            .environmentObject(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }

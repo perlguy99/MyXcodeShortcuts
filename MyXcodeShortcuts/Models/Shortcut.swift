@@ -30,7 +30,6 @@ class Shortcut: Codable {
     var convertedKeyCombo: String {
         return showSymbols ? keyCombo.replacingKeywordsWithSymbols(separator: separator) : keyCombo.replacingKeywordsWithFullWords(separator: separator)
     }
-
     
     init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {
         self.keyCombo = keyCombo.localizedLowercase

@@ -20,7 +20,7 @@ struct ContentView: View {
     @Query private var categories: [Category]
     
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        return NavigationStack(path: $navigationPath) {
             
             VStack {
                 Text(statusManager.currentStatus.headingValue)
@@ -78,7 +78,9 @@ struct ContentView: View {
     }
     
     private func settingsToolbarItem() -> some View {
-        NavigationLink(destination: SettingsView()) {
+        let pdfViewModel = PDFViewModel(categories: categories, statusManager: statusManager)
+
+        return NavigationLink(destination: SettingsView(pdfViewModel: pdfViewModel)) {
             Image(systemName: "gear")
         }
     }

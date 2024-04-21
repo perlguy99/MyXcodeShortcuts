@@ -14,6 +14,7 @@
 		840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF0612BC704F2006F5366 /* PDFPreviewView.swift */; };
 		844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447531F2BD45B150073D85A /* MockUserDefaults.swift */; };
 		844753222BD45B3F0073D85A /* StatusManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753212BD45B3F0073D85A /* StatusManagerTests.swift */; };
+		844753242BD5C5A60073D85A /* PDFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753232BD5C5A60073D85A /* PDFViewModel.swift */; };
 		846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */; };
 		846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F42BBAF8C0001ED9C3 /* ContentView.swift */; };
 		846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370F82BBAF8C2001ED9C3 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		840AF0612BC704F2006F5366 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
 		8447531F2BD45B150073D85A /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		844753212BD45B3F0073D85A /* StatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManagerTests.swift; sourceTree = "<group>"; };
+		844753232BD5C5A60073D85A /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
 		846370EF2BBAF8C0001ED9C3 /* MyXcodeShortcuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyXcodeShortcuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsApp.swift; sourceTree = "<group>"; };
 		846370F42BBAF8C0001ED9C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				84A3D1E12BD344ED00FF60BF /* StatusManager.swift */,
 				84D51D392BBDD0F600E6169B /* Categories.swift */,
 				84B30A262BD01F3A0047AB24 /* KeyData.swift */,
+				844753232BD5C5A60073D85A /* PDFViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				84A3D1E22BD344ED00FF60BF /* StatusManager.swift in Sources */,
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
 				846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */,
+				844753242BD5C5A60073D85A /* PDFViewModel.swift in Sources */,
 				8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */,
 				84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */,
 				84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */,

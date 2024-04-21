@@ -10,13 +10,6 @@ import SwiftUI
 import SwiftData
 import PDFKit
 
-extension String {
-    var shortcutKeyComboString: String {
-        self.replacingOccurrences(of: "Cmd", with: "\(Image(systemName: "command"))")
-        
-    }
-}
-
 extension Binding where Value == String? {
     /// Creates a non-optional `Binding<String>` from `Binding<String?>` with a default value for `nil`.
     func replacingNilWith(_ defaultValue: String) -> Binding<String> {
@@ -114,5 +107,13 @@ extension UserDefaults {
             fatalError("Could not create preview UserDefaults")
         }
         return defaults
+    }
+}
+
+extension StatusManager {
+    func keyCombination(from example: String) -> String {
+        return showSymbols ?
+        example.replacingKeywordsWithSymbols(separator: separator) :
+        example.replacingKeywordsWithFullWords(separator: separator)
     }
 }

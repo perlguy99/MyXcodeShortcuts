@@ -16,10 +16,10 @@ enum KeyboardSymbols {
         "shift": ("\u{21E7}", "Shift"),
         "opt": ("\u{2325}", "Option"),
         "return": ("\u{23CE}", "Return"),
-        "arrowUp": ("\u{2191}", "UpArrow"),
-        "arrowDown": ("\u{2193}", "DownArrow"),
-        "arrowRight": ("\u{2192}", "RightArrow"),
-        "arrowLeft": ("\u{2190}", "LeftArrow"),
+        "uparrow": ("\u{2191}", "UpArrow"),
+        "downarrow": ("\u{2193}", "DownArrow"),
+        "rightarrow": ("\u{2192}", "RightArrow"),
+        "leftarrow": ("\u{2190}", "LeftArrow"),
         "tab": ("\u{21E5}", "Tab"),
     ]
 }

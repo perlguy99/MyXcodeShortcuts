@@ -8,36 +8,34 @@
 import SwiftUI
 import SwiftData
 
-struct SettingsView: View {
-    @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
+enum Separator: String, CaseIterable {
+    case space = " "
+    case dash = "-"
+    case dot = "."
+    case tilde = "~"
+    case plus = "+"
     
-    @Query private var categories: [Category]
-    
-    @State private var showingValidationError = false
-    
-    let separatorOptions = [" ", "-", ".", "~", "+"]
-    let separatorStrings = ["SPACE", "DASH", "DOT", "TILDE", "PLUS"]
-    
-    enum Separator: String, CaseIterable {
-        case space = " "
-        case dash = "-"
-        case dot = "."
-        case tilde = "~"
-        case plus = "+"
-        
-        var description: String {
-            switch self {
+    var description: String {
+        switch self {
             case .space: return "SPACE"
             case .dash: return "DASH"
             case .dot: return "DOT"
             case .tilde: return "TILDE"
             case .plus: return "PLUS"
-            }
         }
     }
+}
 
-    var example = "CMD CTRL OPT SHIFT RETURN X"
+struct SettingsView: View {
+    @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var statusManager: StatusManager
+    
+    @ObservedObject var pdfViewModel: PDFViewModel
+    
+    @Query private var categories: [Category]
+    @State private var showingValidationError = false
+
+    let separatorOptions = Separator.allCases
     
     var body: some View {
         NavigationView {
@@ -45,56 +43,28 @@ struct SettingsView: View {
                 Section(header: Text("Custom PDF Title")) {
                     TextField("PDF Title", text: $statusManager.pdfTitle)
                 }
-                Section(
-                    header: Text("Show Symbols")
-                ) {
-                    Toggle(isOn: $statusManager.showSymbols, label: {
-                        Text("Show Symbols")
-                    })
+                Section(header: Text("Show Symbols")) {
+                    Toggle("Show Symbols", isOn: $statusManager.showSymbols)
                 }
 
                 Section(header: Text("Custom Key Separator")) {
-                    
-                    HStack {
-                        Spacer()
-                        
-                        let keyCombo = statusManager.showSymbols ? example.replacingKeywordsWithSymbols(separator: statusManager.separator) :
-                        example.replacingKeywordsWithFullWords(separator: statusManager.separator)
-                        
-                        Text(keyCombo)
-                            .transition(.opacity)
-                            .animation(.default, value: statusManager.separator)
-                            .font(.largeTitle)
-                        Spacer()
-                    }
-                    
-                    Picker("Custom Separator", selection: $statusManager.separator) {
-                        ForEach(Separator.allCases, id: \.self) { option in
-                            Text("\(option.description)").tag(option.rawValue)
-                        }
-                    }
-                    .pickerStyle(.segmented)
+                    KeyCombinationView(combination: statusManager.keyCombination(from: "CMD CTRL OPT SHIFT RETURN X"))
+                    KeyCombinationView(combination: statusManager.keyCombination(from: "UpArrow DownArrow RightArrow LeftArrow tab X"))
+                    SeparatorPickerView(selectedSeparator: $statusManager.separator, separators: separatorOptions)
                 }
                 
                 Section(header: Text("Preview/Print PDF Cheatsheet")) {
-                    let creator = PDFGenerator(categories: categories, statusManager: statusManager)
-                    let renderedPDF = creator.renderDocument()
+                    Button("Preview/Print PDF Cheatsheet") {
+                        pdfViewModel.generatePDF()
+                    }
                     
-                    if let renderedPDF = renderedPDF {
-                        if let pdfData = renderedPDF.dataRepresentation() {
-                            NavigationLink(destination: PDFPreviewView(data: pdfData, statusManager: statusManager)) {
-                                HStack {
-                                    Image(systemName: "square.and.arrow.up")
-                                    Text("Preview/Print PDF Cheatsheet")
-                                }
+                    if let pdfData = pdfViewModel.pdfData {
+                        NavigationLink(destination: PDFPreviewView(data: pdfData, statusManager: statusManager)) {
+                            HStack {
+                                Image(systemName: "square.and.arrow.up")
+                                Text("View Generated PDF")
                             }
                         }
-                    }
-                }
-
-                if showingValidationError {
-                    Section {
-                        Text("Error: PDF Title cannot be empty.").foregroundColor(.red)
                     }
                 }
             }
@@ -103,15 +73,48 @@ struct SettingsView: View {
     }
 }
 
+
+struct KeyCombinationView: View {
+    var combination: String
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            Text(combination)
+                .transition(.opacity)
+                .animation(.default, value: combination)
+                .font(.largeTitle)
+            Spacer()
+        }
+    }
+}
+
+struct SeparatorPickerView: View {
+    @Binding var selectedSeparator: String
+    let separators: [Separator]
+    
+    var body: some View {
+        Picker("Custom Separator", selection: $selectedSeparator) {
+            ForEach(separators, id: \.self) { option in
+                Text(option.description).tag(option.rawValue)
+            }
+        }
+        .pickerStyle(.segmented)
+    }
+}
+
+
 #Preview {
     do {
         let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
+        let categories = [Category]()
+        let pdfViewModel = PDFViewModel(categories: categories, statusManager: statusManager)
         
-            return SettingsView()
-                .modelContainer(container)
-                .environmentObject(statusManager)
+        return SettingsView(pdfViewModel: pdfViewModel)
+            .modelContainer(container)
+            .environmentObject(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }
@@ -122,10 +125,12 @@ struct SettingsView: View {
         let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
+        let categories = [Category]()
+        let pdfViewModel = PDFViewModel(categories: categories, statusManager: statusManager)
         
         statusManager.showSymbols = true
-
-        return SettingsView()
+        
+        return SettingsView(pdfViewModel: pdfViewModel)
             .modelContainer(container)
             .environmentObject(statusManager)
     } catch {

@@ -21,7 +21,6 @@ struct CategoryView: View {
     
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
-            
             ForEach(filteredShortcuts) { shortcut in
                 ShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
             }

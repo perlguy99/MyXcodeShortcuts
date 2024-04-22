@@ -17,11 +17,9 @@ struct EditShortcutView: View {
     @FocusState var isKeyComboFieldActive: Bool
     
     var body: some View {
-        
         NavigationView {
             VStack {
                 Form {
-                    
                     Section {
                         TextField("Key Combination", text: $shortcut.keyCombo)
                             .textFieldStyle(.roundedBorder)

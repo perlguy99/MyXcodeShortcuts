@@ -65,5 +65,4 @@ struct EditCategoryView: View {
     } catch {
         return Text("Failed to create a model container")
     }
-
 }

@@ -7,12 +7,20 @@
 
 import SwiftUI
 import SwiftData
+import FirebaseCore
 
-// TODO: Automatically keeping the order of keys in shortcuts consistent
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+}
 
 @main
 @MainActor
 struct MyXcodeShortcutsApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Category.self, Shortcut.self])
         

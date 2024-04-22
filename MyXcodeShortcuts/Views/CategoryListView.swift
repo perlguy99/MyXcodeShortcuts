@@ -17,7 +17,6 @@ struct CategoryListView: View {
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
     
     var body: some View {
-        
         List {
             ForEach(categories) { category in
                 CategoryView(navigationPath: $navigationPath, category: category)

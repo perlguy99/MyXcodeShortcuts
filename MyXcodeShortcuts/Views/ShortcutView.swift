@@ -10,7 +10,6 @@ import SwiftData
 
 struct ShortcutView: View {
     @Environment(\.modelContext) var modelContext
-//    @EnvironmentObject var statusManager: StatusManager
     
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut

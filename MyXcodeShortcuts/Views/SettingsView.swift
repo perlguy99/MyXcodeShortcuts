@@ -67,8 +67,18 @@ struct SettingsView: View {
                         }
                     }
                 }
+                
+                Section(header: Text("Help")) {
+                    NavigationLink("Help", destination: HelpView())
+                }
             }
             .navigationBarTitle("Settings", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Text("Copyright © 2024, Brent Danger Michalski")
+                        .font(.caption)
+                }
+            }
         }
     }
 }

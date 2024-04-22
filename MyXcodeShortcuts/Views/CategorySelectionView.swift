@@ -8,10 +8,6 @@
 import SwiftUI
 import SwiftData
 
-// TODO: When the view is presented, place a check on the row that is currently selected.
-
-// TODO: Upon tapping a row - OR - having text in the TextField and hitting the "back" button
-
 struct CategorySelectionView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss

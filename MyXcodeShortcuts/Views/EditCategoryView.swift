@@ -66,3 +66,19 @@ struct EditCategoryView: View {
         return Text("Failed to create a model container")
     }
 }
+
+#Preview {
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return EditCategoryView(category: previewHelper.previewCategory)
+            .preferredColorScheme(.dark)
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create a model container")
+    }
+}

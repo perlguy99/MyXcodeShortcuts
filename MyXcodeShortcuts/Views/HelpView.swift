@@ -108,3 +108,8 @@ struct HelpView_Previews: PreviewProvider {
         HelpView()
     }
 }
+
+#Preview {
+    HelpView()
+        .preferredColorScheme(.dark)
+}

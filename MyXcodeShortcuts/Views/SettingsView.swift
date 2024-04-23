@@ -148,3 +148,21 @@ struct SeparatorPickerView: View {
     }
 }
 
+#Preview {
+    do {
+        let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        let categories = [Category]()
+        let pdfViewModel = PDFViewModel(categories: categories, statusManager: statusManager)
+        
+        statusManager.showSymbols = true
+        
+        return SettingsView(pdfViewModel: pdfViewModel)
+            .preferredColorScheme(.dark)
+            .modelContainer(container)
+            .environmentObject(statusManager)
+    } catch {
+        return Text("Failed to create a model container")
+    }
+}

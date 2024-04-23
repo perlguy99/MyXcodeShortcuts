@@ -30,7 +30,6 @@ struct PDFPreviewView: View {
             .padding()
 
             PDFViewUI(data: data)
-                .background(Color.green)
             
             Spacer()
         }

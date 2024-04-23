@@ -43,7 +43,7 @@ struct ContentView: View {
                             addItemToolbarItem()
                             settingsToolbarItem()
                         }
-                }
+                    }
             }
         }
     }
@@ -79,12 +79,12 @@ struct ContentView: View {
     
     private func settingsToolbarItem() -> some View {
         let pdfViewModel = PDFViewModel(categories: categories, statusManager: statusManager)
-
+        
         return NavigationLink(destination: SettingsView(pdfViewModel: pdfViewModel)) {
             Image(systemName: "gear")
         }
     }
-
+    
     private func addItemToolbarItem() -> some View {
         Button(action: addItem) {
             Label("Add Item", systemImage: "plus")
@@ -96,19 +96,39 @@ struct ContentView: View {
 #Preview {
     let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
     statusManager.showSymbols = true
-
+    
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
         
         let previewHelper = PreviewHelper(container: container)
         previewHelper.loadSampleData()
-
+        
         return ContentView()
+            .preferredColorScheme(.light)
             .modelContainer(container)
             .environmentObject(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }
+}
 
+#Preview {
+    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    statusManager.showSymbols = true
+    
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Category.self, configurations: config)
+        
+        let previewHelper = PreviewHelper(container: container)
+        previewHelper.loadSampleData()
+        
+        return ContentView()
+            .preferredColorScheme(.dark)
+            .modelContainer(container)
+            .environmentObject(statusManager)
+    } catch {
+        return Text("Failed to create a model container")
+    }
 }

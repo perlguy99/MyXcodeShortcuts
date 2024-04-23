@@ -20,6 +20,7 @@
 		8447532B2BD5D2500073D85A /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8447532A2BD5D2500073D85A /* FirebaseAnalyticsSwift */; };
 		8447532D2BD5D2500073D85A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8447532C2BD5D2500073D85A /* FirebaseCrashlytics */; };
 		8447532F2BD5DDA30073D85A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447532E2BD5DDA30073D85A /* HelpView.swift */; };
+		846030BC2BD871D300B5BC3D /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846030BB2BD871D300B5BC3D /* SplashScreen.swift */; };
 		846370F32BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */; };
 		846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F42BBAF8C0001ED9C3 /* ContentView.swift */; };
 		846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370F82BBAF8C2001ED9C3 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		844753232BD5C5A60073D85A /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
 		844753252BD5D0F00073D85A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8447532E2BD5DDA30073D85A /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		846030BB2BD871D300B5BC3D /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		846370EF2BBAF8C0001ED9C3 /* MyXcodeShortcuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyXcodeShortcuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsApp.swift; sourceTree = "<group>"; };
 		846370F42BBAF8C0001ED9C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				846371322BBB1BB1001ED9C3 /* ShortcutView.swift */,
 				846371342BBB1BE7001ED9C3 /* Checkbox.swift */,
 				8447532E2BD5DDA30073D85A /* HelpView.swift */,
+				846030BB2BD871D300B5BC3D /* SplashScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */,
 				846371312BBB1B7D001ED9C3 /* Constants.swift in Sources */,
 				84CA9AE42BCDBE010027A1FA /* CategorySelectionView.swift in Sources */,
+				846030BC2BD871D300B5BC3D /* SplashScreen.swift in Sources */,
 				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				84B30A272BD01F3A0047AB24 /* KeyData.swift in Sources */,
@@ -641,6 +645,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_ASSET_PATHS = "\"MyXcodeShortcuts/Preview Content\"";
@@ -662,6 +667,7 @@
 				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -674,6 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_ASSET_PATHS = "\"MyXcodeShortcuts/Preview Content\"";
@@ -695,6 +702,7 @@
 				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

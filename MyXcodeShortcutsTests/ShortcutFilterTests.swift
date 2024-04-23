@@ -29,8 +29,8 @@ final class ShortcutFilterTests: XCTestCase {
         let statusInt = 0
         XCTAssertTrue(testShortcuts[0].matchesStatus(statusInt))
         XCTAssertTrue(testShortcuts[1].matchesStatus(statusInt))
-        XCTAssertTrue(testShortcuts[2].matchesStatus(statusInt))
-        XCTAssertTrue(testShortcuts[3].matchesStatus(statusInt))
+        XCTAssertFalse(testShortcuts[2].matchesStatus(statusInt))
+        XCTAssertFalse(testShortcuts[3].matchesStatus(statusInt))
         XCTAssertTrue(testShortcuts[4].matchesStatus(statusInt))
         XCTAssertTrue(testShortcuts[5].matchesStatus(statusInt))
     }
@@ -49,8 +49,8 @@ final class ShortcutFilterTests: XCTestCase {
         let statusInt = 2
         XCTAssertTrue(testShortcuts[0].matchesStatus(statusInt))
         XCTAssertTrue(testShortcuts[1].matchesStatus(statusInt))
-        XCTAssertFalse(testShortcuts[2].matchesStatus(statusInt))
-        XCTAssertFalse(testShortcuts[3].matchesStatus(statusInt))
+        XCTAssertTrue(testShortcuts[2].matchesStatus(statusInt))
+        XCTAssertTrue(testShortcuts[3].matchesStatus(statusInt))
         XCTAssertTrue(testShortcuts[4].matchesStatus(statusInt))
         XCTAssertTrue(testShortcuts[5].matchesStatus(statusInt))
     }

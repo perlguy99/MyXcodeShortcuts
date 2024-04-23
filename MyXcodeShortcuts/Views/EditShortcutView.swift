@@ -69,7 +69,6 @@ struct EditShortcutView: View {
     
     private func appendKeyCombo(key: String) {
         shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + key
-        print("\(key) appended")
     }
 }
 

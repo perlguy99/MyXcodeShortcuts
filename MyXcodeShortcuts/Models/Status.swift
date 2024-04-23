@@ -61,11 +61,11 @@ enum Status: Int, Codable {
     var headingValue: String {
         switch self {
         case .none:
-            return "Showing All Shortcuts"
+            return "Showing All but Hidden"
         case .favorite:
             return "Showing Favorites Only"
         case .hidden:
-            return "Hidden Excluded"
+            return "Showing Hidden"
         }
     }
 

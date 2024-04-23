@@ -44,13 +44,6 @@ class StatusManager: ObservableObject {
         _pdfTitle = Published(initialValue: userDefaults.string(forKey: Constants.Keys.pdfTitle) ?? Constants.defaultTitle)
         _separator = Published(initialValue: userDefaults.string(forKey: Constants.Keys.separator) ?? Constants.defaultSeparator)
         _showSymbols = Published(initialValue: userDefaults.bool(forKey: Constants.Keys.showSymbols))
-        
-        print("\n------------------------------")
-        print(_currentStatus)
-        print(_pdfTitle)
-        print(_separator)
-        print(_showSymbols)
-        print("------------------------------\n")
     }
 
     func toggleStatus() {

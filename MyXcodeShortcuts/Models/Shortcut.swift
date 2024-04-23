@@ -65,13 +65,13 @@ class Shortcut: Codable {
         switch currentStatus {
             case .none:
                 // If the filter is set to .none, all shortcuts should be shown.
-                return true
+                return self.status != .hidden
             case .favorite:
                 // If the filter is set to .favorite, only show favorites.
                 return self.status == .favorite
             case .hidden:
                 // If the filter is set to .hidden, exclude hidden shortcuts.
-                return self.status != .hidden
+                return true
         }
     }
 

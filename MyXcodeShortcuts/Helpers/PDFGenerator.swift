@@ -42,12 +42,8 @@ class PDFGenerator {
     func renderDocument() -> PDFDocument? {
         createPDF()
         
-        print("renderDocument(\(documentPath?.absoluteString ?? "COULD NOT FIND PATH TO DOCUMENT")")
-        
         if let url = documentPath {
-            print("url = documentPath")
             if let doc = PDFDocument(url: url) {
-                print("pdfDocument = doc")
                 pdfDocument = doc
             }
             return PDFDocument(url: url)

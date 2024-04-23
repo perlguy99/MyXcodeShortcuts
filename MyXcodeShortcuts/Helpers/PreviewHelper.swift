@@ -43,9 +43,6 @@ struct PreviewHelper {
     init(container: ModelContainer? = nil) {
         guard let container = container else {
             self.container = sharedModelContainer
-            print("\n------------------------------")
-            print("Using sharedModelContainer !!!")
-            print("------------------------------\n")
             return
         }
         

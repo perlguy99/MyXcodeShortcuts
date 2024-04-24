@@ -10,8 +10,9 @@ import SwiftData
 
 struct EditShortcutView: View {
     @Environment(\.modelContext) var modelContext
-    @Binding var navigationPath: NavigationPath
+    @EnvironmentObject var statusManager: StatusManager
 
+    @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
     
     @FocusState var isKeyComboFieldActive: Bool
@@ -32,7 +33,7 @@ struct EditShortcutView: View {
                                 }
                             }
                         
-                        Text(shortcut.convertedKeyCombo)
+                        Text(statusManager.showSymbols ? shortcut.convertedWithSymbols : shortcut.convertedWithFullWords)
                         
                         TextField("Details", text: $shortcut.details)
                             .textFieldStyle(.roundedBorder)
@@ -73,6 +74,9 @@ struct EditShortcutView: View {
 }
 
 #Preview {
+    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    statusManager.showSymbols = true
+
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
@@ -82,6 +86,7 @@ struct EditShortcutView: View {
         
         return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
             .modelContainer(container)
+            .environmentObject(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }

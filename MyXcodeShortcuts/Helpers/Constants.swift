@@ -13,13 +13,6 @@ enum Constants {
     static let defaultShowSymbols = true
     static let defaultStatusInt = 0
     
-//    enum Keys: String, StringRepresentable {
-//        case pdfTitle
-//        case separator
-//        case showSymbols
-//        case statusInt
-//    }
-
     struct Keys {
         static let pdfTitle = "pdfTitle"
         static let separator = "separator"

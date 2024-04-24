@@ -41,9 +41,12 @@ class StatusManager: ObservableObject {
         self.userDefaults = userDefaults
         
         _currentStatus = Published(initialValue: Status(rawValue: userDefaults.integer(forKey: Constants.Keys.statusInt)))
-        _pdfTitle = Published(initialValue: userDefaults.string(forKey: Constants.Keys.pdfTitle) ?? Constants.defaultTitle)
-        _separator = Published(initialValue: userDefaults.string(forKey: Constants.Keys.separator) ?? Constants.defaultSeparator)
-        _showSymbols = Published(initialValue: userDefaults.bool(forKey: Constants.Keys.showSymbols))
+        _pdfTitle      = Published(initialValue: userDefaults.string(forKey: Constants.Keys.pdfTitle) ?? Constants.defaultTitle)
+        _separator     = Published(initialValue: userDefaults.string(forKey: Constants.Keys.separator) ?? Constants.defaultSeparator)
+        
+        // Check if the showSymbols key exists and set it to true if it does not
+        let showSymbolsValue = userDefaults.object(forKey: Constants.Keys.showSymbols) as? Bool
+        _showSymbols   = Published(initialValue: showSymbolsValue ?? true)
     }
 
     func toggleStatus() {

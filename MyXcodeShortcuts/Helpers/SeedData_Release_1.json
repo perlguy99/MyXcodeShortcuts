@@ -483,11 +483,11 @@
                     "details": "Show Next Tab"
                 },
                 {
-                    "keyCombo": "Ctrl Cmd ArrowR",
+                    "keyCombo": "Ctrl Cmd rightarrow",
                     "details": "Go Forward"
                 },
                 {
-                    "keyCombo": "Ctrl Cmd ArrowL",
+                    "keyCombo": "Ctrl Cmd leftarrow",
                     "details": "Go Back"
                 },
                 {
@@ -511,11 +511,11 @@
                     "details": "Jump to Instruction Pointer"
                 },
                 {
-                    "keyCombo": "Ctrl Cmd ArrowU",
+                    "keyCombo": "Ctrl Cmd uparrow",
                     "details": "Jump to Next Counterpart"
                 },
                 {
-                    "keyCombo": "Ctrl Cmd ArrowD",
+                    "keyCombo": "Ctrl Cmd downarrow",
                     "details": "Jump to Previous Counterpart"
                 },
                 {
@@ -576,11 +576,11 @@
                     "details": "Show All Issues"
                 },
                 {
-                    "keyCombo": "Ctrl Shift ArrowU",
+                    "keyCombo": "Ctrl Shift uparrow",
                     "details": "Selection: Select Column Up"
                 },
                 {
-                    "keyCombo": "Ctrl Shift ArrowD",
+                    "keyCombo": "Ctrl Shift downarrow",
                     "details": "Selection: Select Column Down"
                 },
                 {
@@ -616,27 +616,27 @@
                     "details": "Structure: Add Documentation"
                 },
                 {
-                    "keyCombo": "Opt Cmd ArrowL",
+                    "keyCombo": "Opt Cmd leftarrow",
                     "details": "Code Folding: Fold"
                 },
                 {
-                    "keyCombo": "Opt Cmd ArrowR",
+                    "keyCombo": "Opt Cmd rightarrow",
                     "details": "Code Folding: Unfold"
                 },
                 {
-                    "keyCombo": "Opt Shift Cmd ArrowL",
+                    "keyCombo": "Opt Shift Cmd leftarrow",
                     "details": "Code Folding: Fold Methods & Functions"
                 },
                 {
-                    "keyCombo": "Opt Shift Cmd ArrowR",
+                    "keyCombo": "Opt Shift Cmd rightarrow",
                     "details": "Code Folding: Unfold Methods & Functions"
                 },
                 {
-                    "keyCombo": "Ctrl Shift Cmd ArrowL",
+                    "keyCombo": "Ctrl Shift Cmd leftarrow",
                     "details": "Code Folding: Fold Comment Blocks"
                 },
                 {
-                    "keyCombo": "Ctrl Shift Cmd ArrowR",
+                    "keyCombo": "Ctrl Shift Cmd rightarrow",
                     "details": "Code Folding: Unfold Comment Blocks"
                 },
                 {

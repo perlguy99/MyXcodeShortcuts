@@ -16,7 +16,6 @@ struct KeyData: Hashable {
     }
     
     static let order = ["command", "option", "control", "shift", "tab", "return", "leftarrow", "uparrow", "downarrow", "rightarrow"]
-//    ["Command", "Option", "Control", "Shift", "Tab", "Return", "LeftArrow", "UpArrow", "DownArrow", "RightArrow"]
     
     static let all: [KeyData] = {
         let unorderedKeys = KeyboardSymbols.symbols.map { KeyData(symbol: $0.value.0, name: $0.value.1) }

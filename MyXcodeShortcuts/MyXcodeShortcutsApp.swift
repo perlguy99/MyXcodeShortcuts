@@ -19,6 +19,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 @MainActor
 struct MyXcodeShortcutsApp: App {
+    @State var isActive: Bool = false
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var sharedModelContainer: ModelContainer = {
@@ -48,9 +50,20 @@ struct MyXcodeShortcutsApp: App {
         let _ = checkSeed()
         
         WindowGroup {
-            return ContentView()
+            if isActive {
+                ContentView()
+                    .modelContainer(sharedModelContainer)
+                    .environmentObject(StatusManager())
+            } else {
+                SplashScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation {
+                                isActive = true
+                            }
+                        }
+                    }
+            }
         }
-        .modelContainer(sharedModelContainer)
-        .environmentObject(StatusManager())
     }
 }

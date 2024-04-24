@@ -24,7 +24,7 @@ struct SplashScreen: View {
             
             Spacer()
             
-            Text("My Xcode Shortcuts")
+            Text("My Shortcuts for Xcode")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
 

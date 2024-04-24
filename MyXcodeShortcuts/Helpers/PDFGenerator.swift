@@ -27,7 +27,7 @@ class PDFGenerator {
     fileprivate var documentPath: URL? {
         let fileManager = FileManager.default
         let documentsUrl = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
-        return documentsUrl.appendingPathComponent("MyXcodeFavesShortcuts.pdf")
+        return documentsUrl.appendingPathComponent("MyFavoriteShortcuts.pdf")
     }
     
     let statusManager: StatusManager

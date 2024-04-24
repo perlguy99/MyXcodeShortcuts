@@ -27,7 +27,7 @@ struct ContentView: View {
                     .font(.caption)
                 
                 CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
-                    .navigationTitle("My Xcode Shortcuts")
+                    .navigationTitle("My Key Combos")
                     .navigationDestination(for: Shortcut.self) { shortcut in
                         EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
                     }

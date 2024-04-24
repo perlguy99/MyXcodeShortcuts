@@ -8,7 +8,7 @@
 import Foundation
 
 enum Constants {
-    static let defaultTitle = "My Xcode Faves"
+    static let defaultTitle = "My Favorite Shortcuts"
     static let defaultSeparator = " "
     static let defaultShowSymbols = true
     static let defaultStatusInt = 0

@@ -233,9 +233,9 @@
 				84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */,
 				840103EB2BD1E7C500B467D1 /* CategoryRow.swift */,
 				847E30F72BC0419200762FDF /* EditCategoryView.swift */,
-				846371382BBB3245001ED9C3 /* SettingsView.swift */,
 				846371322BBB1BB1001ED9C3 /* ShortcutView.swift */,
 				846371342BBB1BE7001ED9C3 /* Checkbox.swift */,
+				846371382BBB3245001ED9C3 /* SettingsView.swift */,
 				8447532E2BD5DDA30073D85A /* HelpView.swift */,
 				846030BB2BD871D300B5BC3D /* SplashScreen.swift */,
 			);
@@ -668,7 +668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -705,7 +705,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

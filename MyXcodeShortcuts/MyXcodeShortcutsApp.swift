@@ -5,6 +5,12 @@
 //  Created by Brent Michalski on 4/1/24.
 //
 
+// TODO: Ability to move items
+// TODO: Fix colors in PDF to match logo color scheme
+// TODO: Fix PDF generation
+
+
+
 import SwiftUI
 import SwiftData
 import FirebaseCore

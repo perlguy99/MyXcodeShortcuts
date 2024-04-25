@@ -38,7 +38,7 @@ struct SettingsView: View {
     let separatorOptions = Separator.allCases
     
     var body: some View {
-        NavigationView {
+        NavigationSplitView {
             Form {
                 Section(header: Text("Custom PDF Title")) {
                     TextField("PDF Title", text: $statusManager.pdfTitle)
@@ -79,6 +79,9 @@ struct SettingsView: View {
                         .font(.caption)
                 }
             }
+        } detail: {
+            Text("Settings")
+                .font(.headline)
         }
     }
 }

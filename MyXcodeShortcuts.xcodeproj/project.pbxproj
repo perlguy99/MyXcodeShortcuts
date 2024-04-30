@@ -12,6 +12,7 @@
 		840103F02BD2BB0200B467D1 /* SeedData_UnitTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */; };
 		840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF05F2BC5D936006F5366 /* PDFGenerator.swift */; };
 		840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF0612BC704F2006F5366 /* PDFPreviewView.swift */; };
+		84208C472BDAB21300E63536 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */; };
 		844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447531F2BD45B150073D85A /* MockUserDefaults.swift */; };
 		844753222BD45B3F0073D85A /* StatusManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753212BD45B3F0073D85A /* StatusManagerTests.swift */; };
 		844753242BD5C5A60073D85A /* PDFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753232BD5C5A60073D85A /* PDFViewModel.swift */; };
@@ -51,6 +52,8 @@
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
 		84ED14E82BC9E7DA00375EED /* SeedData_Release_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */; };
+		84F4E5DC2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4E5DB2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift */; };
+		84F4E5DE2BDAD7DB0079C013 /* MockStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */; };
 		84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */; };
 		84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */; };
 		84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */; };
@@ -79,6 +82,7 @@
 		840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_UnitTests.json; sourceTree = "<group>"; };
 		840AF05F2BC5D936006F5366 /* PDFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		840AF0612BC704F2006F5366 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
+		84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		8447531F2BD45B150073D85A /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		844753212BD45B3F0073D85A /* StatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManagerTests.swift; sourceTree = "<group>"; };
 		844753232BD5C5A60073D85A /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 		84E55E772BD704AF00B6EDCD /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = MyXcodeShortcuts/Config.xcconfig; sourceTree = "<group>"; };
 		84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_Release_1.json; sourceTree = "<group>"; };
+		84F4E5DB2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGeneratorTestsAI.swift; sourceTree = "<group>"; };
+		84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStatusManager.swift; sourceTree = "<group>"; };
 		84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSymbols.swift; sourceTree = "<group>"; };
 		84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbarTests.swift; sourceTree = "<group>"; };
 		84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewTests.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 		846370E62BBAF8C0001ED9C3 = {
 			isa = PBXGroup;
 			children = (
+				84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */,
 				84E55E772BD704AF00B6EDCD /* Config.xcconfig */,
 				844753252BD5D0F00073D85A /* GoogleService-Info.plist */,
 				846370F12BBAF8C0001ED9C3 /* MyXcodeShortcuts */,
@@ -209,6 +216,8 @@
 				84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */,
 				8447531F2BD45B150073D85A /* MockUserDefaults.swift */,
 				844753212BD45B3F0073D85A /* StatusManagerTests.swift */,
+				84F4E5DB2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift */,
+				84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */,
 			);
 			path = MyXcodeShortcutsTests;
 			sourceTree = "<group>";
@@ -402,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846370FC2BBAF8C2001ED9C3 /* Preview Assets.xcassets in Resources */,
+				84208C472BDAB21300E63536 /* PrivacyInfo.xcprivacy in Resources */,
 				846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */,
 				840103F02BD2BB0200B467D1 /* SeedData_UnitTests.json in Resources */,
 				84ED14E82BC9E7DA00375EED /* SeedData_Release_1.json in Resources */,
@@ -489,9 +499,11 @@
 			files = (
 				844753222BD45B3F0073D85A /* StatusManagerTests.swift in Sources */,
 				84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */,
+				84F4E5DC2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift in Sources */,
 				84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */,
 				844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */,
 				846371062BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift in Sources */,
+				84F4E5DE2BDAD7DB0079C013 /* MockStatusManager.swift in Sources */,
 				840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */,
 				84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */,
 			);
@@ -668,7 +680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -705,7 +717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

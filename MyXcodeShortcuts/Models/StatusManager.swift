@@ -8,9 +8,23 @@
 import SwiftUI
 import Combine
 
+protocol StatusManaging: ObservableObject {
+    var currentStatus: Status { get set }
+    var pdfTitle: String { get set }
+    var separator: String { get set }
+    var showSymbols: Bool { get set }
+    
+    var userDefaults: UserDefaults { get set }
+    
+    func toggleStatus()
+}
+
+extension StatusManager: StatusManaging {}
+
 class StatusManager: ObservableObject {
+
     // May be injected for testing and previews
-    private var userDefaults: UserDefaults
+    internal var userDefaults: UserDefaults
     
     @Published var currentStatus: Status {
         didSet {

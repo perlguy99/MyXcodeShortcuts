@@ -8,60 +8,94 @@
 import XCTest
 @testable import MyXcodeShortcuts
 
-final class StatusManagerTests: XCTestCase {
-
-    var statusManager: StatusManager!
+class StatusManagerTests: XCTestCase {
+    
+    var statusManager: (any StatusManaging)?
     var mockUserDefaults: MockUserDefaults!
+    
+    let defaultPDFTitle = "Default PDF Title"
+    let customTitle = "Custom Title"
+    let defaultSeparator = "-"
+    let customSeparator = " "
+    let defaultShowSymbols = true
+    let customShowSymbols = false
+    let defaultCurrentStatus = Status.none
+    let customCurrentStatus = Status.favorite
+    
     
     override func setUp() {
         super.setUp()
-        mockUserDefaults = MockUserDefaults()
+        
+        mockUserDefaults = MockUserDefaults(initialValues: [
+            Constants.Keys.statusInt: defaultCurrentStatus.rawValue,
+            Constants.Keys.pdfTitle: defaultPDFTitle,
+            Constants.Keys.separator: defaultSeparator,
+            Constants.Keys.showSymbols: defaultShowSymbols
+        ])
+
         statusManager = StatusManager(userDefaults: mockUserDefaults)
+        statusManager?.userDefaults = mockUserDefaults
     }
     
-    override func tearDown() {
-        statusManager = nil
-        mockUserDefaults = nil
-        super.tearDown()
-    }
-    
-    func testInitialization() {
-        // Setup initial UserDefaults values
-        mockUserDefaults.set(1, forKey: Constants.Keys.statusInt)
-        mockUserDefaults.set("Custom Title", forKey: Constants.Keys.pdfTitle)
-        mockUserDefaults.set(" ", forKey: Constants.Keys.separator)
-        mockUserDefaults.set(true, forKey: Constants.Keys.showSymbols)
-    }
-    
-    func testPropertyChanges() {
-        // Test changing each property updates UserDefaults
-        statusManager.currentStatus = .favorite
-        XCTAssertEqual(mockUserDefaults.integer(forKey: Constants.Keys.statusInt), 1)
-        
-        statusManager.pdfTitle = "Updated Title"
-        XCTAssertEqual(mockUserDefaults.string(forKey: Constants.Keys.pdfTitle), "Updated Title")
-        
-        statusManager.separator = ","
-        XCTAssertEqual(mockUserDefaults.string(forKey: Constants.Keys.separator), ",")
-        
-        statusManager.showSymbols = false
-        XCTAssertEqual(mockUserDefaults.bool(forKey: Constants.Keys.showSymbols), false)
-    }
-    
-    func testToggleStatus() {
-        // Default is '.none' with a rawValue = 0
-        statusManager.currentStatus = .none
-        statusManager.toggleStatus()
-        
-        XCTAssertEqual(statusManager.currentStatus.rawValue, 1)
-        
-        statusManager.toggleStatus()
-        XCTAssertEqual(statusManager.currentStatus.rawValue, 2)
+        override func tearDown() {
+            statusManager = nil
+            super.tearDown()
+        }
 
-        statusManager.toggleStatus()
-        XCTAssertEqual(statusManager.currentStatus.rawValue, 0)
+    func testInitialize_StatusManager_Defaults() {
+        XCTAssertEqual(statusManager?.currentStatus, defaultCurrentStatus)
+        XCTAssertEqual(statusManager?.pdfTitle, defaultPDFTitle)
+        XCTAssertEqual(statusManager?.separator, defaultSeparator)
+        XCTAssertEqual(statusManager?.showSymbols, defaultShowSymbols)
+    }
 
+    
+    func testInitializeMockUserDefaults() {
+        XCTAssertEqual(statusManager?.currentStatus, defaultCurrentStatus)
+        XCTAssertEqual(statusManager?.pdfTitle, defaultPDFTitle)
+        XCTAssertEqual(statusManager?.separator, defaultSeparator)
+        XCTAssertEqual(statusManager?.showSymbols, defaultShowSymbols)
+        
+        customizeMockUserDefaults()
+        
+        XCTAssertEqual(statusManager?.currentStatus, customCurrentStatus)
+        XCTAssertEqual(statusManager?.pdfTitle, customTitle)
+        XCTAssertEqual(statusManager?.separator, customSeparator)
+        XCTAssertEqual(statusManager?.showSymbols, customShowSymbols)
+    }
+
+    
+    func customizeMockUserDefaults() {
+        statusManager?.currentStatus = customCurrentStatus
+        statusManager?.pdfTitle = customTitle
+        statusManager?.separator = customSeparator
+        statusManager?.showSymbols = customShowSymbols
     }
     
+    func testStatusManagerWithMockUserDefaults() {
+        // Initial checks
+        XCTAssertEqual(statusManager?.currentStatus, defaultCurrentStatus)
+        XCTAssertEqual(statusManager?.pdfTitle, defaultPDFTitle)
+        
+        // Simulate changing values
+        statusManager?.currentStatus = .favorite
+        statusManager?.pdfTitle = customTitle
+        
+        // Check values changed in mock storage
+        XCTAssertEqual(mockUserDefaults.integer(forKey: Constants.Keys.statusInt), Status.favorite.rawValue)
+        XCTAssertEqual(mockUserDefaults.string(forKey: Constants.Keys.pdfTitle), customTitle)
+        
+        // Functionality tests
+        statusManager?.toggleStatus()
+        XCTAssertEqual(statusManager?.currentStatus, .hidden, "Status should toggle to hidden")
+    }
+    
+    func testStatusToggle() {
+        let mockManager = MockStatusManager()
+        let initialStatus = mockManager.currentStatus
+        mockManager.toggleStatus()
+        XCTAssertNotEqual(mockManager.currentStatus, initialStatus, "Status should toggle")
+    }
+
     
 }

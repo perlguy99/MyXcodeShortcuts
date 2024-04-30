@@ -59,8 +59,7 @@ class PDFGenerator {
         UIGraphicsEndPDFContext()
     }
     
-    fileprivate func renderCategories() {
-        
+    func renderCategories() {
         let width = PDFSize.width * 0.5
         let height = PDFSize.height - bottomMargin
         
@@ -78,40 +77,49 @@ class PDFGenerator {
             }
             
             let name = category.name
+            var xValue = margin + column * width
             
-            // new page if not enough room to print item after section header
+            // Ensure there's room for the category header
             if height - total < categoryLineHeight {
                 column += 1
-                total = topMargin
+                
                 if column > 1 {
                     newPage()
+                    xValue = margin
                 }
+                total = topMargin
             }
             
-            var xValue = margin + column * width
-            name.draw(at: CGPoint(x: xValue, y: total+5), withAttributes: categoryAttributes)
+            name.draw(at: CGPoint(x: xValue, y: total + 5), withAttributes: categoryAttributes)
             total += categoryLineHeight
             
             for shortcut in shortcuts {
                 let keyCombo = shortcut.convertedWithSymbols
+                let keyComboAttributes = NSAttributedString(string: keyCombo, attributes: bodyAttributes)
+                let keyComboSize = keyComboAttributes.size()
                 
-                if total < height {
-                    keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
-                    shortcut.details.draw(at: CGPoint(x: xValue + 100, y: total), withAttributes: bodyAttributes)
+                let descriptionWidth = width - (keyComboSize.width + 10)  // calculate the remaining width after the keyCombo
+                let descriptionRect = CGRect(x: xValue + keyComboSize.width + 10, y: total, width: descriptionWidth, height: CGFloat.greatestFiniteMagnitude)
+                
+                if total + lineHeight < height {
+                    keyComboAttributes.draw(at: CGPoint(x: xValue, y: total))
+                    shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, context: nil)
                     total += lineHeight
                 } else {
                     column += 1
-                    total = topMargin
+                    
                     if column > 1 {
                         newPage()
+                        xValue = margin
                     }
+                    total = topMargin
                     
-                    xValue = margin + column * width
                     let text = "\(name) (continued)"
-                    text.draw(at: CGPoint(x: xValue, y: total+5), withAttributes: continuedAttributes)
+                    text.draw(at: CGPoint(x: xValue, y: total + 5), withAttributes: continuedAttributes)
                     total += categoryLineHeight
-                    keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
-                    shortcut.details.draw(at: CGPoint(x: xValue + 100, y: total), withAttributes: bodyAttributes)
+                    
+                    keyComboAttributes.draw(at: CGPoint(x: xValue, y: total))
+                    shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, context: nil)
                     total += lineHeight
                 }
             }
@@ -124,9 +132,10 @@ class PDFGenerator {
         renderFooter()
         renderCenterLine()
         printPageNumber()
-        column = 0
+        self.column = 0
+        firstPage = false
     }
-        
+    
     fileprivate func renderHeader() {
         guard let logo = UIImage(named: "AppIcon") else { return }
         let rect = CGRect(x: 10, y: 10, width: 70, height: 70)
@@ -152,16 +161,16 @@ class PDFGenerator {
         line.apply(transform)
         line.fill()
         context?.restoreGState()
-
+        
     }
-
+    
     fileprivate func renderFooter() {
         let leftText = "Inspired By: raywenderlich.com/Kodeco.com"
         let rightText = "©2024 Brent Michalski. All rights reserved"
         leftText.draw(at: CGPoint(x: margin, y: PDFSize.height - 20))
         rightText.draw(at: CGPoint(x: PDFSize.width - 250, y: PDFSize.height - 20))
     }
-
+    
     fileprivate func renderCenterLine() {
         let line = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 0.5, height: PDFSize.height - topMargin - bottomMargin + 20))
         let transform = CGAffineTransform(translationX: PDFSize.width/2 , y: topMargin)
@@ -169,13 +178,13 @@ class PDFGenerator {
         UIColor.black.setFill()
         line.fill()
     }
-
+    
     fileprivate func printPageNumber() {
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
                           NSAttributedString.Key.foregroundColor: UIColor.black]
         let pageNumberString = "Page \(pageNumber)"
         pageNumberString.draw(at: CGPoint(x: PDFSize.width - 60, y: 60), withAttributes: attributes)
         pageNumber += 1
-
+        
     }
 }

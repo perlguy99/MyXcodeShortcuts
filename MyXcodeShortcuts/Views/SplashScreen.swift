@@ -16,6 +16,16 @@ struct SplashScreen: View {
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
 
+            Text("My Shortcuts for Xcode")
+                .font(.largeTitle)
+                .multilineTextAlignment(.center)
+
+            Text("(or not)")
+                .font(.largeTitle)
+                .italic()
+                .multilineTextAlignment(.center)
+
+            
             Spacer()
             Image("MyAppIcon")
                 .resizable()
@@ -24,9 +34,6 @@ struct SplashScreen: View {
             
             Spacer()
             
-            Text("My Shortcuts for Xcode")
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
 
             
             Spacer()
@@ -34,7 +41,7 @@ struct SplashScreen: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
-        .background(Color("AccentColor"))
+        .background(.appBaseBlue).opacity(0.8)
     }
 }
 

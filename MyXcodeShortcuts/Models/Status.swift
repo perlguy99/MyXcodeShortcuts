@@ -28,11 +28,11 @@ enum Status: Int, Codable {
     var color: Color {
         switch self {
         case .none:
-            return Color.blue
+            return Color(red: -0.03, green: 0.55, blue: 0.82)
         case .favorite:
-            return Color.yellow
+            return Color.appFavoriteYellow
         case .hidden:
-            return Color.red
+            return .appPrimaryRed
         }
     }
     

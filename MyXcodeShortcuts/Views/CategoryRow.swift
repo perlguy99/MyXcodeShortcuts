@@ -17,7 +17,7 @@ struct CategoryRow: View {
             Spacer()
             Text("\(category.shortcuts.count)")
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.appSecondary)
         }
     }
 }

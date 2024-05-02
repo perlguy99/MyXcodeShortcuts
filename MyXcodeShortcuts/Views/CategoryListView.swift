@@ -15,15 +15,40 @@ struct CategoryListView: View {
     @Binding var navigationPath: NavigationPath
     
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
+    @Query var shortcuts: [Shortcut]
+    
+    var filteredShortcuts: [Shortcut] {
+        shortcuts.filter { $0.category == nil }
+    }
     
     var body: some View {
         List {
             ForEach(categories) { category in
                 CategoryView(navigationPath: $navigationPath, category: category)
             }
+
+            if filteredShortcuts.isNotEmpty {
+                Section(header: Text("Uncategorized").textCase(nil)) {
+                    ForEach(filteredShortcuts) { shortcut in
+                        ShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+                    }
+                    .onDelete(perform: deleteShortcuts)
+                }
+                .foregroundColor(.appPrimaryRed)
+                .font(.headline)
+                .bold()
+            }
         }
     }
     
+    private func deleteShortcuts(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                modelContext.delete(filteredShortcuts[index])
+            }
+        }
+    }
+
     init(navigationPath: Binding<NavigationPath>, sortOrder: [SortDescriptor<Category>] = []) {
         _navigationPath = navigationPath
         _categories = Query(sort: sortOrder)

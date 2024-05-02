@@ -61,29 +61,109 @@ extension String {
 
 // TODO: Add Fn "Function" Symbol
 
+//extension String {
+//    func replacingKeywordsWithSymbols(separator: String = "*") -> String {
+//        return replaceKeywords(using: separator) { symbol, _ in symbol }
+//    }
+//    
+//    func replacingKeywordsWithFullWords(separator: String = "∞") -> String {
+//        return replaceKeywords(using: separator) { _, fullWord in fullWord }
+//    }
+//    
+//    private func replaceKeywords(using separator: String, replacementSelector: (String, String) -> String) -> String {
+//        let segments = self.split(separator: " ")
+//        
+//        let replacedSegments = segments.map { segment -> String in
+//            let lowercasedSegment = segment.lowercased()
+//            
+//            if let symbolDetails = KeyboardSymbols.symbols[lowercasedSegment] {
+//                return replacementSelector(symbolDetails.0, symbolDetails.1)
+//            } else {
+//                return String(segment)
+//            }
+//        }
+//        return replacedSegments.joined(separator: separator)
+//    }
+//}
+
+
+// TODO: TDD - To be refactored
 extension String {
-    func replacingKeywordsWithSymbols(separator: String = "*") -> String {
-        return replaceKeywords(using: separator) { symbol, _ in symbol }
-    }
-    
-    func replacingKeywordsWithFullWords(separator: String = "∞") -> String {
-        return replaceKeywords(using: separator) { _, fullWord in fullWord }
-    }
-    
-    private func replaceKeywords(using separator: String, replacementSelector: (String, String) -> String) -> String {
+    func parseForControlCharacterMapping(separator: String = " ", returnType: ControlCharacterReturnType = .symbol) -> String {
         let segments = self.split(separator: " ")
         
         let replacedSegments = segments.map { segment -> String in
             let lowercasedSegment = segment.lowercased()
-
-            if let symbolDetails = KeyboardSymbols.symbols[lowercasedSegment] {
-                return replacementSelector(symbolDetails.0, symbolDetails.1)
+            
+            if let replacements = ControlCharacterMappings.mappings[lowercasedSegment] {
+                return replacements[returnType] ?? segment.uppercased()
             } else {
-                return String(segment)
+                return segment.uppercased()
             }
         }
         return replacedSegments.joined(separator: separator)
     }
+}
+
+struct ControlCharacterMappings {
+    static let mappings: [String: [ControlCharacterReturnType: String]] = [
+        "cmd": [
+            .long: "Command",
+            .short: "Cmd",
+            .symbol: "\u{2318}"
+        ],
+        "ctrl": [
+            .long: "Control",
+            .short: "Ctrl",
+            .symbol: "\u{2303}"
+        ],
+        "shift": [
+            .long: "Shift",
+            .short: "Shft",
+            .symbol: "\u{21E7}"
+        ],
+        "opt": [
+            .long: "Option",
+            .short: "Opt",
+            .symbol: "\u{2325}"
+        ],
+        "return": [
+            .long: "Return",
+            .short: "Rtn",
+            .symbol: "\u{23CE}"
+        ],
+        "uparrow": [
+            .long: "UpArrow",
+            .short: "UArr",
+            .symbol: "\u{2191}"
+        ],
+        "downarrow": [
+            .long: "DownArrow",
+            .short: "DArr",
+            .symbol: "\u{2193}"
+        ],
+        "rightarrow": [
+            .long: "RightArrow",
+            .short: "RArr",
+            .symbol: "\u{2192}"
+        ],
+        "leftarrow": [
+            .long: "LeftArrow",
+            .short: "LArr",
+            .symbol: "\u{2190}"
+        ],
+        "tab": [
+            .long: "Tab",
+            .short: "Tab",
+            .symbol: "\u{21E5}"
+        ]
+    ]
+}
+
+enum ControlCharacterReturnType {
+    case long
+    case short
+    case symbol
 }
 
 extension UIPrintFormatter {
@@ -112,8 +192,12 @@ extension UserDefaults {
 
 extension StatusManager {
     func keyCombination(from example: String) -> String {
-        return showSymbols ?
-        example.replacingKeywordsWithSymbols(separator: separator) :
-        example.replacingKeywordsWithFullWords(separator: separator)
+        
+        return example.parseForControlCharacterMapping(separator: separator, returnType: showSymbols ? .symbol : .long)
+        
+//        return showSymbols ?
+//        example.parseForControlCharacterMapping(separator: separator, returnType: .symbol)
+//         :
+//        example.parseForControlCharacterMapping(separator: separator, returnType: .long)
     }
 }

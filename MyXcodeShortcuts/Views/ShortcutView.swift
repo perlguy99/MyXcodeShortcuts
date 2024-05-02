@@ -23,12 +23,12 @@ struct ShortcutView: View {
                 VStack {
                     Text(shortcut.details)
                         .fontWeight(.light)
-                        .foregroundStyle(Color(.secondary))
+                        .foregroundStyle(Color(.appSecondaryText))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(convertedKeyCombo)
                         .bold()
-                        .foregroundStyle(Color(.primary))
+                        .foregroundStyle(Color(.appPrimaryText))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
@@ -45,7 +45,7 @@ struct ShortcutView: View {
     }
     
     var convertedKeyCombo: String {
-        return statusManager.showSymbols ? shortcut.convertedWithSymbols : shortcut.convertedWithFullWords
+        return shortcut.convertedKeyCombo
     }
     
     func handleLongPress() {

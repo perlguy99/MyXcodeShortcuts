@@ -8,6 +8,10 @@
 // TODO: Ability to move items
 // TODO: Fix colors in PDF to match logo color scheme
 // TODO: Fix PDF generation
+// TODO: Don't let user add a Shortcut without a Category
+// TODO: Verify adding works async
+// TODO: Need to be able to delete Categories
+
 
 
 

@@ -17,7 +17,8 @@ class PDFGenerator {
     fileprivate let bottomMargin: CGFloat = 60
     fileprivate let lineHeight: CGFloat = 20
     fileprivate let categoryLineHeight: CGFloat = 30
-    fileprivate let headerColor = UIColor(red: 0, green: 118/255, blue: 0, alpha: 1)
+    fileprivate let headerColor = UIColor(.appBaseBlue)
+    fileprivate let textColor = UIColor(.appPrimaryText)
     fileprivate let PDFSize = CGSize(width: 612, height: 792)
     
     fileprivate var pageNumber: Int = 1
@@ -60,6 +61,214 @@ class PDFGenerator {
     }
     
     func renderCategories() {
+        let width = PDFSize.width * 0.5 - margin * 2
+        var total = topMargin
+        
+        let categoryAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
+        let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: textColor]
+        
+        // Define background colors for alternating rows
+        let normalBackgroundColor = UIColor(white: 1.0, alpha: 1.0) // White for normal rows
+        let alternateBackgroundColor = UIColor(white: 0.95, alpha: 1.0) // Light gray for alternate rows
+        
+        for category in categories {
+            let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
+            
+            if shortcuts.isEmpty { continue }
+            
+            var xValue = margin + column * (width + margin + (column > 0 ? 20 : 0))
+            
+            if total + categoryLineHeight > PDFSize.height - bottomMargin {
+                if column == 1 {
+                    newPage()
+                    xValue = margin
+                } else {
+                    column += 1
+                    xValue = margin + column * (width + margin) + (column > 0 ? 20 : 0)
+                }
+                total = topMargin
+            }
+            
+            let categoryName = "\(category.name) (\(shortcuts.count))"
+            categoryName.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+            total += categoryLineHeight
+            
+            for (shortcutIndex, shortcut) in shortcuts.enumerated() {
+                let keyCombo = shortcut.keyCombo.parseForControlCharacterMapping(returnType: statusManager.showSymbols ? .symbol : .long)
+                let detailsWidth = (shortcut.details as NSString).size(withAttributes: bodyAttributes).width
+                let detailsX = xValue + width - detailsWidth  // Right-align the details
+                
+                // Background color fill
+                let backgroundColor = shortcutIndex % 2 == 0 ? normalBackgroundColor : alternateBackgroundColor
+                let backgroundRect = CGRect(x: xValue, y: total, width: width, height: lineHeight)
+                backgroundColor.setFill()
+                UIRectFill(backgroundRect)
+                
+                // Draw key combo and details
+                keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
+                let descriptionRect = CGRect(x: detailsX, y: total, width: detailsWidth, height: lineHeight)
+                shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, attributes: bodyAttributes, context: nil)
+                
+                total += lineHeight
+                
+                if total > PDFSize.height - bottomMargin {
+                    if column == 1 {
+                        newPage()
+                        xValue = margin
+                    } else {
+                        column += 1
+                        xValue = margin + column * (width + margin) + (column > 0 ? 20 : 0)
+                    }
+                    total = topMargin
+                    
+                    let continuationText = "\(categoryName) (continued)"
+                    continuationText.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+                    total += categoryLineHeight
+                }
+            }
+        }
+    }
+
+    
+    func renderCategoriesOld2() {
+        let width = PDFSize.width * 0.5 - margin * 2
+        var total = topMargin
+        
+        let categoryAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
+        let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: textColor]
+        
+        for category in categories {
+            let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
+            
+            if shortcuts.isEmpty { continue }
+            
+            var xValue = margin + column * (width + margin + (column > 0 ? 20 : 0))
+            
+            if total + categoryLineHeight > PDFSize.height - bottomMargin {
+                if column == 1 {
+                    newPage()
+                    xValue = margin
+                } else {
+                    column += 1
+                    xValue = margin + column * (width + margin) + (column > 0 ? 20 : 0)
+                }
+                total = topMargin
+            }
+            
+            let categoryName = "\(category.name) (\(shortcuts.count))"
+            categoryName.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+            total += categoryLineHeight
+            
+            for (shortcutIndex, shortcut) in shortcuts.enumerated() {
+                let keyCombo = shortcut.keyCombo.parseForControlCharacterMapping(returnType: statusManager.showSymbols ? .symbol : .long)
+                let keyComboSize = (keyCombo as NSString).size(withAttributes: bodyAttributes)
+                keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
+                
+                // Calculate right-aligned x position for details
+                let detailsWidth = (shortcut.details as NSString).size(withAttributes: bodyAttributes).width
+                let detailsX = xValue + width - detailsWidth  // Adjust to right-align the details
+                
+                let descriptionRect = CGRect(x: detailsX, y: total, width: detailsWidth, height: lineHeight)
+                shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, attributes: bodyAttributes, context: nil)
+                
+                total += lineHeight
+                
+                if total > PDFSize.height - bottomMargin {
+                    if column == 1 {
+                        newPage()
+                        xValue = margin
+                    } else {
+                        column += 1
+                        xValue = margin + column * (width + margin) + (column > 0 ? 20 : 0)
+                    }
+                    total = topMargin
+                    
+                    let continuationText = "\(categoryName) (continued)"
+                    continuationText.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+                    total += categoryLineHeight
+                }
+            }
+        }
+    }
+
+    func renderCategoriesOld() {
+        let width = PDFSize.width * 0.5 - margin * 2
+        var total = topMargin
+        
+        let categoryAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
+        let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: textColor]
+        
+        // Define background colors for alternating rows
+        let normalBackgroundColor = UIColor(white: 1.0, alpha: 1.0) // White for normal rows
+        let alternateBackgroundColor = UIColor(white: 0.95, alpha: 1.0) // Light gray for alternate rows
+
+        for category in categories {
+            let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
+            
+            if shortcuts.isEmpty { continue }
+            
+            // Adjust xValue calculation to include additional space from the center line
+            var xValue = margin + column * (width + margin + (column > 0 ? 20 : 0))  // Add 20 points buffer for the right column
+            
+            // Check if new page or new column is needed
+            if total + categoryLineHeight > PDFSize.height - bottomMargin {
+                if column == 1 {  // Currently on right column, need new page
+                    newPage()
+                    xValue = margin  // Reset to left column
+                } else {  // Currently on left column, switch to right
+                    column += 1
+                    xValue = margin + column * (width + margin) + (column > 0 ? 20 : 0)  // Add additional space when switching to right column
+                }
+                total = topMargin  // Reset vertical position
+            }
+            
+            // Draw category name
+            let categoryName = "\(category.name) (\(shortcuts.count))"
+            categoryName.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+            total += categoryLineHeight
+            
+            for (shortcutIndex, shortcut) in shortcuts.enumerated() {
+                let keyCombo = shortcut.keyCombo.parseForControlCharacterMapping(returnType: statusManager.showSymbols ? .symbol : .long)
+                let keyComboSize = (keyCombo as NSString).size(withAttributes: bodyAttributes)
+                
+                // Prepare to draw key combo and description
+                let descriptionWidth = width - keyComboSize.width - 10
+                let descriptionRect = CGRect(x: xValue + keyComboSize.width + 10, y: total, width: descriptionWidth, height: lineHeight)
+                
+                // Set background color for row
+                let backgroundColor = shortcutIndex % 2 == 0 ? normalBackgroundColor : alternateBackgroundColor
+                let backgroundRect = CGRect(x: xValue, y: total, width: width, height: lineHeight)
+                backgroundColor.setFill()
+                UIRectFill(backgroundRect)
+                
+                // Draw key combo and shortcut description
+                keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
+                shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, attributes: bodyAttributes, context: nil)
+                
+                total += lineHeight
+                
+                // Check if need to move to new column or page
+                if total > PDFSize.height - bottomMargin {
+                    if column == 1 {
+                        newPage()
+                        xValue = margin
+                    } else {
+                        column += 1
+                        xValue = margin + column * (width + margin) + (column > 0 ? 20 : 0)  // Adjust xValue when wrapping to new column
+                    }
+                    total = topMargin
+                    
+                    // When starting new on a fresh column or page after wrapping, draw category continuation header
+                    let continuationText = "\(categoryName) (continued)"
+                    continuationText.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+                    total += categoryLineHeight
+                }
+            }
+        }
+    }
+
+    
+    func renderCategoriesOLD() {
         let width = PDFSize.width * 0.5
         let height = PDFSize.height - bottomMargin
         
@@ -67,7 +276,7 @@ class PDFGenerator {
         
         let categoryAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
         let continuedAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: headerColor]
-        let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: UIColor.black]
+        let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: textColor]
         
         for category in categories {
             let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
@@ -94,7 +303,7 @@ class PDFGenerator {
             total += categoryLineHeight
             
             for shortcut in shortcuts {
-                let keyCombo = shortcut.convertedWithSymbols
+                let keyCombo = shortcut.keyCombo.parseForControlCharacterMapping(returnType: statusManager.showSymbols ? .symbol : .long)
                 let keyComboAttributes = NSAttributedString(string: keyCombo, attributes: bodyAttributes)
                 let keyComboSize = keyComboAttributes.size()
                 
@@ -156,12 +365,11 @@ class PDFGenerator {
         let context = UIGraphicsGetCurrentContext()
         context?.saveGState()
         context?.setShadow(offset: CGSize(width: 2, height: 2), blur: 5.0)
-        let line = UIBezierPath(rect: CGRect(x: 0, y: 0, width: PDFSize.width-20, height: 3))
+        let line = UIBezierPath(rect: CGRect(x: 0, y: 0, width: PDFSize.width - 20, height: 3))
         let transform = CGAffineTransform(translationX: 10, y: 80)
         line.apply(transform)
         line.fill()
         context?.restoreGState()
-        
     }
     
     fileprivate func renderFooter() {
@@ -175,13 +383,13 @@ class PDFGenerator {
         let line = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 0.5, height: PDFSize.height - topMargin - bottomMargin + 20))
         let transform = CGAffineTransform(translationX: PDFSize.width/2 , y: topMargin)
         line.apply(transform)
-        UIColor.black.setFill()
+        textColor.setFill()
         line.fill()
     }
     
     fileprivate func printPageNumber() {
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
-                          NSAttributedString.Key.foregroundColor: UIColor.black]
+                          NSAttributedString.Key.foregroundColor: textColor]
         let pageNumberString = "Page \(pageNumber)"
         pageNumberString.draw(at: CGPoint(x: PDFSize.width - 60, y: 60), withAttributes: attributes)
         pageNumber += 1

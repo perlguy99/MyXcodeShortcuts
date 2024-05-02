@@ -10,11 +10,11 @@
 		840103EC2BD1E7C500B467D1 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840103EB2BD1E7C500B467D1 /* CategoryRow.swift */; };
 		840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */; };
 		840103F02BD2BB0200B467D1 /* SeedData_UnitTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */; };
+		840526CA2BE2C8320047222A /* StatusManagerTestsAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840526C92BE2C8320047222A /* StatusManagerTestsAI.swift */; };
 		840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF05F2BC5D936006F5366 /* PDFGenerator.swift */; };
 		840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF0612BC704F2006F5366 /* PDFPreviewView.swift */; };
 		84208C472BDAB21300E63536 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */; };
 		844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447531F2BD45B150073D85A /* MockUserDefaults.swift */; };
-		844753222BD45B3F0073D85A /* StatusManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753212BD45B3F0073D85A /* StatusManagerTests.swift */; };
 		844753242BD5C5A60073D85A /* PDFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753232BD5C5A60073D85A /* PDFViewModel.swift */; };
 		844753262BD5D0F10073D85A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 844753252BD5D0F00073D85A /* GoogleService-Info.plist */; };
 		844753292BD5D2500073D85A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 844753282BD5D2500073D85A /* FirebaseAnalytics */; };
@@ -42,6 +42,7 @@
 		846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371382BBB3245001ED9C3 /* SettingsView.swift */; };
 		8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */; };
 		846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */; };
+		846DB1712BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DB1702BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift */; };
 		84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */; };
 		84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */; };
 		847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E30F72BC0419200762FDF /* EditCategoryView.swift */; };
@@ -80,11 +81,11 @@
 		840103EB2BD1E7C500B467D1 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutFilterTests.swift; sourceTree = "<group>"; };
 		840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_UnitTests.json; sourceTree = "<group>"; };
+		840526C92BE2C8320047222A /* StatusManagerTestsAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManagerTestsAI.swift; sourceTree = "<group>"; };
 		840AF05F2BC5D936006F5366 /* PDFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		840AF0612BC704F2006F5366 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
 		84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		8447531F2BD45B150073D85A /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
-		844753212BD45B3F0073D85A /* StatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManagerTests.swift; sourceTree = "<group>"; };
 		844753232BD5C5A60073D85A /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
 		844753252BD5D0F00073D85A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8447532E2BD5DDA30073D85A /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		846371382BBB3245001ED9C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShortcutView.swift; sourceTree = "<group>"; };
+		846DB1702BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDDShortcutSymbolConversionTests.swift; sourceTree = "<group>"; };
 		84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGeneratorTests.swift; sourceTree = "<group>"; };
 		84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+StringRepresentable.swift"; sourceTree = "<group>"; };
 		847E30F72BC0419200762FDF /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
@@ -215,9 +217,10 @@
 				840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */,
 				84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */,
 				8447531F2BD45B150073D85A /* MockUserDefaults.swift */,
-				844753212BD45B3F0073D85A /* StatusManagerTests.swift */,
+				840526C92BE2C8320047222A /* StatusManagerTestsAI.swift */,
 				84F4E5DB2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift */,
 				84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */,
+				846DB1702BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift */,
 			);
 			path = MyXcodeShortcutsTests;
 			sourceTree = "<group>";
@@ -259,7 +262,6 @@
 				846371252BBB0355001ED9C3 /* Status.swift */,
 				84A3D1E12BD344ED00FF60BF /* StatusManager.swift */,
 				84D51D392BBDD0F600E6169B /* Categories.swift */,
-				84B30A262BD01F3A0047AB24 /* KeyData.swift */,
 				844753232BD5C5A60073D85A /* PDFViewModel.swift */,
 			);
 			path = Models;
@@ -270,6 +272,7 @@
 			children = (
 				8463712A2BBB064E001ED9C3 /* PreviewHelper.swift */,
 				846371302BBB1B7D001ED9C3 /* Constants.swift */,
+				84B30A262BD01F3A0047AB24 /* KeyData.swift */,
 				84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */,
 				840AF05F2BC5D936006F5366 /* PDFGenerator.swift */,
 				8463712E2BBB1B63001ED9C3 /* Extensions.swift */,
@@ -439,6 +442,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		84E55E762BD6FB9300B6EDCD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -497,14 +501,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844753222BD45B3F0073D85A /* StatusManagerTests.swift in Sources */,
 				84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */,
 				84F4E5DC2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift in Sources */,
 				84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */,
 				844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */,
 				846371062BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift in Sources */,
 				84F4E5DE2BDAD7DB0079C013 /* MockStatusManager.swift in Sources */,
+				840526CA2BE2C8320047222A /* StatusManagerTestsAI.swift in Sources */,
 				840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */,
+				846DB1712BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift in Sources */,
 				84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

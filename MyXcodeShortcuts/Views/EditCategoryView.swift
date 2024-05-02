@@ -22,7 +22,7 @@ struct EditCategoryView: View {
                         .padding(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.gray.opacity(0.2), lineWidth: 2)
+                                .stroke(Color.appBorderGray, lineWidth: 2)
                         )
                         .padding(.bottom, 20)
                  
@@ -37,7 +37,7 @@ struct EditCategoryView: View {
                                 Spacer()
                                 Text("\(category.shortcuts.count)")
                                     .font(.caption)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.appSecondary)
                             }
                             .padding([.leading, .trailing])
                             

@@ -28,15 +28,7 @@ class Shortcut: Codable {
     }
 
     var convertedKeyCombo: String {
-        return showSymbols ? convertedWithSymbols : convertedWithFullWords
-    }
-    
-    var convertedWithSymbols: String {
-        return keyCombo.replacingKeywordsWithSymbols(separator: separator)
-    }
-    
-    var convertedWithFullWords: String {
-        return keyCombo.replacingKeywordsWithFullWords(separator: separator)
+        return keyCombo.parseForControlCharacterMapping(separator: separator, returnType: showSymbols ? .symbol : .long)
     }
     
     init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {

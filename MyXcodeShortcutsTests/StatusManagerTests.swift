@@ -10,7 +10,8 @@ import XCTest
 
 class StatusManagerTests: XCTestCase {
     
-    var statusManager: (any StatusManaging)?
+//    var statusManager: (any StatusManaging)?
+    var statusManager: StatusManager!
     var mockUserDefaults: MockUserDefaults!
     
     let defaultPDFTitle = "Default PDF Title"
@@ -43,6 +44,23 @@ class StatusManagerTests: XCTestCase {
         }
 
     func testInitialize_StatusManager_Defaults() {
+        print("\n------------------------------")
+        print(mockUserDefaults.integer(forKey: Constants.Keys.statusInt))
+        print(mockUserDefaults.string(forKey: Constants.Keys.pdfTitle))
+        print("---")
+        print(statusManager?.userDefaults.string(forKey: Constants.Keys.pdfTitle))
+        print(statusManager?.currentStatus)
+        print(statusManager?.pdfTitle)
+//        print(statusManager?.separator)
+//        print(statusManager?.showSymbols)
+        print("------------------------------\n")
+        
+        print("\n-------------statusManager?.currentStatus-----------------")
+        print(statusManager?.currentStatus)
+        print(mockUserDefaults.integer(forKey: Constants.Keys.statusInt))
+        
+        print("--------------statusManager?.currentStatus----------------\n")
+        
         XCTAssertEqual(statusManager?.currentStatus, defaultCurrentStatus)
         XCTAssertEqual(statusManager?.pdfTitle, defaultPDFTitle)
         XCTAssertEqual(statusManager?.separator, defaultSeparator)

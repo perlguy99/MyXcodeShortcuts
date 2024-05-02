@@ -49,11 +49,14 @@ struct CategorySelectionView: View {
     }
     
     private var categoryList: some View {
-        List(categories, id: \.self) { category in
-            CategoryRow(category: category)
-                .onTapGesture {
-                    setCategoryAndDismiss(category)
-                }
+        List {
+            ForEach(categories) { category in
+                CategoryRow(category: category)
+                    .onTapGesture {
+                        setCategoryAndDismiss(category)
+                    }
+            }
+            .onDelete(perform: deleteCategories)
         }
     }
     
@@ -89,6 +92,17 @@ struct CategorySelectionView: View {
         
         let previewHelper = PreviewHelper(container: container)
         previewHelper.loadSampleData()
+        
+        let sampleCategories = [
+            Category(name: "Category1"),
+            Category(name: "Category2"),
+            Category(name: "Category3"),
+            Category(name: "Category4")
+        ]
+        
+        for category in sampleCategories {
+            container.mainContext.insert(category)
+        }
         
         return CategorySelectionView(shortcut: previewHelper.previewShortcut)
             .modelContainer(container)

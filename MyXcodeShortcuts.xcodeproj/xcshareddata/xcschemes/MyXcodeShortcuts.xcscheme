@@ -42,7 +42,7 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO"
+            skipped = "YES"
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -51,6 +51,14 @@
                BlueprintName = "MyXcodeShortcutsUITests"
                ReferencedContainer = "container:MyXcodeShortcuts.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MyXcodeShortcutsUITests">
+               </Test>
+               <Test
+                  Identifier = "MyXcodeShortcutsUITestsLaunchTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

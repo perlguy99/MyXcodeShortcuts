@@ -33,8 +33,6 @@ struct EditShortcutView: View {
                                 }
                             }
                         
-                        Text(statusManager.showSymbols ? shortcut.convertedWithSymbols : shortcut.convertedWithFullWords)
-                        
                         TextField("Details", text: $shortcut.details)
                             .textFieldStyle(.roundedBorder)
                     } header: {
@@ -46,6 +44,15 @@ struct EditShortcutView: View {
                             Text(shortcut.category?.name ?? "Select a Category")
                         }
                     }
+                    
+                    Section("Converted Shortcut") {
+                        HStack {
+                            Spacer()
+                            Text(shortcut.convertedKeyCombo)
+                                .foregroundColor(shortcut.convertedKeyCombo.isEmpty ? .clear : .appPrimaryText)
+                            Spacer()
+                        }
+                    }
                 }
             }
         }
@@ -55,11 +62,14 @@ struct EditShortcutView: View {
     private var keyboardToolbar: some View {
         HStack {
             Spacer()
-            ForEach(KeyData.all, id: \.self) { key in
+            
+            ForEach(KeyData.order, id: \.self) { keyName in
+                let symbol = keyName.parseForControlCharacterMapping(returnType: .symbol)
+                
                 Button(action: {
-                    appendKeyCombo(key: key.name)
+                    appendKeyCombo(key: keyName)
                 }) {
-                    Text(key.symbol)
+                    Text(symbol)
                 }
                 .buttonStyle(.plain)
                 Spacer()

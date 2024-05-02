@@ -78,11 +78,13 @@ final class PDFGeneratorTests: XCTestCase {
         let renderedDocument = creator.renderDocument()
         
         XCTAssertNotNil(renderedDocument)
-        
+
+        #if DEBUG
         let docUrl = renderedDocument?.documentURL?.absoluteString ?? "NO DOCUMENT URL!"
-//        print("\n-------------docUrl-----------------")
-//        print(docUrl)
-//        print("--------------docUrl----------------\n")
+        print("\n-------------docUrl-----------------")
+        print(docUrl)
+        print("--------------docUrl----------------\n")
+        #endif
     }
     
 }

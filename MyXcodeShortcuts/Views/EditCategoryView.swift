@@ -10,6 +10,7 @@ import SwiftData
 
 struct EditCategoryView: View {
     @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var statusManager: StatusManager
     
     @Query private var categories: [Category]
     @Bindable var category: Category
@@ -22,7 +23,7 @@ struct EditCategoryView: View {
                         .padding(5)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.appBorderGray, lineWidth: 2)
+                                .stroke(ThemeManager.borderColor(for: statusManager.currentStatus), lineWidth: 2)
                         )
                         .padding(.bottom, 20)
                  

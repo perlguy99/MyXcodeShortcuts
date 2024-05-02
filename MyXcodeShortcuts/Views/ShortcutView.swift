@@ -23,12 +23,12 @@ struct ShortcutView: View {
                 VStack {
                     Text(shortcut.details)
                         .fontWeight(.light)
-                        .foregroundStyle(Color(.appSecondaryText))
+                        .foregroundStyle(ThemeManager.appSecondaryTextColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(convertedKeyCombo)
                         .bold()
-                        .foregroundStyle(Color(.appPrimaryText))
+                        .foregroundStyle(ThemeManager.appPrimaryTextColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 

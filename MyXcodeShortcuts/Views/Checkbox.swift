@@ -74,5 +74,3 @@ struct Checkbox_Previews: PreviewProvider {
 
 }
 
-
-//    .preferredColorScheme(.dark)

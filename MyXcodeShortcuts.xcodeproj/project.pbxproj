@@ -11,6 +11,7 @@
 		840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */; };
 		840103F02BD2BB0200B467D1 /* SeedData_UnitTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */; };
 		840526CA2BE2C8320047222A /* StatusManagerTestsAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840526C92BE2C8320047222A /* StatusManagerTestsAI.swift */; };
+		840526CC2BE44C970047222A /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840526CB2BE44C970047222A /* ThemeManager.swift */; };
 		840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF05F2BC5D936006F5366 /* PDFGenerator.swift */; };
 		840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF0612BC704F2006F5366 /* PDFPreviewView.swift */; };
 		84208C472BDAB21300E63536 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */; };
@@ -82,6 +83,7 @@
 		840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutFilterTests.swift; sourceTree = "<group>"; };
 		840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_UnitTests.json; sourceTree = "<group>"; };
 		840526C92BE2C8320047222A /* StatusManagerTestsAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManagerTestsAI.swift; sourceTree = "<group>"; };
+		840526CB2BE44C970047222A /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		840AF05F2BC5D936006F5366 /* PDFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		840AF0612BC704F2006F5366 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
 		84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				84D51D372BBDCDB500E6169B /* SeedData.json */,
 				84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */,
 				840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */,
+				840526CB2BE44C970047222A /* ThemeManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
 				840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */,
+				840526CC2BE44C970047222A /* ThemeManager.swift in Sources */,
 				847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */,
 				8447532F2BD5DDA30073D85A /* HelpView.swift in Sources */,
 				84A3D1E22BD344ED00FF60BF /* StatusManager.swift in Sources */,
@@ -685,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -722,7 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

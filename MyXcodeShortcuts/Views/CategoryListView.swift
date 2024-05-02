@@ -34,7 +34,7 @@ struct CategoryListView: View {
                     }
                     .onDelete(perform: deleteShortcuts)
                 }
-                .foregroundColor(.appPrimaryRed)
+                .foregroundColor(ThemeManager.categoryHeaderTextColor)
                 .font(.headline)
                 .bold()
             }

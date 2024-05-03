@@ -40,14 +40,14 @@ struct SettingsView: View {
     var body: some View {
         NavigationSplitView {
             Form {
-                Section(header: Text("Custom PDF Title")) {
+                Section(header: Text("PDF Title")) {
                     TextField("PDF Title", text: $statusManager.pdfTitle)
                 }
                 Section(header: Text("Show Symbols")) {
                     Toggle("Show Symbols", isOn: $statusManager.showSymbols)
                 }
 
-                Section(header: Text("Custom Key Separator")) {
+                Section(header: Text("Key Separator")) {
                     KeyCombinationView(combination: statusManager.keyCombination(from: "CMD CTRL OPT SHIFT RETURN X"))
                     KeyCombinationView(combination: statusManager.keyCombination(from: "UpArrow DownArrow RightArrow LeftArrow tab X"))
                     SeparatorPickerView(selectedSeparator: $statusManager.separator, separators: separatorOptions)

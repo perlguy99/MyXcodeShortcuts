@@ -14,7 +14,7 @@
 		840526CC2BE44C970047222A /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840526CB2BE44C970047222A /* ThemeManager.swift */; };
 		840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF05F2BC5D936006F5366 /* PDFGenerator.swift */; };
 		840AF0622BC704F2006F5366 /* PDFPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840AF0612BC704F2006F5366 /* PDFPreviewView.swift */; };
-		84208C472BDAB21300E63536 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */; };
+		8416C88B2BE59CCE009F315A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8416C88A2BE59CCE009F315A /* PrivacyInfo.xcprivacy */; };
 		844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447531F2BD45B150073D85A /* MockUserDefaults.swift */; };
 		844753242BD5C5A60073D85A /* PDFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844753232BD5C5A60073D85A /* PDFViewModel.swift */; };
 		844753262BD5D0F10073D85A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 844753252BD5D0F00073D85A /* GoogleService-Info.plist */; };
@@ -86,7 +86,7 @@
 		840526CB2BE44C970047222A /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		840AF05F2BC5D936006F5366 /* PDFGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFGenerator.swift; sourceTree = "<group>"; };
 		840AF0612BC704F2006F5366 /* PDFPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewView.swift; sourceTree = "<group>"; };
-		84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		8416C88A2BE59CCE009F315A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		8447531F2BD45B150073D85A /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		844753232BD5C5A60073D85A /* PDFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewModel.swift; sourceTree = "<group>"; };
 		844753252BD5D0F00073D85A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		846370E62BBAF8C0001ED9C3 = {
 			isa = PBXGroup;
 			children = (
-				84208C462BDAB21300E63536 /* PrivacyInfo.xcprivacy */,
+				8416C88A2BE59CCE009F315A /* PrivacyInfo.xcprivacy */,
 				84E55E772BD704AF00B6EDCD /* Config.xcconfig */,
 				844753252BD5D0F00073D85A /* GoogleService-Info.plist */,
 				846370F12BBAF8C0001ED9C3 /* MyXcodeShortcuts */,
@@ -417,7 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846370FC2BBAF8C2001ED9C3 /* Preview Assets.xcassets in Resources */,
-				84208C472BDAB21300E63536 /* PrivacyInfo.xcprivacy in Resources */,
+				8416C88B2BE59CCE009F315A /* PrivacyInfo.xcprivacy in Resources */,
 				846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */,
 				840103F02BD2BB0200B467D1 /* SeedData_UnitTests.json in Resources */,
 				84ED14E82BC9E7DA00375EED /* SeedData_Release_1.json in Resources */,
@@ -690,7 +690,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -728,7 +728,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

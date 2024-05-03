@@ -12,6 +12,18 @@ struct ThemeManager {
     static let appPrimaryTextColor = Color.appPrimaryText
     static let appSecondaryTextColor = Color.appSecondaryText
     static let appPDFHeaderColor = Color.appBaseBlue
+    static let filterNoneColor = Color.appBaseBlue
+    
+    static func filterButtonColor(for status: Status) -> Color {
+        switch status {
+            case .none:
+                return .appNoneBackground
+            case .favorite:
+                return .appFavoriteBackground
+            case .hidden:
+                return .appHiddenBackground
+        }
+    }
     
     static func backgroundColor(for status: Status) -> Color {
         switch status {

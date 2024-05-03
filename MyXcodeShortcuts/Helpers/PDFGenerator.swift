@@ -140,7 +140,7 @@ class PDFGenerator {
     }
     
     fileprivate func renderHeader() {
-        guard let logo = UIImage(named: "AppIcon") else { return }
+        guard let logo = UIImage(named: "AppIconTransparent") else { return }
         let rect = CGRect(x: 10, y: 10, width: 70, height: 70)
         logo.draw(in: rect)
         

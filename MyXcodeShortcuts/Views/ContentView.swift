@@ -36,15 +36,15 @@ struct ContentView: View {
                     }
                     .toolbar {
                         ToolbarItemGroup(placement: .topBarLeading) {
-                            sortOrderToolbarItem()
                             filtertoolbarItem()
+                            sortOrderToolbarItem()
                         }
                         ToolbarItemGroup(placement: .topBarTrailing) {
                             addItemToolbarItem()
                             settingsToolbarItem()
-                            #if DEBUG
-                            deleteAllToolbarItem()
-                            #endif
+//                            #if DEBUG
+//                            deleteAllToolbarItem()
+//                            #endif
                         }
                     }
             }
@@ -52,20 +52,20 @@ struct ContentView: View {
     }
     
     // TODO: Delete me
-    #if DEBUG
-    private func deleteAll() {
-        print("private func deleteAll()")
-        for category in categories {
-            modelContext.container.mainContext.delete(category)
-        }
-    }
-    
-    private func deleteAllToolbarItem() -> some View {
-        Button(action: deleteAll) {
-            Label("Delete All Items", systemImage: "exclamationmark.octagon")
-        }
-    }
-    #endif
+//    #if DEBUG
+//    private func deleteAll() {
+//        print("private func deleteAll()")
+//        for category in categories {
+//            modelContext.container.mainContext.delete(category)
+//        }
+//    }
+//    
+//    private func deleteAllToolbarItem() -> some View {
+//        Button(action: deleteAll) {
+//            Label("Delete All Items", systemImage: "exclamationmark.octagon")
+//        }
+//    }
+//    #endif
     
     private func addItem() {
         withAnimation {
@@ -92,7 +92,7 @@ struct ContentView: View {
         } label: {
             Image(systemName: "line.3.horizontal.decrease.circle")
                 .font(.title2)
-                .foregroundStyle(ThemeManager.foregroundColor(for: statusManager.currentStatus))
+                .foregroundStyle(ThemeManager.filterButtonColor(for: statusManager.currentStatus))
         }
     }
     
@@ -101,12 +101,16 @@ struct ContentView: View {
         
         return NavigationLink(destination: SettingsView(pdfViewModel: pdfViewModel)) {
             Image(systemName: "gear")
+                .resizable()
+                .frame(width: 30, height: 30)
         }
     }
     
     private func addItemToolbarItem() -> some View {
         Button(action: addItem) {
             Label("Add Item", systemImage: "plus")
+                .frame(width: 30, height: 30)
+            
         }
     }
     

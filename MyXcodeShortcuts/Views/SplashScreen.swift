@@ -20,14 +20,8 @@ struct SplashScreen: View {
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
 
-            Text("(or not)")
-                .font(.largeTitle)
-                .italic()
-                .multilineTextAlignment(.center)
-
-            
             Spacer()
-            Image("MyAppIcon")
+            Image("AppIconTransparent")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)

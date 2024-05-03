@@ -34,58 +34,84 @@ struct SettingsView: View {
     
     @Query private var categories: [Category]
     @State private var showingValidationError = false
-
+    
     let separatorOptions = Separator.allCases
     
     var body: some View {
         NavigationSplitView {
-            Form {
-                Section(header: Text("PDF Title")) {
-                    TextField("PDF Title", text: $statusManager.pdfTitle)
-                }
-                Section(header: Text("Show Symbols")) {
-                    Toggle("Show Symbols", isOn: $statusManager.showSymbols)
-                }
-
-                Section(header: Text("Key Separator")) {
-                    KeyCombinationView(combination: statusManager.keyCombination(from: "CMD CTRL OPT SHIFT RETURN X"))
-                    KeyCombinationView(combination: statusManager.keyCombination(from: "UpArrow DownArrow RightArrow LeftArrow tab X"))
-                    SeparatorPickerView(selectedSeparator: $statusManager.separator, separators: separatorOptions)
-                }
-                
-                Section(header: Text("Preview/Print PDF Cheatsheet")) {
-                    Button("Preview/Print PDF Cheatsheet") {
-                        pdfViewModel.generatePDF()
-                    }
-                    
-                    if let pdfData = pdfViewModel.pdfData {
-                        NavigationLink(destination: PDFPreviewView(data: pdfData, statusManager: statusManager)) {
-                            HStack {
-                                Image(systemName: "square.and.arrow.up")
-                                Text("View Generated PDF")
-                            }
-                        }
-                    }
-                }
-                
-                Section(header: Text("Help")) {
-                    NavigationLink("Help", destination: HelpView())
-                }
-            }
-            .navigationBarTitle("Settings", displayMode: .inline)
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Text("Copyright © 2024, Brent Danger Michalski")
-                        .font(.caption)
-                }
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Text("Settings")
+                    .font(.headline)
+            } else {
+                SettingsFormView(pdfViewModel: pdfViewModel)
             }
         } detail: {
-            Text("Settings")
-                .font(.headline)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                SettingsFormView(pdfViewModel: pdfViewModel)
+            }
         }
     }
 }
 
+
+struct SettingsBlankView: View {
+    var body: some View {
+        Text("Settings")
+            .font(.headline)
+    }
+}
+
+struct SettingsFormView: View {
+    @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var statusManager: StatusManager
+    @ObservedObject var pdfViewModel: PDFViewModel
+    
+    let separatorOptions = Separator.allCases
+    
+    var body: some View {
+        Form {
+            Section(header: Text("PDF Title")) {
+                TextField("PDF Title", text: $statusManager.pdfTitle)
+            }
+            Section(header: Text("Show Symbols")) {
+                Toggle("Show Symbols", isOn: $statusManager.showSymbols)
+            }
+            
+            Section(header: Text("Key Separator")) {
+                KeyCombinationView(combination: statusManager.keyCombination(from: "CMD CTRL OPT SHIFT RETURN X"))
+                KeyCombinationView(combination: statusManager.keyCombination(from: "UpArrow DownArrow RightArrow LeftArrow tab X"))
+                SeparatorPickerView(selectedSeparator: $statusManager.separator, separators: separatorOptions)
+            }
+            
+            Section(header: Text("Preview/Print PDF Cheatsheet")) {
+                Button("Preview/Print PDF Cheatsheet") {
+                    pdfViewModel.generatePDF()
+                }
+                
+                if let pdfData = pdfViewModel.pdfData {
+                    NavigationLink(destination: PDFPreviewView(data: pdfData, statusManager: statusManager)) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("View Generated PDF")
+                        }
+                    }
+                }
+            }
+            
+            Section(header: Text("Help")) {
+                NavigationLink("Help", destination: HelpView())
+            }
+        }
+        .navigationBarTitle("Settings", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                Text("Copyright © 2024, Brent Danger Michalski")
+                    .font(.caption)
+            }
+        }
+        
+    }
+}
 
 struct KeyCombinationView: View {
     var combination: String

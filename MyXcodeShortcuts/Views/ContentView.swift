@@ -42,9 +42,7 @@ struct ContentView: View {
                         ToolbarItemGroup(placement: .topBarTrailing) {
                             addItemToolbarItem()
                             settingsToolbarItem()
-//                            #if DEBUG
 //                            deleteAllToolbarItem()
-//                            #endif
                         }
                     }
             }
@@ -52,7 +50,6 @@ struct ContentView: View {
     }
     
     // TODO: Delete me
-//    #if DEBUG
 //    private func deleteAll() {
 //        print("private func deleteAll()")
 //        for category in categories {
@@ -65,7 +62,6 @@ struct ContentView: View {
 //            Label("Delete All Items", systemImage: "exclamationmark.octagon")
 //        }
 //    }
-//    #endif
     
     private func addItem() {
         withAnimation {

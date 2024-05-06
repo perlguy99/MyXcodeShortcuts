@@ -47,6 +47,8 @@
 		84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */; };
 		84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */; };
 		847E30F82BC0419200762FDF /* EditCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E30F72BC0419200762FDF /* EditCategoryView.swift */; };
+		84814EAF2BE9341E001AD95C /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84814EAE2BE9341E001AD95C /* SplashScreenView.swift */; };
+		84814EB12BE95506001AD95C /* BackgroundBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84814EB02BE95506001AD95C /* BackgroundBlob.swift */; };
 		84A3D1E22BD344ED00FF60BF /* StatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A3D1E12BD344ED00FF60BF /* StatusManager.swift */; };
 		84B30A272BD01F3A0047AB24 /* KeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B30A262BD01F3A0047AB24 /* KeyData.swift */; };
 		84CA9AE42BCDBE010027A1FA /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */; };
@@ -58,6 +60,7 @@
 		84F4E5DE2BDAD7DB0079C013 /* MockStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */; };
 		84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */; };
 		84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */; };
+		84FF7C652BE9800500213E9B /* MotionAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */; };
 		84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +123,8 @@
 		84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGeneratorTests.swift; sourceTree = "<group>"; };
 		84765B122BC34250001C87E0 /* Enum+StringRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+StringRepresentable.swift"; sourceTree = "<group>"; };
 		847E30F72BC0419200762FDF /* EditCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCategoryView.swift; sourceTree = "<group>"; };
+		84814EAE2BE9341E001AD95C /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		84814EB02BE95506001AD95C /* BackgroundBlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundBlob.swift; sourceTree = "<group>"; };
 		84A3D1E12BD344ED00FF60BF /* StatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusManager.swift; sourceTree = "<group>"; };
 		84B30A262BD01F3A0047AB24 /* KeyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyData.swift; sourceTree = "<group>"; };
 		84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 		84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStatusManager.swift; sourceTree = "<group>"; };
 		84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSymbols.swift; sourceTree = "<group>"; };
 		84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbarTests.swift; sourceTree = "<group>"; };
+		84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionAnimationModifier.swift; sourceTree = "<group>"; };
 		84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +258,7 @@
 				846371382BBB3245001ED9C3 /* SettingsView.swift */,
 				8447532E2BD5DDA30073D85A /* HelpView.swift */,
 				846030BB2BD871D300B5BC3D /* SplashScreen.swift */,
+				84814EAE2BE9341E001AD95C /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */,
+				84814EB02BE95506001AD95C /* BackgroundBlob.swift */,
+				84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -482,7 +491,9 @@
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				84B30A272BD01F3A0047AB24 /* KeyData.swift in Sources */,
 				840103EC2BD1E7C500B467D1 /* CategoryRow.swift in Sources */,
+				84814EB12BE95506001AD95C /* BackgroundBlob.swift in Sources */,
 				846371392BBB3246001ED9C3 /* SettingsView.swift in Sources */,
+				84814EAF2BE9341E001AD95C /* SplashScreenView.swift in Sources */,
 				846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */,
 				840AF0602BC5D937006F5366 /* PDFGenerator.swift in Sources */,
 				840526CC2BE44C970047222A /* ThemeManager.swift in Sources */,
@@ -492,6 +503,7 @@
 				8463713E2BBB4AD9001ED9C3 /* CategoryListView.swift in Sources */,
 				846371352BBB1BE7001ED9C3 /* Checkbox.swift in Sources */,
 				844753242BD5C5A60073D85A /* PDFViewModel.swift in Sources */,
+				84FF7C652BE9800500213E9B /* MotionAnimationModifier.swift in Sources */,
 				8463712D2BBB1AD3001ED9C3 /* CategoryView.swift in Sources */,
 				84765B132BC34250001C87E0 /* Enum+StringRepresentable.swift in Sources */,
 				84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */,

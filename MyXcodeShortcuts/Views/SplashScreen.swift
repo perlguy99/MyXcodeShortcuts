@@ -8,34 +8,65 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    var appVersion: String {
+        (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String) ?? "1.0"
+    }
+    
+    var appBuild: String {
+        (Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String) ?? "1.0"
+    }
+    
+    var copyright: String {
+        let copyright = Bundle.main.object(forInfoDictionaryKey: "NSHumanReadableCopyright") as? String
+        return copyright ?? "Copyright © 2022 Brent Michalski. All rights reserved."
+    }
+    
+    @State private var isImageVisible = false
+    @State private var imageOffset = CGFloat(20)
+    
     var body: some View {
+        
         VStack {
             Spacer()
-                
+            
             Text("Welcome to")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
-
+            
             Text("My Shortcuts for Xcode")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
-
+            
             Spacer()
             Image("AppIconTransparent")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 300, height: 300)
+                .opacity(isImageVisible ? 1 : 0)
+                .offset(y: imageOffset)
+                .onAppear {
+                    withAnimation(.easeOut(duration: 1.5)) {
+                        isImageVisible = true
+                        imageOffset = 0
+                    }
+                }
             
             Spacer()
-            
-
-            
             Spacer()
+            
+            Group {
+                Text("Version: \(appVersion)")
+                Text("Build: \(appBuild)")
+                Text(copyright)
+                    .padding(.bottom, 20)
+                
+            }
+            .font(.caption)
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
-        .background(.appBaseBlue).opacity(0.8)
+        .background(BlurredBackground())
     }
 }
 

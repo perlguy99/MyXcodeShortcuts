@@ -23,21 +23,23 @@ struct SplashScreen: View {
     
     @State private var isImageVisible = false
     @State private var imageOffset = CGFloat(20)
+    @State private var isTextVisible = false
     
     var body: some View {
-        
         VStack {
-            Spacer()
-            
-            Text("Welcome to")
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-            
-            Text("My Shortcuts for Xcode")
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-            
-            Spacer()
+            // Grouping header texts
+            VStack(spacing: 10) {
+                Text("Welcome to")
+                    .font(.largeTitle)
+                Text("My Shortcuts for Xcode")
+                    .font(.largeTitle)
+            }
+            .multilineTextAlignment(.center)
+            .opacity(isTextVisible ? 1 : 0)
+            .offset(y: isTextVisible ? 0 : 20)
+            .padding(.top, 100)  // Adjust padding as necessary
+
+            // Image in the middle
             Image("AppIconTransparent")
                 .resizable()
                 .scaledToFit()
@@ -49,24 +51,25 @@ struct SplashScreen: View {
                         isImageVisible = true
                         imageOffset = 0
                     }
+                    withAnimation(Animation.easeOut(duration: 1.5).delay(0.5)) {
+                        isTextVisible = true
+                    }
                 }
-            
-            Spacer()
-            Spacer()
-            
-            Group {
+
+            // Footer texts
+            VStack(spacing: 5) {
                 Text("Version: \(appVersion)")
                 Text("Build: \(appBuild)")
                 Text(copyright)
                     .padding(.bottom, 20)
-                
             }
             .font(.caption)
-            
+            .opacity(isTextVisible ? 1 : 0)
+            .padding(.bottom, 50)  // Adjust padding as necessary
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .edgesIgnoringSafeArea(.all)
         .background(BlurredBackground())
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

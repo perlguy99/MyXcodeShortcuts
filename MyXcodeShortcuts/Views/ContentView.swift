@@ -42,26 +42,11 @@ struct ContentView: View {
                         ToolbarItemGroup(placement: .topBarTrailing) {
                             addItemToolbarItem()
                             settingsToolbarItem()
-//                            deleteAllToolbarItem()
                         }
                     }
             }
         }
     }
-    
-    // TODO: Delete me
-//    private func deleteAll() {
-//        print("private func deleteAll()")
-//        for category in categories {
-//            modelContext.container.mainContext.delete(category)
-//        }
-//    }
-//    
-//    private func deleteAllToolbarItem() -> some View {
-//        Button(action: deleteAll) {
-//            Label("Delete All Items", systemImage: "exclamationmark.octagon")
-//        }
-//    }
     
     private func addItem() {
         withAnimation {

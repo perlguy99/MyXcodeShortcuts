@@ -18,47 +18,60 @@ struct EditShortcutView: View {
     @FocusState var isKeyComboFieldActive: Bool
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    Section {
-                        TextField("Key Combination", text: $shortcut.keyCombo)
-                            .textFieldStyle(.roundedBorder)
-                            .focused($isKeyComboFieldActive)
-                            .toolbar {
-                                if isKeyComboFieldActive {
-                                    ToolbarItemGroup(placement: .keyboard) {
-                                        keyboardToolbar
-                                    }
-                                }
-                            }
-                        
-                        TextField("Details", text: $shortcut.details)
-                            .textFieldStyle(.roundedBorder)
-                    } header: {
-                        Text("Keyboard Shortcut")
-                    } 
-                    
-                    Section("Category") {
-                        NavigationLink(destination: CategorySelectionView(shortcut: shortcut)) {
-                            Text(shortcut.category?.name ?? "Select a Category")
-                        }
-                    }
-                    
-                    Section("Converted Shortcut") {
-                        HStack {
-                            Spacer()
-                            Text(shortcut.convertedKeyCombo)
-                                .foregroundColor(shortcut.convertedKeyCombo.isEmpty ? .clear : ThemeManager.appPrimaryTextColor)
-                            Spacer()
-                        }
-                    }
-                }
+        NavigationSplitView {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Text("Edit Shortcut")
+                    .font(.headline)
+            } else {
+                formView
+            }
+        } detail: {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                formView
             }
         }
         .navigationTitle("Edit Shortcut")
     }
 
+    private var formView: some View {
+        VStack {
+            Form {
+                Section {
+                    TextField("Key Combination", text: $shortcut.keyCombo)
+                        .textFieldStyle(.roundedBorder)
+                        .focused($isKeyComboFieldActive)
+                        .toolbar {
+                            if isKeyComboFieldActive {
+                                ToolbarItemGroup(placement: .keyboard) {
+                                    keyboardToolbar
+                                }
+                            }
+                        }
+                    
+                    TextField("Details", text: $shortcut.details)
+                        .textFieldStyle(.roundedBorder)
+                } header: {
+                    Text("Keyboard Shortcut")
+                }
+                
+                Section("Category") {
+                    NavigationLink(destination: CategorySelectionView(shortcut: shortcut)) {
+                        Text(shortcut.category?.name ?? "Select a Category")
+                    }
+                }
+                
+                Section("Converted Shortcut") {
+                    HStack {
+                        Spacer()
+                        Text(shortcut.convertedKeyCombo)
+                            .foregroundColor(shortcut.convertedKeyCombo.isEmpty ? .clear : ThemeManager.appPrimaryTextColor)
+                        Spacer()
+                    }
+                }
+            }
+        }
+    }
+    
     private var keyboardToolbar: some View {
         HStack {
             Spacer()

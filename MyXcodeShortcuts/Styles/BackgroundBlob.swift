@@ -14,8 +14,8 @@ protocol SelfCreatingView: View {
 struct BackgroundBlob: View {
     @State private var rotationAmount = 0.0
     let alignment: Alignment = [.topLeading, .topTrailing, .bottomLeading, .bottomTrailing].randomElement()!
-//    let color: Color = [.blue, Color.appBaseBlue, Color.appBaseBorder, Color.appFavoriteBackground, .purple, .teal, .mint, .cyan, .indigo, .green].randomElement()!
-    let color: Color = [.blue, .teal, .mint, .cyan, .indigo, .green].randomElement()!
+    let color: Color = [.blue, .appBaseBlue, .teal].randomElement()!
+//    let color: Color = [.blue, .teal, .mint, .indigo].randomElement()!
 //    let color: Color = [.pink, .pink, .pink, .yellow].randomElement()!
     
     var body: some View {
@@ -25,7 +25,7 @@ struct BackgroundBlob: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
             .offset(x: .random(in: -400...400), y: .random(in: -400...400))
             .rotationEffect(.degrees(rotationAmount))
-            .animation(.linear(duration: .random(in: 20...40)).repeatForever(), value: rotationAmount)
+            .animation(.linear(duration: .random(in: 10...20)).repeatForever(), value: rotationAmount)
             .onAppear {
                 rotationAmount = .random(in: -360...360)
             }

@@ -20,7 +20,7 @@ struct SplashScreen: View {
         let copyright = Bundle.main.object(forInfoDictionaryKey: "NSHumanReadableCopyright") as? String
         return copyright ?? "Copyright © 2024 Brent D. Michalski.\nAll rights reserved."
     }
-    
+
     @State private var isImageVisible = false
     @State private var imageOffset = CGFloat(20)
     @State private var isTextVisible = false
@@ -61,6 +61,7 @@ struct SplashScreen: View {
                 Text("Version: \(appVersion)")
                 Text("Build: \(appBuild)")
                 Text(copyright)
+                    .multilineTextAlignment(.center)
                     .padding(.bottom, 20)
             }
             .font(.caption)

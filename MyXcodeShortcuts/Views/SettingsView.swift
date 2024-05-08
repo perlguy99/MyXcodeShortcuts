@@ -38,18 +38,8 @@ struct SettingsView: View {
     let separatorOptions = Separator.allCases
     
     var body: some View {
-        NavigationSplitView {
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                Text("Settings")
-                    .font(.headline)
-            } else {
-                SettingsFormView(pdfViewModel: pdfViewModel)
-            }
-        } detail: {
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                SettingsFormView(pdfViewModel: pdfViewModel)
-            }
-        }
+        SettingsFormView(pdfViewModel: pdfViewModel)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

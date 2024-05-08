@@ -17,15 +17,13 @@ struct CategorySelectionView: View {
     @State private var tempCategoryName: String = ""
     
     var body: some View {
-        NavigationView {
-            Form {
-                categoryTextField
-                categoryListOrMessage
-                Spacer()
-            }
-            .navigationTitle("Categories")
-            .onSubmit(handleSubmit)
+        Form {
+            categoryTextField
+            categoryListOrMessage
+            Spacer()
         }
+        .navigationTitle("Categories")
+        .onSubmit(handleSubmit)
     }
     
     private var categoryTextField: some View {

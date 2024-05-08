@@ -18,19 +18,8 @@ struct EditShortcutView: View {
     @FocusState var isKeyComboFieldActive: Bool
     
     var body: some View {
-        NavigationSplitView {
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                Text("Edit Shortcut")
-                    .font(.headline)
-            } else {
-                formView
-            }
-        } detail: {
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                formView
-            }
-        }
-        .navigationTitle("Edit Shortcut")
+        formView
+            .navigationTitle("Edit Shortcut")
     }
 
     private var formView: some View {

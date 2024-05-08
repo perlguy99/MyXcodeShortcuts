@@ -27,13 +27,6 @@ struct ContentView: View {
                     .font(.caption)
                 
                 CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
-                    .navigationTitle("My Shortcuts")
-                    .navigationDestination(for: Shortcut.self) { shortcut in
-                        EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
-                    }
-                    .navigationDestination(for: Category.self) { category in
-                        EditCategoryView(category: category)
-                    }
                     .toolbar {
                         ToolbarItemGroup(placement: .topBarLeading) {
                             filtertoolbarItem()
@@ -44,6 +37,21 @@ struct ContentView: View {
                             settingsToolbarItem()
                         }
                     }
+            }
+            .navigationTitle("My Shortcuts")
+            .navigationDestination(for: Shortcut.self) { shortcut in
+                EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+            }
+            .navigationDestination(for: Category.self) { category in
+                EditCategoryView(category: category)
+            }
+            .navigationDestination(for: String.self) { destination in
+                switch destination {
+                case "Settings":
+                    SettingsView(pdfViewModel: PDFViewModel(categories: categories, statusManager: statusManager))
+                default:
+                    Text("Tried to navigate to: \(destination)")
+                }
             }
         }
     }
@@ -78,12 +86,8 @@ struct ContentView: View {
     }
     
     private func settingsToolbarItem() -> some View {
-        let pdfViewModel = PDFViewModel(categories: categories, statusManager: statusManager)
-        
-        return NavigationLink(destination: SettingsView(pdfViewModel: pdfViewModel)) {
-            Image(systemName: "gear")
-                .resizable()
-                .frame(width: 30, height: 30)
+        return NavigationLink(value: "Settings") {
+            Label("Settings", systemImage: "gear")
         }
     }
     

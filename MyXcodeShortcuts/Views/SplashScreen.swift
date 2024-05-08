@@ -18,7 +18,7 @@ struct SplashScreen: View {
     
     var copyright: String {
         let copyright = Bundle.main.object(forInfoDictionaryKey: "NSHumanReadableCopyright") as? String
-        return copyright ?? "Copyright © 2022 Brent Michalski. All rights reserved."
+        return copyright ?? "Copyright © 2024 Brent D. Michalski.\nAll rights reserved."
     }
     
     @State private var isImageVisible = false

@@ -247,8 +247,8 @@
 			children = (
 				84FF7C662BE9844F00213E9B /* RootView.swift */,
 				846370F42BBAF8C0001ED9C3 /* ContentView.swift */,
-				8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */,
 				8463713D2BBB4AD9001ED9C3 /* CategoryListView.swift */,
+				8463712C2BBB1AD3001ED9C3 /* CategoryView.swift */,
 				840AF0612BC704F2006F5366 /* PDFPreviewView.swift */,
 				8463713F2BBB56FD001ED9C3 /* EditShortcutView.swift */,
 				84CA9AE32BCDBE010027A1FA /* CategorySelectionView.swift */,
@@ -702,7 +702,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -740,7 +740,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

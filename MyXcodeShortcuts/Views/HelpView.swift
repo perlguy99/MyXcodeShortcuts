@@ -9,19 +9,7 @@ import SwiftUI
 
 struct HelpView: View {
     var body: some View {
-        NavigationSplitView {
-            
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                Text("Help")
-                    .font(.headline)
-            } else {
-                helpView
-            }
-        } detail: {
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                helpView
-            }
-        }
+        helpView
         .navigationBarTitle("Quick Help", displayMode: .inline)
     }
     

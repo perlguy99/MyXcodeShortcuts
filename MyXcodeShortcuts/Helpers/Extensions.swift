@@ -194,10 +194,5 @@ extension StatusManager {
     func keyCombination(from example: String) -> String {
         
         return example.parseForControlCharacterMapping(separator: separator, returnType: showSymbols ? .symbol : .long)
-        
-//        return showSymbols ?
-//        example.parseForControlCharacterMapping(separator: separator, returnType: .symbol)
-//         :
-//        example.parseForControlCharacterMapping(separator: separator, returnType: .long)
     }
 }

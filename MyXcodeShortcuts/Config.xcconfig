@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  MyXcodeShortcuts
+//
+//  Created by Brent Michalski on 4/22/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+VERSION = 1.2.2
+BUILD_NUMBER = 202405091

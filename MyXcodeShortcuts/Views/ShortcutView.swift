@@ -54,14 +54,14 @@ struct ShortcutView: View {
 }
 
 #Preview {
-    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    let statusManager = StatusManager()
     statusManager.showSymbols = true
 
     do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Category.self, configurations: config)
+//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+//        let container = try ModelContainer(for: Category.self, configurations: config)
         
-        let previewHelper = PreviewHelper(container: container)
+        let previewHelper = PreviewHelper()
         previewHelper.loadSampleData()
         
         return Group {
@@ -77,7 +77,7 @@ struct ShortcutView: View {
 }
 
 #Preview {
-    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    let statusManager = StatusManager()
     statusManager.showSymbols = true
 
     do {

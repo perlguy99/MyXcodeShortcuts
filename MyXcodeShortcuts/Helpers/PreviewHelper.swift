@@ -24,11 +24,11 @@ struct PreviewHelper {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Category.self, Shortcut.self])
         
-        #if targetEnvironment(simulator)
+//        #if targetEnvironment(simulator)
         let isStoredInMemoryOnly = true
-        #else
-        let isStoredInMemoryOnly = false
-        #endif
+//        #else
+//        let isStoredInMemoryOnly = false
+//        #endif
         
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
 
@@ -41,7 +41,7 @@ struct PreviewHelper {
     
     // If a container is passed in, use it. Otherwise, use sharedModelContainer
     init(container: ModelContainer? = nil) {
-        guard let container = container else {
+        guard let container else {
             self.container = sharedModelContainer
             return
         }

@@ -94,15 +94,12 @@ struct ContentView: View {
     private func addItemToolbarItem() -> some View {
         Button(action: addItem) {
             Label("Add Item", systemImage: "plus")
-                .frame(width: 30, height: 30)
-            
         }
     }
-    
 }
 
 #Preview {
-    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    let statusManager = StatusManager()
     statusManager.showSymbols = true
     
     do {
@@ -122,7 +119,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    let statusManager = StatusManager()
     statusManager.showSymbols = true
     
     do {

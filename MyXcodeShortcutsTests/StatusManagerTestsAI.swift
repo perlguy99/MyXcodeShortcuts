@@ -25,7 +25,7 @@ class StatusManagerTestsAI: XCTestCase {
         userDefaults.set("-", forKey: Constants.Keys.separator)
         userDefaults.set(true, forKey: Constants.Keys.showSymbols)
         
-        statusManager = StatusManager(userDefaults: userDefaults)
+        statusManager = StatusManager()
     }
     
     override func tearDown() {
@@ -79,7 +79,7 @@ class StatusManagerTestsAI: XCTestCase {
         userDefaults.removeObject(forKey: Constants.Keys.showSymbols)
         
         // Reinitialize StatusManager to load potentially missing defaults
-        statusManager = StatusManager(userDefaults: userDefaults)
+        statusManager = StatusManager()
         
         // Verify defaults are handled correctly
         XCTAssertEqual(statusManager.currentStatus, .none) // Default as per enum initializer

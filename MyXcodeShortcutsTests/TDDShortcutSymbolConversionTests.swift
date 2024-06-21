@@ -13,22 +13,6 @@ import SwiftUI
 class TDDShortcutSymbolConversionTests: XCTestCase {
     let testSeparator = "~"
     
-    //        let expectedWordString = "Command X"
-    //        let expectedSymbolString = "\u{2318} X"
-    
-    
-//    override func setUpWithError() throws {
-//        
-//    }
-    
-//    override func tearDownWithError() throws {
-//        
-//    }
-    
-    // GOAL: Be able to convert a Shortcut's Key Combo to any style I want
-    // So, some keys need to be stored as a group of characters, or something.
-    
-    
     func testThatStringCanParse_Cmd_Properly() {
         let sut = "cmd x"
         
@@ -149,8 +133,4 @@ class TDDShortcutSymbolConversionTests: XCTestCase {
         
         XCTAssertEqual(result, expectedOutput, "The control character parsing did not produce the expected symbols.")
     }
-    
-    
-
 }
-

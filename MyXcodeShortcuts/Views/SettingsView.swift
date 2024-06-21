@@ -135,7 +135,7 @@ struct SeparatorPickerView: View {
 
 #Preview {
     do {
-        let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+        let statusManager = StatusManager()
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
         let categories = [Category]()
@@ -151,7 +151,7 @@ struct SeparatorPickerView: View {
 
 #Preview {
     do {
-        let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+        let statusManager = StatusManager()
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
         let categories = [Category]()
@@ -169,7 +169,7 @@ struct SeparatorPickerView: View {
 
 #Preview {
     do {
-        let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+        let statusManager = StatusManager()
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
         let categories = [Category]()

@@ -27,7 +27,6 @@
 		846370F52BBAF8C0001ED9C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846370F42BBAF8C0001ED9C3 /* ContentView.swift */; };
 		846370F92BBAF8C2001ED9C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370F82BBAF8C2001ED9C3 /* Assets.xcassets */; };
 		846370FC2BBAF8C2001ED9C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846370FB2BBAF8C2001ED9C3 /* Preview Assets.xcassets */; };
-		846371062BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371052BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift */; };
 		846371102BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463710F2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift */; };
 		846371122BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */; };
 		846371222BBB02FA001ED9C3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371212BBB02FA001ED9C3 /* Category.swift */; };
@@ -55,13 +54,9 @@
 		84D51D3A2BBDD0F600E6169B /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D392BBDD0F600E6169B /* Categories.swift */; };
 		84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D51D3B2BBDF0DB00E6169B /* SeedData.swift */; };
 		84ED14E82BC9E7DA00375EED /* SeedData_Release_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */; };
-		84F4E5DC2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4E5DB2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift */; };
-		84F4E5DE2BDAD7DB0079C013 /* MockStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */; };
 		84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */; };
-		84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */; };
 		84FF7C652BE9800500213E9B /* MotionAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */; };
 		84FF7C672BE9844F00213E9B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7C662BE9844F00213E9B /* RootView.swift */; };
-		84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +97,6 @@
 		846370F82BBAF8C2001ED9C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846370FB2BBAF8C2001ED9C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		846371012BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyXcodeShortcutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		846371052BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsTests.swift; sourceTree = "<group>"; };
 		8463710B2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyXcodeShortcutsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463710F2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsUITests.swift; sourceTree = "<group>"; };
 		846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -132,13 +126,9 @@
 		84D51D3B2BBDF0DB00E6169B /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 		84E55E772BD704AF00B6EDCD /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = MyXcodeShortcuts/Config.xcconfig; sourceTree = "<group>"; };
 		84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SeedData_Release_1.json; sourceTree = "<group>"; };
-		84F4E5DB2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFGeneratorTestsAI.swift; sourceTree = "<group>"; };
-		84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStatusManager.swift; sourceTree = "<group>"; };
 		84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSymbols.swift; sourceTree = "<group>"; };
-		84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbarTests.swift; sourceTree = "<group>"; };
 		84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionAnimationModifier.swift; sourceTree = "<group>"; };
 		84FF7C662BE9844F00213E9B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +187,6 @@
 			children = (
 				846030BF2BD9389000B5BC3D /* Info.plist */,
 				846370F22BBAF8C0001ED9C3 /* MyXcodeShortcutsApp.swift */,
-				8463713A2BBB38F3001ED9C3 /* AltAppStorage */,
 				8463711E2BBB0281001ED9C3 /* Views */,
 				8463711F2BBB028F001ED9C3 /* Models */,
 				846371292BBB04CB001ED9C3 /* Styles */,
@@ -219,15 +208,10 @@
 		846371042BBAF8C3001ED9C3 /* MyXcodeShortcutsTests */ = {
 			isa = PBXGroup;
 			children = (
-				846371052BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift */,
-				84FFAC052BC8903500CBC569 /* ShortcutViewTests.swift */,
 				84765B102BC33DBD001C87E0 /* PDFGeneratorTests.swift */,
 				840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */,
-				84F70D1C2BD2E8B0006617E7 /* KeyboardToolbarTests.swift */,
 				8447531F2BD45B150073D85A /* MockUserDefaults.swift */,
 				840526C92BE2C8320047222A /* StatusManagerTestsAI.swift */,
-				84F4E5DB2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift */,
-				84F4E5DD2BDAD7DB0079C013 /* MockStatusManager.swift */,
 				846DB1702BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift */,
 			);
 			path = MyXcodeShortcutsTests;
@@ -303,13 +287,6 @@
 				84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */,
 			);
 			path = Styles;
-			sourceTree = "<group>";
-		};
-		8463713A2BBB38F3001ED9C3 /* AltAppStorage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AltAppStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,15 +518,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84765B112BC33DBD001C87E0 /* PDFGeneratorTests.swift in Sources */,
-				84F4E5DC2BDAD64A0079C013 /* PDFGeneratorTestsAI.swift in Sources */,
-				84F70D1D2BD2E8B0006617E7 /* KeyboardToolbarTests.swift in Sources */,
 				844753202BD45B150073D85A /* MockUserDefaults.swift in Sources */,
-				846371062BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.swift in Sources */,
-				84F4E5DE2BDAD7DB0079C013 /* MockStatusManager.swift in Sources */,
 				840526CA2BE2C8320047222A /* StatusManagerTestsAI.swift in Sources */,
 				840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */,
 				846DB1712BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift in Sources */,
-				84FFAC062BC8903500CBC569 /* ShortcutViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -41,7 +41,7 @@ struct CategoryView: View {
 }
 
 #Preview {
-    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    let statusManager = StatusManager()
     statusManager.showSymbols = true
     
     do {
@@ -61,7 +61,7 @@ struct CategoryView: View {
 }
 
 #Preview {
-    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    let statusManager = StatusManager()
     statusManager.showSymbols = false
     
     do {

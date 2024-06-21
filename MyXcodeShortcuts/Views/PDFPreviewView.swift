@@ -73,7 +73,7 @@ struct PDFViewUI: UIViewRepresentable {
 }
 
 #Preview {
-    let statusManager = StatusManager(userDefaults: UserDefaults.previewUserDefaults())
+    let statusManager = StatusManager()
     
     return PDFPreviewView(data: "PDF Data".data(using: .utf8)!, statusManager: statusManager)
 }

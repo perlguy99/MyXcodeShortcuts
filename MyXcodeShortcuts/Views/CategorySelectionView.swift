@@ -18,18 +18,16 @@ struct CategorySelectionView: View {
     
     var body: some View {
         Form {
-            categoryTextField
+            TextField(textFieldPlaceholder, text: $tempCategoryName)
+                .textFieldStyle(.roundedBorder)
+                .padding(.bottom, 20)
+
             categoryListOrMessage
+            
             Spacer()
         }
         .navigationTitle("Categories")
         .onSubmit(handleSubmit)
-    }
-    
-    private var categoryTextField: some View {
-        TextField(textFieldPlaceholder, text: $tempCategoryName)
-            .textFieldStyle(.roundedBorder)
-            .padding(.bottom, 20)
     }
     
     private var textFieldPlaceholder: String {

@@ -42,7 +42,8 @@ struct MenuShortcuts: Codable {
     let categories: [Category]
 }
 
-
+// TODO: This is a hack for importing the JSON at the moment
+//  Caused by the @Model macro
 class CategoryX: Codable {
     enum CodingKeys: CodingKey {
         case name, shortcuts

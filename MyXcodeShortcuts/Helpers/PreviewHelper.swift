@@ -11,6 +11,7 @@ import SwiftData
 @MainActor
 struct PreviewHelper {
     let container: ModelContainer
+    
     var previewCategory: Category = Category(name: "Preview Menu Category B")
     var previewShortcut: Shortcut = Shortcut(keyCombo: "cmd opt %", details: "Preview Details 1B", status: .none)
     var previewShortcutWithCategory: Shortcut = Shortcut(keyCombo: "cmd ctrl opt F", details: "Preview Details X F", status: .none)
@@ -19,17 +20,10 @@ struct PreviewHelper {
     var previewNone = Shortcut(keyCombo: "cmd opt N", details: "Status None", status: .none)
     var previewFavorite = Shortcut(keyCombo: "opt shift H", details: "Status Favorite", status: .favorite)
     var previewHidden = Shortcut(keyCombo: "cmd ctrl opt shift W", details: "Status Hidden", status: .hidden)
-
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Category.self, Shortcut.self])
-        
-//        #if targetEnvironment(simulator)
         let isStoredInMemoryOnly = true
-//        #else
-//        let isStoredInMemoryOnly = false
-//        #endif
-        
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
 
         do {
@@ -55,7 +49,6 @@ struct PreviewHelper {
     }
     
     func loadSampleData() {
-        
         // Insert the first category
         container.mainContext.insert(previewCategory)
         

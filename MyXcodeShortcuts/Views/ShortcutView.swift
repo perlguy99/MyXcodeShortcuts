@@ -56,46 +56,32 @@ struct ShortcutView: View {
 #Preview {
     let statusManager = StatusManager()
     statusManager.showSymbols = true
-
-    do {
-//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//        let container = try ModelContainer(for: Category.self, configurations: config)
-        
-        let previewHelper = PreviewHelper()
-        previewHelper.loadSampleData()
-        
-        return Group {
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone)
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
-        }
-        .modelContainer(previewHelper.container)
-        .environmentObject(statusManager)
-    } catch {
-        return Text("Failed to create a model container")
+    
+    let previewHelper = PreviewHelper()
+    previewHelper.loadSampleData()
+    
+    return Group {
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone)
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
     }
+    .modelContainer(previewHelper.container)
+    .environmentObject(statusManager)
 }
 
 #Preview {
     let statusManager = StatusManager()
     statusManager.showSymbols = true
-
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Category.self, configurations: config)
-        
-        let previewHelper = PreviewHelper(container: container)
-        previewHelper.loadSampleData()
-        
-        return Group {
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone)
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
-            ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
-        }
-        .preferredColorScheme(.dark)
-        .modelContainer(previewHelper.container)
-        .environmentObject(statusManager)
-    } catch {
-        return Text("Failed to create a model container")
+    
+    let previewHelper = PreviewHelper()
+    previewHelper.loadSampleData()
+    
+    return Group {
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone)
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
+        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
     }
+    .preferredColorScheme(.dark)
+    .modelContainer(previewHelper.container)
+    .environmentObject(statusManager)
 }

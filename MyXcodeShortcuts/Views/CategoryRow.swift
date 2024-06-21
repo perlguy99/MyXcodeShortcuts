@@ -22,8 +22,8 @@ struct CategoryRow: View {
     }
 }
 
+
 #Preview {
-    
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)

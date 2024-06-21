@@ -19,5 +19,4 @@ enum Constants {
         static let showSymbols = "showSymbols"
         static let statusInt = "statusInt"
     }
-    
 }

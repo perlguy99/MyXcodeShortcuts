@@ -15,8 +15,6 @@ struct BackgroundBlob: View {
     @State private var rotationAmount = 0.0
     let alignment: Alignment = [.topLeading, .topTrailing, .bottomLeading, .bottomTrailing].randomElement()!
     let color: Color = [.blue, .appBaseBlue, .teal].randomElement()!
-//    let color: Color = [.blue, .teal, .mint, .indigo].randomElement()!
-//    let color: Color = [.pink, .pink, .pink, .yellow].randomElement()!
     
     var body: some View {
         Ellipse()

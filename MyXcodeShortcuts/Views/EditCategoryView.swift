@@ -29,11 +29,9 @@ struct EditCategoryView: View {
                  
                     List {
                         ForEach(categories) { category in
-                            
                             Divider()
                             
                             HStack {
-                                
                                 Text(category.name)
                                 Spacer()
                                 Text("\(category.shortcuts.count)")
@@ -43,7 +41,6 @@ struct EditCategoryView: View {
                             .padding([.leading, .trailing])
                             
                         }
-                        
                     }
                 }
             }

@@ -99,7 +99,6 @@ struct SettingsFormView: View {
                     .font(.caption)
             }
         }
-        
     }
 }
 

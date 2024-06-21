@@ -61,33 +61,7 @@ extension String {
 
 // TODO: Add Fn "Function" Symbol
 
-//extension String {
-//    func replacingKeywordsWithSymbols(separator: String = "*") -> String {
-//        return replaceKeywords(using: separator) { symbol, _ in symbol }
-//    }
-//    
-//    func replacingKeywordsWithFullWords(separator: String = "∞") -> String {
-//        return replaceKeywords(using: separator) { _, fullWord in fullWord }
-//    }
-//    
-//    private func replaceKeywords(using separator: String, replacementSelector: (String, String) -> String) -> String {
-//        let segments = self.split(separator: " ")
-//        
-//        let replacedSegments = segments.map { segment -> String in
-//            let lowercasedSegment = segment.lowercased()
-//            
-//            if let symbolDetails = KeyboardSymbols.symbols[lowercasedSegment] {
-//                return replacementSelector(symbolDetails.0, symbolDetails.1)
-//            } else {
-//                return String(segment)
-//            }
-//        }
-//        return replacedSegments.joined(separator: separator)
-//    }
-//}
-
-
-// TODO: TDD - To be refactored
+// TODO: TDD? - To be refactored
 extension String {
     func parseForControlCharacterMapping(separator: String = " ", returnType: ControlCharacterReturnType = .symbol) -> String {
         let segments = self.split(separator: " ")

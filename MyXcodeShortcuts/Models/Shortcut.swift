@@ -77,7 +77,8 @@ class Shortcut: Codable {
 
 }
 
-
+// TODO: This is a hack for importing the JSON at the moment
+//  Caused by the @Model macro
 class ShortcutX: Codable {
     enum CodingKeys: CodingKey {
         case keyCombo, details

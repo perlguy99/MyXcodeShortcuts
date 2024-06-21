@@ -12,9 +12,6 @@
 // TODO: Verify adding works async
 // TODO: Need to be able to delete Categories
 
-
-
-
 import SwiftUI
 import SwiftData
 import FirebaseCore

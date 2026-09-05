@@ -12,7 +12,7 @@ import PDFKit
 @MainActor
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject var statusManager: StatusManager
+    @Environment(StatusManager.self) private var statusManager
     
     @State private var navigationPath = NavigationPath()
     @State private var sortOrder = [SortDescriptor(\Category.name)]
@@ -112,7 +112,7 @@ struct ContentView: View {
         return ContentView()
             .preferredColorScheme(.light)
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }
@@ -132,7 +132,7 @@ struct ContentView: View {
         return ContentView()
             .preferredColorScheme(.dark)
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }

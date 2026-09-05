@@ -10,8 +10,7 @@ import SwiftData
 
 struct CategoryListView: View {
     @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject var statusManager: StatusManager
-    
+
     @Binding var navigationPath: NavigationPath
     
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
@@ -68,7 +67,7 @@ struct CategoryListView: View {
         
         return CategoryListView(navigationPath: .constant(NavigationPath()))
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }

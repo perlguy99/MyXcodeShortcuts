@@ -28,8 +28,7 @@ enum Separator: String, CaseIterable {
 
 struct SettingsView: View {
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
-    
+
     @ObservedObject var pdfViewModel: PDFViewModel
     
     @Query private var categories: [Category]
@@ -53,12 +52,14 @@ struct SettingsBlankView: View {
 
 struct SettingsFormView: View {
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
+    @Environment(StatusManager.self) private var statusManager
     @ObservedObject var pdfViewModel: PDFViewModel
-    
+
     let separatorOptions = Separator.allCases
-    
+
     var body: some View {
+        @Bindable var statusManager = statusManager
+
         Form {
             Section(header: Text("PDF Title")) {
                 TextField("PDF Title", text: $statusManager.pdfTitle)
@@ -142,7 +143,7 @@ struct SeparatorPickerView: View {
         
         return SettingsView(pdfViewModel: pdfViewModel)
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }
@@ -160,7 +161,7 @@ struct SeparatorPickerView: View {
         
         return SettingsView(pdfViewModel: pdfViewModel)
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }
@@ -179,7 +180,7 @@ struct SeparatorPickerView: View {
         return SettingsView(pdfViewModel: pdfViewModel)
             .preferredColorScheme(.dark)
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }

@@ -14,21 +14,12 @@
 
 import SwiftUI
 import SwiftData
-import FirebaseCore
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        return true
-    }
-}
 
 @main
 @MainActor
 struct MyXcodeShortcutsApp: App {
     @State var isActive: Bool = false
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Category.self, Shortcut.self])
         
@@ -58,7 +49,7 @@ struct MyXcodeShortcutsApp: App {
         WindowGroup {
             RootView(isActive: $isActive)
                 .modelContainer(sharedModelContainer)
-                .environmentObject(StatusManager())
+                .environment(StatusManager())
         }
     }
 }

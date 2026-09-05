@@ -10,7 +10,6 @@ import SwiftData
 
 struct EditShortcutView: View {
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
 
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
@@ -86,19 +85,20 @@ struct EditShortcutView: View {
 }
 
 #Preview {
+    // Seeds real UserDefaults.standard, since Shortcut.convertedKeyCombo reads
+    // showSymbols/separator directly from it rather than through StatusManager.
     let statusManager = StatusManager()
     statusManager.showSymbols = true
 
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
-        
+
         let previewHelper = PreviewHelper(container: container)
         previewHelper.loadSampleData()
-        
+
         return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
             .modelContainer(container)
-            .environmentObject(statusManager)
     } catch {
         return Text("Failed to create a model container")
     }

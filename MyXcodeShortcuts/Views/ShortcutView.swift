@@ -10,8 +10,7 @@ import SwiftData
 
 struct ShortcutView: View {
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
-    
+
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
         
@@ -66,7 +65,6 @@ struct ShortcutView: View {
         ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
     }
     .modelContainer(previewHelper.container)
-    .environmentObject(statusManager)
 }
 
 #Preview {
@@ -83,5 +81,4 @@ struct ShortcutView: View {
     }
     .preferredColorScheme(.dark)
     .modelContainer(previewHelper.container)
-    .environmentObject(statusManager)
 }

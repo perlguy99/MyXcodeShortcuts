@@ -10,7 +10,7 @@ import SwiftData
 
 struct CategoryView: View {
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
+    @Environment(StatusManager.self) private var statusManager
     @Binding var navigationPath: NavigationPath
     
     var category: Category
@@ -53,7 +53,7 @@ struct CategoryView: View {
         
         return CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
         
     } catch {
         return Text("Failed to create a model container")
@@ -73,7 +73,7 @@ struct CategoryView: View {
         
         return CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
             .modelContainer(container)
-            .environmentObject(statusManager)
+            .environment(statusManager)
         
     } catch {
         return Text("Failed to create a model container")

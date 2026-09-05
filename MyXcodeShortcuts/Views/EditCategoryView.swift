@@ -10,7 +10,7 @@ import SwiftData
 
 struct EditCategoryView: View {
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var statusManager: StatusManager
+    @Environment(StatusManager.self) private var statusManager
     
     @Query private var categories: [Category]
     @Bindable var category: Category
@@ -60,6 +60,7 @@ struct EditCategoryView: View {
         
         return EditCategoryView(category: previewHelper.previewCategory)
             .modelContainer(container)
+            .environment(StatusManager())
     } catch {
         return Text("Failed to create a model container")
     }
@@ -69,13 +70,14 @@ struct EditCategoryView: View {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Category.self, configurations: config)
-        
+
         let previewHelper = PreviewHelper(container: container)
         previewHelper.loadSampleData()
-        
+
         return EditCategoryView(category: previewHelper.previewCategory)
             .preferredColorScheme(.dark)
             .modelContainer(container)
+            .environment(StatusManager())
     } catch {
         return Text("Failed to create a model container")
     }

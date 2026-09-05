@@ -22,7 +22,7 @@ struct PreviewHelper {
     var previewHidden = Shortcut(keyCombo: "cmd ctrl opt shift W", details: "Status Hidden", status: .hidden)
     
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([Category.self, Shortcut.self])
+        let schema = Schema([ShortcutApp.self, Category.self, Shortcut.self])
         let isStoredInMemoryOnly = true
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
 

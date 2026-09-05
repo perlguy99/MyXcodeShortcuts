@@ -41,11 +41,15 @@ class SeedData {
             let decoder = JSONDecoder()
             
             let categories = try decoder.decode(CategoriesX.self, from: data)
-            
+
+            let shortcutApp = ShortcutApp(name: "Xcode Shortcuts")
+            modelContext.container.mainContext.insert(shortcutApp)
+
             for category in categories.categories {
                 let currentCategory = Category(name: category.name)
+                currentCategory.shortcutApp = shortcutApp
                 modelContext.container.mainContext.insert(currentCategory)
-                
+
                 guard let shortcuts = category.shortcuts else { continue }
                 
                 if shortcuts.isNotEmpty {

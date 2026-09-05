@@ -24,6 +24,7 @@
 		846371102BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463710F2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift */; };
 		846371122BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */; };
 		846371222BBB02FA001ED9C3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371212BBB02FA001ED9C3 /* Category.swift */; };
+		76039182AD1AF02D575031DF /* ShortcutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C5CF7EFBA36EC86334E72 /* ShortcutApp.swift */; };
 		846371242BBB0315001ED9C3 /* Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371232BBB0315001ED9C3 /* Shortcut.swift */; };
 		846371262BBB0355001ED9C3 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371252BBB0355001ED9C3 /* Status.swift */; };
 		846371282BBB04C7001ED9C3 /* RoundedRectButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */; };
@@ -93,6 +94,7 @@
 		8463710F2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsUITests.swift; sourceTree = "<group>"; };
 		846371112BBAF8C3001ED9C3 /* MyXcodeShortcutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		846371212BBB02FA001ED9C3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		7C6C5CF7EFBA36EC86334E72 /* ShortcutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutApp.swift; sourceTree = "<group>"; };
 		846371232BBB0315001ED9C3 /* Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcut.swift; sourceTree = "<group>"; };
 		846371252BBB0355001ED9C3 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		846371272BBB04C6001ED9C3 /* RoundedRectButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectButtonStyle.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				846371212BBB02FA001ED9C3 /* Category.swift */,
+				7C6C5CF7EFBA36EC86334E72 /* ShortcutApp.swift */,
 				846371232BBB0315001ED9C3 /* Shortcut.swift */,
 				846371252BBB0355001ED9C3 /* Status.swift */,
 				84A3D1E12BD344ED00FF60BF /* StatusManager.swift */,
@@ -448,6 +451,7 @@
 				84CA9AE42BCDBE010027A1FA /* CategorySelectionView.swift in Sources */,
 				846030BC2BD871D300B5BC3D /* SplashScreen.swift in Sources */,
 				846371222BBB02FA001ED9C3 /* Category.swift in Sources */,
+				76039182AD1AF02D575031DF /* ShortcutApp.swift in Sources */,
 				84D51D3C2BBDF0DB00E6169B /* SeedData.swift in Sources */,
 				84B30A272BD01F3A0047AB24 /* KeyData.swift in Sources */,
 				840103EC2BD1E7C500B467D1 /* CategoryRow.swift in Sources */,

@@ -21,7 +21,7 @@ struct MyXcodeShortcutsApp: App {
     @State var isActive: Bool = false
 
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([Category.self, Shortcut.self])
+        let schema = Schema([ShortcutApp.self, Category.self, Shortcut.self])
         
         #if targetEnvironment(simulator)
         let isStoredInMemoryOnly = true

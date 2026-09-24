@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -137,7 +137,7 @@
 		84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionAnimationModifier.swift; sourceTree = "<group>"; };
 		84FF7C662BE9844F00213E9B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		8B2B7FEEAC370C3C1241DB1E /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B18531A62BA65F64F7B6CE0A /* MyXcodeShortcutsMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyXcodeShortcutsMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18531A62BA65F64F7B6CE0A /* MyXcodeShortcutsMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MyXcodeShortcutsMac.app; path = "MyXcodeShortcuts Exporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5705819D73D47FC8E09536E /* ShortcutImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutImporter.swift; sourceTree = "<group>"; };
 		BA3E746751FAE05ED0B1ECA5 /* MyXcodeShortcutsMacApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsMacApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,7 +182,6 @@
 				BA3E746751FAE05ED0B1ECA5 /* MyXcodeShortcutsMacApp.swift */,
 				8B2B7FEEAC370C3C1241DB1E /* ContentView.swift */,
 			);
-			name = MyXcodeShortcutsMac;
 			path = MyXcodeShortcutsMac;
 			sourceTree = "<group>";
 		};
@@ -448,7 +447,7 @@
 			);
 			mainGroup = 846370E62BBAF8C0001ED9C3;
 			packageReferences = (
-				D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "ShortcutScraping" */,
+				D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "tools/ShortcutScraping" */,
 			);
 			productRefGroup = 846370F02BBAF8C0001ED9C3 /* Products */;
 			projectDirPath = "";
@@ -994,7 +993,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "ShortcutScraping" */ = {
+		D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "tools/ShortcutScraping" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = tools/ShortcutScraping;
 		};

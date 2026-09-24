@@ -24,14 +24,10 @@ struct Checkbox: View {
         .buttonStyle(RoundedRectButtonStyle(checkboxState: state))
     }
         
+    // Tap only toggles favorite on/off. Hiding (and un-hiding) happens via the
+    // swipe action instead, so a stray tap can never make a row silently vanish.
     func buttonTap() {
-        if state.rawValue == 0 {
-            state = Status(rawValue: 1)
-        } else if state.rawValue == 1 {
-            state = Status(rawValue: 2)
-        } else if state.rawValue == 2 {
-            state = Status(rawValue: 0)
-        }
+        state = state == .favorite ? .none : .favorite
     }
 }
 

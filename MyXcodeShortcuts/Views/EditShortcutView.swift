@@ -10,6 +10,7 @@ import SwiftData
 
 struct EditShortcutView: View {
     @Environment(\.modelContext) var modelContext
+    @Environment(StatusManager.self) private var statusManager
 
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
@@ -51,8 +52,8 @@ struct EditShortcutView: View {
                 Section("Converted Shortcut") {
                     HStack {
                         Spacer()
-                        Text(shortcut.convertedKeyCombo)
-                            .foregroundColor(shortcut.convertedKeyCombo.isEmpty ? .clear : ThemeManager.appPrimaryTextColor)
+                        Text(convertedKeyCombo)
+                            .foregroundColor(convertedKeyCombo.isEmpty ? .clear : ThemeManager.appPrimaryTextColor)
                         Spacer()
                     }
                 }
@@ -82,11 +83,13 @@ struct EditShortcutView: View {
     private func appendKeyCombo(key: String) {
         shortcut.keyCombo += (shortcut.keyCombo.isEmpty ? "" : " ") + key
     }
+
+    private var convertedKeyCombo: String {
+        statusManager.keyCombination(from: shortcut.keyCombo)
+    }
 }
 
 #Preview {
-    // Seeds real UserDefaults.standard, since Shortcut.convertedKeyCombo reads
-    // showSymbols/separator directly from it rather than through StatusManager.
     let statusManager = StatusManager()
     statusManager.showSymbols = true
 
@@ -98,6 +101,7 @@ struct EditShortcutView: View {
         previewHelper.loadSampleData()
 
         return EditShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewShortcut)
+            .environment(statusManager)
             .modelContainer(container)
     } catch {
         return Text("Failed to create a model container")

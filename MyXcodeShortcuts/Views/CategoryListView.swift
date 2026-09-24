@@ -9,8 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct CategoryListView: View {
-    @Environment(\.modelContext) private var modelContext
-
     @Binding var navigationPath: NavigationPath
 
     /// The `ShortcutApp.id` of the currently active collection. When set, only categories
@@ -41,19 +39,10 @@ struct CategoryListView: View {
                     ForEach(filteredShortcuts) { shortcut in
                         ShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
                     }
-                    .onDelete(perform: deleteShortcuts)
                 }
                 .foregroundColor(ThemeManager.categoryHeaderTextColor)
                 .font(.headline)
                 .bold()
-            }
-        }
-    }
-    
-    private func deleteShortcuts(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(filteredShortcuts[index])
             }
         }
     }

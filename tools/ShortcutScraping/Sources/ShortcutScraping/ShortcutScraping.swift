@@ -11,7 +11,7 @@
 //  duplicating it. Behavior is unchanged from the original CLI implementation.
 //
 //  Requires Accessibility permission (System Settings > Privacy & Security >
-//  Accessibility) granted to whatever process calls into this library.
+//  Device Control and Data Access) granted to whatever process calls into this library.
 //
 
 import AppKit

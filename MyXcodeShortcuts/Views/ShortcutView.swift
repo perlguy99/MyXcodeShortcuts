@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ShortcutView: View {
-    @Environment(\.modelContext) var modelContext
+    @Environment(StatusManager.self) private var statusManager
 
     @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
@@ -41,12 +41,29 @@ struct ShortcutView: View {
         .contentShape(Rectangle())
         .onTapGesture(perform: {})  // Needed or .onLongPressGesture blocks scrolling. :^/
         .onLongPressGesture(perform: handleLongPress)
+        .swipeActions(edge: .trailing) {
+            if shortcut.status == .hidden {
+                Button {
+                    shortcut.status = .none
+                } label: {
+                    Label("Unhide", systemImage: "eye")
+                }
+                .tint(ThemeManager.backgroundColor(for: .hidden))
+            } else {
+                Button {
+                    shortcut.status = .hidden
+                } label: {
+                    Label("Hide", systemImage: "eye.slash")
+                }
+                .tint(ThemeManager.backgroundColor(for: .hidden))
+            }
+        }
     }
-    
+
     var convertedKeyCombo: String {
-        return shortcut.convertedKeyCombo
+        statusManager.keyCombination(from: shortcut.keyCombo)
     }
-    
+
     func handleLongPress() {
         navigationPath.append(shortcut)
     }
@@ -64,6 +81,7 @@ struct ShortcutView: View {
         ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
         ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
     }
+    .environment(statusManager)
     .modelContainer(previewHelper.container)
 }
 
@@ -79,6 +97,7 @@ struct ShortcutView: View {
         ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
         ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
     }
+    .environment(statusManager)
     .preferredColorScheme(.dark)
     .modelContainer(previewHelper.container)
 }

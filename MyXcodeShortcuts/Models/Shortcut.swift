@@ -19,18 +19,6 @@ class Shortcut: Codable {
     weak var category: Category?
     var status: Status = Status.none
     
-    var separator: String {
-        UserDefaults.standard.string(forKey: Constants.Keys.separator) ?? Constants.defaultSeparator
-    }
-
-    var showSymbols: Bool {
-        UserDefaults.standard.bool(forKey: Constants.Keys.showSymbols)
-    }
-
-    var convertedKeyCombo: String {
-        return keyCombo.parseForControlCharacterMapping(separator: separator, returnType: showSymbols ? .symbol : .long)
-    }
-    
     init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {
         self.keyCombo = keyCombo.localizedLowercase
         self.details = details

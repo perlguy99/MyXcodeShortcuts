@@ -10,7 +10,8 @@ import SwiftUI
 struct HelpView: View {
     var body: some View {
         helpView
-        .navigationBarTitle("Quick Help", displayMode: .inline)
+        .navigationTitle("Quick Help")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private var helpView: some View {

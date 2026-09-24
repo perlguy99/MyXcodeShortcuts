@@ -24,7 +24,7 @@ struct CategoryView: View {
                 ShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
             }
         }
-        .foregroundColor(ThemeManager.categoryHeaderTextColor)
+        .foregroundStyle(ThemeManager.categoryHeaderTextColor)
         .font(.headline)
         .bold()
     }

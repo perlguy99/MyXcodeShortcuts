@@ -70,7 +70,7 @@ struct SplashScreen: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(BlurredBackground())
-        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
     }
 }
 

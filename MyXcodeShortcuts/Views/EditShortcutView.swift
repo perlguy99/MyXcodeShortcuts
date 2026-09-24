@@ -56,7 +56,7 @@ struct EditShortcutView: View {
                     HStack {
                         Spacer()
                         Text(convertedKeyCombo)
-                            .foregroundColor(convertedKeyCombo.isEmpty ? .clear : ThemeManager.appPrimaryTextColor)
+                            .foregroundStyle(convertedKeyCombo.isEmpty ? .clear : ThemeManager.appPrimaryTextColor)
                         Spacer()
                     }
                 }

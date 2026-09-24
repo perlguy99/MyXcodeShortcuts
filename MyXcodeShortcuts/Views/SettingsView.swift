@@ -93,7 +93,8 @@ struct SettingsFormView: View {
                 NavigationLink("Help", destination: HelpView())
             }
         }
-        .navigationBarTitle("Settings", displayMode: .inline)
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
                 Text("Copyright © 2024, Brent Danger Michalski")

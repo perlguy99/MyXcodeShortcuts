@@ -48,14 +48,14 @@ struct ShortcutView: View {
                 } label: {
                     Label("Unhide", systemImage: "eye")
                 }
-                .tint(ThemeManager.backgroundColor(for: .hidden))
+                .tint(ThemeManager.borderColor(for: .hidden))
             } else {
                 Button {
                     shortcut.status = .hidden
                 } label: {
                     Label("Hide", systemImage: "eye.slash")
                 }
-                .tint(ThemeManager.backgroundColor(for: .hidden))
+                .tint(ThemeManager.borderColor(for: .hidden))
             }
         }
     }

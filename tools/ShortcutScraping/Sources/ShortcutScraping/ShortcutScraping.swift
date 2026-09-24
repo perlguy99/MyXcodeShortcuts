@@ -77,8 +77,13 @@ public enum ShortcutScraper {
     /// Whether the current process has Accessibility permission. Callers should
     /// check this (and prompt the user to grant it in System Settings) before
     /// calling `extractShortcuts`.
+    /// Checks Accessibility trust. Passing the prompt option makes macOS show the
+    /// real system permission dialog and add the calling process to the
+    /// Accessibility list itself (unchecked) the first time this runs, instead of
+    /// silently returning false and leaving the user to hunt it down manually.
     public static func isAccessibilityTrusted() -> Bool {
-        AXIsProcessTrusted()
+        let options: [String: Any] = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true]
+        return AXIsProcessTrustedWithOptions(options as CFDictionary)
     }
 
     /// Walks the live menu bar of the running app with the given bundle identifier

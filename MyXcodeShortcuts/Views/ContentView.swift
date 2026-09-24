@@ -103,6 +103,7 @@ struct ContentView: View {
                 .font(.title2)
                 .foregroundStyle(ThemeManager.filterButtonColor(for: statusManager.currentStatus))
         }
+        .accessibilityLabel(statusManager.currentStatus.headingValue)
     }
     
     private func settingsToolbarItem() -> some View {

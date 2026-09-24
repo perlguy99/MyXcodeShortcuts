@@ -77,6 +77,7 @@ struct EditShortcutView: View {
                     Text(symbol)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(keyName.parseForControlCharacterMapping(returnType: .long))
                 Spacer()
             }
         }

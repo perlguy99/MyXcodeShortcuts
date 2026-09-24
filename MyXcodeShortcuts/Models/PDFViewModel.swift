@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-class PDFViewModel: ObservableObject {
-    @Published var pdfData: Data?
+@Observable
+@MainActor
+final class PDFViewModel {
+    var pdfData: Data?
     var categories: [Category]
     var statusManager: StatusManager
     

@@ -27,7 +27,7 @@ enum Separator: String, CaseIterable {
 }
 
 struct SettingsView: View {
-    @ObservedObject var pdfViewModel: PDFViewModel
+    let pdfViewModel: PDFViewModel
 
     var body: some View {
         SettingsFormView(pdfViewModel: pdfViewModel)
@@ -39,7 +39,7 @@ struct SettingsView: View {
 struct SettingsFormView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(StatusManager.self) private var statusManager
-    @ObservedObject var pdfViewModel: PDFViewModel
+    let pdfViewModel: PDFViewModel
 
     let separatorOptions = Separator.allCases
 

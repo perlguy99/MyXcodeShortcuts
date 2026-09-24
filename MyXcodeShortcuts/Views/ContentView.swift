@@ -62,14 +62,18 @@ struct ContentView: View {
             .navigationDestination(for: Category.self) { category in
                 EditCategoryView(category: category)
             }
-            .navigationDestination(for: String.self) { destination in
-                switch destination {
-                case "Settings":
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .settings:
                     SettingsView(pdfViewModel: PDFViewModel(categories: visibleCategories, statusManager: statusManager))
-                case "Collections":
+                case .collections:
                     CollectionsView()
-                default:
-                    Text("Tried to navigate to: \(destination)")
+                case .categorySelection(let shortcut):
+                    CategorySelectionView(shortcut: shortcut)
+                case .pdfPreview(let data):
+                    PDFPreviewView(data: data, statusManager: statusManager)
+                case .help:
+                    HelpView()
                 }
             }
         }
@@ -107,13 +111,13 @@ struct ContentView: View {
     }
     
     private func settingsToolbarItem() -> some View {
-        return NavigationLink(value: "Settings") {
+        NavigationLink(value: Route.settings) {
             Label("Settings", systemImage: "gear")
         }
     }
 
     private func collectionsToolbarItem() -> some View {
-        return NavigationLink(value: "Collections") {
+        NavigationLink(value: Route.collections) {
             Label("Collections", systemImage: "square.stack.3d.up")
         }
     }

@@ -47,7 +47,7 @@ struct EditShortcutView: View {
                 }
                 
                 Section("Category") {
-                    NavigationLink(destination: CategorySelectionView(shortcut: shortcut)) {
+                    NavigationLink(value: Route.categorySelection(shortcut)) {
                         Text(shortcut.category?.name ?? "Select a Category")
                     }
                 }

@@ -80,7 +80,7 @@ struct SettingsFormView: View {
                 }
                 
                 if let pdfData = pdfViewModel.pdfData {
-                    NavigationLink(destination: PDFPreviewView(data: pdfData, statusManager: statusManager)) {
+                    NavigationLink(value: Route.pdfPreview(pdfData)) {
                         HStack {
                             Image(systemName: "square.and.arrow.up")
                             Text("View Generated PDF")
@@ -88,9 +88,9 @@ struct SettingsFormView: View {
                     }
                 }
             }
-            
+
             Section(header: Text("Help")) {
-                NavigationLink("Help", destination: HelpView())
+                NavigationLink("Help", value: Route.help)
             }
         }
         .navigationTitle("Settings")

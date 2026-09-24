@@ -20,6 +20,9 @@ struct EditShortcutView: View {
     var body: some View {
         formView
             .navigationTitle("Edit Shortcut")
+            .onDisappear {
+                try? modelContext.save()
+            }
     }
 
     private var formView: some View {

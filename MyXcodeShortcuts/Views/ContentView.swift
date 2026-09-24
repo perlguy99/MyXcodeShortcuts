@@ -79,6 +79,7 @@ struct ContentView: View {
         withAnimation {
             let newShortcut = Shortcut(keyCombo: "", details: "")
             modelContext.insert(newShortcut)
+            try? modelContext.save()
             navigationPath.append(newShortcut)
         }
     }

@@ -72,6 +72,7 @@ enum ShortcutImporter {
             }
         }
 
+        try modelContext.save()
         return shortcutApp
     }
 }

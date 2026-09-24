@@ -43,12 +43,12 @@ class SeedData {
             let categories = try decoder.decode(CategoriesX.self, from: data)
 
             let shortcutApp = ShortcutApp(name: "Xcode Shortcuts")
-            modelContext.container.mainContext.insert(shortcutApp)
+            modelContext.insert(shortcutApp)
 
             for category in categories.categories {
                 let currentCategory = Category(name: category.name)
                 currentCategory.shortcutApp = shortcutApp
-                modelContext.container.mainContext.insert(currentCategory)
+                modelContext.insert(currentCategory)
 
                 guard let shortcuts = category.shortcuts else { continue }
                 
@@ -63,6 +63,8 @@ class SeedData {
                 
                 seedData.append(currentCategory)
             }
+
+            try modelContext.save()
         } catch {
             print("\n------------------------------")
             print(error.localizedDescription)

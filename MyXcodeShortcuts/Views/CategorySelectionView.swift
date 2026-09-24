@@ -65,13 +65,15 @@ struct CategorySelectionView: View {
     
     func deleteCategories(_ offsets: IndexSet) {
         offsets.forEach { modelContext.delete(categories[$0]) }
+        try? modelContext.save()
     }
-    
+
     func insertNewCategoryAndStoreInShortcut() {
         let newCategory = Category(name: tempCategoryName)
         modelContext.insert(newCategory)
         newCategory.shortcuts.append(shortcut)
         shortcut.category = newCategory
+        try? modelContext.save()
     }
     
     func setCategoryAndDismiss(_ category: Category) {

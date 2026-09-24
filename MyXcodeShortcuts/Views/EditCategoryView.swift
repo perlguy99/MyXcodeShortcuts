@@ -47,6 +47,9 @@ struct EditCategoryView: View {
         }
         .navigationTitle("Edit Category")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear {
+            try? modelContext.save()
+        }
     }
 }
 

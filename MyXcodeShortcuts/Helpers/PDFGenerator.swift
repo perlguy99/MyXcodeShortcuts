@@ -17,8 +17,16 @@ class PDFGenerator {
     fileprivate let bottomMargin: CGFloat = 60
     fileprivate let lineHeight: CGFloat = 20
     fileprivate let categoryLineHeight: CGFloat = 30
-    fileprivate let headerColor = UIColor(ThemeManager.appPDFHeaderColor)
-    fileprivate let textColor = UIColor(ThemeManager.appPrimaryTextColor)
+    // PDF pages are always a fixed white/light-gray background (see renderCategories'
+    // normalBackgroundColor/alternateBackgroundColor below), but these came from adaptive
+    // SwiftUI Colors that track the device's current light/dark appearance - so generating
+    // a PDF while in Dark Mode drew near-white text on a white page. Resolving against a
+    // fixed light trait collection once, here, freezes them as plain static colors that
+    // stay legible regardless of what appearance the device happens to be in when the
+    // button is tapped.
+    private static let lightAppearance = UITraitCollection(userInterfaceStyle: .light)
+    let headerColor = UIColor(ThemeManager.appPDFHeaderColor).resolvedColor(with: lightAppearance)
+    let textColor = UIColor(ThemeManager.appPrimaryTextColor).resolvedColor(with: lightAppearance)
     fileprivate let PDFSize = CGSize(width: 612, height: 792)
     
     fileprivate var pageNumber: Int = 1

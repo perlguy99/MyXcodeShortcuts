@@ -86,5 +86,24 @@ final class PDFGeneratorTests: XCTestCase {
         print("--------------docUrl----------------\n")
         #endif
     }
-    
+
+    /// Regression test for a real dark-mode bug: PDFGenerator's text/header colors used to
+    /// come straight from adaptive SwiftUI Colors, so generating a PDF while the device was
+    /// in Dark Mode drew near-white text on the PDF's fixed white page. Proves the colors
+    /// are now frozen to their light-appearance values by asking them to resolve against a
+    /// *dark* trait collection and confirming that has no effect - a still-adaptive color
+    /// would return something different (and much lighter) here.
+    @MainActor
+    func testTextColorsStayLegibleRegardlessOfDeviceAppearance() throws {
+        let generator = PDFGenerator(categories: [], statusManager: statusManager)
+        let darkAppearance = UITraitCollection(userInterfaceStyle: .dark)
+
+        XCTAssertEqual(generator.textColor, generator.textColor.resolvedColor(with: darkAppearance))
+        XCTAssertEqual(generator.headerColor, generator.headerColor.resolvedColor(with: darkAppearance))
+
+        var textWhite: CGFloat = 0
+        XCTAssertTrue(generator.textColor.getWhite(&textWhite, alpha: nil))
+        XCTAssertLessThan(textWhite, 0.6, "Text color is too light to read on the PDF's white page")
+    }
+
 }

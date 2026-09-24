@@ -23,7 +23,7 @@ struct BackgroundBlob: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
             .offset(x: .random(in: -400...400), y: .random(in: -400...400))
             .rotationEffect(.degrees(rotationAmount))
-            .animation(.linear(duration: .random(in: 10...20)).repeatForever(), value: rotationAmount)
+            .motionAnimation(.linear(duration: .random(in: 10...20)).repeatForever(), value: rotationAmount)
             .onAppear {
                 rotationAmount = .random(in: -360...360)
             }

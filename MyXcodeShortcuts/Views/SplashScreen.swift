@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     var appVersion: String {
         (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String) ?? "1.0"
     }
@@ -47,11 +49,11 @@ struct SplashScreen: View {
                 .opacity(isImageVisible ? 1 : 0)
                 .offset(y: imageOffset)
                 .onAppear {
-                    withAnimation(.easeOut(duration: 1.5)) {
+                    withAnimation(reduceMotion ? nil : .easeOut(duration: 1.5)) {
                         isImageVisible = true
                         imageOffset = 0
                     }
-                    withAnimation(Animation.easeOut(duration: 1.5).delay(0.5)) {
+                    withAnimation(reduceMotion ? nil : Animation.easeOut(duration: 1.5).delay(0.5)) {
                         isTextVisible = true
                     }
                 }

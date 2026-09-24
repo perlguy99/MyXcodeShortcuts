@@ -9,8 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct CategoryListView: View {
-    @Binding var navigationPath: NavigationPath
-
     /// The `ShortcutApp.id` of the currently active collection. When set, only categories
     /// belonging to that collection are shown; when `nil`, all categories are shown (matches
     /// prior behavior, used by previews that don't set up collections).
@@ -31,13 +29,13 @@ struct CategoryListView: View {
     var body: some View {
         List {
             ForEach(visibleCategories) { category in
-                CategoryView(navigationPath: $navigationPath, category: category)
+                CategoryView(category: category)
             }
 
             if filteredShortcuts.isNotEmpty {
                 Section(header: Text("Uncategorized").textCase(nil)) {
                     ForEach(filteredShortcuts) { shortcut in
-                        ShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+                        ShortcutView(shortcut: shortcut)
                     }
                 }
                 .foregroundStyle(ThemeManager.categoryHeaderTextColor)
@@ -47,8 +45,7 @@ struct CategoryListView: View {
         }
     }
 
-    init(navigationPath: Binding<NavigationPath>, sortOrder: [SortDescriptor<Category>] = [], activeShortcutAppID: UUID? = nil) {
-        _navigationPath = navigationPath
+    init(sortOrder: [SortDescriptor<Category>] = [], activeShortcutAppID: UUID? = nil) {
         _categories = Query(sort: sortOrder)
         self.activeShortcutAppID = activeShortcutAppID
     }
@@ -65,7 +62,7 @@ struct CategoryListView: View {
         let previewHelper = PreviewHelper(container: container)
         previewHelper.loadSampleData()
         
-        return CategoryListView(navigationPath: .constant(NavigationPath()))
+        return CategoryListView()
             .modelContainer(container)
             .environment(statusManager)
     } catch {

@@ -42,7 +42,7 @@ struct ContentView: View {
                 Text(statusManager.currentStatus.headingValue)
                     .font(.caption)
 
-                CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder, activeShortcutAppID: activeShortcutApp?.id)
+                CategoryListView(sortOrder: sortOrder, activeShortcutAppID: activeShortcutApp?.id)
                     .toolbar {
                         ToolbarItemGroup(placement: .topBarLeading) {
                             filtertoolbarItem()

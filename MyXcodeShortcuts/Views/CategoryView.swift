@@ -10,18 +10,17 @@ import SwiftData
 
 struct CategoryView: View {
     @Environment(StatusManager.self) private var statusManager
-    @Binding var navigationPath: NavigationPath
-    
+
     var category: Category
-    
+
     var filteredShortcuts: [Shortcut] {
         category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
     }
-    
+
     var body: some View {
         Section(header: Text(category.name).textCase(nil)) {
             ForEach(filteredShortcuts) { shortcut in
-                ShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
+                ShortcutView(shortcut: shortcut)
             }
         }
         .foregroundStyle(ThemeManager.categoryHeaderTextColor)
@@ -41,7 +40,7 @@ struct CategoryView: View {
         let previewHelper = PreviewHelper(container: container)
         previewHelper.loadSampleData()
         
-        return CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
+        return CategoryView(category: previewHelper.previewCategory)
             .modelContainer(container)
             .environment(statusManager)
         
@@ -61,7 +60,7 @@ struct CategoryView: View {
         let previewHelper = PreviewHelper(container: container)
         previewHelper.loadSampleData()
         
-        return CategoryView(navigationPath: .constant(NavigationPath()), category: previewHelper.previewCategory)
+        return CategoryView(category: previewHelper.previewCategory)
             .modelContainer(container)
             .environment(statusManager)
         

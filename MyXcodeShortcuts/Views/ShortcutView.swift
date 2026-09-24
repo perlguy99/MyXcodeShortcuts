@@ -11,36 +11,32 @@ import SwiftData
 struct ShortcutView: View {
     @Environment(StatusManager.self) private var statusManager
 
-    @Binding var navigationPath: NavigationPath
     @Bindable var shortcut: Shortcut
         
     var body: some View {
-        
-        VStack {
-            HStack {
-                Spacer()
-                VStack {
-                    Text(shortcut.details)
-                        .fontWeight(.light)
-                        .foregroundStyle(ThemeManager.appSecondaryTextColor)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Text(convertedKeyCombo)
-                        .bold()
-                        .foregroundStyle(ThemeManager.appPrimaryTextColor)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+        HStack {
+            NavigationLink(value: shortcut) {
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text(shortcut.details)
+                            .fontWeight(.light)
+                            .foregroundStyle(ThemeManager.appSecondaryTextColor)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Text(convertedKeyCombo)
+                            .bold()
+                            .foregroundStyle(ThemeManager.appPrimaryTextColor)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    Spacer()
                 }
-                
-                Spacer()
-                
-                Checkbox(state: $shortcut.status)
-                
-                Spacer()
             }
+
+            Checkbox(state: $shortcut.status)
+
+            Spacer()
         }
-        .contentShape(Rectangle())
-        .onTapGesture(perform: {})  // Needed or .onLongPressGesture blocks scrolling. :^/
-        .onLongPressGesture(perform: handleLongPress)
         .swipeActions(edge: .trailing) {
             if shortcut.status == .hidden {
                 Button {
@@ -63,10 +59,6 @@ struct ShortcutView: View {
     var convertedKeyCombo: String {
         statusManager.keyCombination(from: shortcut.keyCombo)
     }
-
-    func handleLongPress() {
-        navigationPath.append(shortcut)
-    }
 }
 
 #Preview {
@@ -77,9 +69,9 @@ struct ShortcutView: View {
     previewHelper.loadSampleData()
     
     return Group {
-        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone)
-        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
-        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
+        ShortcutView(shortcut: previewHelper.previewNone)
+        ShortcutView(shortcut: previewHelper.previewFavorite)
+        ShortcutView(shortcut: previewHelper.previewHidden)
     }
     .environment(statusManager)
     .modelContainer(previewHelper.container)
@@ -93,9 +85,9 @@ struct ShortcutView: View {
     previewHelper.loadSampleData()
     
     return Group {
-        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewNone)
-        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewFavorite)
-        ShortcutView(navigationPath: .constant(NavigationPath()), shortcut: previewHelper.previewHidden)
+        ShortcutView(shortcut: previewHelper.previewNone)
+        ShortcutView(shortcut: previewHelper.previewFavorite)
+        ShortcutView(shortcut: previewHelper.previewHidden)
     }
     .environment(statusManager)
     .preferredColorScheme(.dark)

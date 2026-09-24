@@ -15,15 +15,11 @@ struct CategoryListView: View {
     var activeShortcutAppID: UUID?
 
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
-    @Query var shortcuts: [Shortcut]
+    @Query(filter: #Predicate<Shortcut> { $0.category == nil }) var filteredShortcuts: [Shortcut]
 
     var visibleCategories: [Category] {
         guard let activeShortcutAppID else { return categories }
         return categories.filter { $0.shortcutApp?.id == activeShortcutAppID }
-    }
-
-    var filteredShortcuts: [Shortcut] {
-        shortcuts.filter { $0.category == nil }
     }
 
     var body: some View {

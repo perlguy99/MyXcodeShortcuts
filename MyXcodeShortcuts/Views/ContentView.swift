@@ -16,29 +16,46 @@ struct ContentView: View {
     
     @State private var navigationPath = NavigationPath()
     @State private var sortOrder = [SortDescriptor(\Category.name)]
-    
+
     @Query private var categories: [Category]
-    
+    @Query(sort: \ShortcutApp.name) private var shortcutApps: [ShortcutApp]
+
+    /// The collection currently selected as active (see CollectionsView). Falls back to the
+    /// first available `ShortcutApp` when nothing has been explicitly chosen yet.
+    private var activeShortcutApp: ShortcutApp? {
+        if let uuid = UUID(uuidString: statusManager.activeShortcutAppID),
+           let match = shortcutApps.first(where: { $0.id == uuid }) {
+            return match
+        }
+        return shortcutApps.first
+    }
+
+    private var visibleCategories: [Category] {
+        guard let activeShortcutApp else { return categories }
+        return categories.filter { $0.shortcutApp?.id == activeShortcutApp.id }
+    }
+
     var body: some View {
         return NavigationStack(path: $navigationPath) {
-            
+
             VStack {
                 Text(statusManager.currentStatus.headingValue)
                     .font(.caption)
-                
-                CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder)
+
+                CategoryListView(navigationPath: $navigationPath, sortOrder: sortOrder, activeShortcutAppID: activeShortcutApp?.id)
                     .toolbar {
                         ToolbarItemGroup(placement: .topBarLeading) {
                             filtertoolbarItem()
                             sortOrderToolbarItem()
                         }
                         ToolbarItemGroup(placement: .topBarTrailing) {
+                            collectionsToolbarItem()
                             addItemToolbarItem()
                             settingsToolbarItem()
                         }
                     }
             }
-            .navigationTitle("My Shortcuts")
+            .navigationTitle(activeShortcutApp?.name ?? "My Shortcuts")
             .navigationDestination(for: Shortcut.self) { shortcut in
                 EditShortcutView(navigationPath: $navigationPath, shortcut: shortcut)
             }
@@ -48,7 +65,9 @@ struct ContentView: View {
             .navigationDestination(for: String.self) { destination in
                 switch destination {
                 case "Settings":
-                    SettingsView(pdfViewModel: PDFViewModel(categories: categories, statusManager: statusManager))
+                    SettingsView(pdfViewModel: PDFViewModel(categories: visibleCategories, statusManager: statusManager))
+                case "Collections":
+                    CollectionsView()
                 default:
                     Text("Tried to navigate to: \(destination)")
                 }
@@ -88,6 +107,12 @@ struct ContentView: View {
     private func settingsToolbarItem() -> some View {
         return NavigationLink(value: "Settings") {
             Label("Settings", systemImage: "gear")
+        }
+    }
+
+    private func collectionsToolbarItem() -> some View {
+        return NavigationLink(value: "Collections") {
+            Label("Collections", systemImage: "square.stack.3d.up")
         }
     }
     

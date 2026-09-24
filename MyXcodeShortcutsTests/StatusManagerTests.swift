@@ -32,6 +32,7 @@ final class StatusManagerTests: XCTestCase {
         XCTAssertEqual(statusManager.pdfTitle, Constants.defaultTitle)
         XCTAssertEqual(statusManager.separator, Constants.defaultSeparator)
         XCTAssertEqual(statusManager.showSymbols, Constants.defaultShowSymbols)
+        XCTAssertEqual(statusManager.activeShortcutAppID, "")
     }
 
     func testLoadsExistingValuesFromStore() {
@@ -66,6 +67,12 @@ final class StatusManagerTests: XCTestCase {
     func testSettingShowSymbolsPersists() {
         statusManager.showSymbols = false
         XCTAssertFalse(userDefaults.bool(forKey: Constants.Keys.showSymbols))
+    }
+
+    func testSettingActiveShortcutAppIDPersists() {
+        let sampleID = UUID().uuidString
+        statusManager.activeShortcutAppID = sampleID
+        XCTAssertEqual(userDefaults.string(forKey: Constants.Keys.activeShortcutAppID), sampleID)
     }
 
     func testToggleStatusCyclesThroughAllCases() {

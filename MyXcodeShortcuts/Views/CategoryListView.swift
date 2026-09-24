@@ -12,17 +12,27 @@ struct CategoryListView: View {
     @Environment(\.modelContext) private var modelContext
 
     @Binding var navigationPath: NavigationPath
-    
+
+    /// The `ShortcutApp.id` of the currently active collection. When set, only categories
+    /// belonging to that collection are shown; when `nil`, all categories are shown (matches
+    /// prior behavior, used by previews that don't set up collections).
+    var activeShortcutAppID: UUID?
+
     @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
     @Query var shortcuts: [Shortcut]
-    
+
+    var visibleCategories: [Category] {
+        guard let activeShortcutAppID else { return categories }
+        return categories.filter { $0.shortcutApp?.id == activeShortcutAppID }
+    }
+
     var filteredShortcuts: [Shortcut] {
         shortcuts.filter { $0.category == nil }
     }
-    
+
     var body: some View {
         List {
-            ForEach(categories) { category in
+            ForEach(visibleCategories) { category in
                 CategoryView(navigationPath: $navigationPath, category: category)
             }
 
@@ -48,9 +58,10 @@ struct CategoryListView: View {
         }
     }
 
-    init(navigationPath: Binding<NavigationPath>, sortOrder: [SortDescriptor<Category>] = []) {
+    init(navigationPath: Binding<NavigationPath>, sortOrder: [SortDescriptor<Category>] = [], activeShortcutAppID: UUID? = nil) {
         _navigationPath = navigationPath
         _categories = Query(sort: sortOrder)
+        self.activeShortcutAppID = activeShortcutAppID
     }
 }
 

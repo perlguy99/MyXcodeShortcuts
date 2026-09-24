@@ -53,6 +53,10 @@
 		84F70D1B2BD2E05B006617E7 /* KeyboardSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */; };
 		84FF7C652BE9800500213E9B /* MotionAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */; };
 		84FF7C672BE9844F00213E9B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF7C662BE9844F00213E9B /* RootView.swift */; };
+		9C05DCC6A16543A684BC185E /* ShortcutImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5705819D73D47FC8E09536E /* ShortcutImporter.swift */; };
+		8CB36FF80FC74C9C9BA568EB /* ImportCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171974EB65394A5C877A90F8 /* ImportCollectionView.swift */; };
+		34BBB8F0F5B44F37A5878F68 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11746FB4B41945D7BF85F583 /* CollectionsView.swift */; };
+		4CBE2AFC78294DC493AD2F4D /* ShortcutImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8790EBFC934F169DB9056C /* ShortcutImporterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +128,10 @@
 		84F70D1A2BD2E05B006617E7 /* KeyboardSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSymbols.swift; sourceTree = "<group>"; };
 		84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionAnimationModifier.swift; sourceTree = "<group>"; };
 		84FF7C662BE9844F00213E9B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		B5705819D73D47FC8E09536E /* ShortcutImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutImporter.swift; sourceTree = "<group>"; };
+		171974EB65394A5C877A90F8 /* ImportCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCollectionView.swift; sourceTree = "<group>"; };
+		11746FB4B41945D7BF85F583 /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
+		5F8790EBFC934F169DB9056C /* ShortcutImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutImporterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +211,7 @@
 				84AA00012C0000010055AA02 /* StatusManagerTests.swift */,
 				840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */,
 				846DB1702BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift */,
+				5F8790EBFC934F169DB9056C /* ShortcutImporterTests.swift */,
 			);
 			path = MyXcodeShortcutsTests;
 			sourceTree = "<group>";
@@ -233,6 +242,8 @@
 				846371382BBB3245001ED9C3 /* SettingsView.swift */,
 				8447532E2BD5DDA30073D85A /* HelpView.swift */,
 				846030BB2BD871D300B5BC3D /* SplashScreen.swift */,
+				171974EB65394A5C877A90F8 /* ImportCollectionView.swift */,
+				11746FB4B41945D7BF85F583 /* CollectionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +277,7 @@
 				84ED14E72BC9E7D900375EED /* SeedData_Release_1.json */,
 				840103EF2BD2BB0100B467D1 /* SeedData_UnitTests.json */,
 				840526CB2BE44C970047222A /* ThemeManager.swift */,
+				B5705819D73D47FC8E09536E /* ShortcutImporter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -474,6 +486,9 @@
 				846371332BBB1BB1001ED9C3 /* ShortcutView.swift in Sources */,
 				846371402BBB56FD001ED9C3 /* EditShortcutView.swift in Sources */,
 				8463712B2BBB064E001ED9C3 /* PreviewHelper.swift in Sources */,
+				9C05DCC6A16543A684BC185E /* ShortcutImporter.swift in Sources */,
+				8CB36FF80FC74C9C9BA568EB /* ImportCollectionView.swift in Sources */,
+				34BBB8F0F5B44F37A5878F68 /* CollectionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +500,7 @@
 				84AA00012C0000010055AA01 /* StatusManagerTests.swift in Sources */,
 				840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */,
 				846DB1712BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift in Sources */,
+				4CBE2AFC78294DC493AD2F4D /* ShortcutImporterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,12 @@ final class StatusManager {
     var showSymbols: Bool {
         didSet { userDefaults.set(showSymbols, forKey: Constants.Keys.showSymbols) }
     }
+    /// Stringified `ShortcutApp.id` (UUID) of the collection currently selected as "active" -
+    /// i.e. the one displayed and exported to PDF. Empty when nothing has been explicitly
+    /// selected yet, in which case callers fall back to the first available `ShortcutApp`.
+    var activeShortcutAppID: String {
+        didSet { userDefaults.set(activeShortcutAppID, forKey: Constants.Keys.activeShortcutAppID) }
+    }
 
     init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
@@ -34,6 +40,7 @@ final class StatusManager {
         pdfTitle = userDefaults.string(forKey: Constants.Keys.pdfTitle) ?? Constants.defaultTitle
         separator = userDefaults.string(forKey: Constants.Keys.separator) ?? Constants.defaultSeparator
         showSymbols = userDefaults.object(forKey: Constants.Keys.showSymbols) as? Bool ?? Constants.defaultShowSymbols
+        activeShortcutAppID = userDefaults.string(forKey: Constants.Keys.activeShortcutAppID) ?? ""
     }
 
     func toggleStatus() {

@@ -18,5 +18,6 @@ enum Constants {
         static let separator = "separator"
         static let showSymbols = "showSymbols"
         static let statusInt = "statusInt"
+        static let activeShortcutAppID = "activeShortcutAppID"
     }
 }

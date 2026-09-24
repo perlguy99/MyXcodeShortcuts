@@ -21,18 +21,18 @@ struct MyXcodeShortcutsApp: App {
     @State var isActive: Bool = false
 
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([ShortcutApp.self, Category.self, Shortcut.self])
-        
+        let schema = Schema(versionedSchema: CurrentSchema.self)
+
         #if targetEnvironment(simulator)
         let isStoredInMemoryOnly = true
         #else
         let isStoredInMemoryOnly = false
         #endif
-        
+
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: isStoredInMemoryOnly)
 
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            return try ModelContainer(for: schema, migrationPlan: MigrationPlan.self, configurations: [modelConfiguration])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }

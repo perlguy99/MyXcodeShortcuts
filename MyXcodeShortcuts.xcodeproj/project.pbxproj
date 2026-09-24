@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		34BBB8F0F5B44F37A5878F68 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11746FB4B41945D7BF85F583 /* CollectionsView.swift */; };
 		4CBE2AFC78294DC493AD2F4D /* ShortcutImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8790EBFC934F169DB9056C /* ShortcutImporterTests.swift */; };
+		4F9CA09BDDF9CB5C35561AEF /* SchemaMigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9361D0EBECCF348D4954A806 /* SchemaMigrationTests.swift */; };
 		648C67B1365C96745734753D /* MyXcodeShortcutsMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E746751FAE05ED0B1ECA5 /* MyXcodeShortcutsMacApp.swift */; };
 		76039182AD1AF02D575031DF /* ShortcutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6C5CF7EFBA36EC86334E72 /* ShortcutApp.swift */; };
 		840103EC2BD1E7C500B467D1 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840103EB2BD1E7C500B467D1 /* CategoryRow.swift */; };
@@ -60,6 +61,7 @@
 		96455AD827C371789CB96E5C /* ShortcutScraping in Frameworks */ = {isa = PBXBuildFile; productRef = 0E48AC144F51588DAB628903 /* ShortcutScraping */; };
 		9C05DCC6A16543A684BC185E /* ShortcutImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5705819D73D47FC8E09536E /* ShortcutImporter.swift */; };
 		DD482650BC6776BFFF3D34AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B7FEEAC370C3C1241DB1E /* ContentView.swift */; };
+		F6E6172966940E79F82A5E20 /* SchemaMigrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE1C4EB1E9A0CFAE2CE89 /* SchemaMigrations.swift */; };
 		FA651117780988AEF87FC0AC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312A0839A992157A3F366E74 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,9 +139,11 @@
 		84FF7C642BE9800500213E9B /* MotionAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionAnimationModifier.swift; sourceTree = "<group>"; };
 		84FF7C662BE9844F00213E9B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		8B2B7FEEAC370C3C1241DB1E /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B18531A62BA65F64F7B6CE0A /* MyXcodeShortcutsMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MyXcodeShortcutsMac.app; path = "MyXcodeShortcuts Exporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9361D0EBECCF348D4954A806 /* SchemaMigrationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SchemaMigrationTests.swift; sourceTree = "<group>"; };
+		B18531A62BA65F64F7B6CE0A /* MyXcodeShortcuts Exporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyXcodeShortcuts Exporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5705819D73D47FC8E09536E /* ShortcutImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutImporter.swift; sourceTree = "<group>"; };
 		BA3E746751FAE05ED0B1ECA5 /* MyXcodeShortcutsMacApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MyXcodeShortcutsMacApp.swift; sourceTree = "<group>"; };
+		EB4CE1C4EB1E9A0CFAE2CE89 /* SchemaMigrations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SchemaMigrations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +217,7 @@
 				846370EF2BBAF8C0001ED9C3 /* MyXcodeShortcuts.app */,
 				846371012BBAF8C3001ED9C3 /* MyXcodeShortcutsTests.xctest */,
 				8463710B2BBAF8C3001ED9C3 /* MyXcodeShortcutsUITests.xctest */,
-				B18531A62BA65F64F7B6CE0A /* MyXcodeShortcutsMac.app */,
+				B18531A62BA65F64F7B6CE0A /* MyXcodeShortcuts Exporter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +253,7 @@
 				840103ED2BD2B15000B467D1 /* ShortcutFilterTests.swift */,
 				846DB1702BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift */,
 				5F8790EBFC934F169DB9056C /* ShortcutImporterTests.swift */,
+				9361D0EBECCF348D4954A806 /* SchemaMigrationTests.swift */,
 			);
 			path = MyXcodeShortcutsTests;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				84A3D1E12BD344ED00FF60BF /* StatusManager.swift */,
 				84D51D392BBDD0F600E6169B /* Categories.swift */,
 				844753232BD5C5A60073D85A /* PDFViewModel.swift */,
+				EB4CE1C4EB1E9A0CFAE2CE89 /* SchemaMigrations.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,7 +417,7 @@
 				0E48AC144F51588DAB628903 /* ShortcutScraping */,
 			);
 			productName = MyXcodeShortcutsMac;
-			productReference = B18531A62BA65F64F7B6CE0A /* MyXcodeShortcutsMac.app */;
+			productReference = B18531A62BA65F64F7B6CE0A /* MyXcodeShortcuts Exporter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -447,7 +453,7 @@
 			);
 			mainGroup = 846370E62BBAF8C0001ED9C3;
 			packageReferences = (
-				D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "tools/ShortcutScraping" */,
+				D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "ShortcutScraping" */,
 			);
 			productRefGroup = 846370F02BBAF8C0001ED9C3 /* Products */;
 			projectDirPath = "";
@@ -570,6 +576,7 @@
 				9C05DCC6A16543A684BC185E /* ShortcutImporter.swift in Sources */,
 				8CB36FF80FC74C9C9BA568EB /* ImportCollectionView.swift in Sources */,
 				34BBB8F0F5B44F37A5878F68 /* CollectionsView.swift in Sources */,
+				F6E6172966940E79F82A5E20 /* SchemaMigrations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +589,7 @@
 				840103EE2BD2B15000B467D1 /* ShortcutFilterTests.swift in Sources */,
 				846DB1712BE18F1700229587 /* TDDShortcutSymbolConversionTests.swift in Sources */,
 				4CBE2AFC78294DC493AD2F4D /* ShortcutImporterTests.swift in Sources */,
+				4F9CA09BDDF9CB5C35561AEF /* SchemaMigrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,7 +767,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -798,7 +806,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -892,7 +900,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2026092417;
 				DEVELOPMENT_TEAM = 833AT2F722;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -905,7 +913,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts.Exporter;
 				PRODUCT_NAME = "MyXcodeShortcuts Exporter";
 				SDKROOT = macosx;
@@ -921,7 +929,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2026092417;
 				DEVELOPMENT_TEAM = 833AT2F722;
 				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -934,7 +942,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.perlguy.MyXcodeShortcuts.Exporter;
 				PRODUCT_NAME = "MyXcodeShortcuts Exporter";
 				SDKROOT = macosx;
@@ -993,7 +1001,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "tools/ShortcutScraping" */ = {
+		D12136D94C50825DB8D24BEA /* XCLocalSwiftPackageReference "ShortcutScraping" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = tools/ShortcutScraping;
 		};

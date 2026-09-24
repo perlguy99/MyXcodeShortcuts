@@ -17,7 +17,7 @@ class Category: Codable {
     
     var name: String = ""
     @Relationship(deleteRule: .cascade, inverse: \Shortcut.category) var shortcuts: [Shortcut] = [Shortcut]()
-    weak var shortcutApp: ShortcutApp?
+    var shortcutApp: ShortcutApp?
 
     init(name: String) {
         self.name = name

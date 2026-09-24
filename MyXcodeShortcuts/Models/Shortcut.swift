@@ -16,7 +16,7 @@ class Shortcut: Codable {
     
     var keyCombo: String = ""
     var details: String = ""
-    weak var category: Category?
+    var category: Category?
     var status: Status = Status.none
     
     init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {

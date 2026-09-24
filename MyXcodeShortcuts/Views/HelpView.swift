@@ -17,9 +17,9 @@ struct HelpView: View {
     private var helpView: some View {
         List {
             Section(header: Text("First Time Running")) {
-                Text("Upon first load, the app is pre-populated with default data from Apple's documentation\n")
-                + Text("It isn't 100% complete, but it is a good start").font(.footnote).italic()
-                
+                let footnote = Text("It isn't 100% complete, but it is a good start").font(.footnote).italic()
+                Text("Upon first load, the app is pre-populated with default data from Apple's documentation\n\(footnote)")
+
                 Text("Users can then add or customize the shortcuts")
             }
 
@@ -27,10 +27,10 @@ struct HelpView: View {
                 Text("★ Long-Press on an existing Shortcut to edit it")
                 Text("★ Tap on a Shortcuts checkbox to toggle its filter attribute between none, favorite, and hidden")
             }
-            
+
             Section {
-                Text("Tap to select the sort order\n")
-                + Text("It is still very basic sorting").font(.footnote).italic()
+                let footnote = Text("It is still very basic sorting").font(.footnote).italic()
+                Text("Tap to select the sort order\n\(footnote)")
             } header: {
                 HStack {
                     Image(systemName: "arrow.up.arrow.down")
@@ -39,29 +39,28 @@ struct HelpView: View {
             }
 
             Section {
-                
-                Text("Tap to toggle between\n") +
-                Text("(none, favorite, hidden)").font(.footnote).italic()
-                
+                let filterFootnote = Text("(none, favorite, hidden)").font(.footnote).italic()
+                Text("Tap to toggle between\n\(filterFootnote)")
+
                 HStack {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                         .foregroundStyle(.blue)
-                    Text("(none)").bold() +
-                    Text(" - No filter applied\n")
-                    + Text("Not").font(.footnote).italic().underline().bold()
-                    + Text(" showing hidden").font(.footnote).italic()
+                    let none = Text("(none)").bold()
+                    let not = Text("Not").font(.footnote).italic().underline().bold()
+                    let hidden = Text(" showing hidden").font(.footnote).italic()
+                    Text("\(none) - No filter applied\n\(not)\(hidden)")
                 }
                 HStack {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                         .foregroundStyle(.yellow)
-                    Text("(favorites)").bold() +
-                    Text(" - Only showing Favorites")
+                    let favorites = Text("(favorites)").bold()
+                    Text("\(favorites) - Only showing Favorites")
                 }
                 HStack {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                         .foregroundStyle(.red)
-                    Text("(hidden)").bold() +
-                    Text(" - Showing hidden")
+                    let hidden = Text("(hidden)").bold()
+                    Text("\(hidden) - Showing hidden")
                 }
             } header: {
                 HStack {
@@ -69,7 +68,7 @@ struct HelpView: View {
                     Text("Filtering")
                 }
             }
-            
+
             Section {
                 Text("Tap to add a new Shortcut")
             } header: {
@@ -81,11 +80,7 @@ struct HelpView: View {
 
             Section {
                 Text("Tap to go to the Settings")
-                Text("In Settings you can\n") +
-                Text("\t☞ Customize the PDF title\n") +
-                Text("\t☞ Choose to show symbols or not\n") +
-                Text("\t☞ Set a custom key separator\n") +
-                Text("\t☞ Preview/Print cheatsheet")
+                Text("In Settings you can\n\t☞ Customize the PDF title\n\t☞ Choose to show symbols or not\n\t☞ Set a custom key separator\n\t☞ Preview/Print cheatsheet")
             } header: {
                 HStack {
                     Image(systemName: "gear")
@@ -93,9 +88,9 @@ struct HelpView: View {
                 }
             }
 
-            
+
             Section {
-                Text("I just wanted to make sure I gave credit to Ray Wenderlich at https://kodeco.com for the tutoriall that inspired this app.")
+                Text("I just wanted to make sure I gave credit to Ray Wenderlich at https://kodeco.com for the tutorial that inspired this app.")
             } header: {
                 HStack {
                     Image(systemName: "hands.and.sparkles.fill")
@@ -106,10 +101,8 @@ struct HelpView: View {
     }
 }
 
-struct HelpView_Previews: PreviewProvider {
-    static var previews: some View {
-        HelpView()
-    }
+#Preview {
+    HelpView()
 }
 
 #Preview {

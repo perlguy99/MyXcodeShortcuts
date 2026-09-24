@@ -39,42 +39,26 @@ struct Checkbox: View {
     }
 }
 
-struct Checkbox_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            OtherView()
-            OtherViewDark()
-        }
-    }
-    
-    private struct OtherView: View {
-        @State var favorite: Status = .favorite
-        @State var hidden: Status = .hidden
-        @State var none: Status = .none
-        
-        var body: some View {
-            VStack {
-                Checkbox(state: $none)
-                Checkbox(state: $favorite)
-                Checkbox(state: $hidden)
-            }
-        }
-    }
-    
-    private struct OtherViewDark: View {
-        @State var favorite: Status = .favorite
-        @State var hidden: Status = .hidden
-        @State var none: Status = .none
-        
-        var body: some View {
-            VStack {
-                Checkbox(state: $none)
-                Checkbox(state: $favorite)
-                Checkbox(state: $hidden)
-            }
-            .preferredColorScheme(.dark)
-        }
-    }
+private struct CheckboxPreviewRow: View {
+    @State var favorite: Status = .favorite
+    @State var hidden: Status = .hidden
+    @State var none: Status = .none
 
+    var body: some View {
+        VStack {
+            Checkbox(state: $none)
+            Checkbox(state: $favorite)
+            Checkbox(state: $hidden)
+        }
+    }
+}
+
+#Preview {
+    CheckboxPreviewRow()
+}
+
+#Preview {
+    CheckboxPreviewRow()
+        .preferredColorScheme(.dark)
 }
 

@@ -88,6 +88,3 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-
-# xcodegen-generated project (regenerate with `xcodegen generate`)
-tools/ShortcutExporterMac/ShortcutExporterMac.xcodeproj/

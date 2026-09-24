@@ -1,6 +1,6 @@
 //
-//  ShortcutExporterMacApp.swift
-//  ShortcutExporterMac
+//  MyXcodeShortcutsMacApp.swift
+//  MyXcodeShortcutsMac
 //
 //  GUI front end for the ShortcutScraping library - pick a running app, walk its
 //  menu bar via the Accessibility API, and export the shortcuts as JSON in the
@@ -10,7 +10,7 @@
 import SwiftUI
 
 @main
-struct ShortcutExporterMacApp: App {
+struct MyXcodeShortcutsMacApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

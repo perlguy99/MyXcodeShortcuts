@@ -19,6 +19,7 @@ import SwiftData
 @MainActor
 struct MyXcodeShortcutsApp: App {
     @State var isActive: Bool = false
+    @State private var statusManager = StatusManager()
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema(versionedSchema: CurrentSchema.self)
@@ -44,12 +45,13 @@ struct MyXcodeShortcutsApp: App {
     }
     
     var body: some Scene {
-        let _ = checkSeed()
-        
         WindowGroup {
             RootView(isActive: $isActive)
                 .modelContainer(sharedModelContainer)
-                .environment(StatusManager())
+                .environment(statusManager)
+                .task {
+                    checkSeed()
+                }
         }
     }
 }

@@ -12,7 +12,7 @@ struct CategorySelectionView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     
-    @State var shortcut: Shortcut
+    @Bindable var shortcut: Shortcut
     @Query private var categories: [Category]
     @State private var tempCategoryName: String = ""
     
@@ -47,10 +47,12 @@ struct CategorySelectionView: View {
     private var categoryList: some View {
         List {
             ForEach(categories) { category in
-                CategoryRow(category: category)
-                    .onTapGesture {
-                        setCategoryAndDismiss(category)
-                    }
+                Button {
+                    setCategoryAndDismiss(category)
+                } label: {
+                    CategoryRow(category: category)
+                }
+                .buttonStyle(.plain)
             }
             .onDelete(perform: deleteCategories)
         }

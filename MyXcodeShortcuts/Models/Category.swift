@@ -9,12 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Category: Codable {
-    
-    enum CodingKeys: CodingKey {
-        case name, shortcuts
-    }
-    
+class Category {
     var name: String = ""
     @Relationship(deleteRule: .cascade, inverse: \Shortcut.category) var shortcuts: [Shortcut] = [Shortcut]()
     var shortcutApp: ShortcutApp?
@@ -22,25 +17,6 @@ class Category: Codable {
     init(name: String) {
         self.name = name
     }
-    
-    // Conform to Codable
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
-        
-        self.shortcuts = try container.decode([Shortcut].self, forKey: .shortcuts)
-    }
-    
-    // Conform to Codable
-    func encode(to encoder: any Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(shortcuts, forKey: .shortcuts)
-    }
-}
-
-struct MenuShortcuts: Codable {
-    let categories: [Category]
 }
 
 // TODO: This is a hack for importing the JSON at the moment
@@ -71,4 +47,8 @@ class CategoryX: Codable {
         try container.encode(name, forKey: .name)
         try container.encode(shortcuts, forKey: .shortcuts)
     }
+}
+
+struct CategoriesX: Codable {
+    let categories: [CategoryX]
 }

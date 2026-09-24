@@ -27,28 +27,14 @@ enum Separator: String, CaseIterable {
 }
 
 struct SettingsView: View {
-    @Environment(\.modelContext) var modelContext
-
     @ObservedObject var pdfViewModel: PDFViewModel
-    
-    @Query private var categories: [Category]
-    @State private var showingValidationError = false
-    
-    let separatorOptions = Separator.allCases
-    
+
     var body: some View {
         SettingsFormView(pdfViewModel: pdfViewModel)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-
-struct SettingsBlankView: View {
-    var body: some View {
-        Text("Settings")
-            .font(.headline)
-    }
-}
 
 struct SettingsFormView: View {
     @Environment(\.modelContext) var modelContext

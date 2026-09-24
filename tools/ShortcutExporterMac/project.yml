@@ -1,0 +1,26 @@
+name: ShortcutExporterMac
+options:
+  bundleIdPrefix: com.brentmichalski
+packages:
+  ShortcutScraping:
+    path: ../ShortcutScraping
+targets:
+  ShortcutExporterMac:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - Sources/ShortcutExporterMac
+    dependencies:
+      - package: ShortcutScraping
+    settings:
+      base:
+        MACOSX_DEPLOYMENT_TARGET: "13.0"
+        PRODUCT_BUNDLE_IDENTIFIER: com.brentmichalski.ShortcutExporterMac
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: NO
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Shortcut Exporter
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication

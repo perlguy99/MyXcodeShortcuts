@@ -13,6 +13,7 @@ import SwiftData
 
 struct CollectionsView: View {
     @Environment(StatusManager.self) private var statusManager
+    @Environment(\.modelContext) private var modelContext
 
     @Query(sort: \ShortcutApp.name) private var shortcutApps: [ShortcutApp]
     @State private var isShowingImportSheet = false
@@ -34,6 +35,7 @@ struct CollectionsView: View {
                     }
                     .foregroundStyle(.primary)
                 }
+                .onDelete(perform: deleteCollections)
             }
         }
         .navigationTitle("Collections")
@@ -75,6 +77,25 @@ struct CollectionsView: View {
     private func select(_ shortcutApp: ShortcutApp) {
         statusManager.activeShortcutAppID = shortcutApp.id.uuidString
         statusManager.pdfTitle = shortcutApp.name
+    }
+
+    private func deleteCollections(at offsets: IndexSet) {
+        let deletedActiveCollection = offsets.contains { shortcutApps[$0].id == activeID }
+        let remainingApps = shortcutApps.enumerated().filter { !offsets.contains($0.offset) }.map(\.element)
+
+        for index in offsets {
+            modelContext.delete(shortcutApps[index])
+        }
+        try? modelContext.save()
+
+        if deletedActiveCollection {
+            if let nextApp = remainingApps.first {
+                select(nextApp)
+            } else {
+                statusManager.activeShortcutAppID = ""
+                statusManager.pdfTitle = ""
+            }
+        }
     }
 }
 

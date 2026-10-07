@@ -106,6 +106,26 @@ struct ControlCharacterMappings {
             .long: "Delete",
             .short: "Del",
             .symbol: "\u{232B}"
+        ],
+        "home": [
+            .long: "Home",
+            .short: "Home",
+            .symbol: "\u{2196}"
+        ],
+        "end": [
+            .long: "End",
+            .short: "End",
+            .symbol: "\u{2198}"
+        ],
+        "pageup": [
+            .long: "Page Up",
+            .short: "PgUp",
+            .symbol: "\u{21DE}"
+        ],
+        "pagedown": [
+            .long: "Page Down",
+            .short: "PgDn",
+            .symbol: "\u{21DF}"
         ]
     ]
 }

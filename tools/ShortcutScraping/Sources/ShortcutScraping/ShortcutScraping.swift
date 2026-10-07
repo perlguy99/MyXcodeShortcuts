@@ -195,7 +195,21 @@ public enum ShortcutScraper {
     private static func keyCombo(for item: AXUIElement) -> String? {
         var keyToken: String?
 
-        if let cmdChar: String = attribute(item, kAXMenuItemCmdCharAttribute), let firstChar = cmdChar.first {
+        // Arrow-key virtual keycodes (123-126) are hardware-position constants - reliable
+        // no matter which app reported them. Try those first: some apps report arrows
+        // through cmdChar using a raw character this scraper doesn't recognize (not the
+        // standard \u{F700}-\u{F703} sentinels), which would otherwise get stored verbatim
+        // and render as an unmapped tofu glyph downstream. Scoped to just the 4 arrow
+        // codes rather than every special key in token(forVirtualKey:) - some apps report
+        // a different, non-arrow virtual keycode for an item whose cmdChar is already a
+        // perfectly good symbol (e.g. Terminal's "Num Lock" cmdChar is the real clear-key
+        // glyph "⌧", but its reported virtual keycode happens to collide with Escape's),
+        // so cmdChar must stay the default for everything else.
+        let arrowVirtualKeys: Set<Int> = [123, 124, 125, 126]
+        if let virtualKey: Int = attribute(item, kAXMenuItemCmdVirtualKeyAttribute), arrowVirtualKeys.contains(virtualKey),
+           let arrowToken = token(forVirtualKey: virtualKey) {
+            keyToken = arrowToken
+        } else if let cmdChar: String = attribute(item, kAXMenuItemCmdCharAttribute), let firstChar = cmdChar.first {
             keyToken = token(forCmdChar: firstChar)
         } else if let virtualKey: Int = attribute(item, kAXMenuItemCmdVirtualKeyAttribute), virtualKey != -1 {
             keyToken = token(forVirtualKey: virtualKey)

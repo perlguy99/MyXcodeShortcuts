@@ -91,6 +91,21 @@ struct ControlCharacterMappings {
             .long: "Tab",
             .short: "Tab",
             .symbol: "\u{21E5}"
+        ],
+        "esc": [
+            .long: "Escape",
+            .short: "Esc",
+            .symbol: "\u{238B}"
+        ],
+        "space": [
+            .long: "Space",
+            .short: "Spc",
+            .symbol: "\u{2423}"
+        ],
+        "delete": [
+            .long: "Delete",
+            .short: "Del",
+            .symbol: "\u{232B}"
         ]
     ]
 }

@@ -17,6 +17,9 @@ class PDFGenerator {
     fileprivate let bottomMargin: CGFloat = 60
     fileprivate let lineHeight: CGFloat = 20
     fileprivate let categoryLineHeight: CGFloat = 30
+    // Breathing room between a column's edge and the text inside it, so key combos and
+    // details don't look flush-cut against the column boundary or center divider.
+    fileprivate let textInset: CGFloat = 6
     // PDF pages are always a fixed white/light-gray background (see renderCategories'
     // normalBackgroundColor/alternateBackgroundColor below), but these came from adaptive
     // SwiftUI Colors that track the device's current light/dark appearance - so generating
@@ -98,22 +101,22 @@ class PDFGenerator {
             }
             
             let categoryName = "\(category.name) (\(shortcuts.count))"
-            categoryName.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+            categoryName.draw(at: CGPoint(x: xValue + textInset, y: total), withAttributes: categoryAttributes)
             total += categoryLineHeight
-            
+
             for (shortcutIndex, shortcut) in shortcuts.enumerated() {
                 let keyCombo = shortcut.keyCombo.parseForControlCharacterMapping(returnType: statusManager.showSymbols ? .symbol : .long)
                 let detailsWidth = (shortcut.details as NSString).size(withAttributes: bodyAttributes).width
-                let detailsX = xValue + width - detailsWidth  // Right-align the details
-                
+                let detailsX = xValue + width - textInset - detailsWidth  // Right-align the details
+
                 // Background color fill
                 let backgroundColor = shortcutIndex % 2 == 0 ? normalBackgroundColor : alternateBackgroundColor
                 let backgroundRect = CGRect(x: xValue, y: total, width: width, height: lineHeight)
                 backgroundColor.setFill()
                 UIRectFill(backgroundRect)
-                
+
                 // Draw key combo and details
-                keyCombo.draw(at: CGPoint(x: xValue, y: total), withAttributes: bodyAttributes)
+                keyCombo.draw(at: CGPoint(x: xValue + textInset, y: total), withAttributes: bodyAttributes)
                 let descriptionRect = CGRect(x: detailsX, y: total, width: detailsWidth, height: lineHeight)
                 shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, attributes: bodyAttributes, context: nil)
                 
@@ -130,7 +133,7 @@ class PDFGenerator {
                     total = topMargin
                     
                     let continuationText = "\(categoryName) (continued)"
-                    continuationText.draw(at: CGPoint(x: xValue, y: total), withAttributes: categoryAttributes)
+                    continuationText.draw(at: CGPoint(x: xValue + textInset, y: total), withAttributes: categoryAttributes)
                     total += categoryLineHeight
                 }
             }

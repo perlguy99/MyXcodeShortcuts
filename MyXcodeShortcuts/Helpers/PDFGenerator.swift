@@ -76,8 +76,13 @@ class PDFGenerator {
         var total = topMargin
         
         let categoryAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
-        let bodyAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11), NSAttributedString.Key.foregroundColor: textColor]
-        
+        let bodyFont = UIFont.systemFont(ofSize: 11)
+        let bodyAttributes = [NSAttributedString.Key.font: bodyFont, NSAttributedString.Key.foregroundColor: textColor]
+        // The font's own line height is shorter than a row's `lineHeight`, so drawing text
+        // flush at a row's top edge leaves empty space below it and makes it look like it's
+        // sitting high on the row's gray background instead of centered in it.
+        let bodyTextVerticalOffset = max(0, (lineHeight - bodyFont.lineHeight) / 2)
+
         // Define background colors for alternating rows
         let normalBackgroundColor = UIColor(white: 1.0, alpha: 1.0) // White for normal rows
         let alternateBackgroundColor = UIColor(white: 0.95, alpha: 1.0) // Light gray for alternate rows
@@ -115,9 +120,9 @@ class PDFGenerator {
                 backgroundColor.setFill()
                 UIRectFill(backgroundRect)
 
-                // Draw key combo and details
-                keyCombo.draw(at: CGPoint(x: xValue + textInset, y: total), withAttributes: bodyAttributes)
-                let descriptionRect = CGRect(x: detailsX, y: total, width: detailsWidth, height: lineHeight)
+                // Draw key combo and details, vertically centered within the row
+                keyCombo.draw(at: CGPoint(x: xValue + textInset, y: total + bodyTextVerticalOffset), withAttributes: bodyAttributes)
+                let descriptionRect = CGRect(x: detailsX, y: total + bodyTextVerticalOffset, width: detailsWidth, height: lineHeight)
                 shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, attributes: bodyAttributes, context: nil)
                 
                 total += lineHeight

@@ -75,13 +75,19 @@ class PDFGenerator {
         let width = PDFSize.width * 0.5 - margin * 2
         var total = topMargin
         
-        let categoryAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: headerColor]
+        let categoryHeaderFont = UIFont.boldSystemFont(ofSize: 16)
+        let categoryAttributes = [NSAttributedString.Key.font: categoryHeaderFont, NSAttributedString.Key.foregroundColor: headerColor]
         let bodyFont = UIFont.systemFont(ofSize: 11)
         let bodyAttributes = [NSAttributedString.Key.font: bodyFont, NSAttributedString.Key.foregroundColor: textColor]
         // The font's own line height is shorter than a row's `lineHeight`, so drawing text
         // flush at a row's top edge leaves empty space below it and makes it look like it's
         // sitting high on the row's gray background instead of centered in it.
         let bodyTextVerticalOffset = max(0, (lineHeight - bodyFont.lineHeight) / 2)
+        // Same idea for the category header: it has its own slack below `categoryLineHeight`.
+        // Push the header text down to the bottom of its slot instead of the top, so the
+        // leftover space sits above the header (separating it from the previous section)
+        // rather than below it (making it read as part of the previous section).
+        let categoryHeaderVerticalOffset = max(0, categoryLineHeight - categoryHeaderFont.lineHeight)
 
         // Define background colors for alternating rows
         let normalBackgroundColor = UIColor(white: 1.0, alpha: 1.0) // White for normal rows
@@ -106,7 +112,7 @@ class PDFGenerator {
             }
             
             let categoryName = "\(category.name) (\(shortcuts.count))"
-            categoryName.draw(at: CGPoint(x: xValue + textInset, y: total), withAttributes: categoryAttributes)
+            categoryName.draw(at: CGPoint(x: xValue + textInset, y: total + categoryHeaderVerticalOffset), withAttributes: categoryAttributes)
             total += categoryLineHeight
 
             for (shortcutIndex, shortcut) in shortcuts.enumerated() {
@@ -126,8 +132,14 @@ class PDFGenerator {
                 shortcut.details.draw(with: descriptionRect, options: .usesLineFragmentOrigin, attributes: bodyAttributes, context: nil)
                 
                 total += lineHeight
-                
-                if total > PDFSize.height - bottomMargin {
+
+                // Only break to a new column/page - and print a "(continued)" header - if
+                // there are actually more shortcuts left to draw. Otherwise this triggers on
+                // whichever row happens to land at the bottom of a column even when it was
+                // the category's last item, printing a "(continued)" header for a section
+                // that has nothing left to continue.
+                let hasMoreShortcuts = shortcutIndex < shortcuts.count - 1
+                if total > PDFSize.height - bottomMargin && hasMoreShortcuts {
                     if column == 1 {
                         newPage()
                         xValue = margin
@@ -136,9 +148,9 @@ class PDFGenerator {
                         xValue = margin + column * (width + margin) + (column > 0 ? 20 : 0)
                     }
                     total = topMargin
-                    
+
                     let continuationText = "\(categoryName) (continued)"
-                    continuationText.draw(at: CGPoint(x: xValue + textInset, y: total), withAttributes: categoryAttributes)
+                    continuationText.draw(at: CGPoint(x: xValue + textInset, y: total + categoryHeaderVerticalOffset), withAttributes: categoryAttributes)
                     total += categoryLineHeight
                 }
             }

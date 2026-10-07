@@ -25,6 +25,10 @@ struct ContentView: View {
             }
             .pickerStyle(.menu)
 
+            Text("Don't see your app? Open it, then tap Refresh App List.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
             HStack {
                 Button("Extract Shortcuts") {
                     extract()

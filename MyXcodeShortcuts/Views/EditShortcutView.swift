@@ -21,6 +21,9 @@ struct EditShortcutView: View {
         formView
             .navigationTitle("Edit Shortcut")
             .onDisappear {
+                if shortcut.category == nil {
+                    modelContext.delete(shortcut)
+                }
                 try? modelContext.save()
             }
     }

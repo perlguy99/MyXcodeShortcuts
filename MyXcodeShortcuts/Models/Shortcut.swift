@@ -14,11 +14,15 @@ class Shortcut {
     var details: String = ""
     var category: Category?
     var status: Status = Status.none
+    /// Position among sibling shortcuts within the same `Category` - lets the user drag to
+    /// reorder instead of always showing alphabetized by `details`.
+    var order: Int = 0
 
-    init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil) {
+    init(keyCombo: String, details: String, status: Status = Status.none, category: Category? = nil, order: Int = 0) {
         self.keyCombo = keyCombo.localizedLowercase
         self.details = details
         self.status = status
+        self.order = order
 
         if let category = category {
             self.category = category

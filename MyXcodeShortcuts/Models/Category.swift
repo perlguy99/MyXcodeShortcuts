@@ -13,9 +13,13 @@ class Category {
     var name: String = ""
     @Relationship(deleteRule: .cascade, inverse: \Shortcut.category) var shortcuts: [Shortcut] = [Shortcut]()
     var shortcutApp: ShortcutApp?
+    /// Position among sibling categories in the same `ShortcutApp` - mirrors the order menus
+    /// appeared in the source app (File, Edit, View, ...) rather than being alphabetized.
+    var order: Int = 0
 
-    init(name: String) {
+    init(name: String, order: Int = 0) {
         self.name = name
+        self.order = order
     }
 }
 

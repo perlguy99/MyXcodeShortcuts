@@ -59,15 +59,15 @@ enum ShortcutImporter {
         let shortcutApp = ShortcutApp(name: name)
         modelContext.insert(shortcutApp)
 
-        for category in categories {
-            let currentCategory = Category(name: category.name)
+        for (categoryIndex, category) in categories.enumerated() {
+            let currentCategory = Category(name: category.name, order: categoryIndex)
             currentCategory.shortcutApp = shortcutApp
             modelContext.insert(currentCategory)
 
             guard let shortcuts = category.shortcuts, shortcuts.isNotEmpty else { continue }
 
-            for shortcut in shortcuts {
-                let currentShortcut = Shortcut(keyCombo: shortcut.keyCombo, details: shortcut.details, status: .none, category: currentCategory)
+            for (shortcutIndex, shortcut) in shortcuts.enumerated() {
+                let currentShortcut = Shortcut(keyCombo: shortcut.keyCombo, details: shortcut.details, status: .none, category: currentCategory, order: shortcutIndex)
                 currentCategory.shortcuts.append(currentShortcut)
             }
         }

@@ -45,22 +45,22 @@ class SeedData {
             let shortcutApp = ShortcutApp(name: "Xcode Shortcuts")
             modelContext.insert(shortcutApp)
 
-            for category in categories.categories {
-                let currentCategory = Category(name: category.name)
+            for (categoryIndex, category) in categories.categories.enumerated() {
+                let currentCategory = Category(name: category.name, order: categoryIndex)
                 currentCategory.shortcutApp = shortcutApp
                 modelContext.insert(currentCategory)
 
                 guard let shortcuts = category.shortcuts else { continue }
-                
+
                 if shortcuts.isNotEmpty {
-                    for shortcut in shortcuts {
+                    for (shortcutIndex, shortcut) in shortcuts.enumerated() {
                         shortcut.category = category
-                        
-                        let currentShortcut = Shortcut(keyCombo: shortcut.keyCombo, details: shortcut.details, status: .none, category: currentCategory)
+
+                        let currentShortcut = Shortcut(keyCombo: shortcut.keyCombo, details: shortcut.details, status: .none, category: currentCategory, order: shortcutIndex)
                         currentCategory.shortcuts.append(currentShortcut)
                     }
                 }
-                
+
                 seedData.append(currentCategory)
             }
 

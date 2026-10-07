@@ -15,7 +15,6 @@ struct ContentView: View {
     @Environment(StatusManager.self) private var statusManager
     
     @State private var navigationPath = NavigationPath()
-    @State private var sortOrder = [SortDescriptor(\Category.name)]
 
     @Query private var categories: [Category]
     @Query(sort: \ShortcutApp.name) private var shortcutApps: [ShortcutApp]
@@ -42,11 +41,11 @@ struct ContentView: View {
                 Text(statusManager.currentStatus.headingValue)
                     .font(.caption)
 
-                CategoryListView(sortOrder: sortOrder, activeShortcutAppID: activeShortcutApp?.id)
+                CategoryListView(activeShortcutAppID: activeShortcutApp?.id)
                     .toolbar {
                         ToolbarItemGroup(placement: .topBarLeading) {
                             filtertoolbarItem()
-                            sortOrderToolbarItem()
+                            EditButton()
                         }
                         ToolbarItemGroup(placement: .topBarTrailing) {
                             collectionsToolbarItem()
@@ -85,15 +84,6 @@ struct ContentView: View {
             modelContext.insert(newShortcut)
             try? modelContext.save()
             navigationPath.append(newShortcut)
-        }
-    }
-    
-    private func sortOrderToolbarItem() -> some View {
-        Menu("Sort", systemImage: "arrow.up.arrow.down") {
-            Picker("Sort", selection: $sortOrder) {
-                Text("Name (A-Z)").tag([SortDescriptor(\Category.name)])
-                Text("Name (Z-A)").tag([SortDescriptor(\Category.name, order: .reverse)])
-            }
         }
     }
     

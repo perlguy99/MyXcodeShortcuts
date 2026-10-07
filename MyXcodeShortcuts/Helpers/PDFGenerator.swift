@@ -79,8 +79,8 @@ class PDFGenerator {
         let normalBackgroundColor = UIColor(white: 1.0, alpha: 1.0) // White for normal rows
         let alternateBackgroundColor = UIColor(white: 0.95, alpha: 1.0) // Light gray for alternate rows
         
-        for category in categories {
-            let shortcuts = category.shortcuts.sorted { $0.details < $1.details }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
+        for category in categories.sorted(by: { $0.order < $1.order }) {
+            let shortcuts = category.shortcuts.sorted { $0.order < $1.order }.filter { $0.matchesStatus(statusManager.currentStatus.intValue) }
             
             if shortcuts.isEmpty { continue }
             

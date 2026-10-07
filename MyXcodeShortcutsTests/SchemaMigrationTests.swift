@@ -67,4 +67,45 @@ final class SchemaMigrationTests: XCTestCase {
         try context.save()
         XCTAssertEqual(category.shortcutApp?.name, "Migrated Collection")
     }
+
+    @MainActor
+    func testV2DataSurvivesMigrationToV3() throws {
+        // Write a category + shortcut using the frozen pre-`order` schema.
+        do {
+            let schema = Schema(versionedSchema: SchemaV2.self)
+            let config = ModelConfiguration(schema: schema, url: storeURL)
+            let container = try ModelContainer(for: schema, configurations: [config])
+            let context = container.mainContext
+
+            let app = SchemaV2.ShortcutApp(name: "Xcode Shortcuts")
+            context.insert(app)
+            let category = SchemaV2.Category(name: "Xcode")
+            category.shortcutApp = app
+            let shortcut = SchemaV2.Shortcut(keyCombo: "cmd b", details: "Build", category: category)
+            category.shortcuts.append(shortcut)
+            context.insert(category)
+            try context.save()
+        }
+
+        // Reopen the same file with the current schema + migration plan.
+        let schema = Schema(versionedSchema: CurrentSchema.self)
+        let config = ModelConfiguration(schema: schema, url: storeURL)
+        let container = try ModelContainer(for: schema, migrationPlan: MigrationPlan.self, configurations: [config])
+        let context = container.mainContext
+
+        let categories = try context.fetch(FetchDescriptor<MyXcodeShortcuts.Category>())
+        XCTAssertEqual(categories.count, 1)
+        let category = try XCTUnwrap(categories.first)
+        XCTAssertEqual(category.name, "Xcode")
+        XCTAssertEqual(category.shortcutApp?.name, "Xcode Shortcuts")
+        XCTAssertEqual(category.shortcuts.count, 1)
+        XCTAssertEqual(category.shortcuts.first?.keyCombo, "cmd b")
+
+        // The new `order` field (didn't exist pre-migration) defaults to 0 and is usable.
+        XCTAssertEqual(category.order, 0)
+        XCTAssertEqual(category.shortcuts.first?.order, 0)
+        category.order = 3
+        try context.save()
+        XCTAssertEqual(category.order, 3)
+    }
 }

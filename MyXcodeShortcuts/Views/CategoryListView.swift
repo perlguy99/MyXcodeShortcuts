@@ -14,7 +14,7 @@ struct CategoryListView: View {
     /// prior behavior, used by previews that don't set up collections).
     var activeShortcutAppID: UUID?
 
-    @Query(sort: [SortDescriptor(\Category.name, comparator: .localized)]) var categories: [Category]
+    @Query(sort: [SortDescriptor(\Category.order)]) var categories: [Category]
     @Query(filter: #Predicate<Shortcut> { $0.category == nil }) var filteredShortcuts: [Shortcut]
 
     var visibleCategories: [Category] {
@@ -41,8 +41,7 @@ struct CategoryListView: View {
         }
     }
 
-    init(sortOrder: [SortDescriptor<Category>] = [], activeShortcutAppID: UUID? = nil) {
-        _categories = Query(sort: sortOrder)
+    init(activeShortcutAppID: UUID? = nil) {
         self.activeShortcutAppID = activeShortcutAppID
     }
 }

@@ -113,7 +113,7 @@ public enum ShortcutScraper {
             guard let submenu = children(topLevelItem).first else { continue }
 
             var shortcuts: [ShortcutOut] = []
-            collectShortcuts(from: submenu, into: &shortcuts)
+            collectShortcuts(from: submenu, into: &shortcuts, isWindowMenu: title == "Window")
 
             if shortcuts.isEmpty == false {
                 categories.append(CategoryOut(name: title, shortcuts: shortcuts))
@@ -208,8 +208,20 @@ public enum ShortcutScraper {
         return (modifierTokens(modifiers) + [finalKeyToken]).joined(separator: " ")
     }
 
-    private static func collectShortcuts(from menu: AXUIElement, into shortcuts: inout [ShortcutOut]) {
-        for item in children(menu) {
+    private static func collectShortcuts(from menu: AXUIElement, into shortcuts: inout [ShortcutOut], isWindowMenu: Bool = false) {
+        var menuItems = children(menu)
+
+        // AppKit automatically appends a live list of open windows to the end of any
+        // menu wired up as the app's Window menu, separated from its real static items
+        // by one final separator. Those entries carry real key equivalents (e.g.
+        // Terminal auto-assigns Opt+Cmd+1...9 to open windows) but their title is just
+        // whatever the user named that window, not a real app command - drop everything
+        // from the last separator onward instead of scraping it as a fake shortcut.
+        if isWindowMenu, let lastSeparatorIndex = menuItems.lastIndex(where: isSeparator) {
+            menuItems = Array(menuItems[..<lastSeparatorIndex])
+        }
+
+        for item in menuItems {
             let role: String = attribute(item, kAXRoleAttribute) ?? ""
             guard role == kAXMenuItemRole else { continue }
 
@@ -223,5 +235,12 @@ public enum ShortcutScraper {
             guard let combo = keyCombo(for: item) else { continue }
             shortcuts.append(ShortcutOut(keyCombo: combo, details: title))
         }
+    }
+
+    private static func isSeparator(_ item: AXUIElement) -> Bool {
+        let role: String = attribute(item, kAXRoleAttribute) ?? ""
+        guard role == kAXMenuItemRole else { return false }
+        let title: String = attribute(item, kAXTitleAttribute) ?? ""
+        return title.isEmpty
     }
 }

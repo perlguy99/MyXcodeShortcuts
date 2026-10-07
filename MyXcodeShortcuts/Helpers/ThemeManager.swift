@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ThemeManager {
-    static let categoryHeaderTextColor = Color.appTextHeaderRed
+    static let categoryHeaderTextColor = Color.appBaseBlue
     static let appPrimaryTextColor = Color.appPrimaryText
     static let appSecondaryTextColor = Color.appSecondaryText
     static let appPDFHeaderColor = Color.appBaseBlue

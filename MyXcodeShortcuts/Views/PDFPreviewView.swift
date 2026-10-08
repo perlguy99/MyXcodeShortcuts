@@ -38,12 +38,17 @@ struct PDFPreviewView: View {
     
     func printPDFDirectly(pdfData: Data) {
         let printController = UIPrintInteractionController.shared
-        
+
+        // Clear any stale job state left over from a previous print, since
+        // `.shared` is a process-wide singleton that doesn't reset itself.
+        printController.printingItem = nil
+        printController.printInfo = nil
+
         if UIPrintInteractionController.canPrint(pdfData) {
             let printInfo = UIPrintInfo(dictionary: nil)
             printInfo.jobName = statusManager.pdfTitle
             printInfo.outputType = .general
-            
+
             printController.printInfo = printInfo
             printController.printingItem = pdfData
 
@@ -53,6 +58,9 @@ struct PDFPreviewView: View {
                         print("Failed to print: \(error.localizedDescription)")
                     }
                 }
+                // Release the job so the next print call starts clean.
+                printController.printingItem = nil
+                printController.printInfo = nil
             }
         }
     }
